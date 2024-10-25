@@ -5930,7 +5930,7 @@
          "enabled": true,
          "serviceCode": "UC",
          "code": "null",
-         "navigationURL": "uc-citizen/search",
+         "navigationURL": "/digit-ui/uc-citizen/search",
          "path": "UC",
          "leftIcon": "image:collections-bookmark"
       },
