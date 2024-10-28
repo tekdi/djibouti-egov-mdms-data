@@ -10651,7 +10651,7 @@
       "displayName": "Rainmaker Pgr Count",
       "orderNumber": 1,
       "parentModule": "",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "rainmaker pgr",
       "code": "null",
       "path": ""

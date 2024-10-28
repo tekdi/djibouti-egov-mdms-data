@@ -8,14 +8,14 @@
                 "code": "APP_BANNER_DESKTOP",
                 "name": "App Banner Desktop View",
                 "bannerUrl": "https://uat.digit.org/egov-uat-assets/app-banner-mobile.jpg",
-                "enabled": true
+                "enabled": false
             },
             "appBannerMobile":
             {
                 "code": "APP_BANNER_MOBILE",
                 "name": "App Banner Mobile View",
                 "bannerUrl": "https://uat.digit.org/egov-uat-assets/app-banner-mobile.jpg",
-                "enabled": true
+                "enabled": false
             },
             "citizenServicesCard":
             {

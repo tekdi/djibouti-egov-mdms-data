@@ -2758,7 +2758,7 @@
          "displayName": "Rainmaker Pgr Count",
          "orderNumber": 1,
          "parentModule": "",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "rainmaker pgr",
          "code": "null",
          "path": ""
@@ -8434,7 +8434,7 @@
          "displayName": "Rainmaker PGR report",
          "orderNumber": 1,
          "parentModule": "147",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGRReports",
          "code": "null",
          "path": "PGR Report"
@@ -8470,7 +8470,7 @@
          "displayName": "Rainmaker PGR report",
          "orderNumber": 1,
          "parentModule": "147",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGRReports",
          "code": "null",
          "path": "PGR Report"
