@@ -5402,8 +5402,7 @@
       },
       {
          "id": 1761,
-         "name": "Budget Additional Ap
-         iation",
+         "name": "Budget Additional Apiation",
          "navigationURL": "services/EGF/budget/budgetReAppropriation.action",
          "url": "url",
          "parentModule": "EGF",
