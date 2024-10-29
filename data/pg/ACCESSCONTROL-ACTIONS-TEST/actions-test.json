@@ -3367,7 +3367,7 @@
          "displayName": "Description",
          "orderNumber": 6,
          "parentModule": "rainmaker-pgr",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGR",
          "code": "null",
          "path": "Complaints.PGR Reports.DescriptionReport",
@@ -6446,7 +6446,7 @@
          "displayName": "Rainmaker PGR report",
          "orderNumber": 1,
          "parentModule": "147",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "RainmakerPGRReports",
          "code": "null",
          "path": "PGR Report"
@@ -6457,7 +6457,7 @@
          "url": "/report/rainmaker-pgr/DescriptionReport/_get",
          "displayName": "PGR Report",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "RainmakerPGRReports",
          "code": "null",
          "path": "PGR Report"
