@@ -6373,7 +6373,7 @@
       "displayName": "Search Employee Assignments",
       "orderNumber": 1,
       "queryParams": "",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "EIS",
       "code": "null",
       "path": "Employee Management.SearchEmployeeAssignments"
@@ -6385,7 +6385,7 @@
       "displayName": "Get Pgr Report Metadata",
       "orderNumber": 1,
       "parentModule": "165",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "RPT",
       "code": "null",
       "path": "Grievance Redressal.Reports.Pgr Report MetaData"
@@ -6397,7 +6397,7 @@
       "displayName": "Get Pgr Report",
       "orderNumber": 1,
       "parentModule": "165",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "RPT",
       "code": "null",
       "path": "Grievance Redressal.Reports.Pgr Report"

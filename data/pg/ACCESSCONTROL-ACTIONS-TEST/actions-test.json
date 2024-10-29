@@ -8446,7 +8446,7 @@
          "displayName": "Rainmaker PGR report",
          "orderNumber": 1,
          "parentModule": "147",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGRReports",
          "code": "null",
          "path": "PGR Report"
@@ -8458,7 +8458,7 @@
          "displayName": "Rainmaker PGR report",
          "orderNumber": 1,
          "parentModule": "147",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGRReports",
          "code": "null",
          "path": "PGR Report"
@@ -8481,7 +8481,7 @@
          "url": "/report/pgr/ULBReport/_get",
          "displayName": "PGR Report",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGRReports",
          "code": "null",
          "path": "PGR Report"
@@ -8492,7 +8492,7 @@
          "url": "/report/pgr/DescriptionReport/_get",
          "displayName": "PGR Report",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGRReports",
          "code": "null",
          "path": "PGR Report"
@@ -8503,7 +8503,7 @@
          "url": "/report/pgr/LMEPerformanceReport/_get",
          "displayName": "PGR Report",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGRReports",
          "code": "null",
          "path": "PGR Report"
@@ -8514,7 +8514,7 @@
          "url": "/report/pgr/GROPerformanceReport/_get",
          "displayName": "PGR Report",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "PGRReports",
          "code": "null",
          "path": "PGR Report"
