@@ -4,7 +4,7 @@
   "tenantInfo": [
     {
       "code": "pg.citya",
-      "districtCode": "CITYA",
+      "districtCode": "Djibouti",
       "population": "156716",
       "malePopulation": "82045",
       "femalePopultion": "74671",
@@ -14,7 +14,7 @@
     },
     {
       "code": "pg.cityb",
-      "districtCode": "CITYB",
+      "districtCode": "Tadjourah",
       "population": "116449",
       "malePopulation": "62554",
       "femalePopultion": "53895",
@@ -25,7 +25,7 @@
   
     {
       "code": "pg.cityc",
-      "districtCode": "CITYC",
+      "districtCode": "Ali Sabieh",
       "population": "17331",
       "malePopulation": "10521",
       "femalePopultion": "6810",
