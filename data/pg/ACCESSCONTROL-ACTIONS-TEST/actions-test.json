@@ -6246,7 +6246,7 @@
          "url": "/egov-user-event/v1/events/_create",
          "displayName": "mSeva Event Notification",
          "orderNumber": 1,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "msea-event-notification",
          "code": "null",
          "path": ""
@@ -6257,7 +6257,7 @@
          "url": "/egov-user-event/v1/events/_update",
          "displayName": "mSeva Event Notification",
          "orderNumber": 1,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "msea-event-notification",
          "code": "null",
          "path": ""
@@ -6268,7 +6268,7 @@
          "url": "/egov-user-event/v1/events/_search",
          "displayName": "mSeva Event Notification",
          "orderNumber": 1,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "msea-event-notification",
          "code": "null",
          "path": ""
@@ -6279,7 +6279,7 @@
          "url": "/egov-user-event/v1/events/notifications/_count",
          "displayName": "mSeva Event Notification",
          "orderNumber": 1,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "msea-event-notification",
          "code": "null",
          "path": ""
@@ -6290,7 +6290,7 @@
          "url": "/egov-user-event/v1/events/lat/_update",
          "displayName": "mSeva Event Notification",
          "orderNumber": 1,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "msea-event-notification",
          "code": "null",
          "path": ""
