@@ -533,7 +533,7 @@
     {
       "module": "Bills",
       "code": "Bills",
-      "bannerImage": "https://egov-uat-assets.s3.amazonaws.com/Bill.png",
+      "bannerImage": "https://egov-bucket.s3.af-south-1.amazonaws.com/Screenshot+from+2024-10-30+12-19-20.png",
       "active": true,
       "order": 3,
       "tenants": [
