@@ -110,8 +110,8 @@
             "moduleName": "BPA",
             "BusinessService": "NOC-SERVICES",
             "roles": ["NOC_CEMP", "NOC_DOC_VERIFIER","NOC_FIELD_INSPECTOR","FIRE_NOC_APPROVER","NOC_APPROVER"],
-            "active": false,
-            "locality":false,
+            "active": true,
+            "locality":true,
             "localityModule":"noc-services",
             "redirectConfig": {
                 "INITIATED": "/employee/noc/apply?applicationNumber=^WFBID^&tenantId=^WFTNID^",

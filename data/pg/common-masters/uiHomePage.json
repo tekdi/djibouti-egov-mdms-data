@@ -21,11 +21,11 @@
             {
                 "code": "HOME_CITIZEN_SERVICES_CARD",
                 "name": "Home Citizen services Card",
-                "enabled": false,
+                "enabled": true,
                 "headerLabel": "DASHBOARD_CITIZEN_SERVICES_LABEL",
                 "sideOption": {
                     "name": "DASHBOARD_VIEW_ALL_LABEL",
-                    "enabled": false,
+                    "enabled": true,
                     "navigationUrl": "/digit-ui/citizen/all-services"
                   },
                 "props": [
