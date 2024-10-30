@@ -6846,7 +6846,7 @@
          "parentModule": "",
          "displayName": "Get Bill BPA",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "tl-calculator",
          "code": "null",
          "path": ""
@@ -7602,7 +7602,7 @@
          "url": "/bpa-services/v1/bpa/_create",
          "displayName": "Apply",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "BPA",
          "code": "null",
          "path": ""
@@ -7613,7 +7613,7 @@
          "url": "/bpa-services/v1/bpa/_search",
          "displayName": "Search",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "BPA",
          "code": "null",
          "path": ""
@@ -7624,7 +7624,7 @@
          "url": "/bpa-services/v1/bpa/_update",
          "displayName": "Apply",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "BPA",
          "code": "null",
          "path": ""
@@ -7966,7 +7966,7 @@
          "url": "/bpa-services/v1/bpa/_permitorderedcr",
          "displayName": "Apply",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "BPA",
          "code": "null",
          "path": ""
@@ -7977,7 +7977,7 @@
          "url": "/egov-searcher/locality/bpa-services/_get",
          "displayName": "BPA locality searcher",
          "orderNumber": 0,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "egov-searcher",
          "code": "null",
          "path": ""
@@ -9295,7 +9295,7 @@
       "parentModule": "",
       "displayName": "BPA Calculator",
       "orderNumber": 0,
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "tl-services",
       "code": "null",
       "path": ""
