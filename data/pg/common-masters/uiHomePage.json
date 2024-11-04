@@ -29,27 +29,7 @@
                     "navigationUrl": "/digit-ui/citizen/all-services"
                   },
                 "props": [
-                    {
-                        "code": "CITIZEN_SERVICE_PGR",
-                        "name": "Complaints",
-                        "label": "ES_PGR_HEADER_COMPLAINT",
-                        "enabled": false,
-                        "navigationUrl": "/digit-ui/citizen/pgr-home"
-                    },
-                    {
-                        "code": "CITIZEN_SERVICE_PT",
-                        "name": "Property Tax",
-                        "label": "MODULE_PT",
-                        "enabled": false,
-                        "navigationUrl": "/digit-ui/citizen/pt-home"
-                    },
-                    {
-                        "code": "CITIZEN_SERVICE_TL",
-                        "name": "Trade Licence",
-                        "label": "MODULE_TL",
-                        "enabled": false,
-                        "navigationUrl": "/digit-ui/citizen/tl-home"
-                    },
+                    
                     {
                         "code": "CITIZEN_SERVICE_WS",
                         "name": "Water & Sewerage",
