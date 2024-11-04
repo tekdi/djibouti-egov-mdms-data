@@ -96,7 +96,7 @@
     {
       "module": "Bills",
       "code": "Bills",
-      "bannerImage": "https://egov-bucket.s3.af-south-1.amazonaws.com/djiboutian-franc-a-background-2C23EMT.png",
+      "bannerImage": "https://egov-bucket.s3.af-south-1.amazonaws.com/Screenshot+from+2024-10-30+12-19-20.png",
       "active": true,
       "order": 3,
       "tenants": [
