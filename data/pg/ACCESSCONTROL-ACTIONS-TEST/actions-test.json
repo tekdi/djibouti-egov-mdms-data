@@ -10107,7 +10107,7 @@
       "url": "/inbox/v1/_search",
       "displayName": "Inbox Search",
       "orderNumber": 0,
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "inbox",
       "code": "null",
       "path": ""
@@ -14055,7 +14055,7 @@
       "url": "/inbox/v1/elastic/_search",
       "displayName": "Inbox api for privacy audit logs",
       "orderNumber": 0,
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Inbox",
       "code": "null",
       "path": ""
