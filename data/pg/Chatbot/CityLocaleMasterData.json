@@ -3,7 +3,7 @@
     "moduleName": "Chatbot",
     "CityLocaleMasterData": [
         {
-            "cityName": "Djibouti",
+            "cityName": "pg.citya",
             "locale": "in_en",
             "tenantId": "pg.citya"
         },

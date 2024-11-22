@@ -3,8 +3,8 @@
   "moduleName": "tenant",
   "tenants": [{
       "code": "pg.citya",
-      "name": "Djibouti",
-      "description": "Djibouti",
+      "name": "pg.citya",
+      "description": "pg.citya",
       "pincode": [143001,143002,143003,143004,143005],
       "logoId": "https://s3.af-south-1.amazonaws.com/egov-bucket/Emblem_of_Djibouti.svg.png",
       "imageId": null,
@@ -17,9 +17,9 @@
         "Mon - Fri": "9.00 AM - 6.00 PM"
       },
       "city": {
-        "name": "Djibouti",
+        "name": "pg.citya",
         "localName": null,
-        "districtCode": "Djibouti",
+        "districtCode": "pg.citya",
         "districtName": null,
         "districtTenantCode": "pg.citya",
         "regionName": null,

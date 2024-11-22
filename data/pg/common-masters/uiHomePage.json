@@ -31,11 +31,19 @@
                 "props": [
                     
                     {
+<<<<<<< HEAD
                         "code": "CITIZEN_SERVICE_OBPS",
                         "name": "OBPS",
                         "label": "ACTION_TEST_OBPS",
                         "enabled": true,
                         "navigationUrl": "/digit-ui/citizen/obps-home"
+=======
+                        "code": "CITIZEN_SERVICE_WS",
+                        "name": "Water & Sewerage",
+                        "label": "ACTION_TEST_WATER_AND_SEWERAGE",
+                        "enabled": true,
+                        "navigationUrl": "/digit-ui/citizen/ws-home"
+>>>>>>> 9a0a2741 (changes)
                     }
                 ]
             },
