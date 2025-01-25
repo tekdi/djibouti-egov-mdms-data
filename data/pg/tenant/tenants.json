@@ -32,7 +32,7 @@
         "ddrName": "DDR A"
       },
       "address": "Djiboti Conseil Municipal",
-      "contactNumber": "+253-77875109"
+      "contactNumber": "+253 21 35 60 34"
     },
     {
       "code": "pg.cityb",
@@ -66,8 +66,8 @@
         "ddrName": "DDR A"
       },
       "address": "Tadjourah Conseil Municipal",
-      "contactNumber": "+253-7745345",
-      "helpLineNumber": "+253-2134567"
+      "contactNumber": "+253 21 35 60 34",
+      "helpLineNumber": "+253 21 35 60 34"
     },
     {
       "code": "pg.cityc",
@@ -100,8 +100,8 @@
         "ddrName": "DDR B"
       },
       "address": "Ali Sabieh Conseil Municipal",
-      "contactNumber": "+253-7754345",
-      "helpLineNumber": "+253-2143567"
+      "contactNumber": "+253 21 35 60 34",
+      "helpLineNumber": "+253 21 35 60 34"
     },  
     {
       "code": "pg",
@@ -133,7 +133,7 @@
         "ddrName": null
       },
       "address": "Demo Conseil Municipal",
-      "contactNumber": "+253-7735354"
+      "contactNumber": "+253 21 35 60 34"
     }
   ]
 }
