@@ -3,7 +3,7 @@
     "moduleName": "Chatbot",
     "CityLocaleMasterData": [
         {
-            "cityName": "pg.citya",
+            "cityName": "Djibouti",
             "locale": "in_en",
             "tenantId": "pg.citya"
         },
@@ -33,9 +33,9 @@
             "tenantId": "pg.cityc"
         },
         {
-            "cityName": "City D",
+            "cityName": "Djibouti",
             "locale": "in_en",
-            "tenantId": "pg.cityd"
+            "tenantId": "pg"
         },
         {
             "cityName": "शहर डी",

@@ -105,7 +105,7 @@
     },  
     {
       "code": "pg",
-      "name": "Djibouti ",
+      "name": "Djibouti",
       "description": "Djibouti",
       "logoId": "https://s3.af-south-1.amazonaws.com/egov-bucket/Emblem_of_Djibouti.svg.png",
       "imageId": null,
@@ -122,7 +122,7 @@
         "localName": "Djibouti",
         "districtCode": "0",
         "districtName": "State",
-        "districtTenantCode": "Djibouti",
+        "districtTenantCode": "pg",
         "regionName": "State",
         "ulbGrade": "ST",
         "longitude": 75.3412,
