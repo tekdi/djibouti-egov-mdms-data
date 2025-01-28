@@ -2,9 +2,9 @@
   "tenantId": "pg",
   "moduleName": "tenant",
   "tenants": [{
-      "code": "pg.citya",
-      "name": "pg.citya",
-      "description": "pg.citya",
+      "code": "pg.city",
+      "name": "pg.city",
+      "description": "pg.city",
       "pincode": [143001,143002,143003,143004,143005],
       "logoId": "https://s3.af-south-1.amazonaws.com/egov-bucket/Emblem_of_Djibouti.svg.png",
       "imageId": null,
@@ -17,11 +17,11 @@
         "Mon - Fri": "9.00 AM - 6.00 PM"
       },
       "city": {
-        "name": "pg.citya",
+        "name": "pg.city",
         "localName": null,
-        "districtCode": "pg.citya",
+        "districtCode": "pg.city",
         "districtName": null,
-        "districtTenantCode": "pg.citya",
+        "districtTenantCode": "pg.city",
         "regionName": null,
         "ulbGrade": "Conseil Municipal",
         "longitude": 75.5761829,
@@ -105,8 +105,8 @@
     },  
     {
       "code": "pg",
-      "name": "Djibouti City",
-      "description": "Djibouti City",
+      "name": "Djibouti ",
+      "description": "Djibouti",
       "logoId": "https://s3.af-south-1.amazonaws.com/egov-bucket/Emblem_of_Djibouti.svg.png",
       "imageId": null,
       "domainUrl": "https://www.presidence.dj/",
@@ -118,11 +118,11 @@
         "Mon - Fri": "9.00 AM - 5.00 PM"
       },
       "city": {
-        "name": "Djibouti City",
-        "localName": "Djibouti City",
+        "name": "Djibouti",
+        "localName": "Djibouti",
         "districtCode": "0",
         "districtName": "State",
-        "districtTenantCode": "pg",
+        "districtTenantCode": "Djibouti",
         "regionName": "State",
         "ulbGrade": "ST",
         "longitude": 75.3412,

@@ -11,7 +11,7 @@
       "order":2,
       "tenants": [
         {
-          "code": "pg.citya"
+          "code": "pg.city"
         },
         {
           "code": "pg.cityb"
@@ -20,7 +20,7 @@
           "code": "pg.cityc"
         },
         {
-          "code": "Djibouti City"
+          "code": "pg"
         }
       ]
     },
@@ -33,7 +33,7 @@
       "order":2,
       "tenants": [
         {
-          "code": "pg.citya"
+          "code": "pg.city"
         },
         {
           "code": "pg.cityb"
@@ -42,7 +42,7 @@
           "code": "pg.cityc"
         },
         {
-          "code": "Djibouti City"
+          "code": "pg"
         }
       ]
     },
@@ -55,7 +55,7 @@
       "order":2,
       "tenants": [
         {
-          "code": "pg.citya"
+          "code": "pg.city"
         },
         {
           "code": "pg.cityb"
@@ -64,7 +64,7 @@
           "code": "pg.cityc"
         },
         {
-          "code": "Djibouti City"
+          "code": "pg"
         }     
       ]
     },
@@ -75,7 +75,7 @@
       "order":2,
       "tenants": [
         {
-          "code": "pg.citya"
+          "code": "pg.city"
         },
         {
           "code": "pg.cityb"
@@ -97,7 +97,7 @@
       "order": 1,
       "tenants": [
         {
-          "code": "pg.citya"
+          "code": "pg.city"
         },
         {
           "code": "pg.cityb"
@@ -118,7 +118,7 @@
       "order": 3,
       "tenants": [
         {
-          "code": "pg.citya"
+          "code": "pg.city"
         },
         {
           "code": "pg.cityb"
