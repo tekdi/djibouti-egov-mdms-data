@@ -2,9 +2,9 @@
   "tenantId": "pg",
   "moduleName": "tenant",
   "tenants": [{
-      "code": "pg.city",
-      "name": "pg.city",
-      "description": "pg.city",
+      "code": "pg.citya",
+      "name": "Djibouti",
+      "description": "pg.citya",
       "pincode": [143001,143002,143003,143004,143005],
       "logoId": "https://s3.af-south-1.amazonaws.com/egov-bucket/Emblem_of_Djibouti.svg.png",
       "imageId": null,
@@ -17,11 +17,11 @@
         "Mon - Fri": "9.00 AM - 6.00 PM"
       },
       "city": {
-        "name": "pg.city",
+        "name": "Djibouti",
         "localName": null,
-        "districtCode": "pg.city",
+        "districtCode": "Djibouti",
         "districtName": null,
-        "districtTenantCode": "pg.city",
+        "districtTenantCode": "pg.citya",
         "regionName": null,
         "ulbGrade": "Conseil Municipal",
         "longitude": 75.5761829,
@@ -132,7 +132,7 @@
         "code": "0",
         "ddrName": null
       },
-      "address": "Demo Conseil Municipal",
+      "address": "Djiboti Conseil Municipal",
       "contactNumber": "+253 21 35 60 34"
     }
   ]
