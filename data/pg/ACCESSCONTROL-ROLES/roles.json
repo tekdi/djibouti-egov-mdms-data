@@ -691,6 +691,11 @@
       "code": "FIRENOC_REPORT_VIEWER",
       "name": "FireNOC Report Viewer",
       "description": "FireNOC User that can view FireNOC reports"
+    },
+    {
+      "code": "SYSTEM_PAYMENT",
+      "name": "SYSTEM PAYMENT Employee",
+      "description":  "Syster payment can accept"
     }
   ]
 }
