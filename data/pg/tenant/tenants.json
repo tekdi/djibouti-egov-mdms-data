@@ -3,7 +3,7 @@
   "moduleName": "tenant",
   "tenants": [{
       "code": "pg.citya",
-      "name": "Djibouti City",
+      "name": "",
       "description": "",
       "pincode": [143001,143002,143003,143004,143005],
       "logoId": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
@@ -17,7 +17,7 @@
         "Mon - Fri": "9.00 AM - 6.00 PM"
       },
       "city": {
-        "name": "Djibouti",
+        "name": "",
         "localName": null,
         "districtCode": "",
         "districtName": null,
@@ -105,8 +105,8 @@
     },  
     {
       "code": "pg",
-      "name": "Djibouti",
-      "description": "Djibouti",
+      "name": "",
+      "description": "",
       "logoId": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
       "imageId": null,
       "domainUrl": "https://www.presidence.dj/",
