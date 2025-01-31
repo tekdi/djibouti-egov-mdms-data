@@ -9,6 +9,7 @@
       "bannerUrl": "https://s3.af-south-1.amazonaws.com/egov-bucket/images.jpg",
       "logoUrl": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
       "logoUrlWhite": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
+      "statelogo": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
       "hasLocalisation": true,
       "defaultUrl": {
         "citizen": "/user/register",
