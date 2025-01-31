@@ -118,12 +118,12 @@
         "Mon - Fri": "9.00 AM - 5.00 PM"
       },
       "city": {
-        "name": "Djibouti",
-        "localName": "Djibouti",
+        "name": "",
+        "localName": "",
         "districtCode": "0",
-        "districtName": "Djibouti",
+        "districtName": "",
         "districtTenantCode": "pg",
-        "regionName": "Djibouti",
+        "regionName": "",
         "ulbGrade": "Minister of the City, Urban Planning and Housing",
         "longitude": 75.3412,
         "latitude": 31.1471,
