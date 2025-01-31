@@ -105,8 +105,8 @@
     },  
     {
       "code": "pg",
-      "name": "",
-      "description": "",
+      "name": "Djibouti",
+      "description": "Djibouti",
       "logoId": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
       "imageId": null,
       "domainUrl": "https://www.presidence.dj/",
@@ -118,12 +118,12 @@
         "Mon - Fri": "9.00 AM - 5.00 PM"
       },
       "city": {
-        "name": "",
-        "localName": "",
+        "name": "Djibouti",
+        "localName": "Djibouti",
         "districtCode": "0",
-        "districtName": "",
-        "districtTenantCode": "pg",
-        "regionName": "",
+        "districtName": "Djibouti",
+        "districtTenantCode": "Djibouti",
+        "regionName": "Djibouti",
         "ulbGrade": "Ministre de la Ville, de l'Urbanisme et de l'Habitat",
         "longitude": 75.3412,
         "latitude": 31.1471,
