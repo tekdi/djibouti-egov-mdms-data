@@ -3,7 +3,7 @@
     "moduleName": "DIGIT-UI",
     "PaymentGateway": [
         {
-            "gateway": "AXIS",
+            "gateway": "D-MONEY",
             "active": true
         }
     ]
