@@ -1,0 +1,16 @@
+{
+    "tenantId": "dj.djibouti",
+    "moduleName": "BillingService",
+    "GLCode": [
+        {
+            "code": "BIRTH_CERT",
+            "glcode": null,
+            "cb": "dj.djibouti"
+        },
+        {
+            "code": "DEATH_CERT",
+            "glcode": null,
+            "cb": "dj.djibouti"
+        }
+    ]
+}

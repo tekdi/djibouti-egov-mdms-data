@@ -1,0 +1,56 @@
+{
+    "tenantId": "dj",
+    "moduleName": "Chatbot",
+    "CityLocaleMasterData": [
+        {
+            "cityName": "Djibouti",
+            "locale": "in_en",
+            "tenantId": "dj.djibouti"
+        },
+        {
+            "cityName": "शहर अ",
+            "locale": "in_hi",
+            "tenantId": "dj.djibouti"
+        },
+        {
+            "cityName": "Tadjourah",
+            "locale": "in_en",
+            "tenantId": "dj.tadjourah"
+        },
+        {
+            "cityName": "शहर ब",
+            "locale": "in_hi",
+            "tenantId": "dj.tadjourah"
+        },
+        {
+            "cityName": "Ali Sabieh",
+            "locale": "in_en",
+            "tenantId": "dj.alisabieh"
+        },
+        {
+            "cityName": "शहर स",
+            "locale": "in_hi",
+            "tenantId": "dj.alisabieh"
+        },
+        {
+            "cityName": "Djibouti",
+            "locale": "in_en",
+            "tenantId": "dj"
+        },
+        {
+            "cityName": "शहर डी",
+            "locale": "in_hi",
+            "tenantId": "pg.cityd"
+        },
+        {
+            "cityName": "City E",
+            "locale": "in_en",
+            "tenantId": "pg.citye"
+        },
+        {
+            "cityName": "शहर ई",
+            "locale": "in_hi",
+            "tenantId": "pg.citye"
+        }
+    ]
+}

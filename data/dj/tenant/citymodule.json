@@ -1,0 +1,155 @@
+{
+  "tenantId": "dj",
+  "moduleName": "tenant",
+  "citymodule": 
+  [
+    {
+      "module": "BPAREG",
+      "code": "BPAREG",
+      "bannerImage": "https://egov-uat-assets.s3.amazonaws.com/OBPS.png",
+      "active": true,
+      "order":2,
+      "tenants": [
+        {
+          "code": "dj.citya"
+        },        
+        {
+          "code": "dj.cityb"
+        },
+        {
+          "code": "dj.cityc"
+        },
+        {
+          "code": "dj"
+        }
+      ]
+    },
+
+    {
+      "module": "BPAAPPLY",
+      "code": "BPAAPPLY",
+      "bannerImage": "https://egov-uat-assets.s3.amazonaws.com/OBPS.png",
+      "active": true,
+      "order":2,
+      "tenants": [
+        {
+          "code": "dj.citya"
+        },        
+        {
+          "code": "dj.cityb"
+        },
+        {
+          "code": "dj.cityc"
+        },
+        {
+          "code": "dj"
+        }
+      ]
+    },
+
+    {
+      "module": "OBPS",
+      "code": "OBPS",
+      "bannerImage": "https://egov-uat-assets.s3.amazonaws.com/OBPS.png",
+      "active": true,
+      "order":2,
+      "tenants": [
+        {
+          "code": "dj.citya"
+        },
+        {
+          "code": "dj.cityb"
+        },
+        {
+          "code": "dj.cityc"
+        },
+        {
+          "code": "dj"
+        }     
+      ]
+    },
+    {
+      "module": "HRMS",
+      "code": "HRMS",
+      "active": true,
+      "order":2,
+      "tenants": [
+        {
+          "code": "dj.citya"
+        },
+        {
+          "code": "dj.cityb"
+        },
+        {
+          "code": "dj.cityc"
+        },
+        {
+          "code": "dj"
+        }
+
+      ]
+    },
+    
+    {
+      "module": "BillAmendment",
+      "code": "BillAmendment",
+      "active": true,
+      "order": 1,
+      "tenants": [
+        {
+          "code": "dj.citya"
+        },
+        {
+          "code": "dj.cityb"
+        },
+        {
+          "code": "dj.cityc"
+        },
+        {
+          "code": "dj"
+        }
+      ]
+    },
+    {
+      "module": "Bills",
+      "code": "Bills",
+      "bannerImage": "https://egov-bucket.s3.af-south-1.amazonaws.com/Screenshot+from+2024-10-30+12-19-20.png",
+      "active": true,
+      "order": 3,
+      "tenants": [
+        {
+          "code": "dj.citya"
+        },
+        {
+          "code": "dj.cityb"
+        },
+        {
+          "code": "dj.cityc"
+        },
+        {
+          "code": "dj"
+        }
+      ]
+    },
+    {
+      "module": "Payment",
+      "code": "Payment",
+      "active": true,
+      "order": 1,
+      "tenants": [
+        {
+          "code": "dj.citya"
+        },
+        {
+          "code": "dj.cityb"
+        },
+        {
+          "code": "dj.cityc"
+        },
+        {
+          "code": "dj"
+        }
+      ]
+    }
+  ]
+}

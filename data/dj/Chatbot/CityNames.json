@@ -1,0 +1,26 @@
+{
+    "tenantId": "dj",
+    "moduleName": "Chatbot",
+    "CityNames": [
+        {
+            "locale": "en",
+            "cities": [
+                "dj.djibouti",
+                "Tadjourah",
+                "Ali Sabieh",
+                "City D",
+                "City E"
+            ]
+        },
+        {
+            "locale": "hi",
+            "cities": [
+                "शहर अ",
+                "शहर ब",
+                "शहर स",
+                "शहर डी",
+                "शहर ई"
+            ]
+        }
+    ]
+}

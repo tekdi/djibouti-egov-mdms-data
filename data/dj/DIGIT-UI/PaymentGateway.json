@@ -1,0 +1,10 @@
+{
+    "tenantId": "dj",
+    "moduleName": "DIGIT-UI",
+    "PaymentGateway": [
+        {
+            "gateway": "D-MONEY",
+            "active": true
+        }
+    ]
+}

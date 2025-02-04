@@ -1,0 +1,18 @@
+{
+    "tenantId": "dj",
+    "moduleName": "common-masters",
+    "StaticData": [
+      {  
+      "OBPS" : {
+            "helpline": 
+              { 
+                "contactOne": "+253 21 35 60 34"
+              },
+              "serviceCenter": "Direction de l'aménagement du territoire et de l'Habitat (DATUH) H5H5+QF6 Z. Ind. sud Boulaos, dj.djibouti",
+              "validity": "1",
+              "viewMapLocation": "https://www.google.com/maps/place/Direction+de+l'am%C3%A9nagement+du+territoire+et+de+l'Habitat+(+DATUH+)/@11.5789951,43.1580731,15z/data=!4m6!3m5!1s0x162301005793b911:0x9f9275a81d8804e7!8m2!3d11.5789951!4d43.1580731!16s%2Fg%2F11vsyqlvzz?entry=ttu&g_ep=EgoyMDI0MTAyMS4xIKXMDSoASAFQAw%3D%3D"
+        }
+       
+      }
+    ]
+}
