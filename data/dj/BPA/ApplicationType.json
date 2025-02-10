@@ -5,10 +5,6 @@
      {
       "code": "BUILDING_PLAN_SCRUTINY",
       "active": true
-    },
-    {
-      "code":"BUILDING_OC_PLAN_SCRUTINY",
-      "active":true
     }
   ]
 }

@@ -3,167 +3,589 @@
   "moduleName": "common-masters",
   "DocumentType": [
     {
-      "code": "APPL.IDENTITYPROOF.AADHAAR",
-      "active": true
-    },
-    {
-      "code": "APPL.IDENTITYPROOF.PASSPORT",
-      "active": true
-    },
-    {
-      "code": "APPL.IDENTITYPROOF.DRIVINGLICENSE",
-      "active": true
-    },
-    {
-      "code": "APPL.ADDRESSPROOF.ELECTRICITYBILL",
-      "active": true
-    },{
-      "code": "APPL.ADDRESSPROOF.PASSPORT",
-      "active": true
-    },
-    {
-      "code": "APPL.LTR.LTR",
-      "active": true
-    },
-     {
-      "code": "APPL.TDP.TDP",
-      "active": true
-    },{
-      "code": "APPL.LAC.LAC",
-      "active": true
-    },{
-      "code": "APPL.SSC.SSC",
-      "active": true
-    },{
-      "code": "APPL.LSVS.LSVS",
-      "active": true
-    },{
-      "code": "BPD.SITP.SITP",
-      "active": true
-    },{
-      "code": "BPD.RP.RP",
-      "active": true
-    },{
-      "code": "BPD.FP.FP",
-      "active": true
-    },{
-      "code": "BPD.SCP.SCP",
-      "active": true
-    },{
-      "code": "BPD.EP.EP",
-      "active": true
-    },{
-      "code": "BPD.SECP.SECP",
-      "active": true
-    },{
-      "code": "BPD.PP.PP",
-      "active": true
-    },
-    {
-      "code": "NOC.FIRE.CERTIFICATE",
-      "active": true
-    },
-    {
-      "code": "NOC.AGRICULTURE.LANDUSE",
-      "active": true
-    },
-    {
-      "code": "NOC.AGRICULTURE_WATERBODY.FTL",
-      "active": true
-    },{
-      "code": "FI.FIR.FIR",
-      "active": true
-    },
-    {
-      "code": "FI.SINS.SINS",
-      "active": true
-    },{
-      "code": "FI.SISS.SISS",
-      "active": true
-    },
-    {
-      "code": "FI.SIES.SIES",
-      "active": true
-    },{
-      "code": "FI.SIWS.SIWS",
-      "active": true
-    },
-    {
-      "code": "NOC.AIRPORT.CERTIFICATE",
-      "active": true
-    },
-    {
-      "code": "APPL.BUILDING_DIAGRAM.SECTION_PLAN",
-      "active": true
-    },
-    {
-      "code": "APPL.BUILDING_DIAGRAM.ELEVATION_PLAN",
-      "active": true
-    },
-    {
-      "code": "APPL.BUILDING_DIAGRAM.FLOOR_PLAN",
-      "active": true
-    },{
-      "code": "APPL.LOCALBODY.MUNCIPAL_APPROVAL",
-      "active": true
-    },
-    {
-      "code": "APPL.LOCALBODY.PANCHAYAT_APPROVAL",
-      "active": true
-    },
-    {
-      "code": "APPL.LOCALBODY.DTCP_APPROVAL",
-      "active": true
-    },
-    {
-      "code" : "OWNERIDPROOF",
-      "allowedFormat" : ["image/*", ".pdf", ".png", ".jpeg"],
-      "maxFileSize": 6000
-    },
-    {
-      "code" : "OWNERSHIPPROOF",
-      "allowedFormat" : ["image/*", ".pdf", ".png", ".jpeg"],
-      "maxFileSize": 6000
-    },
-    {
-      "code" : "OWNERPHOTO",
-      "allowedFormat" : ["image/*", ".png", ".jpeg"],
-      "maxFileSize": 3000
-    },
-    {
-      "code" : "OLDLICENCENO",
-      "allowedFormat" : ["image/*", ".pdf", ".png", ".jpeg"],
-      "maxFileSize": 6000
-    },
-    {
-      "code": "COURTORDER",
+      "code": "PCO.BUILDING_PERMIT_APPLICATION",
       "active": true,
-      "allowedFormat" : ["image/*", ".png", ".jpeg"],
-      "maxFileSize": 3000
+      "maxFileSize": 5000
     },
     {
-      "code": "SELFDECLARATION",
+      "code": "PCO.LAND_TITLE",
       "active": true,
-      "allowedFormat" : ["image/*", ".png", ".jpeg"],
-      "maxFileSize": 3000
+      "maxFileSize": 5000
     },
     {
-      "code": "GOVTNOTIFICATION",
+      "code": "PCO.BACKFILL_PERMIT",
       "active": true,
-      "allowedFormat" : ["image/*", ".png", ".jpeg"],
-      "maxFileSize": 3000
+      "maxFileSize": 5000
     },
     {
-      "code": "OFFICENOTEORDER",
+      "code": "PCO.MATERIAL_EXTRACTION_TAX_RECEIPT",
       "active": true,
-      "allowedFormat" : ["image/*", ".png", ".jpeg"],
-      "maxFileSize": 3000
+      "maxFileSize": 5000
     },
     {
-      "code": "GOVTNOTIFICATION",
+      "code": "PCO.BACKFILL_CERTIFICATE",
       "active": true,
-      "allowedFormat" : ["image/*", ".png", ".jpeg"],
-      "maxFileSize": 3000
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.LOCATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.CADASTRAL_MASS_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.SITE_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.INTERIOR_DISTRIBUTION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.ELEVATION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.SECTION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.FOUNDATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.ELECTRICAL_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.SANITATION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.COMBINED_FILE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.DESCRIPTIVE_ESTIMATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.ESTIMATED_PROJECT_COST",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCO.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCP.ARULOS_PAYMENT_RECEIPT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCS.REGISTRATION_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCS.LOCATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCS.CADASTRAL_SITE_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCS.MATERIAL_EXTRACTION_TAX_RECEIPT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCS.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.BUILDING_PERMIT_APPLICATION",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.LAND_TITLE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.FILL_PERMIT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.MATERIAL_EXTRACTION_TAX_RECEIPT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.FILL_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.LOCATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.CADASTRAL_SITE_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.SITE_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.INTERIOR_DISTRIBUTION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.ELEVATION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.SECTION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.FOUNDATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.SANITATION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.COMBINED_FILE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.DESCRIPTIVE_ESTIMATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.ESTIMATED_PROJECT_COST",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "ATV.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.FENCE_PERMIT_APPLICATION",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.LAND_TITLE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.FILL_PERMIT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.MATERIAL_EXTRACTION_TAX_RECEIPT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.FILL_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.LOCATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.CADASTRAL_SITE_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.SITE_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.INTERIOR_DISTRIBUTION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.ELEVATION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.SECTION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.FOUNDATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.ELECTRICAL_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.COMBINED_FILE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.DESCRIPTIVE_ESTIMATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.SANITATION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.DESCRIPTIVE_ESTIMATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.ESTIMATED_PROJECT_COST",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PCL.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PD.DEMOLITION_PERMIT_APPLICATION",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PD.LAND_TITLE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PD.LOCATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PD.DEMOLITION_DIAGRAM",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PD.BUILDING_PHOTOGRAPHS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PR.BACKFILL_PERMIT_APPLICATION",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PR.LAND_TITLE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PR.LOCATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCR.FILL_CONFORMITY_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCR.FILL_PERMIT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCR.FILL_TESTS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCR.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.BUILDING_PERMIT_APPLICATION",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.LAND_TITLE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.FILL_PERMIT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.MATERIAL_EXTRACTION_TAX_RECEIPT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.FILL_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.LOCATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.CADASTRAL_SITE_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.SITE_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.INTERIOR_DISTRIBUTION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.ELEVATION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.SECTION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.FOUNDATION_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.ELECTRICAL_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.SANITATION_PLANS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.COMBINED_FILE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.DESCRIPTIVE_ESTIMATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.ESTIMATED_PROJECT_COST",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.SPECIFICATIONS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "PLOTIR.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.EXECUTION_PLAN_APPROVAL_REQUEST",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.BUILDING_PERMIT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.SITE_INSPECTION_REPORT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.FOUNDATION_REINFORCEMENT_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.FORMWORK_REINFORCEMENT_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.UPPER_GROUND_FLOOR_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.CURRENT_FLOOR_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.STAIRS_PLAN",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.COMBINED_FILE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.DETAILS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "APE.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCP.PARASISMIC_CONFORMITY_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCP.BUILDING_PERMIT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCP.POURING_APPROVALS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCP.TEST_RESULTS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCP.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCE.ELECTRICAL_CONFORMITY_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCE.LAND_TITLE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCE.BUILDING_PERMIT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCE.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCG.GENERAL_CONFORMITY_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCG.ALIGNMENT_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCG.ELECTRICAL_CONFORMITY_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCG.PARASISMIC_CONFORMITY_CERTIFICATE",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCG.BUILDING_PERMIT",
+      "active": true,
+      "maxFileSize": 5000
+    },
+    {
+      "code": "CCG.OTHERS",
+      "active": true,
+      "maxFileSize": 5000
     }
   ]
 }
