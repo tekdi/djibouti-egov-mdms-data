@@ -7,7 +7,7 @@
         "tradeType": "ARCHITECT.CLASSA",
         "role": ["BPA_ARCHITECT"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": [
             {
                 "code": "APPL.BPAREG_GOVT_APPROVED_ID_CARD",
@@ -56,7 +56,7 @@
         "tradeType": "ARCHITECT.CLASSB",
         "role": ["BPA_ARCHITECT"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": null
       },
       {
@@ -64,7 +64,7 @@
         "tradeType": "ARCHITECT.CLASSC",
         "role": ["BPA_ARCHITECT"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": null
       },
       {
@@ -72,7 +72,7 @@
         "tradeType": "BUILDER.CLASSA",
         "role": ["BPA_BUILDER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": [
             {
                 "code": "APPL.BPAREG_GOVT_APPROVED_ID_CARD",
@@ -121,7 +121,7 @@
         "tradeType": "BUILDER.CLASSB",
         "role": ["BPA_BUILDER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": null
       },
       {
@@ -129,7 +129,7 @@
         "tradeType": "BUILDER.CLASSC",
         "role": ["BPA_BUILDER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": null
       },
       {
@@ -137,7 +137,7 @@
         "tradeType": "ENGINEER.CLASSA",
         "role": ["BPA_ENGINEER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": [
             {
                 "code": "APPL.BPAREG_GOVT_APPROVED_ID_CARD",
@@ -186,7 +186,7 @@
         "tradeType": "ENGINEER.CLASSB",
         "role": ["BPA_ENGINEER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": null
       },
       {
@@ -194,7 +194,7 @@
         "tradeType": "ENGINEER.CLASSC",
         "role": ["BPA_ENGINEER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": null
       },
       {
@@ -202,7 +202,7 @@
         "tradeType": "STRUCTURALENGINEER.CLASSA",
         "role": ["BPA_STRUCTURALENGINEER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": [
             {
                 "code": "APPL.BPAREG_GOVT_APPROVED_ID_CARD",
@@ -251,7 +251,7 @@
         "tradeType": "STRUCTURALENGINEER.CLASSB",
         "role": ["BPA_STRUCTURALENGINEER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": null
       },
       {
@@ -259,7 +259,7 @@
         "tradeType": "STRUCTURALENGINEER.CLASSC",
         "role": ["BPA_STRUCTURALENGINEER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": null
       },
       {
@@ -267,7 +267,7 @@
         "tradeType": "TOWNPLANNER.CLASSA",
         "role": ["BPA_TOWNPLANNER"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": [
             {
                 "code": "APPL.BPAREG_GOVT_APPROVED_ID_CARD",
@@ -316,7 +316,7 @@
         "tradeType": "SUPERVISOR.CLASSA",
         "role": ["BPA_SUPERVISOR"],
         "endstate": "APPROVED",
-        "applicationFee": 500,
+        "applicationFee": 0,
         "docTypes": [
             {
                 "code": "APPL.BPAREG_GOVT_APPROVED_ID_CARD",
