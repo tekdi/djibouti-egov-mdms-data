@@ -583,7 +583,7 @@
       "maxFileSize": 5000
     },
     {
-      "code": "CCG.OTHERS",
+      "code": "CCG.OTHERS" ,
       "active": true,
       "maxFileSize": 5000
     }
