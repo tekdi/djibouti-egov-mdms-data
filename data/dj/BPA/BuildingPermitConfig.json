@@ -31,6 +31,30 @@
             },
             "inputs": [
               {
+                "label": "BPA_BOUNDARY_PLOT_AREA_LABEL",
+                "type": "text",
+                "validation": {
+                  "required": true
+                },
+                "name": "plotArea"
+              },
+              {
+                "label": "BPA_PLOT_NUMBER_LABEL",
+                "type": "text",
+                "validation": {
+                  "required": true
+                },
+                "name": "plotNumber"
+              },
+              {
+                "label": "BPA_KHATHA_NUMBER_LABEL",
+                "type": "text",
+                "validation": {
+                  "required": true
+                },
+                "name": "khataNumber"
+              },
+              {
                 "label": "BPA_HOLDING_NUMBER_LABEL",
                 "type": "text",
                 "validation": {},
