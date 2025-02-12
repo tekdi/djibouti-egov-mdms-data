@@ -80,7 +80,33 @@
               "cardText": "",
               "submitBarLabel": "CS_COMMON_NEXT",
               "skipText": "CORE_COMMON_SKIP_CONTINUE"
-            }
+            },
+            "inputs": [
+              {
+                "label": "BPA_TOTAL_BUILT_UP_AREA_HEADER",
+                "type": "text",
+                "validation": {
+                  "required": true
+                },
+                "name": "totalBuiltupArea"
+              },
+              {
+                "label": "BPA_SCRUTINY_DETAILS_NUMBER_OF_FLOORS_LABEL",
+                "type": "text",
+                "validation": {
+                  "required": true
+                },
+                "name": "numberOfFloors"
+              },
+              {
+                "label": "BPA_HEIGHT_FROM_GROUND_LEVEL_FROM_MUMTY",
+                "type": "text",
+                "validation": {
+                  "required": true
+                },
+                "name": "totalHeight"
+              }
+            ]
           },
           {
             "route": "location",
