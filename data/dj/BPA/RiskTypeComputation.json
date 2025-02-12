@@ -3,14 +3,6 @@
     "moduleName": "BPA",
     "RiskTypeComputation": [
         {
-            "fromPlotArea": 500,
-            "toPlotArea": 9999999999,
-            "fromBuildingHeight": 15,
-            "toBuildingHeight": 9999999999,
-            "riskType": "HIGH",
-            "note": "(Heigh 15 Mt or More) or ( Plot area >=800 sq.Mt)"
-        },
-        {
             "fromPlotArea": 300,
             "toPlotArea": 500,
             "fromBuildingHeight": 10,
