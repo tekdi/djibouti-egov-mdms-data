@@ -11797,7 +11797,8 @@
       "actionid": 1800,
       "actioncode": "",
       "tenantId": "dj"
-    },{
+    },
+    {
       "rolecode": "NOC_DOC_VERIFIER",
       "actionid": 1800,
       "actioncode": "",
@@ -15338,61 +15339,31 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 1766,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
-      "actionid": 1766,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 1930,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 1990,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2004,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
-      "actionid": 2005,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 1930,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 1990,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2004,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2005,
       "actioncode": "",
       "tenantId": "dj"
@@ -15470,85 +15441,55 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 1729,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 1730,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 1741,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 1742,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 1743,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 1729,
+      "rolecode": "MD_NOC_APPROVER",
+      "actionid": 1752,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 1730,
+      "rolecode": "MD_NOC_APPROVER",
+      "actionid": 2317,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 1741,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 1742,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 1743,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2002,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2003,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
-      "actionid": 2002,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2003,
       "actioncode": "",
       "tenantId": "dj"
@@ -18356,13 +18297,7 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
-      "actionid": 2027,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2027,
       "actioncode": "",
       "tenantId": "dj"
@@ -20030,13 +19965,7 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
-      "actionid": 2156,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2156,
       "actioncode": "",
       "tenantId": "dj"
@@ -22958,13 +22887,7 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 701,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 701,
       "actioncode": "",
       "tenantId": "dj"
@@ -22994,13 +22917,7 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2155,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2155,
       "actioncode": "",
       "tenantId": "dj"
@@ -23594,13 +23511,7 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 698,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 698,
       "actioncode": "",
       "tenantId": "dj"
@@ -24680,30 +24591,6 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2041,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2042,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2043,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2044,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
       "rolecode": "BPA_VERIFIER",
       "actionid": 1752,
       "actioncode": "",
@@ -24723,12 +24610,6 @@
     },
     {
       "rolecode": "BPA_APPROVER",
-      "actionid": 1752,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
       "actionid": 1752,
       "actioncode": "",
       "tenantId": "dj"
@@ -24770,12 +24651,6 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2317,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
       "rolecode": "BPAREG_APPROVER",
       "actionid": 2317,
       "actioncode": "",
@@ -24788,61 +24663,31 @@
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2032,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2041,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2042,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2043,
       "actioncode": "",
       "tenantId": "dj"
     },
     {
-      "rolecode": "AIRPORT_AUTHORITY_APPROVER",
-      "actionid": 2044,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2032,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2041,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2042,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
-      "actionid": 2043,
-      "actioncode": "",
-      "tenantId": "dj"
-    },
-    {
-      "rolecode": "FIRE_NOC_APPROVER",
+      "rolecode": "MD_NOC_APPROVER",
       "actionid": 2044,
       "actioncode": "",
       "tenantId": "dj"
@@ -24883,7 +24728,7 @@
       "actioncode": "",
       "tenantId": "dj"
     },
-		{
+    {
       "rolecode": "FSM_ADMIN",
       "actionid": 2410,
       "actioncode": "",
@@ -24919,7 +24764,7 @@
       "actioncode": "",
       "tenantId": "dj"
     },
-		{
+    {
       "rolecode": "FSM_ADMIN",
       "actionid": 2411,
       "actioncode": "",
@@ -24956,14 +24801,14 @@
       "tenantId": "dj"
     },
     {
-        "rolecode": "FSM_EMP_FSTPO",
-        "actionid": 2412,
-        "actioncode": "",
-        "tenantId": "dj"
+      "rolecode": "FSM_EMP_FSTPO",
+      "actionid": 2412,
+      "actioncode": "",
+      "tenantId": "dj"
     },
     {
-       "rolecode": "FSM_ADMIN",
-       "actionid": 2413,
+      "rolecode": "FSM_ADMIN",
+      "actionid": 2413,
       "actioncode": "",
       "tenantId": "dj"
     },
@@ -25685,7 +25530,7 @@
       "rolecode": "PT_FIELD_INSPECTOR",
       "actionid": 1957,
       "actioncode": "",
-      "tenantId": "dj"	  
+      "tenantId": "dj"
     },
     {
       "rolecode": "EMPLOYEE",
@@ -25807,7 +25652,7 @@
       "actioncode": "",
       "tenantId": "dj"
     },
-	{
+    {
       "rolecode": "FSM_CREATOR_EMP",
       "actionid": 2503,
       "actioncode": "",
@@ -25825,7 +25670,7 @@
       "actioncode": "",
       "tenantId": "dj"
     },
-	 {
+    {
       "rolecode": "FSM_CREATOR_EMP",
       "actionid": 2504,
       "actioncode": "",
@@ -25836,6 +25681,871 @@
       "actionid": 2505,
       "actioncode": "",
       "tenantId": "dj"
-    } 	  
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1752,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2317,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1766,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1930,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1990,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2004,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2005,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1729,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1730,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1741,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1742,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 1743,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2002,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2003,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2027,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2156,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 701,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2155,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 698,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2032,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2041,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2042,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2043,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DDCF_NOC_APPROVER",
+      "actionid": 2044,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1752,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2317,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1766,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1930,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1990,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2004,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2005,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1729,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1730,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1741,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1742,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 1743,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2002,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2003,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2027,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2156,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 701,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2155,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 698,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2032,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2041,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2042,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2043,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DNPC_NOC_APPROVER",
+      "actionid": 2044,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1752,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2317,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1766,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1930,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1990,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2004,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2005,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1729,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1730,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1741,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1742,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 1743,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2002,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2003,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2027,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2156,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 701,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2155,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 698,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2032,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2041,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2042,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2043,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "INSPD_NOC_APPROVER",
+      "actionid": 2044,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1752,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2317,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1766,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1930,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1990,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2004,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2005,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1729,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1730,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1741,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1742,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 1743,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2002,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2003,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2027,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2156,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 701,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2155,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 698,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2032,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2041,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2042,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2043,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "EDD_NOC_APPROVER",
+      "actionid": 2044,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1752,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2317,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1766,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1930,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1990,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2004,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2005,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1729,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1730,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1741,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1742,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 1743,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2002,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2003,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2027,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2156,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 701,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2155,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 698,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2032,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2041,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2042,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2043,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "ONEAD_NOC_APPROVER",
+      "actionid": 2044,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1752,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2317,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1766,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1930,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1990,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2004,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2005,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1729,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1730,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1741,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1742,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 1743,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2002,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2003,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2027,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2156,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 701,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2155,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 698,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2032,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2041,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2042,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2043,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "DTELECOM_NOC_APPROVER",
+      "actionid": 2044,
+      "actioncode": "",
+      "tenantId": "dj"
+    }
+
   ]
 }

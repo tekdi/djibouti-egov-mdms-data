@@ -483,14 +483,39 @@
       "description": "SW Clerk can activate the connection application"
     },
     {
-      "code": "FIRE_NOC_APPROVER",
-      "name": "Fire Noc Department Approver",
-      "description": "Fire Noc application approver"
+      "code": "MD_NOC_APPROVER",
+      "name": "Mayor of Djibouti Department Approver",
+      "description": "Mayor of Djibouti application approver"
     },
     {
-      "code": "AIRPORT_AUTHORITY_APPROVER",
-      "name": "Airport authority Approver",
-      "description": "Airport authority application approver"
+      "code": "DDCF_NOC_APPROVER",
+      "name": "Directorate of Estates and Land Conservation Department Approver",
+      "description": "Ministry of Budget application approver"
+    },
+    {
+      "code": "DNPC_NOC_APPROVER",
+      "name": "National Directorate of Civil Protection Department Approver",
+      "description": "Ministry of the Interior application approver"
+    },
+    {
+      "code": "INSPD_NOC_APPROVER",
+      "name": "National Institute of Public Health of Djibouti Department Approver",
+      "description": "Ministry of Health application approver"
+    },
+    {
+      "code": "EDD_NOC_APPROVER",
+      "name": "General Directorate of Electricity of Djibouti Department Approver",
+      "description": "Ministry of Energy, responsible of the Natural Resources application approver"
+    },
+    {
+      "code": "ONEAD_NOC_APPROVER",
+      "name": "General Directorate of the National Office of Water and Sanitation of Djibouti Department Approver",
+      "description": "Ministry of Agriculture, Livestock and the Sea, responsible for Water Resources application approver"
+    },
+    {
+      "code": "DTELECOM_NOC_APPROVER",
+      "name": "General Management of Djibouti Telecom Department Approver",
+      "description": "Ministry of Communication in charge of Posts and Telecommunications application approver"
     },
     {
       "code": "CFC",

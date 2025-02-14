@@ -3,20 +3,60 @@
     "moduleName": "NOC",
     "NocType": [
        {
-         "code": "FIRE_NOC",
+         "code": "MD_NOC",
          "isActive": true,
-         "offlineWF":"FIRE_NOC_OFFLINE",
-         "onlineWF":"FIRE_NOC_SRV",
+         "offlineWF":"MD_NOC_OFFLINE",
+         "onlineWF":"MD_NOC_SRV",
          "mode":"online",
-         "NocUserRole":"FIRE_NOC_APPROVER"
+         "NocUserRole":"MD_NOC_APPROVER"
       },
       {
-        "code":"AIRPORT_AUTHORITY",
+        "code": "DDCF_NOC",
         "isActive": true,
-        "offlineWF":"AIRPORT_NOC_OFFLINE",
-        "onlineWF":"AIRPORT_NOC_SRV",
-        "mode":"offline",
-        "NocUserRole":"AIRPORT_AUTHORITY_APPROVER"
+        "offlineWF":"DDCF_NOC_OFFLINE",
+        "onlineWF":"DDCF_NOC_SRV",
+        "mode":"online",
+        "NocUserRole":"DDCF_NOC_APPROVER"
+      },
+      {
+        "code": "DNPC_NOC",
+        "isActive": true,
+        "offlineWF":"DNPC_NOC_OFFLINE",
+        "onlineWF":"DNPC_NOC_SRV",
+        "mode":"online",
+        "NocUserRole":"DNPC_NOC_APPROVER"
+      },
+      {
+        "code": "INSPD_NOC",
+        "isActive": true,
+        "offlineWF":"INSPD_NOC_OFFLINE",
+        "onlineWF":"INSPD_NOC_SRV",
+        "mode":"online",
+        "NocUserRole":"INSPD_NOC_APPROVER"
+      },
+      {
+        "code": "EDD_NOC",
+        "isActive": true,
+        "offlineWF":"EDD_NOC_OFFLINE",
+        "onlineWF":"EDD_NOC_SRV",
+        "mode":"online",
+        "NocUserRole":"EDD_NOC_APPROVER"
+      },
+      {
+        "code": "ONEAD_NOC",
+        "isActive": true,
+        "offlineWF":"ONEAD_NOC_OFFLINE",
+        "onlineWF":"ONEAD_NOC_SRV",
+        "mode":"online",
+        "NocUserRole":"ONEAD_NOC_APPROVER"
+      },
+      {
+        "code": "DTELECOM_NOC",
+        "isActive": true,
+        "offlineWF":"DTELECOM_NOC_OFFLINE",
+        "onlineWF":"DTELECOM_NOC_SRV",
+        "mode":"online",
+        "NocUserRole":"DTELECOM_NOC_APPROVER"
       }
     ]
   }
