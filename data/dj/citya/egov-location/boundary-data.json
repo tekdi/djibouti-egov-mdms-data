@@ -4,8 +4,8 @@
   "TenantBoundary": [
     {
       "hierarchyType": {
-        "code": "LOC",
-        "name": "Locality"
+        "code": "REVENUE",
+        "name": "REVENUE"
       },
       "boundary":
       {
