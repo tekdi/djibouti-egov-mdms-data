@@ -94,7 +94,7 @@
         },
         {
           "code": "PCO.COMBINED_FILE",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 15
         },
@@ -112,7 +112,7 @@
         },
         {
           "code": "PCO.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 18
         }
@@ -126,7 +126,7 @@
       "docTypes": [
         {
           "code": "PCP.ARULOS_PAYMENT_RECEIPT",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 19
         }
@@ -164,7 +164,7 @@
         },
         {
           "code": "PCS.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 24
         }
@@ -275,7 +275,7 @@
         },
         {
           "code": "ATV.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 41
         }
@@ -367,13 +367,13 @@
         },
         {
           "code": "PCL.COMBINED_FILE",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 55
         },
         {
           "code": "PCL.DESCRIPTIVE_ESTIMATE",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 56
         },
@@ -397,7 +397,7 @@
         },
         {
           "code": "PCL.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 60
         }
@@ -493,7 +493,7 @@
         },
         {
           "code": "CCR.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 72
         }
@@ -591,7 +591,7 @@
         },
         {
           "code": "PLOTIR.COMBINED_FILE",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 87
         },
@@ -615,7 +615,7 @@
         },
         {
           "code": "PLOTIR.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 91
         }
@@ -659,7 +659,7 @@
         },
         {
           "code": "APE.UPPER_GROUND_FLOOR_PLAN",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 97
         },
@@ -671,25 +671,25 @@
         },
         {
           "code": "APE.STAIRS_PLAN",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 99
         },
         {
           "code": "APE.COMBINED_FILE",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 100
         },
         {
           "code": "APE.DETAILS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 101
         },
         {
           "code": "APE.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 102
         }
@@ -727,7 +727,7 @@
         },
         {
           "code": "CCP.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 107
         }
@@ -759,7 +759,7 @@
         },
         {
           "code": "CCE.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 111
         }
@@ -803,7 +803,7 @@
         },
         {
           "code": "CCG.OTHERS",
-          "required": true,
+          "required": false,
           "allow": true,
           "order": 117
         }

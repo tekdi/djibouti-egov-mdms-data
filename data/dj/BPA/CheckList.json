@@ -4,7 +4,7 @@
   "CheckList": [
     {
       "applicationType": "BUILDING_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
+      "ServiceType": "ORDINARY_BUILDING_PERMIT",
       "RiskType": "LOW",
       "WFState": "FIELDINSPECTION_PENDING",
       "questions": [
@@ -31,80 +31,82 @@
       ],
       "docTypes": [
         {
-          "code": "FI.FIR",
+          "code": "PCO.BUILDING_PERMIT_APPLICATION",
           "required": true
         },
         {
-          "code": "FI.SINS",
+          "code": "PCO.LAND_TITLE",
           "required": true
         },
         {
-          "code": "FI.SISS",
+          "code": "PCO.BACKFILL_PERMIT",
           "required": true
         },
         {
-          "code": "FI.SIES",
+          "code": "PCO.MATERIAL_EXTRACTION_TAX_RECEIPT",
           "required": true
         },
         {
-          "code": "FI.SIWS",
+          "code": "PCO.BACKFILL_CERTIFICATE",
           "required": true
+        },
+        {
+          "code": "PCO.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCO.CADASTRAL_MASS_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCO.SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCO.INTERIOR_DISTRIBUTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.ELEVATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.SECTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.FOUNDATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCO.ELECTRICAL_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.SANITATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.COMBINED_FILE",
+          "required": false
+        },
+        {
+          "code": "PCO.DESCRIPTIVE_ESTIMATE",
+          "required": true
+        },
+        {
+          "code": "PCO.ESTIMATED_PROJECT_COST",
+          "required": true
+        },
+        {
+          "code": "PCO.OTHERS",
+          "required": false
         }
       ]
     },
     {
       "applicationType": "BUILDING_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
-      "RiskType": "HIGH",
-      "WFState": "FIELDINSPECTION_PENDING",
-      "questions": [
-        {
-          "question": "RIVER_EXISTS_ON_SITE",
-          "fieldType": "YES/NO/NA",
-          "active": true
-        },
-        {
-          "question": "TREE_EXISTS_ON_SITE",
-          "fieldType": "YES/NO/NA",
-          "active": true
-        },
-        {
-          "question": "PLAN_AS_PER_THE_SITE",
-          "fieldType": "YES/NO/NA",
-          "active": true
-        },
-        {
-          "question": "ROADWIDTH_AS_PER_THE_PLAN",
-          "fieldType": "YES/NO/NA",
-          "active": true
-        }
-      ],
-      "docTypes": [
-        {
-          "code": "FI.FIR",
-          "required": true
-        },
-        {
-          "code": "FI.SINS",
-          "required": true
-        },
-        {
-          "code": "FI.SISS",
-          "required": true
-        },
-        {
-          "code": "FI.SIES",
-          "required": true
-        },
-        {
-          "code": "FI.SIWS",
-          "required": true
-        }
-      ]
-    },
-    {
-      "applicationType": "BUILDING_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
+      "ServiceType": "ORDINARY_BUILDING_PERMIT",
       "RiskType": "MEDIUM",
       "WFState": "FIELDINSPECTION_PENDING",
       "questions": [
@@ -131,30 +133,82 @@
       ],
       "docTypes": [
         {
-          "code": "FI.FIR",
+          "code": "PCO.BUILDING_PERMIT_APPLICATION",
           "required": true
         },
         {
-          "code": "FI.SINS",
+          "code": "PCO.LAND_TITLE",
           "required": true
         },
         {
-          "code": "FI.SISS",
+          "code": "PCO.BACKFILL_PERMIT",
           "required": true
         },
         {
-          "code": "FI.SIES",
+          "code": "PCO.MATERIAL_EXTRACTION_TAX_RECEIPT",
           "required": true
         },
         {
-          "code": "FI.SIWS",
+          "code": "PCO.BACKFILL_CERTIFICATE",
           "required": true
+        },
+        {
+          "code": "PCO.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCO.CADASTRAL_MASS_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCO.SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCO.INTERIOR_DISTRIBUTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.ELEVATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.SECTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.FOUNDATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCO.ELECTRICAL_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.SANITATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCO.COMBINED_FILE",
+          "required": false
+        },
+        {
+          "code": "PCO.DESCRIPTIVE_ESTIMATE",
+          "required": true
+        },
+        {
+          "code": "PCO.ESTIMATED_PROJECT_COST",
+          "required": true
+        },
+        {
+          "code": "PCO.OTHERS",
+          "required": false
         }
       ]
     },
     {
       "applicationType": "BUILDING_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
+      "ServiceType": "ORDINARY_BUILDING_PERMIT",
       "RiskType": "LOW",
       "WFState": "PENDINGAPPROVAL",
       "conditions": [
@@ -171,24 +225,7 @@
     },
     {
       "applicationType": "BUILDING_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
-      "RiskType": "HIGH",
-      "WFState": "PENDINGAPPROVAL",
-      "conditions": [
-        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
-        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
-        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
-        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
-        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
-        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
-        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
-        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
-        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
-      ]
-    },
-    {
-      "applicationType": "BUILDING_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
+      "ServiceType": "ORDINARY_BUILDING_PERMIT",
       "RiskType": "MEDIUM",
       "WFState": "PENDINGAPPROVAL",
       "conditions": [
@@ -203,9 +240,10 @@
         "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
       ]
     },
+
     {
-      "applicationType": "BUILDING_OC_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PROVISIONAL_BUILDING_PERMIT",
       "RiskType": "LOW",
       "WFState": "FIELDINSPECTION_PENDING",
       "questions": [
@@ -232,80 +270,14 @@
       ],
       "docTypes": [
         {
-          "code": "FI.FIR",
-          "required": true
-        },
-        {
-          "code": "FI.SINS",
-          "required": true
-        },
-        {
-          "code": "FI.SISS",
-          "required": true
-        },
-        {
-          "code": "FI.SIES",
-          "required": true
-        },
-        {
-          "code": "FI.SIWS",
-          "required": true
+          "code": "PCP.ARULOS_PAYMENT_RECEIPT",
+          "required": false
         }
       ]
     },
     {
-      "applicationType": "BUILDING_OC_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
-      "RiskType": "HIGH",
-      "WFState": "FIELDINSPECTION_PENDING",
-      "questions": [
-        {
-          "question": "RIVER_EXISTS_ON_SITE",
-          "fieldType": "YES/NO/NA",
-          "active": true
-        },
-        {
-          "question": "TREE_EXISTS_ON_SITE",
-          "fieldType": "YES/NO/NA",
-          "active": true
-        },
-        {
-          "question": "PLAN_AS_PER_THE_SITE",
-          "fieldType": "YES/NO/NA",
-          "active": true
-        },
-        {
-          "question": "ROADWIDTH_AS_PER_THE_PLAN",
-          "fieldType": "YES/NO/NA",
-          "active": true
-        }
-      ],
-      "docTypes": [
-        {
-          "code": "FI.FIR",
-          "required": true
-        },
-        {
-          "code": "FI.SINS",
-          "required": true
-        },
-        {
-          "code": "FI.SISS",
-          "required": true
-        },
-        {
-          "code": "FI.SIES",
-          "required": true
-        },
-        {
-          "code": "FI.SIWS",
-          "required": true
-        }
-      ]
-    },
-    {
-      "applicationType": "BUILDING_OC_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PROVISIONAL_BUILDING_PERMIT",
       "RiskType": "MEDIUM",
       "WFState": "FIELDINSPECTION_PENDING",
       "questions": [
@@ -332,30 +304,14 @@
       ],
       "docTypes": [
         {
-          "code": "FI.FIR",
-          "required": true
-        },
-        {
-          "code": "FI.SINS",
-          "required": true
-        },
-        {
-          "code": "FI.SISS",
-          "required": true
-        },
-        {
-          "code": "FI.SIES",
-          "required": true
-        },
-        {
-          "code": "FI.SIWS",
-          "required": true
+          "code": "PCP.ARULOS_PAYMENT_RECEIPT",
+          "required": false
         }
       ]
     },
     {
-      "applicationType": "BUILDING_OC_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PROVISIONAL_BUILDING_PERMIT",
       "RiskType": "LOW",
       "WFState": "PENDINGAPPROVAL",
       "conditions": [
@@ -371,9 +327,127 @@
       ]
     },
     {
-      "applicationType": "BUILDING_OC_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
-      "RiskType": "HIGH",
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PROVISIONAL_BUILDING_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "SIMPLIFIED_BUILDING_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PCS.REGISTRATION_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "PCS.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCS.CADASTRAL_SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCS.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "required": true
+        },
+        {
+          "code": "PCS.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "SIMPLIFIED_BUILDING_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PCS.REGISTRATION_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "PCS.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCS.CADASTRAL_SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCS.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "required": true
+        },
+        {
+          "code": "PCS.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "SIMPLIFIED_BUILDING_PERMIT",
+      "RiskType": "LOW",
       "WFState": "PENDINGAPPROVAL",
       "conditions": [
         "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
@@ -388,8 +462,1704 @@
       ]
     },
     {
-      "applicationType": "BUILDING_OC_PLAN_SCRUTINY",
-      "ServiceType": "NEW_CONSTRUCTION",
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "SIMPLIFIED_BUILDING_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "ATV.BUILDING_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "ATV.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "ATV.FILL_PERMIT",
+          "required": true
+        },
+        {
+          "code": "ATV.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "required": true
+        },
+        {
+          "code": "ATV.FILL_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "ATV.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "ATV.CADASTRAL_SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "ATV.SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "ATV.INTERIOR_DISTRIBUTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "ATV.ELEVATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "ATV.SECTION_PLANS",
+          "required": true
+        },
+
+        {
+          "code": "ATV.FOUNDATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "ATV.SANITATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "ATV.COMBINED_FILE",
+          "required": true
+        },
+        {
+          "code": "ATV.DESCRIPTIVE_ESTIMATE",
+          "required": true
+        },
+        {
+          "code": "ATV.ESTIMATED_PROJECT_COST",
+          "required": true
+        },
+        {
+          "code": "ATV.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "ATV.BUILDING_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "ATV.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "ATV.FILL_PERMIT",
+          "required": true
+        },
+        {
+          "code": "ATV.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "required": true
+        },
+        {
+          "code": "ATV.FILL_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "ATV.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "ATV.CADASTRAL_SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "ATV.SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "ATV.INTERIOR_DISTRIBUTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "ATV.ELEVATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "ATV.SECTION_PLANS",
+          "required": true
+        },
+
+        {
+          "code": "ATV.FOUNDATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "ATV.SANITATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "ATV.COMBINED_FILE",
+          "required": true
+        },
+        {
+          "code": "ATV.DESCRIPTIVE_ESTIMATE",
+          "required": true
+        },
+        {
+          "code": "ATV.ESTIMATED_PROJECT_COST",
+          "required": true
+        },
+        {
+          "code": "ATV.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "FENCING_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PCL.FENCE_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "PCL.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "PCL.FILL_PERMIT",
+          "required": true
+        },
+        {
+          "code": "PCL.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "required": true
+        },
+        {
+          "code": "PCL.FILL_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "PCL.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCL.CADASTRAL_SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCL.SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCL.INTERIOR_DISTRIBUTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.ELEVATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.SECTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.FOUNDATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCL.ELECTRICAL_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.COMBINED_FILE",
+          "required": false
+        },
+        {
+          "code": "PCL.DESCRIPTIVE_ESTIMATE",
+          "required": false
+        },
+        {
+          "code": "PCL.SANITATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.DESCRIPTIVE_ESTIMATE",
+          "required": true
+        },
+        {
+          "code": "PCL.ESTIMATED_PROJECT_COST",
+          "required": true
+        },
+        {
+          "code": "PCL.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "FENCING_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PCL.FENCE_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "PCL.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "PCL.FILL_PERMIT",
+          "required": true
+        },
+        {
+          "code": "PCL.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "required": true
+        },
+        {
+          "code": "PCL.FILL_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "PCL.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCL.CADASTRAL_SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCL.SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCL.INTERIOR_DISTRIBUTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.ELEVATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.SECTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.FOUNDATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PCL.ELECTRICAL_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.COMBINED_FILE",
+          "required": false
+        },
+        {
+          "code": "PCL.DESCRIPTIVE_ESTIMATE",
+          "required": false
+        },
+        {
+          "code": "PCL.SANITATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PCL.DESCRIPTIVE_ESTIMATE",
+          "required": true
+        },
+        {
+          "code": "PCL.ESTIMATED_PROJECT_COST",
+          "required": true
+        },
+        {
+          "code": "PCL.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "FENCING_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "FENCING_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "DEMOLITION_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PD.DEMOLITION_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "PD.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "PD.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PD.DEMOLITION_DIAGRAM",
+          "required": true
+        },
+        {
+          "code": "PD.BUILDING_PHOTOGRAPHS",
+          "required": true
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "DEMOLITION_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PD.DEMOLITION_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "PD.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "PD.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PD.DEMOLITION_DIAGRAM",
+          "required": true
+        },
+        {
+          "code": "PD.BUILDING_PHOTOGRAPHS",
+          "required": true
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "DEMOLITION_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "DEMOLITION_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "FILL_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PR.BACKFILL_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "PR.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "PR.LOCATION_PLAN",
+          "required": true
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "FILL_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PR.BACKFILL_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "PR.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "PR.LOCATION_PLAN",
+          "required": true
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "FILL_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "FILL_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "CCR.FILL_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCR.FILL_PERMIT",
+          "required": true
+        },
+        {
+          "code": "CCR.FILL_TESTS",
+          "required": true
+        },
+        {
+          "code": "CCR.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "CCR.FILL_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCR.FILL_PERMIT",
+          "required": true
+        },
+        {
+          "code": "CCR.FILL_TESTS",
+          "required": true
+        },
+        {
+          "code": "CCR.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PLANNING_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PLOTIR.BUILDING_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.FILL_PERMIT",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.FILL_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.CADASTRAL_SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.INTERIOR_DISTRIBUTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.ELEVATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.SECTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.FOUNDATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.ELECTRICAL_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.SANITATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.COMBINED_FILE",
+          "required": false
+        },
+        {
+          "code": "PLOTIR.DESCRIPTIVE_ESTIMATE",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.ESTIMATED_PROJECT_COST",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.SPECIFICATIONS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PLANNING_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "PLOTIR.BUILDING_PERMIT_APPLICATION",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.FILL_PERMIT",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.FILL_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.LOCATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.CADASTRAL_SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.SITE_PLAN",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.INTERIOR_DISTRIBUTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.ELEVATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.SECTION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.FOUNDATION_PLAN",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.ELECTRICAL_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.SANITATION_PLANS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.COMBINED_FILE",
+          "required": false
+        },
+        {
+          "code": "PLOTIR.DESCRIPTIVE_ESTIMATE",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.ESTIMATED_PROJECT_COST",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.SPECIFICATIONS",
+          "required": true
+        },
+        {
+          "code": "PLOTIR.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PLANNING_PERMIT",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PLANNING_PERMIT",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "EXECUTION_PLAN_APPROVAL",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "APE.EXECUTION_PLAN_APPROVAL_REQUEST",
+          "required": true
+        },
+        {
+          "code": "APE.BUILDING_PERMIT",
+          "required": true
+        },
+        {
+          "code": "APE.SITE_INSPECTION_REPORT",
+          "required": true
+        },
+        {
+          "code": "APE.FOUNDATION_REINFORCEMENT_PLAN",
+          "required": true
+        },
+        {
+          "code": "APE.FORMWORK_REINFORCEMENT_PLAN",
+          "required": true
+        },
+        {
+          "code": "APE.UPPER_GROUND_FLOOR_PLAN",
+          "required": false
+        },
+        {
+          "code": "APE.CURRENT_FLOOR_PLAN",
+          "required": true
+        },
+        {
+          "code": "APE.STAIRS_PLAN",
+          "required": false
+        },
+        {
+          "code": "APE.COMBINED_FILE",
+          "required": false
+        },
+        {
+          "code": "APE.DETAILS",
+          "required": false
+        },
+        {
+          "code": "APE.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "EXECUTION_PLAN_APPROVAL",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "APE.EXECUTION_PLAN_APPROVAL_REQUEST",
+          "required": true
+        },
+        {
+          "code": "APE.BUILDING_PERMIT",
+          "required": true
+        },
+        {
+          "code": "APE.SITE_INSPECTION_REPORT",
+          "required": true
+        },
+        {
+          "code": "APE.FOUNDATION_REINFORCEMENT_PLAN",
+          "required": true
+        },
+        {
+          "code": "APE.FORMWORK_REINFORCEMENT_PLAN",
+          "required": true
+        },
+        {
+          "code": "APE.UPPER_GROUND_FLOOR_PLAN",
+          "required": false
+        },
+        {
+          "code": "APE.CURRENT_FLOOR_PLAN",
+          "required": true
+        },
+        {
+          "code": "APE.STAIRS_PLAN",
+          "required": false
+        },
+        {
+          "code": "APE.COMBINED_FILE",
+          "required": false
+        },
+        {
+          "code": "APE.DETAILS",
+          "required": false
+        },
+        {
+          "code": "APE.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "EXECUTION_PLAN_APPROVAL",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "EXECUTION_PLAN_APPROVAL",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "CCP.PARASISMIC_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCP.BUILDING_PERMIT",
+          "required": true
+        },
+        {
+          "code": "CCP.POURING_APPROVALS",
+          "required": true
+        },
+        {
+          "code": "CCP.TEST_RESULTS",
+          "required": true
+        },
+        {
+          "code": "CCP.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "CCP.PARASISMIC_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCP.BUILDING_PERMIT",
+          "required": true
+        },
+        {
+          "code": "CCP.POURING_APPROVALS",
+          "required": true
+        },
+        {
+          "code": "CCP.TEST_RESULTS",
+          "required": true
+        },
+        {
+          "code": "CCP.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "CCE.ELECTRICAL_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCE.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "CCE.BUILDING_PERMIT",
+          "required": true
+        },
+        {
+          "code": "CCE.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "CCE.ELECTRICAL_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCE.LAND_TITLE",
+          "required": true
+        },
+        {
+          "code": "CCE.BUILDING_PERMIT",
+          "required": true
+        },
+        {
+          "code": "CCE.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+      "RiskType": "MEDIUM",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "GENERAL_CONFORMITY_CERTIFICATE",
+      "RiskType": "LOW",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "CCG.GENERAL_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCG.ALIGNMENT_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCG.ELECTRICAL_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCG.PARASISMIC_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCG.BUILDING_PERMIT",
+          "required": true
+        },
+        {
+          "code": "CCG.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "GENERAL_CONFORMITY_CERTIFICATE",
+      "RiskType": "MEDIUM",
+      "WFState": "FIELDINSPECTION_PENDING",
+      "questions": [
+        {
+          "question": "RIVER_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "TREE_EXISTS_ON_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "PLAN_AS_PER_THE_SITE",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        },
+        {
+          "question": "ROADWIDTH_AS_PER_THE_PLAN",
+          "fieldType": "YES/NO/NA",
+          "active": true
+        }
+      ],
+      "docTypes": [
+        {
+          "code": "CCG.GENERAL_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCG.ALIGNMENT_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCG.ELECTRICAL_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCG.PARASISMIC_CONFORMITY_CERTIFICATE",
+          "required": true
+        },
+        {
+          "code": "CCG.BUILDING_PERMIT",
+          "required": true
+        },
+        {
+          "code": "CCG.OTHERS",
+          "required": false
+        }
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "GENERAL_CONFORMITY_CERTIFICATE",
+      "RiskType": "LOW",
+      "WFState": "PENDINGAPPROVAL",
+      "conditions": [
+        "The development shall be undertaken strictly according to plans enclosed with necessary permission endorsement.",
+        "The land in question must be in lawful ownership and peaceful possession of the applicant.",
+        "The permission is valid for period of X(this is the validity period in years) years with effect from the date of issue.",
+        "Permission accorded under the provision cannot be construed as evidence in respect of right title interest of the plot over which the plan is approved.",
+        "Any dispute arising out of land record or in respect of right/ title/ interest after this approval the plan shall be treated automatically cancelled during the period of dispute.",
+        "Adequate safety precaution shall be provided at all stages of construction for safe guarding the life of workers and any public hazard.",
+        "The land/ Building shall be used exclusively for the above occupancy for which you applied and the uses shall not be changed to any other use without prior approval of this Authority.",
+        "Adequate space mentioned in the approved plan shall be kept open for parking and no part of it will be built upon.",
+        "The land over which construction is proposed is accessible by an approved means of access with sufficient road width."
+      ]
+    },
+    {
+      "applicationType": "BUILDING_PLAN_SCRUTINY",
+      "ServiceType": "GENERAL_CONFORMITY_CERTIFICATE",
       "RiskType": "MEDIUM",
       "WFState": "PENDINGAPPROVAL",
       "conditions": [
