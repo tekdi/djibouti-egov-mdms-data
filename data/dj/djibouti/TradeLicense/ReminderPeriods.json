@@ -1,0 +1,18 @@
+{
+    "tenantId": "dj.djibouti",
+    "moduleName": "TradeLicense",
+    "ReminderPeriods": [
+      {
+        "tenantId": "dj.djibouti",
+        "reminderInterval": 12345
+      },
+      {
+        "tenantId": "dj.tadjourah",
+        "reminderInterval": 12345
+      },
+      {
+        "tenantId": "dj.alisabieh",
+        "reminderInterval": 12345  
+      }
+    ]
+  }
