@@ -11,13 +11,13 @@
       "order":2,
       "tenants": [
         {
-          "code": "dj.citya"
+          "code": "dj.djibouti"
         },        
         {
-          "code": "dj.cityb"
+          "code": "dj.tadjourah"
         },
         {
-          "code": "dj.cityc"
+          "code": "dj.alisabieh"
         },
         {
           "code": "dj"
@@ -33,13 +33,13 @@
       "order":2,
       "tenants": [
         {
-          "code": "dj.citya"
+          "code": "dj.djibouti"
         },        
         {
-          "code": "dj.cityb"
+          "code": "dj.tadjourah"
         },
         {
-          "code": "dj.cityc"
+          "code": "dj.alisabieh"
         },
         {
           "code": "dj"
@@ -55,13 +55,13 @@
       "order":2,
       "tenants": [
         {
-          "code": "dj.citya"
+          "code": "dj.djibouti"
         },
         {
-          "code": "dj.cityb"
+          "code": "dj.tadjourah"
         },
         {
-          "code": "dj.cityc"
+          "code": "dj.alisabieh"
         },
         {
           "code": "dj"
@@ -75,13 +75,13 @@
       "order":2,
       "tenants": [
         {
-          "code": "dj.citya"
+          "code": "dj.djibouti"
         },
         {
-          "code": "dj.cityb"
+          "code": "dj.tadjourah"
         },
         {
-          "code": "dj.cityc"
+          "code": "dj.alisabieh"
         },
         {
           "code": "dj"
@@ -97,13 +97,13 @@
       "order": 1,
       "tenants": [
         {
-          "code": "dj.citya"
+          "code": "dj.djibouti"
         },
         {
-          "code": "dj.cityb"
+          "code": "dj.tadjourah"
         },
         {
-          "code": "dj.cityc"
+          "code": "dj.alisabieh"
         },
         {
           "code": "dj"
@@ -118,13 +118,13 @@
       "order": 3,
       "tenants": [
         {
-          "code": "dj.citya"
+          "code": "dj.djibouti"
         },
         {
-          "code": "dj.cityb"
+          "code": "dj.tadjourah"
         },
         {
-          "code": "dj.cityc"
+          "code": "dj.alisabieh"
         },
         {
           "code": "dj"
@@ -138,13 +138,13 @@
       "order": 1,
       "tenants": [
         {
-          "code": "dj.citya"
+          "code": "dj.djibouti"
         },
         {
-          "code": "dj.cityb"
+          "code": "dj.tadjourah"
         },
         {
-          "code": "dj.cityc"
+          "code": "dj.alisabieh"
         },
         {
           "code": "dj"

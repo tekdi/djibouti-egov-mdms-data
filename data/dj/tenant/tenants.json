@@ -2,9 +2,41 @@
   "tenantId": "dj",
   "moduleName": "tenant",
   "tenants": [{
-      "code": "dj.djibouti",
+      "code": "dj",
       "name": "Djibouti",
       "description": "Djibouti",
+      "logoId": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
+      "imageId": null,
+      "domainUrl": "https://www.presidence.dj/",
+      "type": "CITY",
+      "twitterUrl": null,
+      "facebookUrl": null,
+      "emailId": "pg.state@gmail.com",
+      "OfficeTimings": {
+        "Mon - Fri": "9.00 AM - 5.00 PM"
+      },
+      "city": {
+        "name": "Djibouti",
+        "localName": "",
+        "districtCode": "dj",
+        "districtName": "",
+        "districtTenantCode": "dj",
+        "regionName": "",
+        "ulbGrade": "Minister of the City, Urban Planning and Housing",
+        "longitude": 75.3412,
+        "latitude": 31.1471,
+        "shapeFileLocation": null,
+        "captcha": null,
+        "code": "0",
+        "ddrName": null
+      },
+      "address": "Minister of the City, Urban Planning and Housing",
+      "contactNumber": "+253 21 35 60 34"
+    },
+    {
+      "code": "dj.djibouti",
+      "name": "Djibouti City",
+      "description": "Djibouti City",
       "pincode": [143001,143002,143003,143004,143005],
       "logoId": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
       "imageId": null,
@@ -17,10 +49,10 @@
         "Mon - Fri": "9.00 AM - 6.00 PM"
       },
       "city": {
-        "name": null,
+        "name": "Djibouti City",
         "localName": null,
-        "districtCode": null,
-        "districtName": null,
+        "districtCode": "dj.djibouti",
+        "districtName": "",
         "districtTenantCode": "dj.djibouti",
         "regionName": null,
         "ulbGrade": "Minister of the City, Urban Planning and Housing",
@@ -53,7 +85,7 @@
       "city": {
         "name": "Tadjourah",
         "localName": null,
-        "districtCode": "Tadjourah",
+        "districtCode": "dj.tadjourah",
         "districtName": null,
         "districtTenantCode": "dj.tadjourah",
         "regionName": null,
@@ -87,7 +119,7 @@
       "city": {
         "name": "Ali Sabieh",
         "localName": null,
-        "districtCode": "Ali Sabieh",
+        "districtCode": "dj.alisabieh",
         "districtName": null,
         "districtTenantCode": "dj.alisabieh",
         "regionName": null,
@@ -102,38 +134,6 @@
       "address": "",
       "contactNumber": "+253 21 35 60 34",
       "helpLineNumber": "+253 21 35 60 34"
-    },  
-    {
-      "code": "dj",
-      "name": "Djibouti",
-      "description": "Djibouti",
-      "logoId": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
-      "imageId": null,
-      "domainUrl": "https://www.presidence.dj/",
-      "type": "CITY",
-      "twitterUrl": null,
-      "facebookUrl": null,
-      "emailId": "pg.state@gmail.com",
-      "OfficeTimings": {
-        "Mon - Fri": "9.00 AM - 5.00 PM"
-      },
-      "city": {
-        "name": "",
-        "localName": "",
-        "districtCode": "0",
-        "districtName": "",
-        "districtTenantCode": "dj",
-        "regionName": "",
-        "ulbGrade": "Minister of the City, Urban Planning and Housing",
-        "longitude": 75.3412,
-        "latitude": 31.1471,
-        "shapeFileLocation": null,
-        "captcha": null,
-        "code": "0",
-        "ddrName": null
-      },
-      "address": "Minister of the City, Urban Planning and Housing",
-      "contactNumber": "+253 21 35 60 34"
     }
   ]
 }
