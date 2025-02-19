@@ -128,6 +128,23 @@
           "code": "dj.alisabieh"
         }
       ]
+    },
+    {
+      "module": "Finance",
+      "code": "Finance",
+      "active": true,
+      "order": 4,
+      "tenants": [
+        {
+          "code": "dj.djibouti"
+        },
+        {
+          "code": "dj.tadjourah"
+        },
+        {
+          "code": "dj.alisabieh"
+        }
+      ]
     }
   ]
 }

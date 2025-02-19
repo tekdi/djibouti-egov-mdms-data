@@ -2,38 +2,6 @@
   "tenantId": "dj",
   "moduleName": "tenant",
   "tenants": [{
-      "code": "dj",
-      "name": "Djibouti",
-      "description": "Djibouti",
-      "logoId": "https://egov-bucket.s3.af-south-1.amazonaws.com/DATUH.jpeg",
-      "imageId": null,
-      "domainUrl": "https://www.presidence.dj/",
-      "type": "CITY",
-      "twitterUrl": null,
-      "facebookUrl": null,
-      "emailId": "pg.state@gmail.com",
-      "OfficeTimings": {
-        "Mon - Fri": "9.00 AM - 5.00 PM"
-      },
-      "city": {
-        "name": "Djibouti",
-        "localName": "",
-        "districtCode": "dj",
-        "districtName": "",
-        "districtTenantCode": "dj",
-        "regionName": "",
-        "ulbGrade": "Minister of the City, Urban Planning and Housing",
-        "longitude": 75.3412,
-        "latitude": 31.1471,
-        "shapeFileLocation": null,
-        "captcha": null,
-        "code": "0",
-        "ddrName": null
-      },
-      "address": "Minister of the City, Urban Planning and Housing",
-      "contactNumber": "+253 21 35 60 34"
-    },
-    {
       "code": "dj.djibouti",
       "name": "Djibouti City",
       "description": "Djibouti City",
@@ -44,7 +12,7 @@
       "type": "CITY",
       "twitterUrl": null,
       "facebookUrl": null,
-      "emailId": "citya@gmail.com",
+      "emailId": "djibouticity@gmail.com",
       "OfficeTimings": {
         "Mon - Fri": "9.00 AM - 6.00 PM"
       },
@@ -77,7 +45,7 @@
       "type": "CITY",
       "twitterUrl": null,
       "facebookUrl": null,
-      "emailId": "cityb@gmail.com",
+      "emailId": "tadjourahcity@gmail.com",
       "OfficeTimings": {
         "Mon - Fri": "9.00 AM - 6.00 PM",
         "Sat": "9.00 AM - 12.00 PM"
@@ -95,7 +63,7 @@
         "shapeFileLocation": null,
         "captcha": null,
         "code": "107",
-        "ddrName": "DDR A"
+        "ddrName": "DDR B"
       },
       "address": "",
       "contactNumber": "+253 21 35 60 34",
@@ -111,7 +79,7 @@
       "type": "CITY",
       "twitterUrl": null,
       "facebookUrl": null,
-      "emailId": "cityc@gmail.com",
+      "emailId": "alisabiehcity@gmail.com",
       "OfficeTimings": {
         "Mon - Fri": "9.00 AM - 6.00 PM",
         "Sat": "9.00 AM - 12.00 PM"
@@ -129,7 +97,7 @@
         "shapeFileLocation": null,
         "captcha": null,
         "code": "108",
-        "ddrName": "DDR B"
+        "ddrName": "DDR C"
       },
       "address": "",
       "contactNumber": "+253 21 35 60 34",
