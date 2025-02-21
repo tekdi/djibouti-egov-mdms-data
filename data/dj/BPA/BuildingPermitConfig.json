@@ -32,7 +32,7 @@
             "inputs": [
               {
                 "label": "BPA_BOUNDARY_PLOT_AREA_LABEL",
-                "type": "text",
+                "type": "number",
                 "validation": {
                   "required": true
                 },
@@ -84,7 +84,7 @@
             "inputs": [
               {
                 "label": "BPA_TOTAL_BUILT_UP_AREA_HEADER",
-                "type": "text",
+                "type": "number",
                 "validation": {
                   "required": true
                 },
@@ -92,7 +92,7 @@
               },
               {
                 "label": "BPA_SCRUTINY_DETAILS_NUMBER_OF_FLOORS_LABEL",
-                "type": "text",
+                "type": "number",
                 "validation": {
                   "required": true
                 },
@@ -100,7 +100,7 @@
               },
               {
                 "label": "BPA_HEIGHT_FROM_GROUND_LEVEL_FROM_MUMTY",
-                "type": "text",
+                "type": "number",
                 "validation": {
                   "required": true
                 },
