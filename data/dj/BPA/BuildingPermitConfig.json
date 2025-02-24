@@ -34,7 +34,9 @@
                 "label": "BPA_BOUNDARY_PLOT_AREA_LABEL",
                 "type": "number",
                 "validation": {
-                  "required": true
+                  "required": true,
+                  "minlength": 0,
+                  "maxlength": 500
                 },
                 "name": "plotArea"
               },
@@ -94,7 +96,9 @@
                 "label": "BPA_SCRUTINY_DETAILS_NUMBER_OF_FLOORS_LABEL",
                 "type": "number",
                 "validation": {
-                  "required": true
+                  "required": true,
+                  "minlength": 0,
+                  "maxlength": 10
                 },
                 "name": "numberOfFloors"
               },
@@ -102,7 +106,9 @@
                 "label": "BPA_HEIGHT_FROM_GROUND_LEVEL_FROM_MUMTY",
                 "type": "number",
                 "validation": {
-                  "required": true
+                  "required": true,
+                  "minlength": 0,
+                  "maxlength": 15
                 },
                 "name": "totalHeight"
               }
