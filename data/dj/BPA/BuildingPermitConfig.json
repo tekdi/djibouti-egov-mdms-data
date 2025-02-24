@@ -26,8 +26,7 @@
               "headerCaption": "BPA_SCRUTINY_DETAILS",
               "header": "BPA_PLOT_DETAILS_TITLE",
               "cardText": "",
-              "submitBarLabel": "CS_COMMON_NEXT",
-              "skipText": "CORE_COMMON_SKIP_CONTINUE"
+              "submitBarLabel": "CS_COMMON_NEXT"
             },
             "inputs": [
               {
@@ -80,8 +79,7 @@
               "headerCaption": "BPA_STEPPER_SCRUTINY_DETAILS_HEADER",
               "header": "BPA_STEPPER_SCRUTINY_DETAILS_HEADER",
               "cardText": "",
-              "submitBarLabel": "CS_COMMON_NEXT",
-              "skipText": "CORE_COMMON_SKIP_CONTINUE"
+              "submitBarLabel": "CS_COMMON_NEXT"
             },
             "inputs": [
               {
@@ -158,8 +156,7 @@
             "texts": {
               "headerCaption": "BPA_NOC_DETAILS_SUMMARY",
               "header": "",
-              "submitBarLabel": "CS_COMMON_NEXT",
-              "skipText": "CORE_COMMON_SKIP_CONTINUE"
+              "submitBarLabel": "CS_COMMON_NEXT"
             }
           }
         ]
