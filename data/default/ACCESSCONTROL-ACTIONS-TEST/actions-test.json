@@ -4830,7 +4830,7 @@
       "displayName": "Create Account Detail Key",
       "orderNumber": 1,
       "parentModule": "227",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Account_Detail_key_Master",
       "code": "null",
       "path": "Financial_Master.Financials_Master.Account_Detail_key_Master.createAccountDetailKey_Master"
@@ -4842,7 +4842,7 @@
       "displayName": "Modify Account Detail Key",
       "orderNumber": 2,
       "parentModule": "227",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Account_Detail_key_Master",
       "code": "null",
       "path": "Financial_Master.Financials_Master.Account_Detail_key_Master.updateAccountDetailKey_Master"
@@ -4890,7 +4890,7 @@
       "displayName": "Search Bank",
       "orderNumber": 3,
       "parentModule": "228",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Bank",
       "code": "null",
       "path": "Financials.Financials_Masters.Bank.searchBank_Master"
@@ -4902,7 +4902,7 @@
       "displayName": "Create BankAccount",
       "orderNumber": 1,
       "parentModule": "229",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Bank_Account_Master",
       "code": "null",
       "path": "Financial_Master.Financials_Master.Bank_Account_Master.createBankAccount_Master"
@@ -4914,7 +4914,7 @@
       "displayName": "Modify BankAccount",
       "orderNumber": 2,
       "parentModule": "229",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Bank_Account_Master",
       "code": "null",
       "path": "Financial_Master.Financials_Master.Bank_Account_Master.updateBankAccount_Master"
@@ -4926,7 +4926,7 @@
       "displayName": "Search BankAccount",
       "orderNumber": 3,
       "parentModule": "229",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Bank_Account_Master",
       "code": "null",
       "path": "Financial_Master.Financials_Master.Bank_Account_Master.searchBankAccount_Master"
@@ -4938,7 +4938,7 @@
       "displayName": "Create Account Code Purpose",
       "orderNumber": 1,
       "parentModule": "230",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Account_Code_Purpose_Master",
       "code": "null",
       "path": "Financial_Master.Financials_Master.Account_Code_Purpose_Master.createAccountCodePurpose_Master"
@@ -4950,7 +4950,7 @@
       "displayName": "Modify Account Code Purpose",
       "orderNumber": 2,
       "parentModule": "230",
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "Account_Code_Purpose_Master",
       "code": "null",
       "path": "Financial_Master.Financials_Master.Account_Code_Purpose_Master.updateAccountCodePurpose_Master"
