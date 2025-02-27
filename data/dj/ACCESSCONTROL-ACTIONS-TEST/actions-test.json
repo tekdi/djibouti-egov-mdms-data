@@ -738,7 +738,7 @@
          "displayName": "Create Bank",
          "orderNumber": 1,
          "parentModule": "228",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "Bank",
          "code": "null",
          "path": "Financials.Financials_Masters.Bank.createBank_Master"
@@ -750,7 +750,7 @@
          "displayName": "Modify Bank",
          "orderNumber": 3,
          "parentModule": "228",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "Bank",
          "code": "null",
          "path": "Financials.Financials_Masters.Bank.updateBank_Master"
@@ -762,7 +762,7 @@
          "displayName": "Search Bank",
          "orderNumber": 3,
          "parentModule": "228",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "Bank",
          "code": "null",
          "path": "Financials.Financials_Masters.Bank.searchBank_Master"
@@ -774,7 +774,7 @@
          "displayName": "Create BankAccount",
          "orderNumber": 1,
          "parentModule": "229",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "Bank_Account_Master",
          "code": "null",
          "path": "Financial_Master.Financials_Master.Bank_Account_Master.createBankAccount_Master"
@@ -786,7 +786,7 @@
          "displayName": "Modify BankAccount",
          "orderNumber": 2,
          "parentModule": "229",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "Bank_Account_Master",
          "code": "null",
          "path": "Financial_Master.Financials_Master.Bank_Account_Master.updateBankAccount_Master"
@@ -798,7 +798,7 @@
          "displayName": "Search BankAccount",
          "orderNumber": 3,
          "parentModule": "229",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "Bank_Account_Master",
          "code": "null",
          "path": "Financial_Master.Financials_Master.Bank_Account_Master.searchBankAccount_Master"
@@ -1062,7 +1062,7 @@
          "displayName": "Create BankBranch",
          "orderNumber": 1,
          "parentModule": "237",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "BankBranch_Master",
          "code": "null",
          "path": "Financials.Financials_Masters.BankBranch_Master.createBankBranch_Master"
@@ -1074,7 +1074,7 @@
          "displayName": "Modify BankBranch",
          "orderNumber": 2,
          "parentModule": "237",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "BankBranch_Master",
          "code": "null",
          "path": "Financials.Financials_Masters.BankBranch_Master.updateBankBranch_Master"
@@ -1086,7 +1086,7 @@
          "displayName": "Search BankBranch",
          "orderNumber": 3,
          "parentModule": "237",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "BankBranch_Master",
          "code": "null",
          "path": "Financials.Financials_Masters.BankBranch_Master.searchBankBranch_Master"
@@ -1170,7 +1170,7 @@
          "displayName": "Create Chart Of Accounts",
          "orderNumber": 1,
          "parentModule": "240",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "ChartOfAccount_Master",
          "code": "null",
          "path": "Financials.Financials_Masters.ChartOfAccount_Master.createChartOfAccount_Master"
@@ -1182,7 +1182,7 @@
          "displayName": "Modify Chart Of Accounts",
          "orderNumber": 2,
          "parentModule": "240",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "ChartOfAccount_Master",
          "code": "null",
          "path": "Financials.Financials_Masters.ChartOfAccount_Master.updateChartOfAccount_Master"
@@ -1194,7 +1194,7 @@
          "displayName": "Create Chart Of Accounts Detail",
          "orderNumber": 1,
          "parentModule": "241",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "ChartOfAccountDetail_Master",
          "code": "null",
          "path": "Financials.Financials_Masters.ChartOfAccountDetail_Master.createChartOfAccountDetail_Master"
@@ -1206,7 +1206,7 @@
          "displayName": "Modify Chart Of Accounts Detail",
          "orderNumber": 2,
          "parentModule": "241",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "ChartOfAccountDetail_Master",
          "code": "null",
          "path": "Financials.Financials_Masters.ChartOfAccountDetail_Master.updateChartOfAccountDetail_Master"
@@ -1218,7 +1218,7 @@
          "displayName": "Search Chart Of Accounts Detail",
          "orderNumber": 3,
          "parentModule": "241",
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "ChartOfAccountDetail_Master",
          "code": "null",
          "path": "Financials.Financials_Masters.ChartOfAccountDetail_Master.searchChartOfAccountDetail_Master"
