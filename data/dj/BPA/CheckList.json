@@ -31,76 +31,24 @@
       ],
       "docTypes": [
         {
-          "code": "PCO.BUILDING_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PCO.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PCO.BACKFILL_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PCO.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PCO.BACKFILL_CERTIFICATE",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "PCO.LOCATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCO.CADASTRAL_MASS_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCO.SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCO.INTERIOR_DISTRIBUTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.ELEVATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.SECTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.FOUNDATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCO.ELECTRICAL_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.SANITATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.COMBINED_FILE",
-          "required": false
-        },
-        {
-          "code": "PCO.DESCRIPTIVE_ESTIMATE",
-          "required": true
-        },
-        {
-          "code": "PCO.ESTIMATED_PROJECT_COST",
-          "required": true
-        },
-        {
-          "code": "PCO.OTHERS",
-          "required": false
         }
       ]
     },
@@ -133,76 +81,24 @@
       ],
       "docTypes": [
         {
-          "code": "PCO.BUILDING_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PCO.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PCO.BACKFILL_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PCO.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PCO.BACKFILL_CERTIFICATE",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "PCO.LOCATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCO.CADASTRAL_MASS_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCO.SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCO.INTERIOR_DISTRIBUTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.ELEVATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.SECTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.FOUNDATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCO.ELECTRICAL_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.SANITATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCO.COMBINED_FILE",
-          "required": false
-        },
-        {
-          "code": "PCO.DESCRIPTIVE_ESTIMATE",
-          "required": true
-        },
-        {
-          "code": "PCO.ESTIMATED_PROJECT_COST",
-          "required": true
-        },
-        {
-          "code": "PCO.OTHERS",
-          "required": false
         }
       ]
     },
@@ -270,8 +166,24 @@
       ],
       "docTypes": [
         {
-          "code": "PCP.ARULOS_PAYMENT_RECEIPT",
-          "required": false
+          "code": "FI.FIR",
+          "required": true
+        },
+        {
+          "code": "FI.SINS",
+          "required": true
+        },
+        {
+          "code": "FI.SISS",
+          "required": true
+        },
+        {
+          "code": "FI.SIES",
+          "required": true
+        },
+        {
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -304,8 +216,24 @@
       ],
       "docTypes": [
         {
-          "code": "PCP.ARULOS_PAYMENT_RECEIPT",
-          "required": false
+          "code": "FI.FIR",
+          "required": true
+        },
+        {
+          "code": "FI.SINS",
+          "required": true
+        },
+        {
+          "code": "FI.SISS",
+          "required": true
+        },
+        {
+          "code": "FI.SIES",
+          "required": true
+        },
+        {
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -373,24 +301,24 @@
       ],
       "docTypes": [
         {
-          "code": "PCS.REGISTRATION_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PCS.LOCATION_PLAN",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PCS.CADASTRAL_SITE_PLAN",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PCS.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PCS.OTHERS",
-          "required": false
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -423,24 +351,24 @@
       ],
       "docTypes": [
         {
-          "code": "PCS.REGISTRATION_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PCS.LOCATION_PLAN",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PCS.CADASTRAL_SITE_PLAN",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PCS.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PCS.OTHERS",
-          "required": false
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -508,73 +436,24 @@
       ],
       "docTypes": [
         {
-          "code": "ATV.BUILDING_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "ATV.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "ATV.FILL_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "ATV.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "ATV.FILL_CERTIFICATE",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "ATV.LOCATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "ATV.CADASTRAL_SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "ATV.SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "ATV.INTERIOR_DISTRIBUTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "ATV.ELEVATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "ATV.SECTION_PLANS",
-          "required": true
-        },
-
-        {
-          "code": "ATV.FOUNDATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "ATV.SANITATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "ATV.COMBINED_FILE",
-          "required": true
-        },
-        {
-          "code": "ATV.DESCRIPTIVE_ESTIMATE",
-          "required": true
-        },
-        {
-          "code": "ATV.ESTIMATED_PROJECT_COST",
-          "required": true
-        },
-        {
-          "code": "ATV.OTHERS",
-          "required": false
         }
       ]
     },
@@ -607,73 +486,24 @@
       ],
       "docTypes": [
         {
-          "code": "ATV.BUILDING_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "ATV.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "ATV.FILL_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "ATV.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "ATV.FILL_CERTIFICATE",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "ATV.LOCATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "ATV.CADASTRAL_SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "ATV.SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "ATV.INTERIOR_DISTRIBUTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "ATV.ELEVATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "ATV.SECTION_PLANS",
-          "required": true
-        },
-
-        {
-          "code": "ATV.FOUNDATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "ATV.SANITATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "ATV.COMBINED_FILE",
-          "required": true
-        },
-        {
-          "code": "ATV.DESCRIPTIVE_ESTIMATE",
-          "required": true
-        },
-        {
-          "code": "ATV.ESTIMATED_PROJECT_COST",
-          "required": true
-        },
-        {
-          "code": "ATV.OTHERS",
-          "required": false
         }
       ]
     },
@@ -741,80 +571,24 @@
       ],
       "docTypes": [
         {
-          "code": "PCL.FENCE_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PCL.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PCL.FILL_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PCL.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PCL.FILL_CERTIFICATE",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "PCL.LOCATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCL.CADASTRAL_SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCL.SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCL.INTERIOR_DISTRIBUTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.ELEVATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.SECTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.FOUNDATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCL.ELECTRICAL_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.COMBINED_FILE",
-          "required": false
-        },
-        {
-          "code": "PCL.DESCRIPTIVE_ESTIMATE",
-          "required": false
-        },
-        {
-          "code": "PCL.SANITATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.DESCRIPTIVE_ESTIMATE",
-          "required": true
-        },
-        {
-          "code": "PCL.ESTIMATED_PROJECT_COST",
-          "required": true
-        },
-        {
-          "code": "PCL.OTHERS",
-          "required": false
         }
       ]
     },
@@ -847,80 +621,24 @@
       ],
       "docTypes": [
         {
-          "code": "PCL.FENCE_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PCL.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PCL.FILL_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PCL.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PCL.FILL_CERTIFICATE",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "PCL.LOCATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCL.CADASTRAL_SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCL.SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCL.INTERIOR_DISTRIBUTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.ELEVATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.SECTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.FOUNDATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PCL.ELECTRICAL_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.COMBINED_FILE",
-          "required": false
-        },
-        {
-          "code": "PCL.DESCRIPTIVE_ESTIMATE",
-          "required": false
-        },
-        {
-          "code": "PCL.SANITATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PCL.DESCRIPTIVE_ESTIMATE",
-          "required": true
-        },
-        {
-          "code": "PCL.ESTIMATED_PROJECT_COST",
-          "required": true
-        },
-        {
-          "code": "PCL.OTHERS",
-          "required": false
         }
       ]
     },
@@ -988,23 +706,23 @@
       ],
       "docTypes": [
         {
-          "code": "PD.DEMOLITION_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PD.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PD.LOCATION_PLAN",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PD.DEMOLITION_DIAGRAM",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PD.BUILDING_PHOTOGRAPHS",
+          "code": "FI.SIWS",
           "required": true
         }
       ]
@@ -1038,23 +756,23 @@
       ],
       "docTypes": [
         {
-          "code": "PD.DEMOLITION_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PD.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PD.LOCATION_PLAN",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PD.DEMOLITION_DIAGRAM",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PD.BUILDING_PHOTOGRAPHS",
+          "code": "FI.SIWS",
           "required": true
         }
       ]
@@ -1123,15 +841,23 @@
       ],
       "docTypes": [
         {
-          "code": "PR.BACKFILL_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PR.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PR.LOCATION_PLAN",
+          "code": "FI.SISS",
+          "required": true
+        },
+        {
+          "code": "FI.SIES",
+          "required": true
+        },
+        {
+          "code": "FI.SIWS",
           "required": true
         }
       ]
@@ -1165,15 +891,23 @@
       ],
       "docTypes": [
         {
-          "code": "PR.BACKFILL_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PR.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PR.LOCATION_PLAN",
+          "code": "FI.SISS",
+          "required": true
+        },
+        {
+          "code": "FI.SIES",
+          "required": true
+        },
+        {
+          "code": "FI.SIWS",
           "required": true
         }
       ]
@@ -1242,20 +976,24 @@
       ],
       "docTypes": [
         {
-          "code": "CCR.FILL_CONFORMITY_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "CCR.FILL_PERMIT",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "CCR.FILL_TESTS",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "CCR.OTHERS",
-          "required": false
+          "code": "FI.SIES",
+          "required": true
+        },
+        {
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -1288,20 +1026,24 @@
       ],
       "docTypes": [
         {
-          "code": "CCR.FILL_CONFORMITY_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "CCR.FILL_PERMIT",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "CCR.FILL_TESTS",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "CCR.OTHERS",
-          "required": false
+          "code": "FI.SIES",
+          "required": true
+        },
+        {
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -1369,80 +1111,24 @@
       ],
       "docTypes": [
         {
-          "code": "PLOTIR.BUILDING_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PLOTIR.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PLOTIR.FILL_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PLOTIR.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PLOTIR.FILL_CERTIFICATE",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "PLOTIR.LOCATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.CADASTRAL_SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.INTERIOR_DISTRIBUTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.ELEVATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.SECTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.FOUNDATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.ELECTRICAL_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.SANITATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.COMBINED_FILE",
-          "required": false
-        },
-        {
-          "code": "PLOTIR.DESCRIPTIVE_ESTIMATE",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.ESTIMATED_PROJECT_COST",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.SPECIFICATIONS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.OTHERS",
-          "required": false
         }
       ]
     },
@@ -1475,80 +1161,24 @@
       ],
       "docTypes": [
         {
-          "code": "PLOTIR.BUILDING_PERMIT_APPLICATION",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "PLOTIR.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "PLOTIR.FILL_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "PLOTIR.MATERIAL_EXTRACTION_TAX_RECEIPT",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "PLOTIR.FILL_CERTIFICATE",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "PLOTIR.LOCATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.CADASTRAL_SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.SITE_PLAN",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.INTERIOR_DISTRIBUTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.ELEVATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.SECTION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.FOUNDATION_PLAN",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.ELECTRICAL_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.SANITATION_PLANS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.COMBINED_FILE",
-          "required": false
-        },
-        {
-          "code": "PLOTIR.DESCRIPTIVE_ESTIMATE",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.ESTIMATED_PROJECT_COST",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.SPECIFICATIONS",
-          "required": true
-        },
-        {
-          "code": "PLOTIR.OTHERS",
-          "required": false
         }
       ]
     },
@@ -1616,48 +1246,24 @@
       ],
       "docTypes": [
         {
-          "code": "APE.EXECUTION_PLAN_APPROVAL_REQUEST",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "APE.BUILDING_PERMIT",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "APE.SITE_INSPECTION_REPORT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "APE.FOUNDATION_REINFORCEMENT_PLAN",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "APE.FORMWORK_REINFORCEMENT_PLAN",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "APE.UPPER_GROUND_FLOOR_PLAN",
-          "required": false
-        },
-        {
-          "code": "APE.CURRENT_FLOOR_PLAN",
-          "required": true
-        },
-        {
-          "code": "APE.STAIRS_PLAN",
-          "required": false
-        },
-        {
-          "code": "APE.COMBINED_FILE",
-          "required": false
-        },
-        {
-          "code": "APE.DETAILS",
-          "required": false
-        },
-        {
-          "code": "APE.OTHERS",
-          "required": false
         }
       ]
     },
@@ -1690,48 +1296,24 @@
       ],
       "docTypes": [
         {
-          "code": "APE.EXECUTION_PLAN_APPROVAL_REQUEST",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "APE.BUILDING_PERMIT",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "APE.SITE_INSPECTION_REPORT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "APE.FOUNDATION_REINFORCEMENT_PLAN",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "APE.FORMWORK_REINFORCEMENT_PLAN",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "APE.UPPER_GROUND_FLOOR_PLAN",
-          "required": false
-        },
-        {
-          "code": "APE.CURRENT_FLOOR_PLAN",
-          "required": true
-        },
-        {
-          "code": "APE.STAIRS_PLAN",
-          "required": false
-        },
-        {
-          "code": "APE.COMBINED_FILE",
-          "required": false
-        },
-        {
-          "code": "APE.DETAILS",
-          "required": false
-        },
-        {
-          "code": "APE.OTHERS",
-          "required": false
         }
       ]
     },
@@ -1799,24 +1381,24 @@
       ],
       "docTypes": [
         {
-          "code": "CCP.PARASISMIC_CONFORMITY_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "CCP.BUILDING_PERMIT",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "CCP.POURING_APPROVALS",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "CCP.TEST_RESULTS",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "CCP.OTHERS",
-          "required": false
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -1849,24 +1431,24 @@
       ],
       "docTypes": [
         {
-          "code": "CCP.PARASISMIC_CONFORMITY_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "CCP.BUILDING_PERMIT",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "CCP.POURING_APPROVALS",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "CCP.TEST_RESULTS",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "CCP.OTHERS",
-          "required": false
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -1934,20 +1516,24 @@
       ],
       "docTypes": [
         {
-          "code": "CCE.ELECTRICAL_CONFORMITY_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "CCE.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "CCE.BUILDING_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "CCE.OTHERS",
-          "required": false
+          "code": "FI.SIES",
+          "required": true
+        },
+        {
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -1980,20 +1566,24 @@
       ],
       "docTypes": [
         {
-          "code": "CCE.ELECTRICAL_CONFORMITY_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "CCE.LAND_TITLE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "CCE.BUILDING_PERMIT",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "CCE.OTHERS",
-          "required": false
+          "code": "FI.SIES",
+          "required": true
+        },
+        {
+          "code": "FI.SIWS",
+          "required": true
         }
       ]
     },
@@ -2061,28 +1651,24 @@
       ],
       "docTypes": [
         {
-          "code": "CCG.GENERAL_CONFORMITY_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "CCG.ALIGNMENT_CERTIFICATE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "CCG.ELECTRICAL_CONFORMITY_CERTIFICATE",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "CCG.PARASISMIC_CONFORMITY_CERTIFICATE",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "CCG.BUILDING_PERMIT",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "CCG.OTHERS",
-          "required": false
         }
       ]
     },
@@ -2115,28 +1701,24 @@
       ],
       "docTypes": [
         {
-          "code": "CCG.GENERAL_CONFORMITY_CERTIFICATE",
+          "code": "FI.FIR",
           "required": true
         },
         {
-          "code": "CCG.ALIGNMENT_CERTIFICATE",
+          "code": "FI.SINS",
           "required": true
         },
         {
-          "code": "CCG.ELECTRICAL_CONFORMITY_CERTIFICATE",
+          "code": "FI.SISS",
           "required": true
         },
         {
-          "code": "CCG.PARASISMIC_CONFORMITY_CERTIFICATE",
+          "code": "FI.SIES",
           "required": true
         },
         {
-          "code": "CCG.BUILDING_PERMIT",
+          "code": "FI.SIWS",
           "required": true
-        },
-        {
-          "code": "CCG.OTHERS",
-          "required": false
         }
       ]
     },
