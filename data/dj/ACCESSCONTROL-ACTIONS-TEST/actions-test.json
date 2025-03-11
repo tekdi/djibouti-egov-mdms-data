@@ -6316,7 +6316,7 @@
          "url": "/pdf-service/v1/_create",
          "displayName": "Pdf Generator create",
          "orderNumber": 1,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "pdf-generator-create",
          "code": "null",
          "path": ""
@@ -6327,7 +6327,7 @@
          "url": "/pdf-service/v1/_search",
          "displayName": "Pdf Generator search",
          "orderNumber": 2,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "pdf-generator-search",
          "code": "null",
          "path": ""
@@ -6772,7 +6772,7 @@
          "url": "/pdf-service/v1/_createnosave",
          "displayName": "Pdf Generator createnosave",
          "orderNumber": 3,
-         "enabled": false,
+         "enabled": true,
          "serviceCode": "pdf-generator-createnosave",
          "code": "null",
          "path": ""
@@ -12433,7 +12433,7 @@
       "url": "/pdf-service/v1/_getBulkPdfRecordsDetails",
       "displayName": "Bulk PDF Details",
       "orderNumber": 1,
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "pdf-generator-create",
       "code": "null",
       "path": ""
@@ -12444,7 +12444,7 @@
       "url": "/pdf-service/v1/_cancelProcess",
       "displayName": "Bulk PDF Cancel Process",
       "orderNumber": 1,
-      "enabled": false,
+      "enabled": true,
       "serviceCode": "pdf-generator-create",
       "code": "null",
       "path": ""
