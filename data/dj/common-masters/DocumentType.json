@@ -485,6 +485,34 @@
     {
       "code": "CCG.OTHERS",
       "active": true
+    },
+    {
+      "code": "NOC.MD",
+      "active": true
+    },
+    {
+      "code": "NOC.DDCF",
+      "active": true
+    },
+    {
+      "code": "NOC.DNPC",
+      "active": true
+    },
+    {
+      "code": "NOC.INSPD",
+      "active": true
+    },
+    {
+      "code": "NOC.EDD",
+      "active": true
+    },
+    {
+      "code": "NOC.ONEAD",
+      "active": true
+    },
+    {
+      "code": "NOC.DTELECOM",
+      "active": true
     }
   ]
 }
