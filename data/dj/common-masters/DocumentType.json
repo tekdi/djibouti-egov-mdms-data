@@ -487,31 +487,31 @@
       "active": true
     },
     {
-      "code": "NOC.MD",
+      "code": "NOC.MD.CERTIFICATE",
       "active": true
     },
     {
-      "code": "NOC.DDCF",
+      "code": "NOC.DDCF.CERTIFICATE",
       "active": true
     },
     {
-      "code": "NOC.DNPC",
+      "code": "NOC.DNPC.CERTIFICATE",
       "active": true
     },
     {
-      "code": "NOC.INSPD",
+      "code": "NOC.INSPD.CERTIFICATE",
       "active": true
     },
     {
-      "code": "NOC.EDD",
+      "code": "NOC.EDD.CERTIFICATE",
       "active": true
     },
     {
-      "code": "NOC.ONEAD",
+      "code": "NOC.ONEAD.CERTIFICATE",
       "active": true
     },
     {
-      "code": "NOC.DTELECOM",
+      "code": "NOC.DTELECOM.CERTIFICATE",
       "active": true
     }
   ]
