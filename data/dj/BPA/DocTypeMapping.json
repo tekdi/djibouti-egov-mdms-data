@@ -3615,8 +3615,8 @@
     {
       "applicationType": "BUILDING_PLAN_SCRUTINY",
       "ServiceType": "PROVISIONAL_BUILDING_PERMIT",
-      "RiskType": "LOW",
-      "WFState": "MEDIUM",
+      "RiskType": "MEDIUM",
+      "WFState": "INPROGRESS",
       "docTypes": [
         {
           "code": "APPL.IDENTITYPROOF",
