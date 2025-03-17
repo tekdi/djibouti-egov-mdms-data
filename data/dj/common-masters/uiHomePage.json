@@ -7,14 +7,14 @@
             {
                 "code": "APP_BANNER_DESKTOP",
                 "name": "App Banner Desktop View",
-                "bannerUrl": "https://uat.digit.org/egov-uat-assets/app-banner-mobile.jpg",
+                "bannerUrl": "https://s3.ap-south-1.amazonaws.com/egov-qa-assets/app-banner-web.jpg",
                 "enabled": true
             },
             "appBannerMobile":
             {
                 "code": "APP_BANNER_MOBILE",
                 "name": "App Banner Mobile View",
-                "bannerUrl": "https://uat.digit.org/egov-uat-assets/app-banner-mobile.jpg",
+                "bannerUrl": "https://s3.ap-south-1.amazonaws.com/egov-qa-assets/app-banner-mobile.jpg",
                 "enabled": true
             },
             "citizenServicesCard":
