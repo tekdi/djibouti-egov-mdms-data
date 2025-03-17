@@ -162,6 +162,23 @@
           "code": "dj.alisabieh"
         }
       ]
+    },
+    {
+      "module": "Receipts",
+      "code": "Receipts",
+      "active": true,
+      "order": 3,
+      "tenants": [
+        {
+          "code": "dj.djibouti"
+        },
+        {
+          "code": "dj.tadjourah"
+        },
+        {
+          "code": "dj.alisabieh"
+        }
+      ]
     }
   ]
 }
