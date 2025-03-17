@@ -145,6 +145,23 @@
           "code": "dj.alisabieh"
         }
       ]
+    },
+    {
+      "module": "NOC",
+      "code": "NOC",
+      "active": true,
+      "order": 2,
+      "tenants": [
+        {
+          "code": "dj.djibouti"
+        },
+        {
+          "code": "dj.tadjourah"
+        },
+        {
+          "code": "dj.alisabieh"
+        }
+      ]
     }
   ]
 }
