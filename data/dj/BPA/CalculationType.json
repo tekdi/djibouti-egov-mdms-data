@@ -6,78 +6,588 @@
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "ORDINARY_BUILDING_PERMIT",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ORDINARY_BUILDING_PERMIT",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ORDINARY_BUILDING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ORDINARY_BUILDING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ORDINARY_BUILDING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 1250
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ORDINARY_BUILDING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 1250
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "PROVISIONAL_BUILDING_PERMIT",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PROVISIONAL_BUILDING_PERMIT",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PROVISIONAL_BUILDING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PROVISIONAL_BUILDING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PROVISIONAL_BUILDING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 1250
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PROVISIONAL_BUILDING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 1250
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "SIMPLIFIED_BUILDING_PERMIT",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "SIMPLIFIED_BUILDING_PERMIT",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "SIMPLIFIED_BUILDING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "SIMPLIFIED_BUILDING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "SIMPLIFIED_BUILDING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 625
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "SIMPLIFIED_BUILDING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 625
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "AUTHORIZATION_FOR_ROAD_WORKS",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 1250
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "AUTHORIZATION_FOR_ROAD_WORKS",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 1250
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "FENCING_PERMIT",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FENCING_PERMIT",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FENCING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FENCING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FENCING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 450
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FENCING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 450
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "DEMOLITION_PERMIT",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "DEMOLITION_PERMIT",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "DEMOLITION_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "DEMOLITION_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "DEMOLITION_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "DEMOLITION_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 0
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "FILL_PERMIT",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FILL_PERMIT",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FILL_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FILL_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FILL_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "FILL_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 0
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "CERTIFICATE_OF_COMPLIANCE_OF_EMBEDDING",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 0
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "PLANNING_PERMIT",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PLANNING_PERMIT",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PLANNING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PLANNING_PERMIT",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PLANNING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 625
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PLANNING_PERMIT",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 625
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "EXECUTION_PLAN_APPROVAL",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "EXECUTION_PLAN_APPROVAL",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "EXECUTION_PLAN_APPROVAL",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "EXECUTION_PLAN_APPROVAL",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "EXECUTION_PLAN_APPROVAL",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "EXECUTION_PLAN_APPROVAL",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 0
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "PARASISMIC_CONFORMITY_CERTIFICATE",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 0
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "ELECTRICAL_CONFORMITY_CERTIFICATE",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
             "amount": 0
         },
         {
             "applicationType": "BUILDING_PLAN_SCRUTINY",
             "serviceType": "GENERAL_CONFORMITY_CERTIFICATE",
             "feeType": "ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "GENERAL_CONFORMITY_CERTIFICATE",
+            "feeType": "ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "GENERAL_CONFORMITY_CERTIFICATE",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "GENERAL_CONFORMITY_CERTIFICATE",
+            "feeType": "Low_ApplicationFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "GENERAL_CONFORMITY_CERTIFICATE",
+            "feeType": "SanctionFee",
+            "riskType": "LOW",
+            "amount": 0
+        },
+        {
+            "applicationType": "BUILDING_PLAN_SCRUTINY",
+            "serviceType": "GENERAL_CONFORMITY_CERTIFICATE",
+            "feeType": "SanctionFee",
+            "riskType": "ALL",
+            "amount": 0
+        },
+        {
+            "applicationType": "ALL",
+            "serviceType": "ALL",
+            "riskType": "LOW",
+            "feeType": "ApplicationFee",
+            "amount": 0
+        },
+        {
+            "applicationType": "ALL",
+            "serviceType": "ALL",
+            "riskType": "ALL",
+            "feeType": "ApplicationFee",
+            "amount": 0
+        },
+        {
+            "applicationType": "ALL",
+            "serviceType": "ALL",
+            "riskType": "LOW",
+            "feeType": "Low_ApplicationFee",
+            "amount": 0
+        },
+        {
+            "applicationType": "ALL",
+            "serviceType": "ALL",
+            "riskType": "ALL",
+            "feeType": "Low_ApplicationFee",
+            "amount": 0
+        },
+        {
+            "applicationType": "ALL",
+            "serviceType": "ALL",
+            "riskType": "LOW",
+            "feeType": "SanctionFee",
+            "amount": 0
+        },
+        {
+            "applicationType": "ALL",
+            "serviceType": "ALL",
+            "riskType": "ALL",
+            "feeType": "SanctionFee",
             "amount": 0
         }
     ]
