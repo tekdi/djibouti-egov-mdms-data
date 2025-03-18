@@ -16275,6 +16275,18 @@
       "tenantId": "dj"
     },
     {
+      "rolecode": "CEMP",
+      "actionid": 2042,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "CEMP",
+      "actionid": 2032,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
       "rolecode": "BPA_ARCHITECT",
       "actionid": 2042,
       "actioncode": "",
