@@ -7,7 +7,7 @@
          "isActive": true,
          "offlineWF":"MD_NOC_OFFLINE",
          "onlineWF":"MD_NOC_SRV",
-         "mode":"online",
+         "mode":"offline",
          "NocUserRole":"MD_NOC_APPROVER"
       },
       {
@@ -15,7 +15,7 @@
         "isActive": true,
         "offlineWF":"DDCF_NOC_OFFLINE",
         "onlineWF":"DDCF_NOC_SRV",
-        "mode":"online",
+        "mode":"offline",
         "NocUserRole":"DDCF_NOC_APPROVER"
       },
       {
@@ -31,7 +31,7 @@
         "isActive": true,
         "offlineWF":"INSPD_NOC_OFFLINE",
         "onlineWF":"INSPD_NOC_SRV",
-        "mode":"online",
+        "mode":"offline",
         "NocUserRole":"INSPD_NOC_APPROVER"
       },
       {
@@ -47,7 +47,7 @@
         "isActive": true,
         "offlineWF":"ONEAD_NOC_OFFLINE",
         "onlineWF":"ONEAD_NOC_SRV",
-        "mode":"online",
+        "mode":"offline",
         "NocUserRole":"ONEAD_NOC_APPROVER"
       },
       {
@@ -55,7 +55,7 @@
         "isActive": true,
         "offlineWF":"DTELECOM_NOC_OFFLINE",
         "onlineWF":"DTELECOM_NOC_SRV",
-        "mode":"online",
+        "mode":"offline",
         "NocUserRole":"DTELECOM_NOC_APPROVER"
       }
     ]
