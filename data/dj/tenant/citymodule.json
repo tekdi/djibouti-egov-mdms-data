@@ -179,6 +179,23 @@
           "code": "dj.alisabieh"
         }
       ]
+    },
+    {
+      "module": "Engagement",
+      "code": "Engagement",
+      "active": true,
+      "order": 3,
+      "tenants": [
+        {
+          "code": "dj.djibouti"
+        },
+        {
+          "code": "dj.tadjourah"
+        },
+        {
+          "code": "dj.alisabieh"
+        }
+      ]
     }
   ]
 }
