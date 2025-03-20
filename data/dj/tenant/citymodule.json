@@ -183,7 +183,7 @@
     {
       "module": "Engagement",
       "code": "Engagement",
-      "active": true,
+      "active": false,
       "order": 3,
       "tenants": [
         {
