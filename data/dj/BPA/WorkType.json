@@ -1,0 +1,46 @@
+{
+  "tenantId": "dj",
+  "moduleName": "BPA",
+  "WorkType": [
+    {
+      "code": "NEW_CONSTRUCTION",
+      "name": "New Construction",
+      "active": "true"
+    },
+    {
+      "code": "EXTENSION_CONSTRUCTION",
+      "name": "Extension to existing building",
+      "active": "true"
+    },
+    {
+      "code": "ELEVATION",
+      "name": "Elevation",
+      "active": "true"
+    },
+    {
+      "code": "INDUSTRY",
+      "name": "Industry",
+      "active": "true"
+    },
+    {
+      "code": "COMMERCIAL",
+      "name": "Commercial",
+      "active": "true"
+    },
+    {
+      "code": "OFFICES",
+      "name": "Offices",
+      "active": "true"
+    },
+    {
+      "code": "HOUSING",
+      "name": "Housing",
+      "active": "true"
+    },
+    {
+      "code": "OTHERS",
+      "name": "Others",
+      "active": "true"
+    }
+  ]
+}
