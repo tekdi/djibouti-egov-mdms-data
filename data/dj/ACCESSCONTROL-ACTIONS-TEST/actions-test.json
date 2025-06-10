@@ -200,6 +200,18 @@
       "serviceCode": "CHECKLIST"
     },
     {
+      "id": 5585,
+      "url": "/public-service/v1/application",
+      "code": "null",
+      "name": "Search Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Search Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
       "id": 5584,
       "url": "/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02",
       "code": "null",

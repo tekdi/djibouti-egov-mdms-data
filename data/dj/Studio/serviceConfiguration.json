@@ -310,6 +310,7 @@
             "isStartState": true,
             "isTerminateState": false,
             "isStateUpdatable": true,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -330,6 +331,7 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -350,6 +352,7 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -378,6 +381,7 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -398,6 +402,7 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -434,6 +439,7 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -470,6 +476,7 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -506,6 +513,14 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [
+              "BPA_PCO_SDECC",
+              "BPA_PCO_DGDCF",
+              "BPA_PCO_ONEAD",
+              "BPA_PCO_DNPC",
+              "BPA_PCO_EDD",
+              "BPA_PCO_INSPD"
+            ],
             "actions": [
               {
                 "tenantId": "dj",
@@ -542,6 +557,7 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -570,6 +586,7 @@
             "isStartState": false,
             "isTerminateState": false,
             "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
             "actions": [
               {
                 "tenantId": "dj",
@@ -589,7 +606,8 @@
             "docUploadRequired": false,
             "isStartState": false,
             "isTerminateState": true,
-            "isStateUpdatable": false
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": []
           },
           {
             "tenantId": "dj",
@@ -599,7 +617,8 @@
             "docUploadRequired": false,
             "isStartState": false,
             "isTerminateState": true,
-            "isStateUpdatable": false
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": []
           }
         ]
       },
@@ -806,9 +825,9 @@
       },
       "calculator": {
         "type": "api",
-        "host": "https://djibouti.tekdinext.com/",
+        "host": "https://djibouti.tekdinext.com",
         "method": "post",
-        "endpoint": "calculator-service/v1/BPA_PCO/demand"
+        "endpoint": "/calculator-service/v1/BPA_PCO/demand"
       },
       "notification": {
         "sms": [
