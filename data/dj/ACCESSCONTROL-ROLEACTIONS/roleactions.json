@@ -141,12 +141,6 @@
       "actioncode": ""
     },
     {
-      "actionid": 2300,
-      "rolecode": "CITIZEN",
-      "tenantid": "dj",
-      "actioncode": ""
-    },
-    {
       "actionid": 1650,
       "rolecode": "CITIZEN",
       "tenantid": "dj",
@@ -345,12 +339,6 @@
       "actioncode": ""
     },
     {
-      "actionid": 2300,
-      "rolecode": "BPA_ARCHITECT",
-      "tenantid": "dj",
-      "actioncode": ""
-    },
-    {
       "actionid": 5581,
       "rolecode": "BPA_ARCHITECT",
       "tenantid": "dj",
@@ -484,12 +472,6 @@
     },
     {
       "actionid": 1650,
-      "rolecode": "STUDIO_ADMIN",
-      "tenantid": "dj",
-      "actioncode": ""
-    },
-    {
-      "actionid": 2300,
       "rolecode": "STUDIO_ADMIN",
       "tenantid": "dj",
       "actioncode": ""
@@ -711,18 +693,6 @@
       "actioncode": ""
     },
     {
-      "actionid": 5582,
-      "rolecode": "BPA_HOD",
-      "tenantId": "dj",
-      "actioncode": ""
-    },
-    {
-      "actionid": 5584,
-      "rolecode": "BPA_HOD",
-      "tenantId": "dj",
-      "actioncode": ""
-    },
-    {
       "actionid": 1829,
       "rolecode": "BPA_HOD",
       "tenantId": "dj",
@@ -926,7 +896,6 @@
       "tenantId": "dj",
       "actioncode": ""
     },
-
     {
       "actionid": 1650,
       "rolecode": "BPA_DGDCF_COMM",
@@ -957,7 +926,6 @@
       "tenantId": "dj",
       "actioncode": ""
     },
-
     {
       "actionid": 1650,
       "rolecode": "BPA_ONEAD_COMM",
@@ -988,7 +956,6 @@
       "tenantId": "dj",
       "actioncode": ""
     },
-
     {
       "actionid": 1650,
       "rolecode": "BPA_DNPC_COMM",
@@ -1019,7 +986,6 @@
       "tenantId": "dj",
       "actioncode": ""
     },
-
     {
       "actionid": 1650,
       "rolecode": "BPA_EDD_COMM",
@@ -1050,7 +1016,6 @@
       "tenantId": "dj",
       "actioncode": ""
     },
-
     {
       "actionid": 1650,
       "rolecode": "BPA_INSPD_COMM",
@@ -1078,6 +1043,114 @@
     {
       "actionid": 1829,
       "rolecode": "BPA_INSPD_COMM",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5582,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 1650,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantid": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 2300,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantid": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5584,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 1829,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 21,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 2201,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5580,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5581,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantid": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 1862,
+      "rolecode": "BPA_SDECC_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 1862,
+      "rolecode": "BPA_SDECC_AGENT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5584,
+      "rolecode": "BPA_SDECC_AGENT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4872,
+      "rolecode": "BPA_SDECC_AGENT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4873,
+      "rolecode": "BPA_SDECC_AGENT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4874,
+      "rolecode": "BPA_SDECC_AGENT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 21,
+      "rolecode": "BPA_SDECC_AGENT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5580,
+      "rolecode": "BPA_SDECC_AGENT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 1829,
+      "rolecode": "BPA_SDECC_AGENT",
       "tenantId": "dj",
       "actioncode": ""
     }

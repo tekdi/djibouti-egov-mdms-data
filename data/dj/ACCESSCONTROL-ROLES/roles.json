@@ -101,6 +101,16 @@
       "code": "BPA_INSPD_COMM",
       "name": "BPA INSPD COMMISSIONER",
       "description": "National Institute of Public Health of Djibouti"
+    },
+    {
+      "code": "BPA_SDECC_HOD",
+      "name": "BPA SDECC HOD",
+      "description": "HOD of Sub-Directorate For Expertise And Control Of Constructions"
+    },
+    {
+      "code": "BPA_SDECC_AGENT",
+      "name": "BPA SDECC AGENT",
+      "description": "Agent of Sub-Directorate For Expertise And Control Of Constructions"
     }
   ]
 }
