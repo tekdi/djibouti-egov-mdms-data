@@ -1,0 +1,22 @@
+{
+  "tenantId": "dj",
+  "moduleName": "BPA",
+  "IdentityType": [
+    {
+      "code": "NATIONALIDNUMBER",
+      "active": true
+    },
+    {
+      "code": "PASSPORT",
+      "active": true
+    },
+    {
+      "code": "CNSSID",
+      "active": true
+    },
+    {
+      "code": "OTHER",
+      "active": true
+    }
+  ]
+}
