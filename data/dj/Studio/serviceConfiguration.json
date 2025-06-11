@@ -111,9 +111,9 @@
                 "format": "number",
                 "validation": {
                   "min": 0,
-                  "message": "Area should be non negative"
+                  "message": "AREA_NEGATIVE_ERR"
                 },
-                "required": false
+                "required": true
               },
               {
                 "name": "legalStatus",
@@ -122,9 +122,9 @@
                 "format": "text",
                 "validation": {
                   "min": 0,
-                  "message": "Legal current status should not be empty"
+                  "message": "LEGAL_STATUS_ERR"
                 },
-                "required": false
+                "required": true
               },
               {
                 "name": "definitiveLandTitle",
@@ -132,7 +132,7 @@
                 "type": "string",
                 "reference": "enum",
                 "format": "radio",
-                "required": false,
+                "required": true,
                 "values": ["Yes", "No"]
               },
               {
@@ -149,7 +149,7 @@
                 "type": "string",
                 "reference": "enum",
                 "format": "radio",
-                "required": false,
+                "required": true,
                 "values": ["Yes", "No"]
               },
               {
@@ -166,7 +166,7 @@
                 "type": "string",
                 "reference": "mdms",
                 "format": "radioordropdown",
-                "required": false,
+                "required": true,
                 "schema": "BPA.WorkType"
               },
               {
@@ -192,42 +192,42 @@
                 "label": "Maximum authorized C.E.S (2) for the zone",
                 "type": "string",
                 "format": "number",
-                "required": false
+                "required": true
               },
               {
                 "name": "prjectedCes",
                 "label": "Projected C.E.S.",
                 "type": "string",
                 "format": "number",
-                "required": false
+                "required": true
               },
               {
                 "name": "maximumAuthorizedCos",
                 "label": "Maximum authorized C.O.S (3) for the zone",
                 "type": "string",
                 "format": "number",
-                "required": false
+                "required": true
               },
               {
                 "name": "projectedCos",
                 "label": "Projected C.O.S.",
                 "type": "string",
                 "format": "number",
-                "required": false
+                "required": true
               },
               {
                 "name": "coveredProjectArea",
                 "label": "Covered project area (m²)",
                 "type": "string",
                 "format": "number",
-                "required": false
+                "required": true
               },
               {
                 "name": "constructionCostPerSqMt",
                 "label": "Construction cost per m² excluding work",
                 "type": "string",
                 "format": "number",
-                "required": false,
+                "required": true,
                 "minLength": 1
               }
             ]
@@ -247,7 +247,7 @@
                 "format": "text",
                 "minLength": 2,
                 "maxLength": 100,
-                "required": false
+                "required": true
               },
               {
                 "name": "architectName",
@@ -256,7 +256,7 @@
                 "format": "text",
                 "minLength": 2,
                 "maxLength": 256,
-                "required": false
+                "required": true
               },
               {
                 "name": "telephone",
@@ -264,10 +264,10 @@
                 "type": "number",
                 "format": "mobileNumber",
                 "validation": {
-                  "pattern": "(^$|^77[0-9]{6}$)",
-                  "message": "Only valid contact number is allowed"
+                  "regex": "(^$|^77[0-9]{6}$)",
+                  "message": "TELEPHONE_NUMBER_ERR"
                 },
-                "required": false,
+                "required": true,
                 "placeholder": "00 00 00 00",
                 "minLength": 8,
                 "maxLength": 8
@@ -279,9 +279,9 @@
                 "format": "text",
                 "validation": {
                   "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
-                  "message": "Invalid email id"
+                  "message": "EMAIL_ERR"
                 },
-                "required": false
+                "required": true
               },
               {
                 "name": "registrationNo",
