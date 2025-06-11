@@ -10,8 +10,8 @@
     },
     {
       "code": "DESIG_02",
-      "name": "Economist",
-      "description": "Economist",
+      "name": "Secretary",
+      "description": "Secretary",
       "active": true
     },
     {
@@ -27,9 +27,45 @@
       "active": true
     },
     {
+      "code": "DESIG_05",
+      "name": "Senior technician",
+      "description": "Senior technician",
+      "active": true
+    },
+    {
+      "code": "DESIG_06",
+      "name": "Assistant technician",
+      "description": "Assistant technician",
+      "active": true
+    },
+    {
+      "code": "DESIG_07",
+      "name": "Technician",
+      "description": "Technician",
+      "active": true
+    },
+    {
+      "code": "DESIG_08",
+      "name": "Techni-controller",
+      "description": "Techni-controller",
+      "active": true
+    },
+    {
+      "code": "DESIG_09",
+      "name": "Works Coordinator",
+      "description": "Works Coordinator",
+      "active": true
+    },
+    {
       "code": "DESIG_10",
       "name": "Engineer",
       "description": "Engineer",
+      "active": true
+    },
+    {
+      "code": "DESIG_11",
+      "name": "Electrician",
+      "description": "Electrician",
       "active": true
     },
     {
@@ -42,6 +78,12 @@
       "code": "DESIG_13",
       "name": " Techni-adj (Topographer)",
       "description": " Techni-adj (Topographer)",
+      "active": true
+    },
+    {
+      "code": "DESIG_14",
+      "name": "Economist",
+      "description": "Economist",
       "active": true
     }
   ]
