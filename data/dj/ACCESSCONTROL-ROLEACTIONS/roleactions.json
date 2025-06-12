@@ -21,6 +21,42 @@
       "tenantId": "dj"
     },
     {
+      "rolecode": "COUNTER_EMPLOYEE",
+      "actionid": 4863,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "COUNTER_EMPLOYEE",
+      "actionid": 4864,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "COUNTER_EMPLOYEE",
+      "actionid": 1862,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "COUNTER_EMPLOYEE",
+      "actionid": 5584,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "COUNTER_EMPLOYEE",
+      "actionid": 21,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
+      "rolecode": "COUNTER_EMPLOYEE",
+      "actionid": 1829,
+      "actioncode": "",
+      "tenantId": "dj"
+    },
+    {
       "rolecode": "HRMS_ADMIN",
       "actionid": 1,
       "actioncode": "",

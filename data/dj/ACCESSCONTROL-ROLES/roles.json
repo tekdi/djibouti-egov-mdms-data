@@ -18,6 +18,11 @@
       "description": "Default role for all employees"
     },
     {
+      "code": "COUNTER_EMPLOYEE",
+      "name": "Counter Employee",
+      "description": "Employee at the counter who performs assessment on behalf of citizen"
+    },
+    {
       "code": "HRMS_ADMIN",
       "name": "HRMS Admin",
       "description": "HRMS Admin"
