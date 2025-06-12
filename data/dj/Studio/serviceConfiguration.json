@@ -413,6 +413,17 @@
                   "STUDIO_ADMIN"
                 ],
                 "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_AGENT",
+                "action": "ADD_QUERY",
+                "nextState": "PENDING_ACTION_BY_AGENT",
+                "roles": [
+                  "BPA_AGENTS",
+                  "STUDIO_ADMIN"
+                ],
+                "active": true
               }
             ]
           },
@@ -442,7 +453,7 @@
                 "tenantId": "dj",
                 "currentState": "AGENT_REPORT_READY",
                 "action": "SEND_TO_SDECC_HOD",
-                "nextState": "PENDING_REVIEW_BY_SDECC_HOD",
+                "nextState": "SDECC_AGENT_NOT_ASSSIGNED",
                 "roles": [
                   "BPA_HOD",
                   "STUDIO_ADMIN"
@@ -500,8 +511,8 @@
           {
             "tenantId": "dj",
             "sla": null,
-            "state": "PENDING_REVIEW_BY_SDECC_HOD",
-            "applicationStatus": "PENDING_REVIEW_BY_SDECC_HOD",
+            "state": "SDECC_AGENT_NOT_ASSSIGNED",
+            "applicationStatus": "SDECC_AGENT_NOT_ASSSIGNED",
             "docUploadRequired": false,
             "isStartState": false,
             "isTerminateState": false,
@@ -510,9 +521,9 @@
             "actions": [
               {
                 "tenantId": "dj",
-                "currentState": "PENDING_REVIEW_BY_SDECC_HOD",
+                "currentState": "SDECC_AGENT_NOT_ASSSIGNED",
                 "action": "ADD_QUERY",
-                "nextState": "PENDING_REVIEW_BY_SDECC_HOD",
+                "nextState": "SDECC_AGENT_NOT_ASSSIGNED",
                 "roles": [
                   "BPA_SDECC_HOD",
                   "STUDIO_ADMIN"
@@ -521,8 +532,8 @@
               },
               {
                 "tenantId": "dj",
-                "currentState": "PENDING_REVIEW_BY_SDECC_HOD",
-                "action": "DELEGATE_TO_SDECC_AGENT",
+                "currentState": "SDECC_AGENT_NOT_ASSSIGNED",
+                "action": "ASSIGN_TO_SDECC_AGENT",
                 "nextState": "PENDING_ACTION_BY_SDECC_AGENT",
                 "roles": [
                   "BPA_SDECC_HOD",
@@ -548,6 +559,17 @@
                 "currentState": "PENDING_ACTION_BY_SDECC_AGENT",
                 "action": "SEND_TO_SDECC_HOD",
                 "nextState": "SDECC_AGENT_REPORT_READY",
+                "roles": [
+                  "BPA_SDECC_AGENT",
+                  "STUDIO_ADMIN"
+                ],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_SDECC_AGENT",
+                "action": "ADD_QUERY",
+                "nextState": "PENDING_ACTION_BY_SDECC_AGENT",
                 "roles": [
                   "BPA_SDECC_AGENT",
                   "STUDIO_ADMIN"
@@ -583,6 +605,17 @@
                 "currentState": "SDECC_AGENT_REPORT_READY",
                 "action": "SEND_TO_DIRECTOR",
                 "nextState": "NOT_FORWARDED_TO_COMMISSIONER",
+                "roles": [
+                  "BPA_SDECC_HOD",
+                  "STUDIO_ADMIN"
+                ],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "SDECC_AGENT_REPORT_READY",
+                "action": "ADD_QUERY",
+                "nextState": "SDECC_AGENT_REPORT_READY",
                 "roles": [
                   "BPA_SDECC_HOD",
                   "STUDIO_ADMIN"
@@ -720,6 +753,7 @@
                 "nextState": "CITIZEN_PAYMENT_DONE",
                 "roles": [
                   "CITIZEN",
+                  "COUNTER_EMPLOYEE",
                   "STUDIO_ADMIN"
                 ],
                 "active": true
