@@ -126,6 +126,16 @@
       "name": "Sub-Directorate For Expertise And Control Of Constructions (SDECC)",
       "code": "DEPT_4",
       "active": true
+    },
+    {
+      "name": "MVUH",
+      "code": "MVUH",
+      "active": true
+    },
+    {
+      "name": "DATUH",
+      "code": "DATUH",
+      "active": true
     }
   ]
 }

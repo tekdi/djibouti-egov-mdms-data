@@ -79,6 +79,12 @@
       "name": " Techni-adj (Topographer)",
       "description": " Techni-adj (Topographer)",
       "active": true
+    },
+    {
+      "code": "DESIG_14",
+      "name": "Economist",
+      "description": "Economist",
+      "active": true
     }
   ]
 }
