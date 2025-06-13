@@ -143,6 +143,29 @@
               "templatedownloadURL": null
             },
             {
+              "code": "PCO_PROJECT_FILES",
+              "name": "project-files",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 10,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 10,
+              "allowedFileTypes": [
+                "dwg",
+                "dxf",
+                "skp",
+                "pla",
+                "pln",
+                "rvt",
+                "rfa",
+                "zip",
+                "rar",
+                "7z"
+              ],
+              "templatedownloadURL": null
+            },
+            {
               "code": "PCO_PROJECT_LAYOUT_PLAN",
               "name": "project-layout-plan",
               "active": true,
@@ -334,6 +357,48 @@
             {
               "code": "PCO_OPERATING_LICENSE_FOR_THE_CONCERNED_ACTIVITES",
               "name": "operating-license-for-the-concerned-activites",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_PRE_SALES_AGREEMENT",
+              "name": "pre-sales-agreements",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_PROTOCOL_ACCORD",
+              "name": "protocol-daccord",
               "active": true,
               "isMandatory": false,
               "maxSizeInMB": 5,
