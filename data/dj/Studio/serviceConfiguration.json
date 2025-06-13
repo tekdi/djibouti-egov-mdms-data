@@ -133,10 +133,7 @@
                 "reference": "enum",
                 "format": "radio",
                 "required": false,
-                "values": [
-                  "Yes",
-                  "No"
-                ]
+                "values": ["Yes", "No"]
               },
               {
                 "name": "tfNo",
@@ -153,10 +150,7 @@
                 "reference": "enum",
                 "format": "radio",
                 "required": false,
-                "values": [
-                  "Yes",
-                  "No"
-                ]
+                "values": ["Yes", "No"]
               },
               {
                 "name": "other",
@@ -304,9 +298,7 @@
         "businessService": "BPA_PCO",
         "business": "public-services",
         "businessSericeSla": null,
-        "generateDemandAt": [
-          "SEND_TO_CITIZEN_PAYMENT"
-        ],
+        "generateDemandAt": ["SEND_TO_CITIZEN_PAYMENT"],
         "nextActionAfterPayment": "MAKE_PAYMENT",
         "states": [
           {
@@ -325,10 +317,7 @@
                 "currentState": "",
                 "action": "DRAFT",
                 "nextState": "INITIATED",
-                "roles": [
-                  "BPA_ARCHITECT",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -349,10 +338,7 @@
                 "currentState": "INITIATED",
                 "action": "CREATE",
                 "nextState": "AGENT_NOT_ASSIGNED",
-                "roles": [
-                  "BPA_ARCHITECT",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -373,10 +359,7 @@
                 "currentState": "AGENT_NOT_ASSIGNED",
                 "action": "ADD_QUERY",
                 "nextState": "AGENT_NOT_ASSIGNED",
-                "roles": [
-                  "BPA_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -384,10 +367,7 @@
                 "currentState": "AGENT_NOT_ASSIGNED",
                 "action": "ASSIGN_TO_AGENT",
                 "nextState": "PENDING_ACTION_BY_AGENT",
-                "roles": [
-                  "BPA_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -408,10 +388,7 @@
                 "currentState": "PENDING_ACTION_BY_AGENT",
                 "action": "SEND_TO_HOD",
                 "nextState": "AGENT_REPORT_READY",
-                "roles": [
-                  "BPA_AGENTS",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -419,10 +396,7 @@
                 "currentState": "PENDING_ACTION_BY_AGENT",
                 "action": "ADD_QUERY",
                 "nextState": "PENDING_ACTION_BY_AGENT",
-                "roles": [
-                  "BPA_AGENTS",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -441,12 +415,17 @@
               {
                 "tenantId": "dj",
                 "currentState": "AGENT_REPORT_READY",
+                "action": "NON_CONFORM",
+                "nextState": "DECLARED_NON_CONFORM",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AGENT_REPORT_READY",
                 "action": "ADD_QUERY",
                 "nextState": "AGENT_REPORT_READY",
-                "roles": [
-                  "BPA_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -454,10 +433,7 @@
                 "currentState": "AGENT_REPORT_READY",
                 "action": "SEND_TO_SDECC_HOD",
                 "nextState": "SDECC_AGENT_NOT_ASSSIGNED",
-                "roles": [
-                  "BPA_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -478,10 +454,7 @@
                 "currentState": "DECLARED_NON_CONFORM",
                 "action": "REJECT",
                 "nextState": "PERMIT_REJECTED",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -489,10 +462,7 @@
                 "currentState": "DECLARED_NON_CONFORM",
                 "action": "ADD_QUERY",
                 "nextState": "DECLARED_NON_CONFORM",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -500,10 +470,7 @@
                 "currentState": "DECLARED_NON_CONFORM",
                 "action": "SEND_TO_COMMISSIONER",
                 "nextState": "AWAITING_ON_COMMISSIONER",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -524,10 +491,7 @@
                 "currentState": "SDECC_AGENT_NOT_ASSSIGNED",
                 "action": "ADD_QUERY",
                 "nextState": "SDECC_AGENT_NOT_ASSSIGNED",
-                "roles": [
-                  "BPA_SDECC_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -535,10 +499,7 @@
                 "currentState": "SDECC_AGENT_NOT_ASSSIGNED",
                 "action": "ASSIGN_TO_SDECC_AGENT",
                 "nextState": "PENDING_ACTION_BY_SDECC_AGENT",
-                "roles": [
-                  "BPA_SDECC_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -559,10 +520,7 @@
                 "currentState": "PENDING_ACTION_BY_SDECC_AGENT",
                 "action": "SEND_TO_SDECC_HOD",
                 "nextState": "SDECC_AGENT_REPORT_READY",
-                "roles": [
-                  "BPA_SDECC_AGENT",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_SDECC_AGENT", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -570,10 +528,7 @@
                 "currentState": "PENDING_ACTION_BY_SDECC_AGENT",
                 "action": "ADD_QUERY",
                 "nextState": "PENDING_ACTION_BY_SDECC_AGENT",
-                "roles": [
-                  "BPA_SDECC_AGENT",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_SDECC_AGENT", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -594,10 +549,7 @@
                 "currentState": "SDECC_AGENT_REPORT_READY",
                 "action": "NON_CONFORM",
                 "nextState": "DECLARED_NON_CONFORM",
-                "roles": [
-                  "BPA_SDECC_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -605,10 +557,7 @@
                 "currentState": "SDECC_AGENT_REPORT_READY",
                 "action": "SEND_TO_DIRECTOR",
                 "nextState": "NOT_FORWARDED_TO_COMMISSIONER",
-                "roles": [
-                  "BPA_SDECC_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -616,10 +565,7 @@
                 "currentState": "SDECC_AGENT_REPORT_READY",
                 "action": "ADD_QUERY",
                 "nextState": "SDECC_AGENT_REPORT_READY",
-                "roles": [
-                  "BPA_SDECC_HOD",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -640,10 +586,7 @@
                 "currentState": "NOT_FORWARDED_TO_COMMISSIONER",
                 "action": "REJECT",
                 "nextState": "PERMIT_REJECTED",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -651,10 +594,7 @@
                 "currentState": "NOT_FORWARDED_TO_COMMISSIONER",
                 "action": "ADD_QUERY",
                 "nextState": "NOT_FORWARDED_TO_COMMISSIONER",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -662,10 +602,7 @@
                 "currentState": "NOT_FORWARDED_TO_COMMISSIONER",
                 "action": "SEND_TO_COMMISSIONER",
                 "nextState": "AWAITING_ON_COMMISSIONER",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -693,10 +630,7 @@
                 "currentState": "AWAITING_ON_COMMISSIONER",
                 "action": "REJECT",
                 "nextState": "PERMIT_REJECTED",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -704,10 +638,7 @@
                 "currentState": "AWAITING_ON_COMMISSIONER",
                 "action": "ADD_QUERY",
                 "nextState": "AWAITING_ON_COMMISSIONER",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -715,10 +646,7 @@
                 "currentState": "AWAITING_ON_COMMISSIONER",
                 "action": "SEND_TO_CITIZEN_PAYMENT",
                 "nextState": "AWAITING_CITIZEN_PAYMENT",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -739,11 +667,7 @@
                 "currentState": "AWAITING_CITIZEN_PAYMENT",
                 "action": "ADD_QUERY",
                 "nextState": "AWAITING_CITIZEN_PAYMENT",
-                "roles": [
-                  "CITIZEN",
-                  "COUNTER_EMPLOYEE",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["CITIZEN", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -751,11 +675,7 @@
                 "currentState": "AWAITING_CITIZEN_PAYMENT",
                 "action": "MAKE_PAYMENT",
                 "nextState": "CITIZEN_PAYMENT_DONE",
-                "roles": [
-                  "CITIZEN",
-                  "COUNTER_EMPLOYEE",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["CITIZEN", "COUNTER_EMPLOYEE", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -776,10 +696,7 @@
                 "currentState": "CITIZEN_PAYMENT_DONE",
                 "action": "APPROVE",
                 "nextState": "PERMIT_GRANTED",
-                "roles": [
-                  "BPA_DIRECTOR",
-                  "STUDIO_ADMIN"
-                ],
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -811,10 +728,7 @@
       "documents": [
         {
           "category": "address-proof",
-          "documentTypes": [
-            "aadhar",
-            "voter"
-          ],
+          "documentTypes": ["aadhar", "voter"],
           "active": true,
           "isMandatory": false,
           "allowedFileTypes": [
@@ -832,10 +746,7 @@
         },
         {
           "category": "identity-proof",
-          "documentTypes": [
-            "aadhar",
-            "voter"
-          ],
+          "documentTypes": ["aadhar", "voter"],
           "active": true,
           "isMandatory": true,
           "allowedFileTypes": [
@@ -853,16 +764,10 @@
         },
         {
           "category": "owner-photo",
-          "documentTypes": [
-            "photo"
-          ],
+          "documentTypes": ["photo"],
           "active": true,
           "isMandatory": true,
-          "allowedFileTypes": [
-            "jpeg",
-            "jpg",
-            "png"
-          ],
+          "allowedFileTypes": ["jpeg", "jpg", "png"],
           "maxSizeInMB": 5,
           "maxFilesAllowed": 1
         }
@@ -888,9 +793,7 @@
         {
           "key": "pco-application",
           "type": "application",
-          "states": [
-            "INITIATED"
-          ]
+          "states": ["INITIATED"]
         },
         {
           "key": "pco-receipt",
@@ -898,15 +801,10 @@
         }
       ],
       "localization": {
-        "modules": [
-          "rainmaker-studio-bpa"
-        ]
+        "modules": ["rainmaker-studio-bpa"]
       },
       "applicant": {
-        "types": [
-          "individual",
-          "organisation"
-        ],
+        "types": ["individual", "organisation"],
         "maximum": 3,
         "minimum": 1
       },
@@ -915,10 +813,7 @@
         "lowestLevel": "locality"
       },
       "access": {
-        "roles": [
-          "BPA_ARCHITECT",
-          "STUDIO_ADMIN"
-        ],
+        "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
         "actions": [
           {
             "url": "/public-service/v1/application"
@@ -1041,54 +936,39 @@
         "sms": [
           {
             "code": "DIGIT_STUDIO_NEW_APPLICATION",
-            "states": [
-              "AGENT_NOT_ASSIGNED"
-            ],
+            "states": ["AGENT_NOT_ASSIGNED"],
             "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} is received"
           },
           {
             "code": "DIGIT_STUDIO_APPLY_APPROVED",
-            "states": [
-              "approved"
-            ],
+            "states": ["approved"],
             "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} is approved"
           },
           {
             "code": "DIGIT_STUDIO_DEMAND_CREATED",
-            "states": [
-              "pending_payment"
-            ],
+            "states": ["pending_payment"],
             "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} has pending dues of amount Rs {Bill.totalAmount} "
           }
         ],
         "email": [
           {
             "code": "DIGIT_STUDIO_NEW_APPLICATION",
-            "states": [
-              "AGENT_NOT_ASSIGNED"
-            ],
+            "states": ["AGENT_NOT_ASSIGNED"],
             "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} is received"
           },
           {
             "code": "DIGIT_STUDIO_APPLY_APPROVED",
-            "states": [
-              "approved"
-            ],
+            "states": ["approved"],
             "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} is approved"
           },
           {
             "code": "DIGIT_STUDIO_DEMAND_CREATED",
-            "states": [
-              "pending_payment"
-            ],
+            "states": ["pending_payment"],
             "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} has pending dues of amount Rs {Bill.totalAmount} "
           }
         ]
       },
-      "enabled": [
-        "citizen",
-        "employee"
-      ]
+      "enabled": ["citizen", "employee"]
     }
   ]
 }
