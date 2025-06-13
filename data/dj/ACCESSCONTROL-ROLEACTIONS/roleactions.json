@@ -759,6 +759,30 @@
       "actioncode": ""
     },
     {
+      "actionid": 4874,
+      "rolecode": "BPA_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4873,
+      "rolecode": "BPA_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4875,
+      "rolecode": "BPA_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4875,
+      "rolecode": "BPA_AGENTS",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 1862,
       "rolecode": "BPA_AGENTS",
       "tenantId": "dj",

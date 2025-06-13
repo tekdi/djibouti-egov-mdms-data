@@ -572,7 +572,7 @@
                 "currentState": "AWAITING_CITIZEN_PAYMENT",
                 "action": "MAKE_PAYMENT",
                 "nextState": "CITIZEN_PAYMENT_DONE",
-                "roles": ["CITIZEN", "STUDIO_ADMIN"],
+                "roles": ["CITIZEN", "COUNTER_EMPLOYEE", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
