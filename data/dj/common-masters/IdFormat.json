@@ -3,11 +3,11 @@
   "moduleName": "common-masters",
   "IdFormat": [
     {
-      "format": "DJ-PCO-[cy:yyyy-MM-dd]-[SEQ_DJ_PCO]",
+      "format": "PCO-[SEQ_DJ_PCO]/[cy:yyyy]",
       "idname": "egov.idgen.bpa.applicationNum"
     },
     {
-      "format": "DJ-RPT-PCO-[cy:yyyy-MM-dd]-[SEQ_DJ_RPT_PCO]",
+      "format": "PCO-RPT-[SEQ_DJ_PCO_RPT]/[cy:yyyy]",
       "idname": "bpa.pco.receipt.id"
     },
     {

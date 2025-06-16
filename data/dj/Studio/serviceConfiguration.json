@@ -779,12 +779,12 @@
           "type": "service"
         },
         {
-          "format": "DJ-PCO-[cy:yyyy-MM-dd]-[SEQ_DJ_PCO]",
+          "format": "PCO-[SEQ_DJ_PCO]/[cy:yyyy]",
           "name": "egov.idgen.bpa.applicationNum",
           "type": "application"
         },
         {
-          "format": "DJ-RPT-PCO-[cy:yyyy-MM-dd]-[SEQ_DJ_RPT_PCO]",
+          "format": "PCO-RPT-[SEQ_DJ_PCO_RPT]/[cy:yyyy]",
           "name": "bpa.pco.receipt.id",
           "type": "receipt"
         }
