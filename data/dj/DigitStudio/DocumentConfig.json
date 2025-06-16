@@ -152,6 +152,7 @@
               "templatePDFKey": null,
               "maxFilesAllowed": 10,
               "allowedFileTypes": [
+                "pdf",
                 "dwg",
                 "dxf",
                 "skp",
@@ -161,7 +162,7 @@
                 "rfa",
                 "zip",
                 "rar",
-                "7z"
+                "sevenz"
               ],
               "templatedownloadURL": null
             },
