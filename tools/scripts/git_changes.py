@@ -35,23 +35,33 @@ def main():
 
     file_counts = get_changed_files(args.days)
     
+    output_lines = []
     if not file_counts:
-        print(f"No files changed in the past {args.days} days")
+        output_lines.append(f"No files changed in the past {args.days} days")
     else:
-        print(f"\nFiles changed in the past {args.days} days:")
-        print("-" * 80)
-        print(f"{'File':<60} {'Commits':>10}")
-        print("-" * 80)
+        output_lines.append(f"\nFiles changed in the past {args.days} days:")
+        output_lines.append("-" * 80)
+        output_lines.append(f"{'File':<60} {'Commits':>10}")
+        output_lines.append("-" * 80)
         
         # Sort files by number of commits (descending) and then alphabetically
         sorted_files = sorted(file_counts.items(), key=lambda x: (-x[1], x[0]))
         
         for file, count in sorted_files:
-            print(f"{file:<60} {count:>10}")
+            output_lines.append(f"{file:<60} {count:>10}")
         
-        print("-" * 80)
-        print(f"Total unique files changed: {len(file_counts)}")
-        print(f"Total commits: {sum(file_counts.values())}")
+        output_lines.append("-" * 80)
+        output_lines.append(f"Total unique files changed: {len(file_counts)}")
+        output_lines.append(f"Total commits: {sum(file_counts.values())}")
+
+    # Print output
+    for line in output_lines:
+        print(line)
+
+    # Write output to git_changes_cache.txt
+    with open('git_changes_cache.txt', 'w') as f:
+        for line in output_lines:
+            f.write(line + '\n')
 
 if __name__ == "__main__":
     main() 

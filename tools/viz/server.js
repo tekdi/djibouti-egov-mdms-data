@@ -78,12 +78,10 @@ app.get('/api-local/recently-changed-configs', (req, res) => {
     const days = parseInt(req.query.days, 10) || 7;
     const exts = ['.json', '.yaml', '.yml'];
     const scriptPath = path.join(__dirname, '../scripts/git_changes.py');
-    console.log(scriptPath, path.join(__dirname, '../../'));
-    execFile(scriptPath, [days], { cwd: path.join(__dirname, '../../') }, (err, stdout, stderr) => {
-        if (err) {
-            return res.status(500).json({ error: stderr || err.message });
-        }
-        // Parse output lines for files
+    const cachePath = path.join('/app', 'git_changes_cache.txt');
+    const repoRoot = path.join(__dirname, '../../');
+
+    function parseGitOutput(stdout) {
         const lines = stdout.split('\n');
         const files = [];
         let inTable = false;
@@ -98,7 +96,22 @@ app.get('/api-local/recently-changed-configs', (req, res) => {
                 }
             }
         }
-        res.json(files);
+        return files;
+    }
+
+    // Try to run the script
+    execFile(scriptPath, [days], { cwd: repoRoot }, (err, stdout, stderr) => {
+        if (!err && stdout) {
+            return res.json(parseGitOutput(stdout));
+        }
+        // Fallback to cache
+        fs.readFile(cachePath, 'utf8', (cacheErr, cacheData) => {
+            if (!cacheErr && cacheData) {
+                return res.json(parseGitOutput(cacheData));
+            }
+            // If both fail, return error
+            res.status(500).json({ error: stderr || err?.message || cacheErr?.message || 'Unable to get changed configs' });
+        });
     });
 });
 
