@@ -752,33 +752,44 @@
                 msgId: Date.now().toString(),
                 userInfo: userInfo
             };
-            // Upsert for all translations
-            const messages = SUPPORTED_LANGUAGES.map(lang => ({
-                code,
-                message: item.translations[lang] || '',
-                module: newModule,
-                locale: lang === 'en' ? 'en_IN' : (lang === 'fr' ? 'fr_FR_IN' : 'ar_AR_IN')
-            }));
-            const payload = {
-                RequestInfo: requestInfo,
-                tenantId: TENANT_ID,
-                messages
-            };
-            const res = await fetch(UPSERT_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            if (res.status === 401 || res.status === 403) {
-                localStorage.removeItem('egov_token');
-                localStorage.removeItem('egov_userInfo');
-                window.location.href = 'index.html';
-                return;
+            // For each language, make a separate API call
+            try {
+                for (const lang of SUPPORTED_LANGUAGES) {
+                    let locale;
+                    if (lang === 'en') locale = 'en_IN';
+                    else if (lang === 'fr') locale = 'fr_FR_IN';
+                    else locale = 'ar_AR_IN';
+                    const payload = {
+                        RequestInfo: requestInfo,
+                        tenantId: TENANT_ID,
+                        messages: [
+                            {
+                                code,
+                                message: item.translations[lang] || '',
+                                module: newModule,
+                                locale
+                            }
+                        ]
+                    };
+                    const res = await fetch(UPSERT_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.status === 401 || res.status === 403) {
+                        localStorage.removeItem('egov_token');
+                        localStorage.removeItem('egov_userInfo');
+                        window.location.href = 'index.html';
+                        return;
+                    }
+                    if (!res.ok) { showError('Failed to update module for ' + lang); return; }
+                }
+                item.module = newModule;
+                renderTable();
+                showSnackbar(`Module updated for "${code}"`);
+            } catch (err) {
+                showError('Failed to update module');
             }
-            if (!res.ok) { showError('Failed to update module'); return; }
-            item.module = newModule;
-            renderTable();
-            showSnackbar(`Module updated for "${code}"`);
         }
 
         // Levenshtein distance helper
