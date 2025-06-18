@@ -592,16 +592,17 @@
                     .then(d => ({ lang: cfg.lang, messages: d.messages || [] }))
             );
             const allLangData = await Promise.all(fetches);
-            const messagesByCode = {};
+            const messagesByCodeModule = {};
             allLangData.forEach(({ lang, messages }) => {
                 messages.forEach(msg => {
-                    if (!messagesByCode[msg.code]) {
-                        messagesByCode[msg.code] = { code: msg.code, module: msg.module, translations: {} };
+                    const key = `${msg.code}|${msg.module}`;
+                    if (!messagesByCodeModule[key]) {
+                        messagesByCodeModule[key] = { code: msg.code, module: msg.module, translations: {} };
                     }
-                    messagesByCode[msg.code].translations[lang] = msg.message;
+                    messagesByCodeModule[key].translations[lang] = msg.message;
                 });
             });
-            localizationData = Object.values(messagesByCode);
+            localizationData = Object.values(messagesByCodeModule);
             filteredData = [...localizationData];
             renderTable();
         }
