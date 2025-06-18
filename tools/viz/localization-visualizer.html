@@ -407,9 +407,11 @@
         </div>
         <div class="controls">
             <button class="btn add-btn" onclick="openAddStringModal()">+ Add New String</button>
-            <input type="text" class="filter-input" id="search-filter" placeholder="Search by key or translation..."
+            <input type="text" class="filter-input" id="locale-filter" placeholder="Filter by Locale Code..."
                 oninput="filterData()">
-            <select class="filter-input" id="module-filter" onchange="filterData()">
+            <input type="text" class="filter-input" id="translation-filter" placeholder="Filter by Translation..."
+                oninput="filterData()">
+            <select class="filter-input" id="module-filter" multiple size="4" onchange="filterData()">
                 <option value="">All Modules</option>
             </select>
             <select class="filter-input" id="status-filter" onchange="filterData()">
@@ -668,13 +670,13 @@
             filteredData.forEach((item, idx) => {
                 html += `<tr>`;
                 html += `<td class="locale-cell">${item.code}</td>`;
-                html += `<td class="module-cell">${item.module}</td>`;
+                html += `<td class="module-cell"><select onchange="editModule('${item.code}', this.value)">`;
+                MODULES.forEach(m => {
+                    html += `<option value="${m}"${item.module === m ? ' selected' : ''}>${m}</option>`;
+                });
+                html += `</select></td>`;
                 SUPPORTED_LANGUAGES.forEach(lang => {
-                    if (lang !== 'en') {
-                        html += `<td contenteditable="true" oninput="debouncedEditTranslation('${item.code}','${lang}',this)" >${item.translations[lang] || ''}</td>`;
-                    } else {
-                        html += `<td>${item.translations[lang] || ''}</td>`;
-                    }
+                    html += `<td contenteditable="true" oninput="debouncedEditTranslation('${item.code}','${lang}',this)" >${item.translations[lang] || ''}</td>`;
                 });
                 SUPPORTED_LANGUAGES.filter(l => l !== 'en').forEach(lang => {
                     const ok = item.translations[lang] && item.translations[lang].trim();
@@ -696,7 +698,6 @@
         }
 
         async function editTranslation(code, lang, value) {
-            if (lang === 'en') return; // Only allow editing non-base languages inline
             const item = localizationData.find(i => i.code === code);
             if (!item) return;
             // Compose RequestInfo
@@ -707,7 +708,10 @@
                 userInfo: userInfo
             };
             // Compose message
-            const locale = lang === 'fr' ? 'fr_FR_IN' : (lang === 'ar' ? 'ar_AR_IN' : 'en_IN');
+            let locale;
+            if (lang === 'en') locale = 'en_IN';
+            else if (lang === 'fr') locale = 'fr_FR_IN';
+            else locale = 'ar_AR_IN';
             const payload = {
                 RequestInfo: requestInfo,
                 tenantId: TENANT_ID,
@@ -737,6 +741,109 @@
             showSnackbar(`Updated "${code}" (${lang}): ${value}`);
         }
 
+        // Edit module for a row
+        async function editModule(code, newModule) {
+            const item = localizationData.find(i => i.code === code);
+            if (!item) return;
+            // Compose RequestInfo
+            const requestInfo = {
+                action: 'POST',
+                authToken: accessToken,
+                msgId: Date.now().toString(),
+                userInfo: userInfo
+            };
+            // Upsert for all translations
+            const messages = SUPPORTED_LANGUAGES.map(lang => ({
+                code,
+                message: item.translations[lang] || '',
+                module: newModule,
+                locale: lang === 'en' ? 'en_IN' : (lang === 'fr' ? 'fr_FR_IN' : 'ar_AR_IN')
+            }));
+            const payload = {
+                RequestInfo: requestInfo,
+                tenantId: TENANT_ID,
+                messages
+            };
+            const res = await fetch(UPSERT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (res.status === 401 || res.status === 403) {
+                localStorage.removeItem('egov_token');
+                localStorage.removeItem('egov_userInfo');
+                window.location.href = 'index.html';
+                return;
+            }
+            if (!res.ok) { showError('Failed to update module'); return; }
+            item.module = newModule;
+            renderTable();
+            showSnackbar(`Module updated for "${code}"`);
+        }
+
+        // Levenshtein distance helper
+        function levenshtein(a, b) {
+            if (a === b) return 0;
+            if (!a.length) return b.length;
+            if (!b.length) return a.length;
+            const v0 = Array(b.length + 1).fill(0);
+            const v1 = Array(b.length + 1).fill(0);
+            for (let i = 0; i <= b.length; i++) v0[i] = i;
+            for (let i = 0; i < a.length; i++) {
+                v1[0] = i + 1;
+                for (let j = 0; j < b.length; j++) {
+                    const cost = a[i] === b[j] ? 0 : 1;
+                    v1[j + 1] = Math.min(v1[j] + 1, v0[j + 1] + 1, v0[j] + cost);
+                }
+                for (let j = 0; j <= b.length; j++) v0[j] = v1[j];
+            }
+            return v1[b.length];
+        }
+
+        function filterData() {
+            const localeSearch = document.getElementById('locale-filter').value.trim().toLowerCase();
+            const translationSearch = document.getElementById('translation-filter').value.trim().toLowerCase();
+            const moduleSelect = document.getElementById('module-filter');
+            const selectedModules = Array.from(moduleSelect.selectedOptions).map(opt => opt.value).filter(Boolean);
+            const statusVal = document.getElementById('status-filter').value;
+            let data = localizationData;
+            // Locale code filter
+            if (localeSearch) {
+                const maxDist = Math.max(1, Math.floor(localeSearch.length / 3));
+                // Get all codes within allowed distance
+                let matches = data.map(item => ({
+                    item,
+                    dist: levenshtein(item.code.toLowerCase(), localeSearch)
+                }))
+                    .filter(obj => obj.dist <= maxDist)
+                    .sort((a, b) => a.dist - b.dist);
+                data = matches.map(obj => obj.item);
+            }
+            // Translation filter
+            if (translationSearch) {
+                let exact = data.filter(item => Object.values(item.translations).some(t => t && t.toLowerCase() === translationSearch));
+                if (exact.length > 0) data = exact;
+                else {
+                    const maxDist = Math.max(1, Math.floor(translationSearch.length / 3));
+                    data = data.filter(item => Object.values(item.translations).some(t => t && levenshtein(t.toLowerCase(), translationSearch) <= maxDist));
+                }
+            }
+            // Module filter (multi-select)
+            if (selectedModules.length > 0) {
+                data = data.filter(item => selectedModules.includes(item.module));
+            }
+            // Status filter
+            if (statusVal) {
+                if (statusVal === 'missing') {
+                    data = data.filter(item => SUPPORTED_LANGUAGES.filter(l => l !== 'en').some(lang => !item.translations[lang] || !item.translations[lang].trim()));
+                } else if (statusVal === 'complete') {
+                    data = data.filter(item => SUPPORTED_LANGUAGES.filter(l => l !== 'en').every(lang => item.translations[lang] && item.translations[lang].trim()));
+                }
+            }
+            filteredData = data;
+            renderTable();
+        }
+
         function showSnackbar(msg) {
             const sb = document.getElementById('snackbar');
             sb.textContent = msg;
@@ -744,30 +851,6 @@
             setTimeout(() => {
                 sb.className = 'snackbar';
             }, 3000);
-        }
-
-        function filterData() {
-            const search = document.getElementById('search-filter').value.toLowerCase();
-            const moduleVal = document.getElementById('module-filter').value;
-            const statusVal = document.getElementById('status-filter').value;
-            filteredData = localizationData.filter(item => {
-                let match = true;
-                if (search) {
-                    match = item.code.toLowerCase().includes(search) || Object.values(item.translations).some(t => t && t.toLowerCase().includes(search));
-                }
-                if (match && moduleVal) {
-                    match = item.module === moduleVal;
-                }
-                if (match && statusVal) {
-                    if (statusVal === 'missing') {
-                        match = SUPPORTED_LANGUAGES.filter(l => l !== 'en').some(lang => !item.translations[lang] || !item.translations[lang].trim());
-                    } else if (statusVal === 'complete') {
-                        match = SUPPORTED_LANGUAGES.filter(l => l !== 'en').every(lang => item.translations[lang] && item.translations[lang].trim());
-                    }
-                }
-                return match;
-            });
-            renderTable();
         }
 
         function openAddStringModal() {
