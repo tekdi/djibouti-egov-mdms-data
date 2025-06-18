@@ -441,6 +441,24 @@
       "actioncode": ""
     },
     {
+      "actionid": 10024,
+      "rolecode": "STUDIO_ADMIN",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 1950,
+      "rolecode": "STUDIO_ADMIN",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5586,
+      "rolecode": "STUDIO_ADMIN",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 5585,
       "rolecode": "STUDIO_ADMIN",
       "tenantId": "dj",
