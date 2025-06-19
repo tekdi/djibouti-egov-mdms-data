@@ -21,6 +21,12 @@
       "tenantId": "dj"
     },
     {
+      "actionid": 4871,
+      "rolecode": "COUNTER_EMPLOYEE",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "rolecode": "COUNTER_EMPLOYEE",
       "actionid": 4863,
       "actioncode": "",
@@ -126,6 +132,12 @@
       "actionid": 698,
       "rolecode": "EMPLOYEE",
       "tenantid": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4871,
+      "rolecode": "EMPLOYEE",
+      "tenantId": "dj",
       "actioncode": ""
     },
     {
