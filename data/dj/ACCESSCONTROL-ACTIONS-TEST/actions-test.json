@@ -421,7 +421,6 @@
       "path": "9HRMS.Create",
       "leftIcon": "dynamic:HRIcon"
     },
-
     {
       "id": 21,
       "name": "Workflow search",
@@ -457,7 +456,6 @@
       "code": "null",
       "path": "Administration.Profile Update"
     },
-
     {
       "id": 26,
       "name": "Update Password",
@@ -505,7 +503,6 @@
       "code": "null",
       "path": ""
     },
-
     {
       "id": 34,
       "name": "Works Estimate Pdf",
@@ -651,6 +648,46 @@
       "rightIcon": "",
       "createdDate": null,
       "displayName": "Create ACCESSCONTROL-ROLES roles",
+      "orderNumber": 1,
+      "queryParams": "",
+      "serviceCode": "MDMS",
+      "parentModule": "",
+      "navigationURL": "",
+      "lastModifiedBy": null,
+      "lastModifiedDate": null
+    },
+    {
+      "id": 1949,
+      "url": "/egov-mdms-service/v2/_create/Studio.serviceConfiguration",
+      "name": "MDMS",
+      "path": "",
+      "enabled": true,
+      "leftIcon": "",
+      "tenantId": "dj",
+      "createdBy": null,
+      "rightIcon": "",
+      "createdDate": null,
+      "displayName": "Create service configuration",
+      "orderNumber": 1,
+      "queryParams": "",
+      "serviceCode": "MDMS",
+      "parentModule": "",
+      "navigationURL": "",
+      "lastModifiedBy": null,
+      "lastModifiedDate": null
+    },
+    {
+      "id": 2949,
+      "url": "/egov-mdms-service/v2/_create/DigitStudio.DocumentConfig",
+      "name": "MDMS",
+      "path": "",
+      "enabled": true,
+      "leftIcon": "",
+      "tenantId": "dj",
+      "createdBy": null,
+      "rightIcon": "",
+      "createdDate": null,
+      "displayName": "Create DocumentConfig",
       "orderNumber": 1,
       "queryParams": "",
       "serviceCode": "MDMS",
