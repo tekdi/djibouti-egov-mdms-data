@@ -18,7 +18,8 @@
         "Data.locality",
         "Data.status",
         "Data.serviceCode",
-        "Data.applicants.name"
+        "Data.applicants",
+        "Data.serviceDetails"
       ],
       "allowedSearchCriteria": [
         {

@@ -1,0 +1,36 @@
+{
+  "tenantId": "dj",
+  "moduleName": "BPA",
+  "Region": [
+    {
+      "code": "DJIBOUTI_VILLE",
+      "name": "Djibouti-ville",
+      "active": "true"
+    },
+    {
+      "code": "ARTA",
+      "name": "Arta",
+      "active": "true"
+    },
+    {
+      "code": "ALI_SABIEH",
+      "name": "Ali Sabieh",
+      "active": "true"
+    },
+    {
+      "code": "DIKHIL",
+      "name": "Dikhil",
+      "active": "true"
+    },
+    {
+      "code": "TADJOURAH",
+      "name": "Tadjourah",
+      "active": "true"
+    },
+    {
+      "code": "OBOCK",
+      "name": "Obock",
+      "active": "true"
+    }
+  ]
+}
