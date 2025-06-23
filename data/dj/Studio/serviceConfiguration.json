@@ -235,6 +235,14 @@
                 "format": "text",
                 "required": false,
                 "placeholder": "ENTER_REGISTRATION_NO"
+              },
+              {
+                "name": "registrationNoOnProfessionalRoll",
+                "type": "string",
+                "label": "Registration no. on the professional roll",
+                "format": "text",
+                "required": false,
+                "placeholder": "ENTER_REGISTRATION_NO_ON_PROFESSIONAL_ROLL"
               }
             ]
           }
@@ -1149,6 +1157,14 @@
                 "format": "text",
                 "required": false,
                 "placeholder": "ENTER_REGISTRATION_NO"
+              },
+              {
+                "name": "registrationNoOnProfessionalRoll",
+                "type": "string",
+                "label": "Registration no. on the professional roll",
+                "format": "text",
+                "required": false,
+                "placeholder": "ENTER_REGISTRATION_NO_ON_PROFESSIONAL_ROLL"
               }
             ]
           }
