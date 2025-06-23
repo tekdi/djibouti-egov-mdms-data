@@ -20,7 +20,8 @@
                 "format": "text",
                 "minLength": 2,
                 "maxLength": 500,
-                "required": false
+                "required": false,
+                "placeholder": "ENTER_SITE_LOCATION"
               },
               {
                 "name": "region",
@@ -29,7 +30,8 @@
                 "reference": "mdms",
                 "format": "radioordropdown",
                 "required": true,
-                "schema": "BPA.Region"
+                "schema": "BPA.Region",
+                "placeholder": "SELECT_REGION"
               },
               {
                 "name": "area",
@@ -40,7 +42,8 @@
                   "min": 0,
                   "message": "AREA_NEGATIVE_ERR"
                 },
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_AREA"
               },
               {
                 "name": "legalStatus",
@@ -51,7 +54,8 @@
                   "min": 0,
                   "message": "LEGAL_STATUS_ERR"
                 },
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_LEGAL_STATUS"
               },
               {
                 "name": "definitiveLandTitle",
@@ -68,7 +72,8 @@
                 "type": "string",
                 "format": "text",
                 "maxLength": 20,
-                "required": false
+                "required": false,
+                "placeholder": "ENTER_INDICATE_TF_NO"
               },
               {
                 "name": "registrationCertificate",
@@ -85,7 +90,8 @@
                 "type": "string",
                 "format": "text",
                 "maxLength": 256,
-                "required": false
+                "required": false,
+                "placeholder": "ENTER_OTHER"
               },
               {
                 "name": "workType",
@@ -94,7 +100,8 @@
                 "reference": "mdms",
                 "format": "radioordropdown",
                 "required": true,
-                "schema": "BPA.WorkType"
+                "schema": "BPA.WorkType",
+                "placeholder": "SELECT_WORK_TYPE"
               },
               {
                 "name": "noOfUnits",
@@ -105,49 +112,56 @@
                 "validation": {
                   "min": 0,
                   "message": "Number of housing units should be non negative"
-                }
+                },
+                "placeholder": "ENTER_NO_OF_UNITS"
               },
               {
                 "name": "detailsOnOtherType",
                 "label": "Details on other types",
                 "type": "string",
                 "format": "text",
-                "maxLength": 256
+                "maxLength": 256,
+                "placeholder": "ENTER_DETAILS_ON_OTHER_WORK_TYPE"
               },
               {
                 "name": "maximumAuthorizedCes",
                 "label": "Maximum authorized C.E.S (2) for the zone",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_MAXIMUM_CES"
               },
               {
                 "name": "prjectedCes",
                 "label": "Projected C.E.S.",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_PROJECTED_CES"
               },
               {
                 "name": "maximumAuthorizedCos",
                 "label": "Maximum authorized C.O.S (3) for the zone",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_MAXIMUM_COS"
               },
               {
                 "name": "projectedCos",
                 "label": "Projected C.O.S.",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_PROJECTED_COS"
               },
               {
                 "name": "coveredProjectArea",
                 "label": "Covered project area (m²)",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_COVERED_PROJECT_AREA"
               },
               {
                 "name": "constructionCostPerSqMt",
@@ -155,7 +169,8 @@
                 "type": "string",
                 "format": "number",
                 "required": true,
-                "minLength": 1
+                "minLength": 1,
+                "placeholder": "ENTER_CONSTRUCTION_COST_EXCLUDING_WORK"
               }
             ]
           }
@@ -174,7 +189,8 @@
                 "format": "text",
                 "minLength": 2,
                 "maxLength": 100,
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_NAME_OF_DESIGN_OFFICE"
               },
               {
                 "name": "architectName",
@@ -183,7 +199,8 @@
                 "format": "text",
                 "minLength": 2,
                 "maxLength": 256,
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_ARCHITECT_FULL_NAME"
               },
               {
                 "name": "telephone",
@@ -208,14 +225,16 @@
                   "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
                   "message": "EMAIL_ERR"
                 },
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_OFFICE_EMAIL"
               },
               {
                 "name": "registrationNo",
                 "label": "Registration no.",
                 "type": "string",
                 "format": "text",
-                "required": false
+                "required": false,
+                "placeholder": "ENTER_REGISTRATION_NO"
               }
             ]
           }
@@ -915,7 +934,8 @@
                 "format": "text",
                 "minLength": 2,
                 "maxLength": 500,
-                "required": false
+                "required": false,
+                "placeholder": "ENTER_SITE_LOCATION"
               },
               {
                 "name": "region",
@@ -924,7 +944,8 @@
                 "reference": "mdms",
                 "format": "radioordropdown",
                 "required": true,
-                "schema": "BPA.Region"
+                "schema": "BPA.Region",
+                "placeholder": "SELECT_REGION"
               },
               {
                 "name": "area",
@@ -935,7 +956,8 @@
                   "min": 0,
                   "message": "AREA_NEGATIVE_ERR"
                 },
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_AREA"
               },
               {
                 "name": "legalStatus",
@@ -946,7 +968,8 @@
                   "min": 0,
                   "message": "LEGAL_STATUS_ERR"
                 },
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_LEGAL_STATUS"
               },
               {
                 "name": "definitiveLandTitle",
@@ -963,7 +986,8 @@
                 "type": "string",
                 "format": "text",
                 "maxLength": 20,
-                "required": false
+                "required": false,
+                "placeholder": "ENTER_INDICATE_TF_NO"
               },
               {
                 "name": "registrationCertificate",
@@ -980,7 +1004,8 @@
                 "type": "string",
                 "format": "text",
                 "maxLength": 256,
-                "required": false
+                "required": false,
+                "placeholder": "ENTER_OTHER"
               },
               {
                 "name": "workType",
@@ -989,7 +1014,8 @@
                 "reference": "mdms",
                 "format": "radioordropdown",
                 "required": true,
-                "schema": "BPA.WorkType"
+                "schema": "BPA.WorkType",
+                "placeholder": "SELECT_WORK_TYPE"
               },
               {
                 "name": "noOfUnits",
@@ -1000,49 +1026,56 @@
                 "validation": {
                   "min": 0,
                   "message": "Number of housing units should be non negative"
-                }
+                },
+                "placeholder": "ENTER_NO_OF_UNITS"
               },
               {
                 "name": "detailsOnOtherType",
                 "label": "Details on other types",
                 "type": "string",
                 "format": "text",
-                "maxLength": 256
+                "maxLength": 256,
+                "placeholder": "ENTER_DETAILS_ON_OTHER_WORK_TYPE"
               },
               {
                 "name": "maximumAuthorizedCes",
                 "label": "Maximum authorized C.E.S (2) for the zone",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_MAXIMUM_CES"
               },
               {
                 "name": "prjectedCes",
                 "label": "Projected C.E.S.",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_PROJECTED_CES"
               },
               {
                 "name": "maximumAuthorizedCos",
                 "label": "Maximum authorized C.O.S (3) for the zone",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_MAXIMUM_COS"
               },
               {
                 "name": "projectedCos",
                 "label": "Projected C.O.S.",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_PROJECTED_COS"
               },
               {
                 "name": "coveredProjectArea",
                 "label": "Covered project area (m²)",
                 "type": "string",
                 "format": "number",
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_COVERED_PROJECT_AREA"
               },
               {
                 "name": "constructionCostPerSqMt",
@@ -1050,7 +1083,8 @@
                 "type": "string",
                 "format": "number",
                 "required": true,
-                "minLength": 1
+                "minLength": 1,
+                "placeholder": "ENTER_CONSTRUCTION_COST_EXCLUDING_WORK"
               }
             ]
           }
@@ -1069,7 +1103,8 @@
                 "format": "text",
                 "minLength": 2,
                 "maxLength": 100,
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_NAME_OF_DESIGN_OFFICE"
               },
               {
                 "name": "architectName",
@@ -1078,7 +1113,8 @@
                 "format": "text",
                 "minLength": 2,
                 "maxLength": 256,
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_ARCHITECT_FULL_NAME"
               },
               {
                 "name": "telephone",
@@ -1103,14 +1139,16 @@
                   "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
                   "message": "EMAIL_ERR"
                 },
-                "required": true
+                "required": true,
+                "placeholder": "ENTER_OFFICE_EMAIL"
               },
               {
                 "name": "registrationNo",
                 "label": "Registration no.",
                 "type": "string",
                 "format": "text",
-                "required": false
+                "required": false,
+                "placeholder": "ENTER_REGISTRATION_NO"
               }
             ]
           }
