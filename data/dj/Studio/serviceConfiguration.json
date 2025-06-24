@@ -1647,13 +1647,214 @@
           "type": "service"
         },
         {
-          "format": "PCO-[SEQ_DJ_PCO]/[cy:yyyy]",
-          "name": "egov.idgen.bpa.applicationNum",
+          "format": "PCO-SMPL-[SEQ_DJ_PCO_SMPL]/[cy:yyyy]",
+          "name": "egov.idgen.bpa.pco.smpl.applicationNum",
           "type": "application"
         },
         {
-          "format": "PCO-RPT-[SEQ_DJ_PCO_RPT]/[cy:yyyy]",
-          "name": "bpa.pco.receipt.id",
+          "format": "PCO-SMPL-RPT-[SEQ_DJ_PCO_SMPL_RPT]/[cy:yyyy]",
+          "name": "bpa.pco.smpl.receipt.id",
+          "type": "receipt"
+        }
+      ],
+      "pdf": [
+        {
+          "key": "pco-application",
+          "type": "application",
+          "states": ["INITIATED"]
+        },
+        {
+          "key": "pco-receipt",
+          "type": "receipt"
+        }
+      ],
+      "localization": {
+        "modules": ["rainmaker-studio-bpa"]
+      },
+      "applicant": {
+        "types": ["individual", "organisation"],
+        "maximum": 3,
+        "minimum": 1
+      },
+      "boundary": {
+        "hierarchyType": "REVENUE",
+        "lowestLevel": "locality"
+      },
+      "access": {
+        "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+        "actions": [
+          {
+            "url": "/public-service/v1/application"
+          }
+        ]
+      },
+      "payment": {
+        "gateway": "D-MONEY"
+      },
+      "inbox": {
+        "index": "public-service-index",
+        "module": "public-service",
+        "sortBy": {
+          "path": "Data.auditDetails.createdTime",
+          "defaultOrder": "DESC"
+        },
+        "sourceFilterPathList": [
+          "Data.businessService",
+          "Data.applicationNumber",
+          "Data.currentProcessInstance",
+          "Data.auditDetails",
+          "Data.additionalDetails",
+          "Data.module",
+          "Data.locality",
+          "Data.status"
+        ],
+        "allowedSearchCriteria": [
+          {
+            "name": "tenantId",
+            "path": "Data.tenantId.keyword",
+            "operator": "EQUAL",
+            "isMandatory": true
+          },
+          {
+            "name": "status",
+            "path": "Data.workflowStatus",
+            "isMandatory": false
+          },
+          {
+            "name": "applicationNumber",
+            "path": "Data.applicationNumber.keyword",
+            "isMandatory": false
+          },
+          {
+            "name": "module",
+            "path": "Data.module.keyword",
+            "isMandatory": false
+          },
+          {
+            "name": "businessService",
+            "path": "Data.businessService.keyword",
+            "isMandatory": false
+          },
+          {
+            "name": "locality",
+            "path": "Data.address.locality.keyword",
+            "isMandatory": false
+          },
+          {
+            "name": "assignee",
+            "path": "Data.currentProcessInstance.assignes.uuid.keyword",
+            "isMandatory": false
+          }
+        ]
+      },
+      "bill": {
+        "taxHead": [
+          {
+            "code": "PCO_TOTAL",
+            "name": "PCO permit fee with tax",
+            "order": "2",
+            "isDebit": false,
+            "service": "PCO",
+            "category": "FEE",
+            "isRequired": false,
+            "isActualDemand": true
+          }
+        ],
+        "taxPeriod": [
+          {
+            "code": "PCO2024",
+            "toDate": 1774938599999,
+            "service": "PCO",
+            "fromDate": 1743445800000,
+            "periodCycle": "ANNUAL",
+            "financialYear": "2024-25"
+          }
+        ],
+        "BusinessService": {
+          "code": "PCO",
+          "businessService": "PCO",
+          "demandUpdateTime": 604800000,
+          "isAdvanceAllowed": false,
+          "partPaymentAllowed": false,
+          "isVoucherCreationEnabled": false,
+          "collectionModesNotAllowed": [
+            "DD",
+            "OFFLINE_NEFT",
+            "OFFLINE_RTGS",
+            "POSTAL_ORDER"
+          ]
+        }
+      },
+      "calculator2": {
+        "type": "custom",
+        "billingSlabs": [
+          {
+            "key": "PCO_TOTAL",
+            "value": 2000
+          }
+        ]
+      },
+      "calculator": {
+        "type": "api",
+        "host": "https://djibouti.tekdinext.com",
+        "method": "post",
+        "endpoint": "/calculator-service/v1/BPA_PCO/demand"
+      },
+      "notification": {
+        "sms": [
+          {
+            "code": "DIGIT_STUDIO_NEW_APPLICATION",
+            "states": ["AGENT_NOT_ASSIGNED"],
+            "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} is received"
+          },
+          {
+            "code": "DIGIT_STUDIO_APPLY_APPROVED",
+            "states": ["approved"],
+            "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} is approved"
+          },
+          {
+            "code": "DIGIT_STUDIO_DEMAND_CREATED",
+            "states": ["pending_payment"],
+            "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} has pending dues of amount Rs {Bill.totalAmount} "
+          }
+        ],
+        "email": [
+          {
+            "code": "DIGIT_STUDIO_NEW_APPLICATION",
+            "states": ["AGENT_NOT_ASSIGNED"],
+            "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} is received"
+          },
+          {
+            "code": "DIGIT_STUDIO_APPLY_APPROVED",
+            "states": ["approved"],
+            "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} is approved"
+          },
+          {
+            "code": "DIGIT_STUDIO_DEMAND_CREATED",
+            "states": ["pending_payment"],
+            "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} has pending dues of amount Rs {Bill.totalAmount} "
+          }
+        ]
+      },
+      "enabled": ["citizen", "employee"]
+    },
+    {
+      "module": "BPA",
+      "service": "BPA_PCS",
+      "idgen": [
+        {
+          "format": "SVC-[cy:yyyy-MM-dd]-[SEQ_PUBLIC_SERVICE]",
+          "idname": "public-service.service.id",
+          "type": "service"
+        },
+        {
+          "format": "PCS-[SEQ_DJ_PCS]/[cy:yyyy]",
+          "name": "egov.idgen.bpa.pcs.applicationNum",
+          "type": "application"
+        },
+        {
+          "format": "PCS-RPT-[SEQ_DJ_PCS_RPT]/[cy:yyyy]",
+          "name": "bpa.pcs.receipt.id",
           "type": "receipt"
         }
       ],

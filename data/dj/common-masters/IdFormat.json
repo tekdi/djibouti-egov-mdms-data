@@ -15,6 +15,22 @@
       "idname": "public-service.service.id"
     },
     {
+      "format": "PCO-SMPL-[SEQ_DJ_PCO_SMPL]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.pco.smpl.applicationNum"
+    },
+    {
+      "format": "PCO-SMPL-RPT-[SEQ_DJ_PCO_SMPL_RPT]/[cy:yyyy]",
+      "idname": "bpa.pco.smpl.receipt.id"
+    },
+    {
+      "format": "PCS-[SEQ_DJ_PCS]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.pcs.applicationNum"
+    },
+    {
+      "format": "PCS-RPT-[SEQ_DJ_PCS_RPT]/[cy:yyyy]",
+      "idname": "bpa.pcs.receipt.id"
+    },
+    {
       "format": "USR-[SEQ_EG_USER_NAME]",
       "idname": "username.name"
     },
