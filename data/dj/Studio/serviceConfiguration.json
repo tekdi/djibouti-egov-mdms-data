@@ -962,6 +962,8 @@
                 "format": "number",
                 "validation": {
                   "min": 0,
+                  "max": 200,
+                  "regex": "^(?:0|[1-9]\\d{0,1}|1\\d{2}|200)(?:\\.\\d{1,2})?$",
                   "message": "AREA_NEGATIVE_ERR"
                 },
                 "required": true,
@@ -1648,12 +1650,12 @@
         },
         {
           "format": "PCO-SMPL-[SEQ_DJ_PCO_SMPL]/[cy:yyyy]",
-          "name": "egov.idgen.bpa.pco.smpl.applicationNum",
+          "idname": "egov.idgen.bpa.pco.smpl.applicationNum",
           "type": "application"
         },
         {
           "format": "PCO-SMPL-RPT-[SEQ_DJ_PCO_SMPL_RPT]/[cy:yyyy]",
-          "name": "bpa.pco.smpl.receipt.id",
+          "idname": "bpa.pco.smpl.receipt.id",
           "type": "receipt"
         }
       ],
