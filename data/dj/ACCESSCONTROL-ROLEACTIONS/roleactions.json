@@ -213,6 +213,12 @@
       "actioncode": ""
     },
     {
+      "actionid": 10024,
+      "rolecode": "CITIZEN",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "rolecode": "EMPLOYEE_COMMON",
       "actionid": 4,
       "actioncode": "",
