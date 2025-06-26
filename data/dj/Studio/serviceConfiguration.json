@@ -1195,7 +1195,7 @@
                 "currentState": "",
                 "action": "DRAFT",
                 "nextState": "INITIATED",
-                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+                "roles": ["CITIZEN", "BPA_ARCHITECT", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
@@ -1216,7 +1216,7 @@
                 "currentState": "INITIATED",
                 "action": "CREATE",
                 "nextState": "AGENT_NOT_ASSIGNED",
-                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+                "roles": ["CITIZEN", "BPA_ARCHITECT", "STUDIO_ADMIN"],
                 "active": true
               }
             ]
