@@ -459,6 +459,12 @@
       "actioncode": ""
     },
     {
+      "actionid": 5586,
+      "rolecode": "BPA_ARCHITECT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 1860,
       "rolecode": "MDMS_ADMIN",
       "actioncode": "",
