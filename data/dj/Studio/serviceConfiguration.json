@@ -750,8 +750,19 @@
           "states": ["INITIATED"]
         },
         {
-          "key": "pco-receipt",
-          "type": "receipt"
+          "key": "application-receipt",
+          "type": "receipt",
+          "states": ["AGENT_NOT_ASSIGNED"]
+        },
+        {
+          "key": "payment-receipt",
+          "type": "receipt",
+          "states": ["CITIZEN_PAYMENT_DONE"]
+        },
+        {
+          "key": "pco-permit",
+          "type": "permit",
+          "states": ["PERMIT_GRANTED"]
         }
       ],
       "localization": {
@@ -1666,8 +1677,19 @@
           "states": ["INITIATED"]
         },
         {
-          "key": "pco-receipt",
-          "type": "receipt"
+          "key": "application-receipt",
+          "type": "receipt",
+          "states": ["AGENT_NOT_ASSIGNED"]
+        },
+        {
+          "key": "payment-receipt",
+          "type": "receipt",
+          "states": ["CITIZEN_PAYMENT_DONE"]
+        },
+        {
+          "key": "pco-permit",
+          "type": "permit",
+          "states": ["PERMIT_GRANTED"]
         }
       ],
       "localization": {
