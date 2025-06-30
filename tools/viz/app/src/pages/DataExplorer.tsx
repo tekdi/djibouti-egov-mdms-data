@@ -1,35 +1,93 @@
+import { useEffect, useState } from 'react';
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+import type { TreeNode, RecentFile } from '@/lib/api/data-explorer';
+import { fetchDataTree, fetchRecentConfigs, fetchFileContent } from '@/lib/api/data-explorer';
+import FileTree from '@/components/data-explorer/FileTree';
+import { Skeleton } from '@/components/ui/skeleton';
+import EditorPanel from '@/components/data-explorer/EditorPanel';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Database, ArrowRight } from 'lucide-react';
+interface SelectedFile {
+    path: string;
+    content: string;
+}
 
-export function DataExplorer() {
-  return (
-    <div className="space-y-6 p-6">
-      <div className="flex items-center space-x-3">
-        <Database className="h-8 w-8 text-blue-600" />
-        <h1 className="text-3xl font-bold text-slate-900">Data Explorer</h1>
-      </div>
-      
-      <Card>
-        <CardHeader>
-          <CardTitle>Migration in Progress</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-center py-12 space-y-4">
-            <div className="text-6xl">🚧</div>
-            <h3 className="text-xl font-semibold">Coming Soon</h3>
-            <p className="text-slate-600 max-w-md mx-auto">
-              The Data Explorer is being migrated to the new React architecture. 
-              This will include enhanced data browsing, advanced search, and schema analysis.
-            </p>
-            <Button variant="outline" className="mt-4">
-              <ArrowRight className="mr-2 h-4 w-4" />
-              View Migration Progress
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-} 
+const DataExplorer = () => {
+    const [treeData, setTreeData] = useState<TreeNode[]>([]);
+    const [recentFiles, setRecentFiles] = useState<RecentFile[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [selectedFile, setSelectedFile] = useState<SelectedFile | null>(null);
+    const [isFetchingFile, setIsFetchingFile] = useState(false);
+
+    useEffect(() => {
+        const loadData = async () => {
+            try {
+                setLoading(true);
+                const [tree, recent] = await Promise.all([
+                    fetchDataTree(),
+                    fetchRecentConfigs(),
+                ]);
+                setTreeData(tree);
+                setRecentFiles(recent);
+                setError(null);
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'An unknown error occurred.');
+            } finally {
+                setLoading(false);
+            }
+        };
+        loadData();
+    }, []);
+
+    const handleFileSelect = async (path: string) => {
+        setIsFetchingFile(true);
+        try {
+            const content = await fetchFileContent(path);
+            setSelectedFile({ path, content });
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Failed to load file.');
+        } finally {
+            setIsFetchingFile(false);
+        }
+    };
+
+    if (loading) {
+        return (
+            <div className="p-4">
+                <Skeleton className="h-8 w-1/4 mb-4" />
+                <Skeleton className="h-4 w-1/2 mb-2" />
+                <Skeleton className="h-4 w-1/2 mb-2" />
+                <Skeleton className="h-4 w-1/3 mb-2" />
+            </div>
+        )
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    return (
+        <ResizablePanelGroup direction="horizontal" className="h-full max-h-full">
+            <ResizablePanel defaultSize={25} minSize={15}>
+                <div className="p-4 h-full overflow-y-auto">
+                    <h2 className="text-lg font-semibold mb-2">Recent</h2>
+                    <ul>
+                        {recentFiles.map(file => (
+                            <li key={file.path} onClick={() => handleFileSelect(file.path)} className="cursor-pointer hover:underline text-sm p-1">
+                                {file.name}
+                            </li>
+                        ))}
+                    </ul>
+                    <h2 className="text-lg font-semibold my-2">All</h2>
+                    <FileTree nodes={treeData} onFileSelect={handleFileSelect} />
+                </div>
+            </ResizablePanel>
+            <ResizableHandle withHandle />
+            <ResizablePanel defaultSize={75}>
+                <EditorPanel selectedFile={selectedFile} isFetchingFile={isFetchingFile} />
+            </ResizablePanel>
+        </ResizablePanelGroup>
+    );
+};
+
+export default DataExplorer; 

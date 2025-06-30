@@ -1,4 +1,3 @@
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +8,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { useAuth } from '@/lib/auth/AuthProvider';
+import { useAuth } from '@/lib/auth/auth';
 import { User, LogOut } from 'lucide-react';
 
 export function UserMenu() {

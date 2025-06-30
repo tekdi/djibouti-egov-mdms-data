@@ -1,44 +1,6 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
-
-// OAuth Configuration
-const AUTH_CONFIG = {
-  API_BASE: '/api',
-  LOGIN_URL: '/api/user/oauth/token',
-  TENANT_ID: 'dj',
-  USER_TYPE: 'EMPLOYEE',
-  CLIENT_AUTH: 'Basic ZWdvdi11c2VyLWNsaWVudDo='
-};
-
-interface User {
-  id: string;
-  userName: string;
-  name: string;
-  mobileNumber: string;
-  emailId: string;
-  roles: Array<{
-    name: string;
-    code: string;
-  }>;
-}
-
-interface AuthContextType {
-  isAuthenticated: boolean;
-  user: User | null;
-  token: string | null;
-  login: (username: string, otp: string) => Promise<void>;
-  logout: () => void;
-  makeApiCall: (endpoint: string, data?: unknown) => Promise<unknown>;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-}
+import { useState, useEffect, type ReactNode } from 'react';
+import { LoginPage } from './LoginPage';
+import { type User, type AuthContextType, AuthContext, AUTH_CONFIG } from './auth';
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -48,6 +10,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Check for stored auth data on mount
@@ -66,6 +29,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         localStorage.removeItem('egov_userInfo');
       }
     }
+    setIsLoading(false);
   }, []);
 
   const login = async (username: string, otp: string) => {
@@ -158,9 +122,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
     makeApiCall
   };
 
+  if (isLoading) {
+    return <div>Loading...</div>; // Or a proper spinner component
+  }
+
   return (
     <AuthContext.Provider value={value}>
-      {children}
+      {isAuthenticated ? children : <LoginPage />}
     </AuthContext.Provider>
   );
 } 

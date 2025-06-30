@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
+import type * as monaco from 'monaco-editor'
 import {
   ResizablePanelGroup,
   ResizablePanel,
@@ -28,7 +29,7 @@ export function WorkflowVisualizer() {
   
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [diagramNode, setDiagramNode] = useState<HTMLDivElement | null>(null);
-  const editorRef = useRef<any>(null) // Monaco editor instance
+  const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
 
   const diagramRefCallback = useCallback((node: HTMLDivElement | null) => {
     if (node !== null) {
@@ -45,13 +46,15 @@ export function WorkflowVisualizer() {
 
       if (!code.trim()) {
         setError('No Mermaid code to render');
+        diagramNode.innerHTML = ''; // Clear the diagram
         return;
       }
 
       if (diagramNode) {
-        diagramNode.innerHTML = '';
+        diagramNode.innerHTML = ''; // Clear previous diagram
         
-        const { svg } = await mermaid.render('workflow-diagram-code', code);
+        const uniqueId = `workflow-diagram-code-${Date.now()}`;
+        const { svg } = await mermaid.render(uniqueId, code);
         diagramNode.innerHTML = svg;
         
         // Apply zoom
@@ -65,6 +68,7 @@ export function WorkflowVisualizer() {
     } catch (e) {
       const errorMessage = e instanceof Error ? e.message : 'Unknown error';
       setError(`Mermaid error: ${errorMessage}`);
+      if (diagramNode) diagramNode.innerHTML = ''; // Clear on error
     } finally {
       setIsLoading(false);
     }
@@ -79,6 +83,7 @@ export function WorkflowVisualizer() {
 
       if (!jsonValue.trim()) {
         setError('No JSON content to visualize');
+        if (diagramNode) diagramNode.innerHTML = ''; // Clear diagram
         return;
       }
 
@@ -87,9 +92,10 @@ export function WorkflowVisualizer() {
       setMermaidCode(mermaidCodeGenerated);
 
       if (diagramNode) {
-        diagramNode.innerHTML = '';
+        diagramNode.innerHTML = ''; // Clear previous diagram
         
-        const { svg } = await mermaid.render('workflow-diagram', mermaidCodeGenerated);
+        const uniqueId = `workflow-diagram-${Date.now()}`;
+        const { svg } = await mermaid.render(uniqueId, mermaidCodeGenerated);
         diagramNode.innerHTML = svg;
         
         // Apply zoom
@@ -100,18 +106,15 @@ export function WorkflowVisualizer() {
         }
       }
 
-      // setMessage('Diagram updated successfully!');
-      // setTimeout(() => setMessage(''), 3000);
-
     } catch (e) {
       const errorMessage = e instanceof Error ? e.message : 'Unknown error';
       setError(`Error: ${errorMessage}`);
+      if (diagramNode) diagramNode.innerHTML = ''; // Clear on error
     } finally {
       setIsLoading(false);
     }
   }, [jsonValue, zoom, diagramNode]);
 
-  // Initialize Mermaid and generate initial diagram
   useEffect(() => {
     mermaid.initialize({ 
       startOnLoad: true, 
@@ -126,7 +129,6 @@ export function WorkflowVisualizer() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Auto-update diagram when JSON changes
   useEffect(() => {
     if (autoUpdate && jsonValue) {
       const timeoutId = setTimeout(() => {
@@ -137,7 +139,6 @@ export function WorkflowVisualizer() {
     }
   }, [jsonValue, autoUpdate, updateDiagram]);
 
-  // Re-render diagram when switching back to preview tab or if code changes
   useEffect(() => {
     if (activeTab === 'preview' && mermaidCode && diagramNode) {
       updateDiagramFromCode(mermaidCode);
@@ -212,24 +213,9 @@ export function WorkflowVisualizer() {
     reader.onload = (e) => {
       try {
         const content = e.target?.result as string;
-        const json = JSON.parse(content);
-
-        if (json.ServiceConfiguration && json.ServiceConfiguration.length > 0) {
-          const workflow = json.ServiceConfiguration[0].workflow;
-          if (workflow) {
-            setJsonValue(JSON.stringify(workflow, null, 2));
-            setMessage('Workflow extracted from service configuration!');
-          } else {
-            setError('No workflow found in service configuration');
-          }
-        } else if (json.states || json.businessService) {
-          setJsonValue(JSON.stringify(json, null, 2));
-          setMessage('Workflow file loaded successfully!');
-        } else {
-          setJsonValue(content);
-          setMessage('JSON file loaded. Please ensure it contains a valid workflow.');
-        }
-
+        JSON.parse(content);
+        setJsonValue(content);
+        setMessage('File loaded successfully!');
         setTimeout(() => setMessage(''), 3000);
       } catch (e) {
         const errorMessage = e instanceof Error ? e.message : 'Unknown error';
@@ -243,7 +229,6 @@ export function WorkflowVisualizer() {
     const newZoom = Math.max(25, Math.min(300, zoom * factor));
     setZoom(newZoom);
     
-    // Apply zoom to current diagram
     if (diagramNode) {
       const svgElement = diagramNode.querySelector('svg');
       if (svgElement) {
@@ -259,22 +244,19 @@ export function WorkflowVisualizer() {
       const svgElement = diagramNode.querySelector('svg');
       if (svgElement) {
         svgElement.style.transform = 'scale(1)';
-        svgElement.style.transformOrigin = 'top left';
       }
     }
   };
 
   const handleSearch = () => {
-    if (!searchTerm || !editorRef.current) return;
-    
-    const editor = editorRef.current;
-    const model = editor.getModel();
-    if (!model) return;
-
-    const matches = model.findMatches(searchTerm, false, false, true, null, false);
-    if (matches.length > 0) {
-      editor.setSelection(matches[0].range);
-      editor.revealRangeInCenter(matches[0].range);
+    if(editorRef.current) {
+      const model = editorRef.current.getModel();
+      if (model) {
+        const matches = model.findMatches(searchTerm, true, false, true, null, true);
+        if (matches.length > 0) {
+          editorRef.current.revealRange(matches[0].range);
+        }
+      }
     }
   };
 
@@ -336,11 +318,11 @@ export function WorkflowVisualizer() {
       </div>
 
       <input
-        ref={fileInputRef}
         type="file"
-        accept=".json"
+        ref={fileInputRef as React.RefObject<HTMLInputElement>}
         onChange={handleFileUpload}
         className="hidden"
+        accept=".json"
       />
     </div>
   );

@@ -13,12 +13,11 @@ import {
   PanelLeft,
   PanelLeftClose
 } from 'lucide-react'
-import { useAuth } from '@/lib/auth/AuthProvider'
+import { useAuth } from '@/lib/auth/auth'
 import { UserMenu } from '@/components/auth/UserMenu'
-import { LoginDialog } from '@/components/auth/LoginDialog'
 
 const navigationItems = [
-  { icon: BarChart3, label: 'Dashboard', path: '/' },
+  { icon: BarChart3, label: 'Dashboard', path: '/dashboard' },
   { icon: GitBranch, label: 'Workflow Visualizer', path: '/workflow' },
   { icon: Users, label: 'Role Action Visualizer', path: '/role-action' },
   { icon: Languages, label: 'Localization Visualizer', path: '/localization' },
@@ -127,7 +126,7 @@ export default function Layout({ children }: LayoutProps) {
             </div>
 
             <div className="ml-auto flex items-center space-x-4">
-              {user ? <UserMenu /> : <LoginDialog />}
+              {user && <UserMenu />}
             </div>
           </div>
         </header>

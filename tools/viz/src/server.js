@@ -1,6 +1,6 @@
 // Minimal dev proxy for CORS and static serving
 // Usage: node server.js
-// Visit: http://localhost:8001/index.html or /localization-visualizer.html
+// Visit: http://localhost:8001 for the React app
 
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
@@ -35,15 +35,40 @@ app.use('/api', createProxyMiddleware({
     }
 }));
 
-// Serve static files from the 'src' directory
+// server the same folder that this file is in
 app.use(express.static(path.join(__dirname)));
+
+// Serve the React app build files
+// const reactAppPath = path.join(__dirname, '../app/dist');
+// console.log('Looking for React app at:', reactAppPath);
+
+// Check if React app is built
+// if (fs.existsSync(reactAppPath)) {
+//     console.log('✅ React app found - serving from /app/dist');
+//     app.use(express.static(reactAppPath));
+
+//     // Handle React Router (SPA) - all non-API routes should serve index.html
+//     app.get('*', (req, res, next) => {
+//         // Skip if it's an API or data request
+//         if (req.path.startsWith('/api') || req.path.startsWith('/data')) {
+//             return next();
+//         }
+//         res.sendFile(path.join(reactAppPath, 'index.html'));
+//     });
+// } else {
+//     console.log('⚠️  React app not built yet - serving old static files');
+//     console.log('   Run "npm run build" in the /app directory first');
+
+//     // Fallback: serve old static files from the current 'src' directory
+//     app.use(express.static(path.join(__dirname)));
+// }
 
 // Serve /data directory for config and reference files with directory listing
 const dataPath = path.join(__dirname, '../../../data');
-console.log(dataPath);
+console.log('Data path:', dataPath);
 app.use('/data', express.static(dataPath), serveIndex(dataPath, { icons: true }));
 
-// API: /api/data-tree - returns a JSON tree of the /data directory
+// API: /api-local/data-tree - returns a JSON tree of the /data directory
 app.get('/api-local/data-tree', async (req, res) => {
     const dataRoot = path.join(__dirname, '../../../data');
     const exts = ['.json', '.yaml', '.yml'];
@@ -116,5 +141,7 @@ app.get('/api-local/recently-changed-configs', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Dev server running: http://localhost:${PORT}`);
+    console.log(`🚀 Server running: http://localhost:${PORT}`);
+    console.log(`📊 Dashboard: http://localhost:${PORT}/`);
+    console.log(`📁 Data browser: http://localhost:${PORT}/data`);
 }); 
