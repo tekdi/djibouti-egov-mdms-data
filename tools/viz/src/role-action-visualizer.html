@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role-Action Visualizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .controls {
+            padding: 20px;
+            background: #ecf0f1;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .filter-input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            min-width: 200px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-left: auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .content {
+            padding: 20px;
+            max-height: 70vh;
+            overflow: auto;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #34495e;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            transition: background-color 0.2s;
+        }
+
+        th:hover {
+            background: #2c3e50;
+        }
+
+        th.sortable::after {
+            content: "↕";
+            position: absolute;
+            right: 8px;
+            opacity: 0.5;
+        }
+
+        th.sort-asc::after {
+            content: "↑";
+            opacity: 1;
+        }
+
+        th.sort-desc::after {
+            content: "↓";
+            opacity: 1;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #e3f2fd;
+        }
+
+        .role-cell {
+            font-weight: bold;
+            color: #2c3e50;
+            max-width: 200px;
+        }
+
+        .action-cell {
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+
+        .url-cell {
+            font-family: monospace;
+            font-size: 12px;
+            color: #7f8c8d;
+            max-width: 400px;
+            word-break: break-all;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+
+        .error {
+            color: #e74c3c;
+            background: #fdf2f2;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .info {
+            color: #27ae60;
+            background: #f0f9f0;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .badge {
+            background: #3498db;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-left: 5px;
+        }
+
+        .service-badge {
+            background: #27ae60;
+        }
+
+        .disabled-badge {
+            background: #95a5a6;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 5px;
+        }
+
+        .view-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        .view-btn.active {
+            background: #27ae60;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        .summary-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .summary-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .summary-item {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+        }
+
+        .add-mapping-btn {
+            background: #27ae60;
+            margin-right: 10px;
+        }
+
+        .add-mapping-btn:hover {
+            background: #229954;
+        }
+
+        .download-btn {
+            background: #f39c12;
+            color: white;
+        }
+
+        .download-btn:hover {
+            background: #e67e22;
+        }
+
+        .mapping-preview {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .mapping-preview h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+
+        .preview-item {
+            margin: 5px 0;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+
+
+        .data-source-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .data-source-controls label:first-child {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .add-role-btn {
+            background: #9b59b6;
+        }
+
+        .add-role-btn:hover {
+            background: #8e44ad;
+        }
+
+        .add-action-btn {
+            background: #e67e22;
+        }
+
+        .add-action-btn:hover {
+            background: #d35400;
+        }
+
+        /* Comparison styles */
+        .diff-new {
+            background-color: #d4edda !important;
+            border-left: 4px solid #27ae60;
+        }
+
+        .diff-missing {
+            background-color: #f8d7da !important;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .diff-modified {
+            background-color: #fff3cd !important;
+            border-left: 4px solid #f39c12;
+        }
+
+        .source-indicator {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+
+        .source-api {
+            background: #3498db;
+            color: white;
+        }
+
+        .source-local {
+            background: #95a5a6;
+            color: white;
+        }
+
+
+
+        /* View Structure Styles */
+        .view-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .view-header h2 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .view-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .view-sub-toggle {
+            display: flex;
+            gap: 5px;
+        }
+
+        .sub-view-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .sub-view-btn:hover {
+            background: #d5dbdb;
+        }
+
+        .sub-view-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .summary-info {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* Enhanced table styles for individual views */
+        .entity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .entity-table th,
+        .entity-table td {
+            border: 1px solid #ddd;
+            padding: 12px 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .entity-table th {
+            background: #34495e;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .entity-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .entity-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .actions-column {
+            white-space: nowrap;
+            width: 120px;
+        }
+
+        .action-btn {
+            padding: 4px 8px;
+            font-size: 12px;
+            margin: 0 2px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .edit-btn {
+            background: #f39c12;
+            color: white;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .action-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="header">
+            <h1>Role-Action Visualizer</h1>
+            <p>Explore role-action mappings and permissions</p>
+        </div>
+
+
+
+        <div class="controls">
+            <div class="data-source-controls">
+                <label>Data Source:</label>
+                <input type="radio" name="data-source" value="api" id="source-api" checked>
+                <label for="source-api">API</label>
+                <input type="radio" name="data-source" value="local" id="source-local">
+                <label for="source-local">Local</label>
+                <input type="radio" name="data-source" value="compare" id="source-compare">
+                <label for="source-compare">Compare</label>
+            </div>
+            <button class="btn" onclick="loadData()">Load Data</button>
+            <button class="btn add-mapping-btn" onclick="openAddMappingModal()">Add Mapping</button>
+            <button class="btn add-role-btn" onclick="openAddRoleModal()">Add Role</button>
+            <button class="btn add-action-btn" onclick="openAddActionModal()">Add Action</button>
+            <button class="btn download-btn" onclick="downloadUpdatedJSON()">Download JSON</button>
+            <input type="text" class="filter-input" id="role-filter" placeholder="Filter by role..."
+                oninput="filterData()">
+            <input type="text" class="filter-input" id="action-filter" placeholder="Filter by action/ID/URL..."
+                oninput="filterData()">
+            <button class="btn" onclick="clearFilters()">Clear Filters</button>
+            <div class="view-toggle">
+                <button class="view-btn active" onclick="switchMainView('roles')">Roles</button>
+                <button class="view-btn" onclick="switchMainView('actions')">Actions</button>
+                <button class="view-btn" onclick="switchMainView('mappings')">Mappings</button>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-roles">0</div>
+                    <div class="stat-label">Roles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="total-actions">0</div>
+                    <div class="stat-label">Actions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="total-mappings">0</div>
+                    <div class="stat-label">Mappings</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div id="error-container"></div>
+
+            <!-- Roles View -->
+            <div id="roles-view">
+                <div class="view-header">
+                    <h2>Roles Management</h2>
+                    <div class="view-actions">
+                        <button class="btn add-role-btn" onclick="openAddRoleModal()">Add New Role</button>
+                        <div class="view-sub-toggle">
+                            <button class="sub-view-btn active" onclick="switchSubView('roles', 'table')">Table</button>
+                            <button class="sub-view-btn" onclick="switchSubView('roles', 'summary')">Summary</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="roles-table-view">
+                    <div class="loading">Click "Load Data" to fetch roles...</div>
+                </div>
+                <div id="roles-summary-view" style="display: none;">
+                    <div class="summary-info">Role statistics and insights will appear here.</div>
+                </div>
+            </div>
+
+            <!-- Actions View -->
+            <div id="actions-view" style="display: none;">
+                <div class="view-header">
+                    <h2>Actions Management</h2>
+                    <div class="view-actions">
+                        <button class="btn add-action-btn" onclick="openAddActionModal()">Add New Action</button>
+                        <div class="view-sub-toggle">
+                            <button class="sub-view-btn active"
+                                onclick="switchSubView('actions', 'table')">Table</button>
+                            <button class="sub-view-btn" onclick="switchSubView('actions', 'summary')">Summary</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="actions-table-view">
+                    <div class="loading">Click "Load Data" to fetch actions...</div>
+                </div>
+                <div id="actions-summary-view" style="display: none;">
+                    <div class="summary-info">Action statistics and insights will appear here.</div>
+                </div>
+            </div>
+
+            <!-- Mappings View -->
+            <div id="mappings-view" style="display: none;">
+                <div class="view-header">
+                    <h2>Role-Action Mappings</h2>
+                    <div class="view-actions">
+                        <button class="btn add-mapping-btn" onclick="openAddMappingModal()">Add New Mapping</button>
+                        <div class="view-sub-toggle">
+                            <button class="sub-view-btn active"
+                                onclick="switchSubView('mappings', 'table')">Table</button>
+                            <button class="sub-view-btn" onclick="switchSubView('mappings', 'summary')">Summary</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="mappings-table-view">
+                    <div class="loading">Click "Load Data" to fetch role-action mappings...</div>
+                </div>
+                <div id="mappings-summary-view" style="display: none;">
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <div class="summary-title">Roles by Action Count</div>
+                            <div class="summary-list" id="roles-by-count"></div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-title">Most Used Actions</div>
+                            <div class="summary-list" id="actions-by-usage"></div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-title">Service Distribution</div>
+                            <div class="summary-list" id="service-distribution"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Mapping Modal -->
+    <div id="addMappingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Role-Action Mapping</h2>
+                <button class="close" onclick="closeAddMappingModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addMappingForm">
+                    <div class="form-group">
+                        <label for="role-select">Role:</label>
+                        <select id="role-select" class="form-control" onchange="updateMappingPreview()">
+                            <option value="">Select a role...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="action-select">Action:</label>
+                        <select id="action-select" class="form-control" onchange="updateMappingPreview()">
+                            <option value="">Select an action...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tenant-input">Tenant ID:</label>
+                        <input type="text" id="tenant-input" class="form-control" value="dj"
+                            onchange="updateMappingPreview()">
+                    </div>
+
+                    <div class="mapping-preview" id="mapping-preview" style="display: none;">
+                        <h4>Preview:</h4>
+                        <div id="preview-content"></div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" onclick="closeAddMappingModal()">Cancel</button>
+                        <button type="button" class="btn btn-success" onclick="addNewMapping()">Add Mapping</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Role Modal -->
+    <div id="addRoleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Role</h2>
+                <button class="close" onclick="closeAddRoleModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addRoleForm">
+                    <div class="form-group">
+                        <label for="role-code">Role Code:</label>
+                        <input type="text" id="role-code" class="form-control" placeholder="e.g., BPA_ARCHITECT"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role-name">Role Name:</label>
+                        <input type="text" id="role-name" class="form-control" placeholder="e.g., BPA Architect"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role-description">Description:</label>
+                        <textarea id="role-description" class="form-control" rows="3"
+                            placeholder="Role description..."></textarea>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" onclick="closeAddRoleModal()">Cancel</button>
+                        <button type="button" class="btn btn-success" onclick="addNewRole()">Add Role</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Action Modal -->
+    <div id="addActionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Action</h2>
+                <button class="close" onclick="closeAddActionModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addActionForm">
+                    <div class="form-group">
+                        <label for="action-id">Action ID:</label>
+                        <input type="number" id="action-id" class="form-control" placeholder="e.g., 1001" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="action-url">URL:</label>
+                        <input type="text" id="action-url" class="form-control" placeholder="e.g., /api/v1/example"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="action-name">Name:</label>
+                        <input type="text" id="action-name" class="form-control" placeholder="Action name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="action-display-name">Display Name:</label>
+                        <input type="text" id="action-display-name" class="form-control" placeholder="Display name">
+                    </div>
+                    <div class="form-group">
+                        <label for="action-service-code">Service Code:</label>
+                        <input type="text" id="action-service-code" class="form-control" placeholder="e.g., egov-bpa">
+                    </div>
+                    <div class="form-group">
+                        <label for="action-enabled">
+                            <input type="checkbox" id="action-enabled" checked> Enabled
+                        </label>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" onclick="closeAddActionModal()">Cancel</button>
+                        <button type="button" class="btn btn-success" onclick="addNewAction()">Add Action</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="auth.js"></script>
+    <script>
+        let rawData = {
+            roleActions: [],
+            actions: [],
+            roles: []
+        };
+        let localData = {
+            roleActions: [],
+            actions: [],
+            roles: []
+        };
+        let processedData = [];
+        let filteredData = [];
+        let currentMainView = 'roles';
+        let currentSubViews = {
+            roles: 'table',
+            actions: 'table',
+            mappings: 'table'
+        };
+        let hasUnsavedChanges = false;
+        let currentDataSource = 'api';
+
+        // Initialize shared authentication system
+        const auth = window.DigitAuth.createAuthSystem();
+
+
+
+        // API Helper Functions
+        async function makeApiCall(endpoint, data) {
+            return await auth.makeApiCall(endpoint, data);
+        }
+
+        async function loadApiData() {
+            try {
+                // Load roles
+                const rolesResponse = await makeApiCall('/egov-mdms-service/v2/_search', {
+                    MdmsCriteria: {
+                        tenantId: window.DigitAuth.AUTH_CONFIG.TENANT_ID,
+                        schemaCode: "ACCESSCONTROL-ROLES.roles",
+                        limit: 1000,
+                        offset: 0
+                    }
+                });
+
+                // Load actions
+                const actionsResponse = await makeApiCall('/egov-mdms-service/v2/_search', {
+                    MdmsCriteria: {
+                        tenantId: window.DigitAuth.AUTH_CONFIG.TENANT_ID,
+                        schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
+                        limit: 5000,
+                        offset: 0
+                    }
+                });
+
+                // Load role-actions
+                const roleActionsResponse = await makeApiCall('/egov-mdms-service/v2/_search', {
+                    MdmsCriteria: {
+                        tenantId: window.DigitAuth.AUTH_CONFIG.TENANT_ID,
+                        schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
+                        limit: 10000,
+                        offset: 0
+                    }
+                });
+
+                // Transform API response to match local data structure
+                rawData.roles = rolesResponse.mdms?.map(item => item.data) || [];
+                rawData.actions = actionsResponse.mdms?.map(item => item.data) || [];
+                rawData.roleActions = roleActionsResponse.mdms?.map(item => item.data) || [];
+
+                return true;
+            } catch (error) {
+                throw new Error('Failed to load API data: ' + error.message);
+            }
+        }
+
+        async function loadLocalData() {
+            try {
+                // Load all three JSON files
+                const [roleActionsResponse, actionsResponse, rolesResponse] = await Promise.all([
+                    fetch('../../../data/dj/ACCESSCONTROL-ROLEACTIONS/roleactions.json'),
+                    fetch('../../../data/dj/ACCESSCONTROL-ACTIONS-TEST/actions-test.json'),
+                    fetch('../../../data/dj/ACCESSCONTROL-ROLES/roles.json')
+                ]);
+
+                if (!roleActionsResponse.ok || !actionsResponse.ok || !rolesResponse.ok) {
+                    throw new Error('Failed to load one or more local data files');
+                }
+
+                const [roleActionsData, actionsData, rolesData] = await Promise.all([
+                    roleActionsResponse.json(),
+                    actionsResponse.json(),
+                    rolesResponse.json()
+                ]);
+
+                localData.roleActions = roleActionsData.roleactions || [];
+                localData.actions = actionsData['actions-test'] || [];
+                localData.roles = rolesData.roles || [];
+
+                return true;
+            } catch (error) {
+                throw new Error('Failed to load local data: ' + error.message);
+            }
+        }
+
+        async function loadData() {
+            try {
+                showLoading();
+                clearError();
+
+                // Get selected data source
+                const dataSourceRadios = document.getElementsByName('data-source');
+                currentDataSource = Array.from(dataSourceRadios).find(radio => radio.checked)?.value || 'api';
+
+                if (currentDataSource === 'api') {
+                    await loadApiData();
+                    showMessage('API data loaded successfully!', 'info');
+                } else if (currentDataSource === 'local') {
+                    await loadLocalData();
+                    // Copy local data to rawData for processing
+                    rawData = { ...localData };
+                    showMessage('Local data loaded successfully!', 'info');
+                } else if (currentDataSource === 'compare') {
+                    await Promise.all([loadApiData(), loadLocalData()]);
+                    showMessage('Both API and local data loaded for comparison!', 'info');
+                }
+
+                processData();
+                updateStats();
+                renderCurrentView();
+
+            } catch (error) {
+                showError('Error loading data: ' + error.message);
+                console.error('Load error:', error);
+            }
+        }
+
+        function processData() {
+            // Create lookup maps for better performance
+            const actionMap = new Map();
+            rawData.actions.forEach(action => {
+                actionMap.set(action.id, action);
+            });
+
+            const roleMap = new Map();
+            rawData.roles.forEach(role => {
+                roleMap.set(role.code, role);
+            });
+
+            // Process role-action mappings
+            processedData = rawData.roleActions.map(mapping => {
+                const action = actionMap.get(mapping.actionid) || {};
+                const role = roleMap.get(mapping.rolecode) || {};
+
+                return {
+                    roleCode: mapping.rolecode,
+                    roleName: role.name || mapping.rolecode,
+                    roleDescription: role.description || '',
+                    actionId: mapping.actionid,
+                    actionName: action.name || 'Unknown Action',
+                    actionUrl: action.url || '',
+                    actionDisplayName: action.displayName || action.name || '',
+                    serviceCode: action.serviceCode || '',
+                    enabled: action.enabled !== undefined ? action.enabled : false,
+                    tenantId: mapping.tenantId || mapping.tenantid || ''
+                };
+            });
+
+            filteredData = [...processedData];
+        }
+
+        function updateStats() {
+            const uniqueRoles = new Set(processedData.map(item => item.roleCode));
+            const uniqueActions = new Set(processedData.map(item => item.actionId));
+
+            document.getElementById('total-roles').textContent = uniqueRoles.size;
+            document.getElementById('total-actions').textContent = uniqueActions.size;
+            document.getElementById('total-mappings').textContent = processedData.length;
+        }
+
+        // View Switching Functions
+        function switchMainView(viewName) {
+            currentMainView = viewName;
+
+            // Update button states
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide main views
+            document.getElementById('roles-view').style.display = viewName === 'roles' ? 'block' : 'none';
+            document.getElementById('actions-view').style.display = viewName === 'actions' ? 'block' : 'none';
+            document.getElementById('mappings-view').style.display = viewName === 'mappings' ? 'block' : 'none';
+
+            // Render the current view
+            renderCurrentView();
+        }
+
+        function switchSubView(mainView, subView) {
+            currentSubViews[mainView] = subView;
+
+            // Update sub-view button states
+            const subViewContainer = document.querySelector(`#${mainView}-view .view-sub-toggle`);
+            subViewContainer.querySelectorAll('.sub-view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide sub-views
+            document.getElementById(`${mainView}-table-view`).style.display = subView === 'table' ? 'block' : 'none';
+            document.getElementById(`${mainView}-summary-view`).style.display = subView === 'summary' ? 'block' : 'none';
+
+            // Render the current view
+            renderCurrentView();
+        }
+
+        function renderCurrentView() {
+            const currentSubView = currentSubViews[currentMainView];
+
+            if (currentMainView === 'roles') {
+                if (currentSubView === 'table') {
+                    renderRolesTableView();
+                } else {
+                    renderRolesSummaryView();
+                }
+            } else if (currentMainView === 'actions') {
+                if (currentSubView === 'table') {
+                    renderActionsTableView();
+                } else {
+                    renderActionsSummaryView();
+                }
+            } else if (currentMainView === 'mappings') {
+                if (currentSubView === 'table') {
+                    renderMappingsTableView();
+                } else {
+                    renderMappingsSummaryView();
+                }
+            }
+        }
+
+        // Individual View Rendering Functions
+        function renderRolesTableView() {
+            const container = document.getElementById('roles-table-view');
+
+            if (rawData.roles.length === 0) {
+                container.innerHTML = '<div class="loading">No roles data to display</div>';
+                return;
+            }
+
+            let html = `
+                <div class="table-container">
+                    <table class="entity-table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Source</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            rawData.roles.forEach(role => {
+                const sourceIndicator = currentDataSource === 'api' ?
+                    '<span class="source-indicator source-api">API</span>' :
+                    '<span class="source-indicator source-local">Local</span>';
+
+                html += `
+                    <tr>
+                        <td><strong>${role.code}</strong></td>
+                        <td>${role.name}</td>
+                        <td>${role.description || '-'}</td>
+                        <td>${sourceIndicator}</td>
+                        <td class="actions-column">
+                            <button class="action-btn edit-btn" onclick="editRole('${role.code}')">Edit</button>
+                            <button class="action-btn delete-btn" onclick="deleteRole('${role.code}')">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function renderRolesSummaryView() {
+            const container = document.getElementById('roles-summary-view');
+            container.innerHTML = `
+                <div class="summary-info">
+                    <h3>Roles Summary</h3>
+                    <p>Total Roles: <strong>${rawData.roles.length}</strong></p>
+                    <p>Data Source: <strong>${currentDataSource.toUpperCase()}</strong></p>
+                </div>
+            `;
+        }
+
+        function renderActionsTableView() {
+            const container = document.getElementById('actions-table-view');
+
+            if (rawData.actions.length === 0) {
+                container.innerHTML = '<div class="loading">No actions data to display</div>';
+                return;
+            }
+
+            let html = `
+                <div class="table-container">
+                    <table class="entity-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>URL</th>
+                                <th>Service</th>
+                                <th>Status</th>
+                                <th>Source</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            rawData.actions.forEach(action => {
+                const sourceIndicator = currentDataSource === 'api' ?
+                    '<span class="source-indicator source-api">API</span>' :
+                    '<span class="source-indicator source-local">Local</span>';
+
+                html += `
+                    <tr>
+                        <td><span class="badge">${action.id}</span></td>
+                        <td>
+                            <strong>${action.displayName || action.name}</strong><br>
+                            <small style="color: #7f8c8d;">${action.name}</small>
+                        </td>
+                        <td class="url-cell">${action.url}</td>
+                        <td>${action.serviceCode ? `<span class="badge service-badge">${action.serviceCode}</span>` : '-'}</td>
+                        <td>
+                            <span class="badge ${action.enabled ? '' : 'disabled-badge'}">
+                                ${action.enabled ? 'Enabled' : 'Disabled'}
+                            </span>
+                        </td>
+                        <td>${sourceIndicator}</td>
+                        <td class="actions-column">
+                            <button class="action-btn edit-btn" onclick="editAction(${action.id})">Edit</button>
+                            <button class="action-btn delete-btn" onclick="deleteAction(${action.id})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function renderActionsSummaryView() {
+            const container = document.getElementById('actions-summary-view');
+            const enabledCount = rawData.actions.filter(action => action.enabled).length;
+            const disabledCount = rawData.actions.length - enabledCount;
+
+            container.innerHTML = `
+                <div class="summary-info">
+                    <h3>Actions Summary</h3>
+                    <p>Total Actions: <strong>${rawData.actions.length}</strong></p>
+                    <p>Enabled: <strong>${enabledCount}</strong></p>
+                    <p>Disabled: <strong>${disabledCount}</strong></p>
+                    <p>Data Source: <strong>${currentDataSource.toUpperCase()}</strong></p>
+                </div>
+            `;
+        }
+
+        function renderMappingsTableView() {
+            const container = document.getElementById('mappings-table-view');
+
+            if (filteredData.length === 0) {
+                container.innerHTML = '<div class="loading">No data to display</div>';
+                return;
+            }
+
+            let html = `
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="sortable" onclick="sortTable('roleCode')">Role</th>
+                                <th class="sortable" onclick="sortTable('actionId')">Action ID</th>
+                                <th class="sortable" onclick="sortTable('actionName')">Action</th>
+                                <th class="sortable" onclick="sortTable('actionUrl')">URL</th>
+                                <th class="sortable" onclick="sortTable('serviceCode')">Service</th>
+                                <th class="sortable" onclick="sortTable('enabled')">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            filteredData.forEach(item => {
+                html += `
+                    <tr>
+                        <td class="role-cell">
+                            <strong>${item.roleCode}</strong><br>
+                            <small>${item.roleName}</small>
+                            ${item.roleDescription ? `<br><em style="color: #7f8c8d;">${item.roleDescription}</em>` : ''}
+                        </td>
+                        <td class="action-cell">
+                            <span class="badge">${item.actionId}</span>
+                        </td>
+                        <td class="action-cell">
+                            <strong>${item.actionDisplayName || item.actionName}</strong><br>
+                            <small style="color: #7f8c8d;">${item.actionName}</small>
+                        </td>
+                        <td class="url-cell">${item.actionUrl}</td>
+                        <td>
+                            ${item.serviceCode ? `<span class="badge service-badge">${item.serviceCode}</span>` : '-'}
+                        </td>
+                        <td>
+                            <span class="badge ${item.enabled ? '' : 'disabled-badge'}">
+                                ${item.enabled ? 'Enabled' : 'Disabled'}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function renderMappingsSummaryView() {
+            // Roles by action count
+            const roleActionCounts = new Map();
+            processedData.forEach(item => {
+                const count = roleActionCounts.get(item.roleCode) || 0;
+                roleActionCounts.set(item.roleCode, count + 1);
+            });
+
+            const sortedRoles = Array.from(roleActionCounts.entries())
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 15);
+
+            document.getElementById('roles-by-count').innerHTML = sortedRoles
+                .map(([role, count]) => `
+                    <div class="summary-item">
+                        <span>${role}</span>
+                        <span class="badge">${count}</span>
+                    </div>
+                `).join('');
+
+            // Most used actions
+            const actionUsageCounts = new Map();
+            processedData.forEach(item => {
+                const count = actionUsageCounts.get(item.actionId) || 0;
+                actionUsageCounts.set(item.actionId, count + 1);
+            });
+
+            const sortedActions = Array.from(actionUsageCounts.entries())
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 15);
+
+            document.getElementById('actions-by-usage').innerHTML = sortedActions
+                .map(([actionId, count]) => {
+                    const action = processedData.find(item => item.actionId == actionId);
+                    return `
+                        <div class="summary-item">
+                            <span>${action ? (action.actionDisplayName || action.actionName) : actionId}</span>
+                            <span class="badge">${count}</span>
+                        </div>
+                    `;
+                }).join('');
+
+            // Service distribution
+            const serviceCounts = new Map();
+            processedData.forEach(item => {
+                if (item.serviceCode) {
+                    const count = serviceCounts.get(item.serviceCode) || 0;
+                    serviceCounts.set(item.serviceCode, count + 1);
+                }
+            });
+
+            const sortedServices = Array.from(serviceCounts.entries())
+                .sort((a, b) => b[1] - a[1]);
+
+            document.getElementById('service-distribution').innerHTML = sortedServices
+                .map(([service, count]) => `
+                    <div class="summary-item">
+                        <span>${service}</span>
+                        <span class="badge service-badge">${count}</span>
+                    </div>
+                `).join('');
+        }
+
+        function filterData() {
+            const roleFilter = document.getElementById('role-filter').value.toLowerCase();
+            const actionFilter = document.getElementById('action-filter').value.toLowerCase();
+
+            filteredData = processedData.filter(item => {
+                const roleMatch = !roleFilter ||
+                    item.roleCode.toLowerCase().includes(roleFilter) ||
+                    item.roleName.toLowerCase().includes(roleFilter);
+
+                const actionMatch = !actionFilter ||
+                    item.actionName.toLowerCase().includes(actionFilter) ||
+                    item.actionDisplayName.toLowerCase().includes(actionFilter) ||
+                    item.actionUrl.toLowerCase().includes(actionFilter) ||
+                    item.actionId.toString().toLowerCase().includes(actionFilter);
+
+                return roleMatch && actionMatch;
+            });
+
+            renderCurrentView();
+        }
+
+
+
+        // CRUD Functions for Roles and Actions
+        function editRole(roleCode) {
+            showMessage(`Edit functionality for role "${roleCode}" - Coming soon!`, 'info');
+        }
+
+        function deleteRole(roleCode) {
+            if (!confirm(`Are you sure you want to delete role "${roleCode}"?`)) {
+                return;
+            }
+            showMessage(`Delete functionality for role "${roleCode}" - Coming soon!`, 'info');
+        }
+
+        function editAction(actionId) {
+            showMessage(`Edit functionality for action ID "${actionId}" - Coming soon!`, 'info');
+        }
+
+        function deleteAction(actionId) {
+            if (!confirm(`Are you sure you want to delete action ID "${actionId}"?`)) {
+                return;
+            }
+            showMessage(`Delete functionality for action ID "${actionId}" - Coming soon!`, 'info');
+        }
+
+        function showLoading() {
+            document.getElementById('roles-table-view').innerHTML = '<div class="loading">Loading roles...</div>';
+            document.getElementById('actions-table-view').innerHTML = '<div class="loading">Loading actions...</div>';
+            document.getElementById('mappings-table-view').innerHTML = '<div class="loading">Loading mappings...</div>';
+        }
+
+        function showError(message) {
+            document.getElementById('error-container').innerHTML = `<div class="error">${message}</div>`;
+        }
+
+        function showMessage(message, type = 'info') {
+            const className = type === 'error' ? 'error' : 'info';
+            document.getElementById('error-container').innerHTML = `<div class="${className}">${message}</div>`;
+            setTimeout(() => {
+                document.getElementById('error-container').innerHTML = '';
+            }, 3000);
+        }
+
+        function clearError() {
+            document.getElementById('error-container').innerHTML = '';
+        }
+
+        function clearFilters() {
+            document.getElementById('role-filter').value = '';
+            document.getElementById('action-filter').value = '';
+            filteredData = [...processedData];
+            renderCurrentView();
+        }
+
+        let sortDirection = {};
+
+        function sortTable(column) {
+            // Toggle sort direction
+            sortDirection[column] = sortDirection[column] === 'asc' ? 'desc' : 'asc';
+
+            // Remove existing sort classes
+            document.querySelectorAll('th').forEach(th => {
+                th.classList.remove('sort-asc', 'sort-desc');
+            });
+
+            // Add sort class to current column
+            const clickedHeader = event.target;
+            clickedHeader.classList.add(sortDirection[column] === 'asc' ? 'sort-asc' : 'sort-desc');
+
+            // Sort the data
+            filteredData.sort((a, b) => {
+                let aVal = a[column];
+                let bVal = b[column];
+
+                // Handle different data types
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                } else if (typeof aVal === 'number') {
+                    aVal = Number(aVal) || 0;
+                    bVal = Number(bVal) || 0;
+                } else if (typeof aVal === 'boolean') {
+                    aVal = aVal ? 1 : 0;
+                    bVal = bVal ? 1 : 0;
+                }
+
+                if (sortDirection[column] === 'asc') {
+                    return aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
+                } else {
+                    return aVal > bVal ? -1 : aVal < bVal ? 1 : 0;
+                }
+            });
+
+            renderCurrentView();
+        }
+
+        // Modal Functions
+        function openAddMappingModal() {
+            if (rawData.roles.length === 0 || rawData.actions.length === 0) {
+                showError('Please load data first before adding mappings.');
+                return;
+            }
+
+            populateDropdowns();
+            document.getElementById('addMappingModal').style.display = 'block';
+        }
+
+        function openAddRoleModal() {
+            document.getElementById('addRoleModal').style.display = 'block';
+        }
+
+        function closeAddRoleModal() {
+            document.getElementById('addRoleModal').style.display = 'none';
+            document.getElementById('addRoleForm').reset();
+        }
+
+        function openAddActionModal() {
+            document.getElementById('addActionModal').style.display = 'block';
+        }
+
+        function closeAddActionModal() {
+            document.getElementById('addActionModal').style.display = 'none';
+            document.getElementById('addActionForm').reset();
+        }
+
+        async function addNewRole() {
+            const roleCode = document.getElementById('role-code').value.trim();
+            const roleName = document.getElementById('role-name').value.trim();
+            const roleDescription = document.getElementById('role-description').value.trim();
+
+            if (!roleCode || !roleName) {
+                showError('Please fill in Role Code and Role Name.');
+                return;
+            }
+
+            try {
+                if (currentDataSource === 'api') {
+                    // Add via API
+                    await makeApiCall('/egov-mdms-service/v2/_create/ACCESSCONTROL-ROLES.roles', {
+                        Mdms: {
+                            tenantId: window.DigitAuth.AUTH_CONFIG.TENANT_ID,
+                            schemaCode: "ACCESSCONTROL-ROLES.roles",
+                            data: {
+                                code: roleCode,
+                                name: roleName,
+                                description: roleDescription
+                            }
+                        }
+                    });
+                    showMessage(`Role "${roleCode}" created successfully via API!`, 'info');
+                } else {
+                    // Add to local data
+                    const newRole = {
+                        code: roleCode,
+                        name: roleName,
+                        description: roleDescription
+                    };
+                    rawData.roles.push(newRole);
+                    hasUnsavedChanges = true;
+                    updateDownloadButton();
+                    showMessage(`Role "${roleCode}" added to local data!`, 'info');
+                }
+
+                closeAddRoleModal();
+
+                // Reload data to refresh the display
+                if (currentDataSource === 'api') {
+                    await loadData();
+                } else {
+                    processData();
+                    updateStats();
+                    renderCurrentView();
+                }
+
+            } catch (error) {
+                showError('Error adding role: ' + error.message);
+            }
+        }
+
+        async function addNewAction() {
+            const actionId = parseInt(document.getElementById('action-id').value);
+            const actionUrl = document.getElementById('action-url').value.trim();
+            const actionName = document.getElementById('action-name').value.trim();
+            const actionDisplayName = document.getElementById('action-display-name').value.trim();
+            const actionServiceCode = document.getElementById('action-service-code').value.trim();
+            const actionEnabled = document.getElementById('action-enabled').checked;
+
+            if (!actionId || !actionUrl || !actionName) {
+                showError('Please fill in Action ID, URL, and Name.');
+                return;
+            }
+
+            try {
+                const newActionData = {
+                    id: actionId,
+                    url: actionUrl,
+                    name: actionName,
+                    displayName: actionDisplayName || actionName,
+                    serviceCode: actionServiceCode,
+                    enabled: actionEnabled,
+                    path: "",
+                    leftIcon: "",
+                    rightIcon: "",
+                    orderNumber: 1,
+                    queryParams: "",
+                    parentModule: "",
+                    navigationURL: "",
+                    tenantId: window.DigitAuth.AUTH_CONFIG.TENANT_ID
+                };
+
+                if (currentDataSource === 'api') {
+                    // Add via API
+                    await makeApiCall('/egov-mdms-service/v2/_create/ACCESSCONTROL-ACTIONS-TEST.actions-test', {
+                        Mdms: {
+                            tenantId: window.DigitAuth.AUTH_CONFIG.TENANT_ID,
+                            schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
+                            data: newActionData
+                        }
+                    });
+                    showMessage(`Action "${actionName}" created successfully via API!`, 'info');
+                } else {
+                    // Add to local data
+                    rawData.actions.push(newActionData);
+                    hasUnsavedChanges = true;
+                    updateDownloadButton();
+                    showMessage(`Action "${actionName}" added to local data!`, 'info');
+                }
+
+                closeAddActionModal();
+
+                // Reload data to refresh the display
+                if (currentDataSource === 'api') {
+                    await loadData();
+                } else {
+                    processData();
+                    updateStats();
+                    renderCurrentView();
+                }
+
+            } catch (error) {
+                showError('Error adding action: ' + error.message);
+            }
+        }
+
+        function closeAddMappingModal() {
+            document.getElementById('addMappingModal').style.display = 'none';
+            document.getElementById('addMappingForm').reset();
+            document.getElementById('mapping-preview').style.display = 'none';
+            document.getElementById('tenant-input').value = 'dj';
+        }
+
+        function populateDropdowns() {
+            const roleSelect = document.getElementById('role-select');
+            const actionSelect = document.getElementById('action-select');
+
+            // Clear existing options
+            roleSelect.innerHTML = '<option value="">Select a role...</option>';
+            actionSelect.innerHTML = '<option value="">Select an action...</option>';
+
+            // Populate roles
+            rawData.roles.forEach(role => {
+                const option = document.createElement('option');
+                option.value = role.code;
+                option.textContent = `${role.code} - ${role.name}`;
+                roleSelect.appendChild(option);
+            });
+
+            // Populate actions
+            rawData.actions.forEach(action => {
+                const option = document.createElement('option');
+                option.value = action.id;
+                option.textContent = `${action.id} - ${action.displayName || action.name}`;
+                actionSelect.appendChild(option);
+            });
+        }
+
+        function updateMappingPreview() {
+            const roleCode = document.getElementById('role-select').value;
+            const actionId = document.getElementById('action-select').value;
+            const tenantId = document.getElementById('tenant-input').value;
+
+            if (roleCode && actionId && tenantId) {
+                const role = rawData.roles.find(r => r.code === roleCode);
+                const action = rawData.actions.find(a => a.id == actionId);
+
+                const previewDiv = document.getElementById('mapping-preview');
+                const contentDiv = document.getElementById('preview-content');
+
+                contentDiv.innerHTML = `
+                    <div class="preview-item"><strong>Role:</strong> ${roleCode} (${role ? role.name : 'Unknown'})</div>
+                    <div class="preview-item"><strong>Action ID:</strong> ${actionId}</div>
+                    <div class="preview-item"><strong>Action:</strong> ${action ? action.displayName || action.name : 'Unknown'}</div>
+                    <div class="preview-item"><strong>Tenant ID:</strong> ${tenantId}</div>
+                    <div class="preview-item"><strong>JSON:</strong> { "rolecode": "${roleCode}", "actionid": ${actionId}, "tenantId": "${tenantId}" }</div>
+                `;
+
+                previewDiv.style.display = 'block';
+            } else {
+                document.getElementById('mapping-preview').style.display = 'none';
+            }
+        }
+
+        async function addNewMapping() {
+            const roleCode = document.getElementById('role-select').value;
+            const actionId = parseInt(document.getElementById('action-select').value);
+            const tenantId = document.getElementById('tenant-input').value;
+
+            if (!roleCode || !actionId || !tenantId) {
+                showError('Please fill in all fields.');
+                return;
+            }
+
+            // Check if mapping already exists
+            const existingMapping = rawData.roleActions.find(mapping =>
+                mapping.rolecode === roleCode && mapping.actionid === actionId
+            );
+
+            if (existingMapping) {
+                showError('This role-action mapping already exists.');
+                return;
+            }
+
+            try {
+                // Create new mapping
+                const newMapping = {
+                    rolecode: roleCode,
+                    actionid: actionId,
+                    actioncode: "",
+                    tenantId: tenantId
+                };
+
+                if (currentDataSource === 'api') {
+                    // Add via API
+                    await makeApiCall('/egov-mdms-service/v2/_create/ACCESSCONTROL-ROLEACTIONS.roleactions', {
+                        Mdms: {
+                            tenantId: window.DigitAuth.AUTH_CONFIG.TENANT_ID,
+                            schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
+                            data: newMapping
+                        }
+                    });
+                    showMessage(`Mapping created successfully via API: ${roleCode} → Action ${actionId}`, 'info');
+                } else {
+                    // Add to local data
+                    rawData.roleActions.push(newMapping);
+                    hasUnsavedChanges = true;
+                    updateDownloadButton();
+                    showMessage(`Mapping added to local data: ${roleCode} → Action ${actionId}`, 'info');
+                }
+
+                closeAddMappingModal();
+
+                // Reload data to refresh the display
+                if (currentDataSource === 'api') {
+                    await loadData();
+                } else {
+                    processData();
+                    updateStats();
+                    renderCurrentView();
+                }
+
+            } catch (error) {
+                showError('Error adding mapping: ' + error.message);
+            }
+        }
+
+        function downloadUpdatedJSON() {
+            if (!hasUnsavedChanges) {
+                showError('No changes to download. Add some mappings first.');
+                return;
+            }
+
+            const updatedData = {
+                tenantId: "dj",
+                moduleName: "ACCESSCONTROL-ROLEACTIONS",
+                roleactions: rawData.roleActions
+            };
+
+            const dataStr = JSON.stringify(updatedData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = 'roleactions-updated.json';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            showMessage('Updated roleactions.json downloaded successfully!', 'info');
+        }
+
+        function updateDownloadButton() {
+            const downloadBtn = document.querySelector('.download-btn');
+            if (hasUnsavedChanges) {
+                downloadBtn.textContent = 'Download JSON (*)';
+                downloadBtn.style.background = '#e67e22';
+            } else {
+                downloadBtn.textContent = 'Download JSON';
+                downloadBtn.style.background = '#f39c12';
+            }
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function (event) {
+            const modals = ['addMappingModal', 'addRoleModal', 'addActionModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize application when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize shared authentication system
+            const isAuthenticated = auth.init(
+                // onLoginSuccess callback
+                (userInfo) => {
+                    console.log('User logged in:', userInfo);
+                    showMessage('Login successful!', 'info');
+                    loadData();
+                },
+                // onLogout callback
+                () => {
+                    console.log('User logged out');
+                    // Clear data
+                    rawData = { roleActions: [], actions: [], roles: [] };
+                    localData = { roleActions: [], actions: [], roles: [] };
+                    processedData = [];
+                    filteredData = [];
+                    updateStats();
+                    renderCurrentView();
+                    showMessage('Logged out successfully!', 'info');
+                }
+            );
+
+            // If already authenticated, load data
+            if (isAuthenticated) {
+                loadData();
+            }
+
+            // Set up data source change listeners
+            document.getElementsByName('data-source').forEach(radio => {
+                radio.addEventListener('change', function () {
+                    if (this.checked) {
+                        currentDataSource = this.value;
+                        loadData();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

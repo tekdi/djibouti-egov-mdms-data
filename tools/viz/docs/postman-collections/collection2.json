@@ -1,0 +1,383 @@
+{
+    "collection": {
+        "info": {
+            "_postman_id": "20768eba-5240-46bb-bb21-559314ec974c",
+            "name": "eGov - Workflow",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+            "updatedAt": "2025-06-20T05:09:59.000Z",
+            "createdAt": "2025-06-20T04:53:05.000Z",
+            "lastUpdatedBy": "7043186",
+            "uid": "7043186-20768eba-5240-46bb-bb21-559314ec974c"
+        },
+        "item": [
+            {
+                "name": "wf create",
+                "id": "4c8ad004-9619-493e-9032-fa842b52c86e",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"action\": \"\",\n        \"did\": 1,\n        \"key\": \"\",\n        \"msgId\": \"20170310130900|en_IN\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 1856,\n            \"uuid\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n            \"userName\": \"akshay.gandhi@tekditechnologies.com\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"77545454\",\n            \"emailId\": \"akshay.gandhi@tekditechnologies.com\",\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"Studio Admin\",\n                    \"code\": \"STUDIO_ADMIN\",\n                    \"tenantId\": \"dj\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"dj\",\n            \"permanentCity\": null\n        }\n    },\n    \"BusinessServices\": [\n        {\n            \"tenantId\": \"dj\",\n            \"businessService\": \"BPA_PCO\",\n            \"business\": \"public-services\",\n            \"states\": [\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"\",\n                    \"applicationStatus\": \"\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": true,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": true,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"\",\n                            \"action\": \"DRAFT\",\n                            \"nextState\": \"INITIATED\",\n                            \"roles\": [\n                                \"BPA_ARCHITECT\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"INITIATED\",\n                    \"applicationStatus\": \"INPROGRESS\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"INITIATED\",\n                            \"action\": \"CREATE\",\n                            \"nextState\": \"AGENT_NOT_ASSIGNED\",\n                            \"roles\": [\n                                \"BPA_ARCHITECT\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"AGENT_NOT_ASSIGNED\",\n                    \"applicationStatus\": \"AGENT_NOT_ASSIGNED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_NOT_ASSIGNED\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"AGENT_NOT_ASSIGNED\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_NOT_ASSIGNED\",\n                            \"action\": \"ASSIGN_TO_AGENT\",\n                            \"nextState\": \"PENDING_ACTION_BY_AGENT\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"PENDING_ACTION_BY_AGENT\",\n                    \"applicationStatus\": \"PENDING_ACTION\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"PENDING_ACTION_BY_AGENT\",\n                            \"action\": \"SEND_TO_HOD\",\n                            \"nextState\": \"AGENT_REPORT_READY\",\n                            \"roles\": [\n                                \"BPA_AGENTS\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"PENDING_ACTION_BY_AGENT\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"PENDING_ACTION_BY_AGENT\",\n                            \"roles\": [\n                                \"BPA_AGENTS\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"AGENT_REPORT_READY\",\n                    \"applicationStatus\": \"AGENT_REPORT_READY\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_REPORT_READY\",\n                            \"action\": \"NON_CONFORM\",\n                            \"nextState\": \"DECLARED_NON_CONFORM\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_REPORT_READY\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"AGENT_REPORT_READY\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_REPORT_READY\",\n                            \"action\": \"SEND_TO_SDECC_HOD\",\n                            \"nextState\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"DECLARED_NON_CONFORM\",\n                    \"applicationStatus\": \"DECLARED_NON_CONFORM\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"DECLARED_NON_CONFORM\",\n                            \"action\": \"REJECT\",\n                            \"nextState\": \"PERMIT_REJECTED\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"DECLARED_NON_CONFORM\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"DECLARED_NON_CONFORM\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"DECLARED_NON_CONFORM\",\n                            \"action\": \"SEND_TO_COMMISSIONER\",\n                            \"nextState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                    \"applicationStatus\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                            \"action\": \"ASSIGN_TO_SDECC_AGENT\",\n                            \"nextState\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                    \"applicationStatus\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                            \"action\": \"SEND_TO_SDECC_HOD\",\n                            \"nextState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"roles\": [\n                                \"BPA_SDECC_AGENT\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                            \"roles\": [\n                                \"BPA_SDECC_AGENT\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"SDECC_AGENT_REPORT_READY\",\n                    \"applicationStatus\": \"SDECC_AGENT_REPORT_READY\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"action\": \"NON_CONFORM\",\n                            \"nextState\": \"DECLARED_NON_CONFORM\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"action\": \"SEND_TO_DIRECTOR\",\n                            \"nextState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                    \"applicationStatus\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"action\": \"REJECT\",\n                            \"nextState\": \"PERMIT_REJECTED\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"action\": \"SEND_TO_COMMISSIONER\",\n                            \"nextState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"AWAITING_ON_COMMISSIONER\",\n                    \"applicationStatus\": \"AWAITING_ON_COMMISSIONER\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [\n                        \"BPA_PCO_SDECC\",\n                        \"BPA_PCO_DGDCF\",\n                        \"BPA_PCO_ONEAD\",\n                        \"BPA_PCO_DNPC\",\n                        \"BPA_PCO_EDD\",\n                        \"BPA_PCO_INSPD\"\n                    ],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"action\": \"REJECT\",\n                            \"nextState\": \"PERMIT_REJECTED\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"action\": \"SEND_TO_CITIZEN_PAYMENT\",\n                            \"nextState\": \"AWAITING_CITIZEN_PAYMENT\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"AWAITING_CITIZEN_PAYMENT\",\n                    \"applicationStatus\": \"AWAITING_CITIZEN_PAYMENT\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_CITIZEN_PAYMENT\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"AWAITING_CITIZEN_PAYMENT\",\n                            \"roles\": [\n                                \"CITIZEN\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_CITIZEN_PAYMENT\",\n                            \"action\": \"MAKE_PAYMENT\",\n                            \"nextState\": \"CITIZEN_PAYMENT_DONE\",\n                            \"roles\": [\n                                \"CITIZEN\",\n                                \"COUNTER_EMPLOYEE\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"CITIZEN_PAYMENT_DONE\",\n                    \"applicationStatus\": \"CITIZEN_PAYMENT_DONE\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"CITIZEN_PAYMENT_DONE\",\n                            \"action\": \"APPROVE\",\n                            \"nextState\": \"PERMIT_GRANTED\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"PERMIT_GRANTED\",\n                    \"applicationStatus\": \"PERMIT_GRANTED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": []\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"PERMIT_REJECTED\",\n                    \"applicationStatus\": \"PERMIT_REJECTED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": []\n                }\n            ]\n        }\n    ]\n}"
+                    },
+                    "url": {
+                        "raw": "{{base_url}}/egov-workflow-v2/egov-wf/businessservice/_create",
+                        "host": [
+                            "{{base_url}}"
+                        ],
+                        "path": [
+                            "egov-workflow-v2",
+                            "egov-wf",
+                            "businessservice",
+                            "_create"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-4c8ad004-9619-493e-9032-fa842b52c86e"
+            },
+            {
+                "name": "wf update",
+                "id": "56d2a383-c59a-401a-a031-440c9c29c102",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"action\": \"\",\n        \"did\": 1,\n        \"key\": \"\",\n        \"msgId\": \"20170310130900|en_IN\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"{{devAuth}}\",\n        \"userInfo\": {\n            \"id\": 1856,\n            \"uuid\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n            \"userName\": \"akshay.gandhi@tekditechnologies.com\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"77545454\",\n            \"emailId\": \"akshay.gandhi@tekditechnologies.com\",\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"Studio Admin\",\n                    \"code\": \"STUDIO_ADMIN\",\n                    \"tenantId\": \"dj\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"dj\",\n            \"permanentCity\": null\n        }\n    },\n    \"BusinessServices\": [\n        {\n            \"tenantId\": \"dj\",\n            \"uuid\": \"eae4fc77-a602-41d6-958a-bbe742bb750a\",\n            \"businessService\": \"BPA_PCO\",\n            \"business\": \"public-services\",\n            \"businessServiceSla\": 0,\n            \"states\": [\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"\",\n                    \"applicationStatus\": \"\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": true,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": true,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"\",\n                            \"action\": \"DRAFT\",\n                            \"nextState\": \"INITIATED\",\n                            \"roles\": [\n                                \"BPA_ARCHITECT\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"INITIATED\",\n                    \"applicationStatus\": \"INPROGRESS\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"INITIATED\",\n                            \"action\": \"CREATE\",\n                            \"nextState\": \"AGENT_NOT_ASSIGNED\",\n                            \"roles\": [\n                                \"BPA_ARCHITECT\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"AGENT_NOT_ASSIGNED\",\n                    \"applicationStatus\": \"AGENT_NOT_ASSIGNED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_NOT_ASSIGNED\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"AGENT_NOT_ASSIGNED\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_NOT_ASSIGNED\",\n                            \"action\": \"ASSIGN_TO_AGENT\",\n                            \"nextState\": \"PENDING_ACTION_BY_AGENT\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"PENDING_ACTION_BY_AGENT\",\n                    \"applicationStatus\": \"PENDING_ACTION\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"PENDING_ACTION_BY_AGENT\",\n                            \"action\": \"SEND_TO_HOD\",\n                            \"nextState\": \"AGENT_REPORT_READY\",\n                            \"roles\": [\n                                \"BPA_AGENTS\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"PENDING_ACTION_BY_AGENT\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"PENDING_ACTION_BY_AGENT\",\n                            \"roles\": [\n                                \"BPA_AGENTS\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"AGENT_REPORT_READY\",\n                    \"applicationStatus\": \"AGENT_REPORT_READY\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_REPORT_READY\",\n                            \"action\": \"NON_CONFORM\",\n                            \"nextState\": \"DECLARED_NON_CONFORM\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_REPORT_READY\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"AGENT_REPORT_READY\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AGENT_REPORT_READY\",\n                            \"action\": \"SEND_TO_SDECC_HOD\",\n                            \"nextState\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                            \"roles\": [\n                                \"BPA_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"DECLARED_NON_CONFORM\",\n                    \"applicationStatus\": \"DECLARED_NON_CONFORM\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"DECLARED_NON_CONFORM\",\n                            \"action\": \"REJECT\",\n                            \"nextState\": \"PERMIT_REJECTED\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"DECLARED_NON_CONFORM\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"DECLARED_NON_CONFORM\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"DECLARED_NON_CONFORM\",\n                            \"action\": \"SEND_TO_COMMISSIONER\",\n                            \"nextState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                    \"applicationStatus\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_NOT_ASSSIGNED\",\n                            \"action\": \"ASSIGN_TO_SDECC_AGENT\",\n                            \"nextState\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                    \"applicationStatus\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                            \"action\": \"SEND_TO_SDECC_HOD\",\n                            \"nextState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"roles\": [\n                                \"BPA_SDECC_AGENT\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"PENDING_ACTION_BY_SDECC_AGENT\",\n                            \"roles\": [\n                                \"BPA_SDECC_AGENT\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"SDECC_AGENT_REPORT_READY\",\n                    \"applicationStatus\": \"SDECC_AGENT_REPORT_READY\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"action\": \"NON_CONFORM\",\n                            \"nextState\": \"DECLARED_NON_CONFORM\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"action\": \"SEND_TO_DIRECTOR\",\n                            \"nextState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"SDECC_AGENT_REPORT_READY\",\n                            \"roles\": [\n                                \"BPA_SDECC_HOD\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                    \"applicationStatus\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"action\": \"REJECT\",\n                            \"nextState\": \"PERMIT_REJECTED\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"NOT_FORWARDED_TO_COMMISSIONER\",\n                            \"action\": \"SEND_TO_COMMISSIONER\",\n                            \"nextState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"AWAITING_ON_COMMISSIONER\",\n                    \"applicationStatus\": \"AWAITING_ON_COMMISSIONER\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [\n                        \"BPA_PCO_SDECC\",\n                        \"BPA_PCO_DGDCF\",\n                        \"BPA_PCO_ONEAD\",\n                        \"BPA_PCO_DNPC\",\n                        \"BPA_PCO_EDD\",\n                        \"BPA_PCO_INSPD\"\n                    ],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"action\": \"REJECT\",\n                            \"nextState\": \"PERMIT_REJECTED\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_ON_COMMISSIONER\",\n                            \"action\": \"SEND_TO_CITIZEN_PAYMENT\",\n                            \"nextState\": \"AWAITING_CITIZEN_PAYMENT\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"AWAITING_CITIZEN_PAYMENT\",\n                    \"applicationStatus\": \"AWAITING_CITIZEN_PAYMENT\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_CITIZEN_PAYMENT\",\n                            \"action\": \"ADD_QUERY\",\n                            \"nextState\": \"AWAITING_CITIZEN_PAYMENT\",\n                            \"roles\": [\n                                \"CITIZEN\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        },\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"AWAITING_CITIZEN_PAYMENT\",\n                            \"action\": \"MAKE_PAYMENT\",\n                            \"nextState\": \"CITIZEN_PAYMENT_DONE\",\n                            \"roles\": [\n                                \"CITIZEN\",\n                                \"COUNTER_EMPLOYEE\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"CITIZEN_PAYMENT_DONE\",\n                    \"applicationStatus\": \"CITIZEN_PAYMENT_DONE\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": [],\n                    \"actions\": [\n                        {\n                            \"tenantId\": \"dj\",\n                            \"currentState\": \"CITIZEN_PAYMENT_DONE\",\n                            \"action\": \"APPROVE\",\n                            \"nextState\": \"PERMIT_GRANTED\",\n                            \"roles\": [\n                                \"BPA_DIRECTOR\",\n                                \"STUDIO_ADMIN\"\n                            ],\n                            \"active\": true\n                        }\n                    ]\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"PERMIT_GRANTED\",\n                    \"applicationStatus\": \"PERMIT_GRANTED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": []\n                },\n                {\n                    \"tenantId\": \"dj\",\n                    \"sla\": null,\n                    \"state\": \"PERMIT_REJECTED\",\n                    \"applicationStatus\": \"PERMIT_REJECTED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"triggerParallelWorkflows\": []\n                }\n            ],\n            \"auditDetails\": {\n                \"createdBy\": \"cf0b9ce6-9654-4e5e-bdbe-3e293a08786e\",\n                \"lastModifiedBy\": \"cf0b9ce6-9654-4e5e-bdbe-3e293a08786e\",\n                \"createdTime\": 1747195645786,\n                \"lastModifiedTime\": 1747195645786\n            }\n        }\n    ]\n}"
+                    },
+                    "url": {
+                        "raw": "http://localhost:8082/egov-workflow-v2/egov-wf/businessservice/_update",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8082",
+                        "path": [
+                            "egov-workflow-v2",
+                            "egov-wf",
+                            "businessservice",
+                            "_update"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-56d2a383-c59a-401a-a031-440c9c29c102"
+            },
+            {
+                "name": "wf search",
+                "id": "206bd136-ad0e-4465-b403-c616fab829e3",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n\t\"RequestInfo\": {\n    \"apiId\": \"Rainmaker\",\n    \"action\": \"\",\n    \"did\": 1,\n    \"key\": \"\",\n    \"msgId\": \"20170310130900|en_IN\",\n    \"requesterId\": \"\",\n    \"ts\": 1513579888683,\n    \"ver\": \".01\",\n    \"authToken\": \"{{devAuth}}\"\n  }\n}"
+                    },
+                    "url": {
+                        "raw": "{{base_url}}/egov-workflow-v2/egov-wf/businessservice/_search?tenantId=dj&businessServices=BPA_PCO",
+                        "host": [
+                            "{{base_url}}"
+                        ],
+                        "path": [
+                            "egov-workflow-v2",
+                            "egov-wf",
+                            "businessservice",
+                            "_search"
+                        ],
+                        "query": [
+                            {
+                                "key": "tenantId",
+                                "value": "dj"
+                            },
+                            {
+                                "key": "businessServices",
+                                "value": "BPA_PCO"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-206bd136-ad0e-4465-b403-c616fab829e3"
+            },
+            {
+                "name": "transition",
+                "id": "134943b5-b2a0-4b80-beb6-ec858985e855",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"action\": \"\",\n        \"did\": 1,\n        \"key\": \"\",\n        \"msgId\": \"20170310130900|en_IN\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": \"9a3a57d5-6b9e-466d-9422-cb601e52ec4b\",\n         \"userInfo\": {\n            \"id\": 1947,\n            \"uuid\": \"1c8bc662-17e2-4b45-8564-0a1987cf2510\",\n            \"userName\": \"sdecc@gmail.com\",\n            \"name\": \"Sdecc\",\n            \"mobileNumber\": \"77123987\",\n            \"emailId\": null,\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"BPA SDECC COMMISSIONER\",\n                    \"code\": \"BPA_SDECC_COMM\",\n                    \"tenantId\": \"dj\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"dj\",\n            \"permanentCity\": null\n        }\n    },\n    \"ProcessInstances\": [\n        {\n            \"moduleName\": \"BPA\",\n            \"tenantId\": \"dj\",\n            \"businessService\": \"BPA_PCO_SDECC\",\n            \"businessId\": \"DJ-PCO-2025-06-05-000308\",\n            \"action\": \"CONFORM_APPLICATION\",\n            \"comment\": null,\n            \"assignee\": null,\n            \"previousStatus\": null\n        }\n    ]\n}"
+                    },
+                    "url": {
+                        "raw": "http://localhost:8082/egov-workflow-v2/egov-wf/process/_transition",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8082",
+                        "path": [
+                            "egov-workflow-v2",
+                            "egov-wf",
+                            "process",
+                            "_transition"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-134943b5-b2a0-4b80-beb6-ec858985e855"
+            },
+            {
+                "name": "processIntance search",
+                "id": "fb2812f7-20d7-4b84-9510-59c92903e19a",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n\t\"RequestInfo\": {\n    \"apiId\": \"Rainmaker\",\n    \"action\": \"\",\n    \"did\": 1,\n    \"key\": \"\",\n    \"msgId\": \"20170310130900|en_IN\",\n    \"requesterId\": \"\",\n    \"ts\": 1513579888683,\n    \"ver\": \".01\",\n    \"authToken\": \"{{devAuth}}\",\n    \"userInfo\": {\n\n    }\n  }\n\t\n}"
+                    },
+                    "url": {
+                        "raw": "http://localhost:8082/egov-workflow-v2/egov-wf/process/_search?tenantId=dj&businessIds=DJ-PCO-2025-06-05-000308&history=true",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8082",
+                        "path": [
+                            "egov-workflow-v2",
+                            "egov-wf",
+                            "process",
+                            "_search"
+                        ],
+                        "query": [
+                            {
+                                "key": "tenantId",
+                                "value": "dj"
+                            },
+                            {
+                                "key": "businessIds",
+                                "value": "DJ-PCO-2025-06-05-000308"
+                            },
+                            {
+                                "key": "history",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-fb2812f7-20d7-4b84-9510-59c92903e19a"
+            },
+            {
+                "name": "Get Token",
+                "event": [
+                    {
+                        "listen": "test",
+                        "script": {
+                            "id": "8d14f300-d524-46a9-b0f3-220d78b144fa",
+                            "exec": [
+                                "let response = pm.response.json();",
+                                "let auth_token = JSON.stringify(response.access_token);",
+                                "let user_info = JSON.stringify(response[\"UserRequest\"]);",
+                                "pm.collectionVariables.set(\"auth-token\", auth_token);",
+                                "pm.collectionVariables.set(\"user-info\", user_info);",
+                                ""
+                            ],
+                            "type": "text/javascript",
+                            "packages": {}
+                        }
+                    }
+                ],
+                "id": "0a251ed5-9938-4712-8fd7-7ee757a0c282",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "accept",
+                            "value": "application/json, text/plain, */*"
+                        },
+                        {
+                            "key": "accept-language",
+                            "value": "en-GB,en-US;q=0.9,en;q=0.8"
+                        },
+                        {
+                            "key": "authorization",
+                            "value": "Basic ZWdvdi11c2VyLWNsaWVudDo="
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "no-cache"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/x-www-form-urlencoded"
+                        },
+                        {
+                            "key": "origin",
+                            "value": "https://djibouti.tekdinext.com"
+                        },
+                        {
+                            "key": "pragma",
+                            "value": "no-cache"
+                        },
+                        {
+                            "key": "priority",
+                            "value": "u=1, i"
+                        },
+                        {
+                            "key": "referer",
+                            "value": "https://djibouti.tekdinext.com/digit-studio/employee/user/login/otp"
+                        },
+                        {
+                            "key": "sec-ch-ua",
+                            "value": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\""
+                        },
+                        {
+                            "key": "sec-ch-ua-mobile",
+                            "value": "?0"
+                        },
+                        {
+                            "key": "sec-ch-ua-platform",
+                            "value": "\"macOS\""
+                        },
+                        {
+                            "key": "sec-fetch-dest",
+                            "value": "empty"
+                        },
+                        {
+                            "key": "sec-fetch-mode",
+                            "value": "cors"
+                        },
+                        {
+                            "key": "sec-fetch-site",
+                            "value": "same-origin"
+                        },
+                        {
+                            "key": "user-agent",
+                            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+                        },
+                        {
+                            "key": "Cookie",
+                            "value": "_ga=GA1.1.1798451893.1749808460; _ga_3LN58ZJ5KN=GS2.1.s1750136457$o3$g1$t1750136487$j30$l0$h0; _ga_4FTREDCS0G=GS2.1.s1750136457$o3$g1$t1750136487$j30$l0$h0; _ga_FS7DJ7SGKL=GS2.1.s1750136457$o3$g1$t1750136487$j30$l0$h0; _ga_EHCDQF6VQ5=GS2.1.s1750136457$o3$g1$t1750136487$j30$l0$h0"
+                        }
+                    ],
+                    "body": {
+                        "mode": "urlencoded",
+                        "urlencoded": [
+                            {
+                                "type": "text",
+                                "key": "username",
+                                "value": "akshay.gandhi@tekditechnologies.com"
+                            },
+                            {
+                                "type": "text",
+                                "key": "password",
+                                "value": "654321"
+                            },
+                            {
+                                "type": "text",
+                                "key": "tenantId",
+                                "value": "dj"
+                            },
+                            {
+                                "type": "text",
+                                "key": "userType",
+                                "value": "EMPLOYEE"
+                            },
+                            {
+                                "type": "text",
+                                "key": "scope",
+                                "value": "read"
+                            },
+                            {
+                                "type": "text",
+                                "key": "grant_type",
+                                "value": "password"
+                            }
+                        ]
+                    },
+                    "url": {
+                        "raw": "https://djibouti.tekdinext.com/user/oauth/token?_=1750136506874",
+                        "protocol": "https",
+                        "host": [
+                            "djibouti",
+                            "tekdinext",
+                            "com"
+                        ],
+                        "path": [
+                            "user",
+                            "oauth",
+                            "token"
+                        ],
+                        "query": [
+                            {
+                                "key": "_",
+                                "value": "1750136506874"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-0a251ed5-9938-4712-8fd7-7ee757a0c282"
+            }
+        ],
+        "variable": [
+            {
+                "key": "auth-token",
+                "value": ""
+            },
+            {
+                "key": "user-info",
+                "value": ""
+            }
+        ]
+    }
+}

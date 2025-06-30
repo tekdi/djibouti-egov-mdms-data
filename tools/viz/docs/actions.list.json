@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "name": "workflowcreate",
+    "url": "/egov-workflow-v2/egov-wf/businessservice/_create",
+    "method": "POST",
+    "displayName": "workflow-create",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-workflow-v2/egov-wf/businessservice/_create"
+  },
+  {
+    "id": 2,
+    "name": "localisationcreate",
+    "url": "/localization/messages/v1/_upsert",
+    "method": "POST",
+    "displayName": "localisation-create",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/localization/messages/v1/_upsert"
+  },
+  {
+    "id": 3,
+    "name": "generatepdf",
+    "url": "/studio-pdf/public-service/download/pdf",
+    "method": "POST",
+    "displayName": "generatepdf",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/studio-pdf/public-service/download/pdf"
+  },
+  {
+    "id": 4,
+    "name": "getPublicserviceServiceCode",
+    "url": "/public-service/v1/application/SVC-DEV-TRADELICENSE-OLDTL-07",
+    "method": "GET",
+    "displayName": "getPublic-serviceServiceCode",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://unified-dev.digit.org/public-service/v1/application/SVC-DEV-TRADELICENSE-OLDTL-07"
+  },
+  {
+    "id": 5,
+    "name": "estimatecalculate",
+    "url": "/calculator-service/v1/BPA_PCO/estimate_calculate",
+    "method": "POST",
+    "displayName": "estimate-calculate",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/calculator-service/v1/BPA_PCO/estimate_calculate"
+  },
+  {
+    "id": 6,
+    "name": "userOauthtoken",
+    "url": "/user/oauth/token",
+    "method": "POST",
+    "displayName": "user-Oauth-token",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/user/oauth/token"
+  },
+  {
+    "id": 7,
+    "name": "individualsearch",
+    "url": "/health-individual/v1/_search",
+    "method": "POST",
+    "displayName": "individual search",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "http://health-individual.egov:8080/health-individual/v1/_search"
+  },
+  {
+    "id": 8,
+    "name": "generatedemand",
+    "url": "/calculator-service/v1/BPA_PCO/demand",
+    "method": "POST",
+    "displayName": "generate-demand",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/calculator-service/v1/BPA_PCO/demand"
+  },
+  {
+    "id": 9,
+    "name": "fetch_bill",
+    "url": "/billing-service/bill/v2/_fetchbill",
+    "method": "POST",
+    "displayName": "fetch_bill",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/billing-service/bill/v2/_fetchbill"
+  },
+  {
+    "id": 10,
+    "name": "individualcreate",
+    "url": "/health-individual/v1/_create",
+    "method": "POST",
+    "displayName": "individual-create",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/health-individual/v1/_create"
+  },
+  {
+    "id": 11,
+    "name": "individualupdate",
+    "url": "/individual/v1/_update",
+    "method": "POST",
+    "displayName": "individual-update",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://unified-dev.digit.org/individual/v1/_update"
+  },
+  {
+    "id": 12,
+    "name": "employees/_create",
+    "url": "/egov-hrms/employees/_create",
+    "method": "POST",
+    "displayName": "employees/_create",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-hrms/employees/_create"
+  },
+  {
+    "id": 13,
+    "name": "AddingNewAction",
+    "url": "/egov-mdms-service/v2/_create/ACCESSCONTROL-ACTIONS-TEST.actions-test",
+    "method": "POST",
+    "displayName": "Adding New Action",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/egov-mdms-service/v2/_create/ACCESSCONTROL-ACTIONS-TEST.actions-test"
+  },
+  {
+    "id": 14,
+    "name": "SearchNewAction",
+    "url": "/egov-mdms-service/v2/_search/ACCESSCONTROL-ACTIONS-TEST.actions-test",
+    "method": "POST",
+    "displayName": "Search New Action",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/egov-mdms-service/v2/_search/ACCESSCONTROL-ACTIONS-TEST.actions-test"
+  },
+  {
+    "id": 15,
+    "name": "AddingNewRoleAction",
+    "url": "/egov-mdms-service/v2/_create/ACCESSCONTROL-ROLEACTIONS.roleactions",
+    "method": "POST",
+    "displayName": "Adding New RoleAction",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/egov-mdms-service/v2/_create/ACCESSCONTROL-ROLEACTIONS.roleactions"
+  },
+  {
+    "id": 16,
+    "name": "SendActiontoWorkflow",
+    "url": "/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02",
+    "method": "PUT",
+    "displayName": "Send Action to Workflow",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02"
+  },
+  {
+    "id": 17,
+    "name": "wfupdate",
+    "url": "/egov-workflow-v2/egov-wf/businessservice/_update",
+    "method": "POST",
+    "displayName": "wf update",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-workflow-v2/egov-wf/businessservice/_update"
+  },
+  {
+    "id": 18,
+    "name": "wfsearch",
+    "url": "/egov-workflow-v2/egov-wf/businessservice/_search",
+    "method": "POST",
+    "displayName": "wf search",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-workflow-v2/egov-wf/businessservice/_search"
+  },
+  {
+    "id": 19,
+    "name": "transition",
+    "url": "/egov-workflow-v2/egov-wf/process/_transition",
+    "method": "POST",
+    "displayName": "transition",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-workflow-v2/egov-wf/process/_transition"
+  },
+  {
+    "id": 20,
+    "name": "processIntancesearch",
+    "url": "/egov-workflow-v2/egov-wf/process/_search",
+    "method": "POST",
+    "displayName": "processIntance search",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-workflow-v2/egov-wf/process/_search"
+  },
+  {
+    "id": 21,
+    "name": "searchmdmsdatav2",
+    "url": "/egov-mdms-service/v2/_search",
+    "method": "POST",
+    "displayName": "search mdms-data-v2",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-mdms-service/v2/_search"
+  },
+  {
+    "id": 22,
+    "name": "createdatav2",
+    "url": "/egov-mdms-service/v2/_create/Studio.ServiceConfiguration",
+    "method": "POST",
+    "displayName": "create data-v2",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-mdms-service/v2/_create/Studio.ServiceConfiguration"
+  },
+  {
+    "id": 23,
+    "name": "createdocumentinmdms",
+    "url": "/egov-mdms-service/v2/_create/DigitStudio.DocumentConfig",
+    "method": "POST",
+    "displayName": "create document in mdms",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-mdms-service/v2/_create/DigitStudio.DocumentConfig"
+  },
+  {
+    "id": 24,
+    "name": "searchschema",
+    "url": "/egov-mdms-service/schema/v1/_search",
+    "method": "POST",
+    "displayName": "search schema",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-mdms-service/schema/v1/_search"
+  },
+  {
+    "id": 25,
+    "name": "MDMSupdate",
+    "url": "/egov-mdms-service/v2/_update/Studio.ServiceConfiguration",
+    "method": "POST",
+    "displayName": "MDMS update",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-mdms-service/v2/_update/Studio.ServiceConfiguration"
+  },
+  {
+    "id": 26,
+    "name": "createschema",
+    "url": "/egov-mdms-service/schema/v1/_create",
+    "method": "POST",
+    "displayName": "create schema",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-mdms-service/schema/v1/_create"
+  },
+  {
+    "id": 27,
+    "name": "updateschema",
+    "url": "/egov-mdms-service/schema/v1/_update",
+    "method": "POST",
+    "displayName": "update schema",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-mdms-service/schema/v1/_update"
+  },
+  {
+    "id": 28,
+    "name": "createservice",
+    "url": "/public-service/v1/service",
+    "method": "POST",
+    "displayName": "create service",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/public-service/v1/service"
+  },
+  {
+    "id": 29,
+    "name": "getservice",
+    "url": "/public-service/v1/service",
+    "method": "GET",
+    "displayName": "get service",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/public-service/v1/service"
+  },
+  {
+    "id": 30,
+    "name": "updateservice",
+    "url": "/public-service/v1/service/SVC-DEV-TRADELICENSE-NEWTL-04",
+    "method": "PUT",
+    "displayName": "update service",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://unified-dev.digit.org/public-service/v1/service/SVC-DEV-TRADELICENSE-NEWTL-04"
+  },
+  {
+    "id": 31,
+    "name": "createapplication",
+    "url": "8082/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02",
+    "method": "POST",
+    "displayName": "create application",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02"
+  },
+  {
+    "id": 32,
+    "name": "SearchApplication",
+    "url": "/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02",
+    "method": "GET",
+    "displayName": "Search Application",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "http://djibouti.tekdinext.com/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02"
+  },
+  {
+    "id": 33,
+    "name": "updateapplication",
+    "url": "/public-service/v1/application/SVC-DEV-TRADELICENSE-NEWTL-04/8e2a185d-e63d-46ce-a472-e103a07800df",
+    "method": "PUT",
+    "displayName": "update application",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://unified-dev.digit.org/public-service/v1/application/SVC-DEV-TRADELICENSE-NEWTL-04/8e2a185d-e63d-46ce-a472-e103a07800df"
+  },
+  {
+    "id": 34,
+    "name": "publicserviceapplicationSVCDEVTRADELICENSETL03",
+    "url": "/public-service/v1/application/SVC-DEV-TRADELICENSE-TL-03",
+    "method": "POST",
+    "displayName": "/public-service/v1/application/SVC-DEV-TRADELICENSE-TL-03",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/public-service/v1/application/SVC-DEV-TRADELICENSE-TL-03"
+  },
+  {
+    "id": 35,
+    "name": "searchprocessinstance",
+    "url": "8081/egov-workflow-v2/egov-wf/process/_search",
+    "method": "POST",
+    "displayName": "search process instance",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-workflow-v2/egov-wf/process/_search"
+  },
+  {
+    "id": 36,
+    "name": "egovworkflowegovwfbusinessservicecreate",
+    "url": "8082/egov-workflow-v2/egov-wf/businessservice/_update",
+    "method": "POST",
+    "displayName": "/egov-workflow-v2/egov-wf/businessservice/_create",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/egov-workflow-v2/egov-wf/businessservice/_update"
+  },
+  {
+    "id": 37,
+    "name": "https://djibouti.tekdinext.com/publicservice/v1/application/SVCDJBPABPA_PCO02",
+    "url": "/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02",
+    "method": "POST",
+    "displayName": "https://djibouti.tekdinext.com/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02"
+  },
+  {
+    "id": 38,
+    "name": "userotpsend",
+    "url": "/user-otp/v1/_send",
+    "method": "POST",
+    "displayName": "/user-otp/v1/_send",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/user-otp/v1/_send"
+  },
+  {
+    "id": 39,
+    "name": "createboundary",
+    "url": "/boundary-service/boundary/_create",
+    "method": "POST",
+    "displayName": "create boundary",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/boundary-service/boundary/_create"
+  },
+  {
+    "id": 40,
+    "name": "https://djibouti.tekdinext.com/inbox/v2/_search",
+    "url": "/inbox/v2/_search",
+    "method": "POST",
+    "displayName": "https://djibouti.tekdinext.com/inbox/v2/_search",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/inbox/v2/_search"
+  },
+  {
+    "id": 41,
+    "name": "createchecklist2",
+    "url": "/health-service-request/service/definition/v1/_create",
+    "method": "POST",
+    "displayName": "create checklist 2",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/health-service-request/service/definition/v1/_create"
+  },
+  {
+    "id": 42,
+    "name": "updatechecklist",
+    "url": "/health-service-request/service/definition/v1/_update",
+    "method": "POST",
+    "displayName": "update checklist",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/health-service-request/service/definition/v1/_update"
+  },
+  {
+    "id": 43,
+    "name": "searchchecklist",
+    "url": "/health-service-request/service/definition/v1/_search",
+    "method": "POST",
+    "displayName": "search checklist",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/health-service-request/service/definition/v1/_search"
+  },
+  {
+    "id": 44,
+    "name": "https://djibouti.tekdinext.com/healthservicerequest/service/v1/_create",
+    "url": "/health-service-request/service/v1/_create",
+    "method": "POST",
+    "displayName": "https://djibouti.tekdinext.com/health-service-request/service/v1/_create",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "https://djibouti.tekdinext.com/health-service-request/service/v1/_create"
+  },
+  {
+    "id": 45,
+    "name": "<indexname>search",
+    "url": "/public-service-index/_search",
+    "method": "GET",
+    "displayName": "/<index-name>/_search",
+    "enabled": true,
+    "serviceCode": "API",
+    "raw_url": "/public-service-index/_search"
+  }
+]
