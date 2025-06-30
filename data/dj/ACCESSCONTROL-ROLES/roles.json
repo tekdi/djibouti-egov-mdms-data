@@ -111,6 +111,11 @@
       "code": "BPA_SDECC_AGENT",
       "name": "BPA SDECC AGENT",
       "description": "Agent of Sub-Directorate For Expertise And Control Of Constructions"
+    },
+    {
+      "code": "BPA_SUB_DIRECTOR",
+      "name": "BPA SUB DIRECTOR",
+      "description": "BPA SUB DIRECTOR"
     }
   ]
 }
