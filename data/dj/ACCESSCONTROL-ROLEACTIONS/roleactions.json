@@ -1477,6 +1477,42 @@
       "rolecode": "BPA_SUB_DIRECTOR",
       "tenantId": "dj",
       "actioncode": ""
+    },
+    {
+      "actionid": 1862,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4872,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4874,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 1650,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 21,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 1829,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
     }
   ]
 }
