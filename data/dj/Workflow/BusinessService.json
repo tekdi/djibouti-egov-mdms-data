@@ -73,7 +73,7 @@
               "currentState": "AGENT_NOT_ASSIGNED",
               "action": "ADD_QUERY",
               "nextState": "AGENT_NOT_ASSIGNED",
-              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN", "BPA_SRA_SUB_DIRECTOR"],
               "active": true
             },
             {
@@ -158,7 +158,7 @@
               "currentState": "PENDING_ACTION_BY_AGENT",
               "action": "ADD_QUERY",
               "nextState": "PENDING_ACTION_BY_AGENT",
-              "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
+              "roles": ["BPA_AGENTS", "STUDIO_ADMIN", "BPA_SRA_SUB_DIRECTOR"],
               "active": true
             },
             {
@@ -195,7 +195,7 @@
               "currentState": "AGENT_REPORT_READY",
               "action": "ADD_QUERY",
               "nextState": "AGENT_REPORT_READY",
-              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN", "BPA_SRA_SUB_DIRECTOR"],
               "active": true
             },
             {
@@ -240,7 +240,7 @@
               "currentState": "DECLARED_NON_CONFORM",
               "action": "ADD_QUERY",
               "nextState": "DECLARED_NON_CONFORM",
-              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN", "BPA_SRA_SUB_DIRECTOR"],
               "active": true
             },
             {
@@ -269,7 +269,11 @@
               "currentState": "SDECC_AGENT_NOT_ASSSIGNED",
               "action": "ADD_QUERY",
               "nextState": "SDECC_AGENT_NOT_ASSSIGNED",
-              "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
+              "roles": [
+                "BPA_SDECC_HOD",
+                "STUDIO_ADMIN",
+                "BPA_SRA_SUB_DIRECTOR"
+              ],
               "active": true
             },
             {
@@ -306,7 +310,11 @@
               "currentState": "PENDING_ACTION_BY_SDECC_AGENT",
               "action": "ADD_QUERY",
               "nextState": "PENDING_ACTION_BY_SDECC_AGENT",
-              "roles": ["BPA_SDECC_AGENT", "STUDIO_ADMIN"],
+              "roles": [
+                "BPA_SDECC_AGENT",
+                "STUDIO_ADMIN",
+                "BPA_SRA_SUB_DIRECTOR"
+              ],
               "active": true
             }
           ]
@@ -343,7 +351,11 @@
               "currentState": "SDECC_AGENT_REPORT_READY",
               "action": "ADD_QUERY",
               "nextState": "SDECC_AGENT_REPORT_READY",
-              "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
+              "roles": [
+                "BPA_SDECC_HOD",
+                "STUDIO_ADMIN",
+                "BPA_SRA_SUB_DIRECTOR"
+              ],
               "active": true
             }
           ]
@@ -372,7 +384,7 @@
               "currentState": "SDECC_REPORT_READY",
               "action": "ADD_QUERY",
               "nextState": "SDECC_REPORT_READY",
-              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN", "BPA_SRA_SUB_DIRECTOR"],
               "active": true
             },
             {
@@ -409,7 +421,7 @@
               "currentState": "NOT_FORWARDED_TO_COMMISSIONER",
               "action": "ADD_QUERY",
               "nextState": "NOT_FORWARDED_TO_COMMISSIONER",
-              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN", "BPA_SRA_SUB_DIRECTOR"],
               "active": true
             },
             {
@@ -461,7 +473,7 @@
               "currentState": "AWAITING_ON_COMMISSIONER",
               "action": "ADD_QUERY",
               "nextState": "AWAITING_ON_COMMISSIONER",
-              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN", "BPA_SRA_SUB_DIRECTOR"],
               "active": true
             },
             {
@@ -498,7 +510,7 @@
               "currentState": "AWAITING_CITIZEN_PAYMENT",
               "action": "ADD_QUERY",
               "nextState": "AWAITING_CITIZEN_PAYMENT",
-              "roles": ["CITIZEN", "STUDIO_ADMIN"],
+              "roles": ["CITIZEN", "STUDIO_ADMIN", "BPA_SRA_SUB_DIRECTOR"],
               "active": true
             },
             {
