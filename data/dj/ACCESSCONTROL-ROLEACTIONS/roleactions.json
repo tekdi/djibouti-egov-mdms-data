@@ -885,6 +885,12 @@
       "actioncode": ""
     },
     {
+      "actionid": 1650,
+      "rolecode": "BPA_AGENTS",
+      "tenantid": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 10024,
       "rolecode": "BPA_AGENTS",
       "tenantId": "dj",
@@ -1576,6 +1582,12 @@
     },
     {
       "actionid": 1829,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5584,
       "rolecode": "BPA_SRA_SUB_DIRECTOR",
       "tenantId": "dj",
       "actioncode": ""
