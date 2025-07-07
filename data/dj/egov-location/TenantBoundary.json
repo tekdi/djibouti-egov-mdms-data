@@ -1,0 +1,22 @@
+{
+  "tenantId": "dj.djibouti",
+  "moduleName": "egov-location",
+  "TenantBoundary": [
+    {
+      "hierarchyType": {
+        "code": "REVENUE",
+        "name": "REVENUE"
+      },
+      "boundary": {
+        "id": 1,
+        "boundaryNum": 1,
+        "name": "dj",
+        "localname": "dj",
+        "longitude": null,
+        "latitude": null,
+        "label": "City",
+        "code": "dj"
+      }
+    }
+  ]
+}
