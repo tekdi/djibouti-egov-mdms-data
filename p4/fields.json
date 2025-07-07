@@ -1,0 +1,420 @@
+[
+    {
+        "name": "applicantDetails",
+        "label": "Applicant Details",
+        "type": "object",
+        "properties": [
+            {
+                "name": "preferredWayToAddress",
+                "label": "Preferred Way to Address",
+                "type": "string",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "common-masters.SalutationType",
+                "values": [
+                    {
+                        "code": "MR",
+                        "value": "Mr."
+                    },
+                    {
+                        "code": "MRS",
+                        "value": "Mrs."
+                    }
+                ],
+                "default": "MR",
+                "placeholder": "Mr./Mrs."
+            },
+            {
+                "name": "legalName",
+                "label": "Legal Name",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": true,
+                "placeholder": "Nom légal complet"
+            },
+            {
+                "name": "address",
+                "label": "Address",
+                "type": "string",
+                "format": "multilineText",
+                "minLength": 2,
+                "maxLength": 500,
+                "required": true,
+                "placeholder": "Adresse complète"
+            },
+            {
+                "name": "cin",
+                "label": "CIN Carte d'Identité Nationale",
+                "type": "string",
+                "format": "number",
+                "minLength": 6,
+                "maxLength": 8,
+                "required": false,
+                "validation": {
+                    "regex": "^[0-9]{6,8}$",
+                    "message": "Invalid CIN number"
+                },
+                "placeholder": "XZYYZZ"
+            },
+            {
+                "name": "telephone",
+                "label": "Telephone",
+                "type": "string",
+                "format": "mobileNumber",
+                "required": true,
+                "validation": {
+                    "regex": "^[0-9]{8}$",
+                    "message": "Must be an 8 digit number"
+                },
+                "properties": [
+                    {
+                        "name": "countryCode",
+                        "type": "string",
+                        "default": "+253",
+                        "readonly": true
+                    },
+                    {
+                        "name": "number",
+                        "type": "string",
+                        "minLength": 8,
+                        "maxLength": 8,
+                        "placeholder": "XXYYZZZZ"
+                    }
+                ]
+            },
+            {
+                "name": "authorizationCertification",
+                "label": "I certify I am entitled to request this authorization",
+                "type": "boolean",
+                "format": "checkbox",
+                "required": true,
+                "default": false
+            },
+            {
+                "name": "informationAccuracyDeclaration",
+                "label": "I, the undersigned, author of the request, certify that the information provided is correct",
+                "type": "boolean",
+                "format": "checkbox",
+                "required": true,
+                "default": false
+            },
+            {
+                "name": "taxCalculationAcknowledgment",
+                "label": "I am aware that the information contained in this application will be used to calculate the taxes stipulated in the French Planning Code",
+                "type": "boolean",
+                "format": "checkbox",
+                "required": true,
+                "default": false
+            },
+            {
+                "name": "phoneCommunicationAgreement",
+                "label": "The phone number will be used for communication regarding the application and payment details",
+                "type": "boolean",
+                "format": "checkbox",
+                "required": true,
+                "default": false
+            }
+        ]
+    },
+    {
+        "name": "landAndBuildingDetailing",
+        "label": "Land and Building Detailing",
+        "type": "object",
+        "properties": [
+            {
+                "name": "siteLocation",
+                "label": "Site location",
+                "type": "string",
+                "format": "multilineText",
+                "minLength": 2,
+                "maxLength": 500,
+                "required": true,
+                "placeholder": "Adresse complète"
+            },
+            {
+                "name": "area",
+                "label": "Area",
+                "type": "number",
+                "format": "number",
+                "required": true,
+                "validation": {
+                    "min": 0.01,
+                    "message": "Must be greater than zero"
+                },
+                "placeholder": "XX m²"
+            },
+            {
+                "name": "legalCurrentStatus",
+                "label": "Legal current status",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": true,
+                "placeholder": "Select / Sélectionner"
+            },
+            {
+                "name": "registrationCertificate",
+                "label": "Registration certificate",
+                "type": "string",
+                "format": "radioordropdown",
+                "required": true,
+                "values": [
+                    {
+                        "code": "YES",
+                        "value": "Yes"
+                    },
+                    {
+                        "code": "NO",
+                        "value": "No"
+                    }
+                ],
+                "placeholder": "Select / Sélectionner"
+            },
+            {
+                "name": "definitiveLandTitle",
+                "label": "Definitive Land Title (TF)",
+                "type": "string",
+                "format": "radioordropdown",
+                "required": true,
+                "values": [
+                    {
+                        "code": "YES",
+                        "value": "Yes"
+                    },
+                    {
+                        "code": "NO",
+                        "value": "No"
+                    }
+                ],
+                "placeholder": "Select / Sélectionner"
+            },
+            {
+                "name": "tfNumber",
+                "label": "TF Number",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 20,
+                "required": false,
+                "validation": {
+                    "regex": "^[a-zA-Z0-9]*$",
+                    "message": "Alphanumeric input only"
+                },
+                "condition": "{?.definitiveLandTitle == 'YES'}",
+                "placeholder": "TF Number"
+            },
+            {
+                "name": "otherDetails",
+                "label": "Other",
+                "type": "string",
+                "format": "multilineText",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": false,
+                "placeholder": "Autres détails"
+            },
+            {
+                "name": "typeOfWork",
+                "label": "Type of Work",
+                "type": "string",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.WorkType",
+                "placeholder": "Select"
+            },
+            {
+                "name": "numberOfHousingUnits",
+                "label": "Number of Housing Units",
+                "type": "number",
+                "format": "number",
+                "required": false,
+                "validation": {
+                    "min": 1,
+                    "message": "Must be a positive integer"
+                },
+                "condition": "{?.typeOfWork == 'HOUSING'}",
+                "placeholder": "Enter a number"
+            },
+            {
+                "name": "detailsOnOtherTypes",
+                "label": "Details on other types",
+                "type": "string",
+                "format": "multilineText",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": false,
+                "condition": "{?.typeOfWork == 'OTHERS'}",
+                "placeholder": "Détails sur les autres travaux"
+            },
+            {
+                "name": "maxAuthorizedCES",
+                "label": "Maximum authorized C.E.S",
+                "type": "number",
+                "format": "number",
+                "required": true,
+                "validation": {
+                    "regex": "^\\d+(\\.\\d{1,2})?$",
+                    "message": "Decimal format supported (up to 2 decimal places)"
+                },
+                "placeholder": "e.g., 0.60"
+            },
+            {
+                "name": "projectedCES",
+                "label": "Projected C.E.S.",
+                "type": "number",
+                "format": "number",
+                "required": true,
+                "validation": {
+                    "regex": "^\\d+(\\.\\d{1,2})?$",
+                    "message": "Decimal format supported (up to 2 decimal places)",
+                    "lessThanOrEqualToRef": "maxAuthorizedCES",
+                    "messageRef": "Must be less than or equal to maximum authorized C.E.S."
+                },
+                "placeholder": "e.g., 0.60"
+            },
+            {
+                "name": "maxAuthorizedCOS",
+                "label": "Maximum authorized C.O.S",
+                "type": "number",
+                "format": "number",
+                "required": true,
+                "validation": {
+                    "regex": "^\\d+(\\.\\d{1,2})?$",
+                    "message": "Decimal format supported (up to 2 decimal places)"
+                },
+                "placeholder": "e.g., 2.60"
+            },
+            {
+                "name": "projectedCOS",
+                "label": "Projected C.O.S.",
+                "type": "number",
+                "format": "number",
+                "required": true,
+                "validation": {
+                    "regex": "^\\d+(\\.\\d{1,2})?$",
+                    "message": "Decimal format supported (up to 2 decimal places)",
+                    "lessThanOrEqualToRef": "maxAuthorizedCOS",
+                    "messageRef": "Must be less than or equal to maximum authorized C.O.S."
+                },
+                "placeholder": "e.g., 2.50"
+            },
+            {
+                "name": "coveredProjectArea",
+                "label": "Covered project area",
+                "type": "number",
+                "format": "number",
+                "required": true,
+                "validation": {
+                    "min": 0,
+                    "lessThanOrEqualToRef": "area",
+                    "messageRef": "Cannot exceed site area"
+                },
+                "placeholder": "Enter area in m²"
+            },
+            {
+                "name": "constructionCostPerSqM",
+                "label": "Construction cost per m² excluding work",
+                "type": "number",
+                "format": "currency",
+                "required": true,
+                "validation": {
+                    "min": 0.01,
+                    "message": "Cannot be zero"
+                },
+                "placeholder": "e.g., 80,000 FDj"
+            }
+        ]
+    },
+    {
+        "name": "designOfficeDetailing",
+        "label": "Design Office Detailing",
+        "type": "object",
+        "properties": [
+            {
+                "name": "nameOfDesignOffice",
+                "label": "Name of design office",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": true,
+                "placeholder": "Nom du bureau"
+            },
+            {
+                "name": "legalNameOfArchitect",
+                "label": "Legal name of architect",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": true,
+                "placeholder": "Nom complet"
+            },
+            {
+                "name": "architectTelephone",
+                "label": "Telephone",
+                "type": "string",
+                "format": "mobileNumber",
+                "required": true,
+                "validation": {
+                    "regex": "^[0-9]{8}$",
+                    "message": "Must be an 8 digit number"
+                },
+                "properties": [
+                    {
+                        "name": "countryCode",
+                        "type": "string",
+                        "default": "+253",
+                        "readonly": true
+                    },
+                    {
+                        "name": "number",
+                        "type": "string",
+                        "minLength": 8,
+                        "maxLength": 8,
+                        "placeholder": "XXYYZZZZ"
+                    }
+                ],
+                "prefill": "loginPhoneNumber"
+            },
+            {
+                "name": "officialEmail",
+                "label": "Official Email",
+                "type": "string",
+                "format": "email",
+                "minLength": 2,
+                "required": true,
+                "placeholder": "email@example.com"
+            },
+            {
+                "name": "registrationNo",
+                "label": "Registration no.",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "required": true,
+                "validation": {
+                    "regex": "^[a-zA-Z0-9]*$",
+                    "message": "Alphanumeric input only"
+                },
+                "placeholder": "DJXXXXYYYYY"
+            },
+            {
+                "name": "registrationNumberOnProfessionalRoll",
+                "label": "Registration number on the professional roll",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "required": false,
+                "validation": {
+                    "regex": "^[a-zA-Z0-9]*$",
+                    "message": "Alphanumeric input only"
+                },
+                "placeholder": "DJXXXXYYYYY"
+            }
+        ]
+    }
+]
