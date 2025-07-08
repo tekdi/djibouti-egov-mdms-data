@@ -35,33 +35,24 @@ app.use('/api', createProxyMiddleware({
     }
 }));
 
-// server the same folder that this file is in
-app.use(express.static(path.join(__dirname)));
+// Serve the built Vite app from Docker container
+const reactAppPath = path.join(__dirname, 'public/app');
+console.log('Looking for React app at:', reactAppPath);
 
-// Serve the React app build files
-// const reactAppPath = path.join(__dirname, '../app/dist');
-// console.log('Looking for React app at:', reactAppPath);
+// Check if React app is built and exists
+if (fs.existsSync(reactAppPath)) {
+    console.log('✅ React app found - serving from public/app');
 
-// Check if React app is built
-// if (fs.existsSync(reactAppPath)) {
-//     console.log('✅ React app found - serving from /app/dist');
-//     app.use(express.static(reactAppPath));
+    // Serve static assets (CSS, JS, images, etc.)
+    app.use(express.static(reactAppPath));
 
-//     // Handle React Router (SPA) - all non-API routes should serve index.html
-//     app.get('*', (req, res, next) => {
-//         // Skip if it's an API or data request
-//         if (req.path.startsWith('/api') || req.path.startsWith('/data')) {
-//             return next();
-//         }
-//         res.sendFile(path.join(reactAppPath, 'index.html'));
-//     });
-// } else {
-//     console.log('⚠️  React app not built yet - serving old static files');
-//     console.log('   Run "npm run build" in the /app directory first');
+} else {
+    console.log('⚠️  React app not built yet - serving fallback');
+    console.log('   Build path expected:', reactAppPath);
 
-//     // Fallback: serve old static files from the current 'src' directory
-//     app.use(express.static(path.join(__dirname)));
-// }
+    // Fallback: serve static files from current directory for old files
+    app.use(express.static(path.join(__dirname)));
+}
 
 // Serve /data directory for config and reference files with directory listing
 const dataPath = path.join(__dirname, '../../../data');
@@ -138,6 +129,25 @@ app.get('/api-local/recently-changed-configs', (req, res) => {
             res.status(500).json({ error: stderr || err?.message || cacheErr?.message || 'Unable to get changed configs' });
         });
     });
+});
+
+// Handle SPA routing - serve index.html for non-API, non-data routes
+app.get('*', (req, res, next) => {
+    // Skip if it's an API, data, or file request
+    if (req.path.startsWith('/api') ||
+        req.path.startsWith('/data') ||
+        req.path.startsWith('/api-local') ||
+        req.path.includes('.')) {
+        return next();
+    }
+
+    // Serve the React app's index.html for SPA routing
+    const indexPath = path.join(__dirname, 'public/app', 'index.html');
+    if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+    } else {
+        res.status(404).send('App not found - build the React app first');
+    }
 });
 
 app.listen(PORT, () => {

@@ -1,0 +1,576 @@
+{
+    "tenantId": "dj",
+    "uuid": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+    "businessService": "BPA_PCO_SIMPLE",
+    "business": "public-services",
+    "businessServiceSla": 0,
+    "states": [
+        {
+            "uuid": "37249976-5703-468a-b116-f81bddf7f5a6",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "",
+            "applicationStatus": "",
+            "docUploadRequired": false,
+            "isStartState": true,
+            "isTerminateState": false,
+            "isStateUpdatable": true,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "9cc5fcc2-f66e-4b82-ae1a-a2495a423d1a",
+                    "tenantId": "dj",
+                    "currentState": "37249976-5703-468a-b116-f81bddf7f5a6",
+                    "action": "DRAFT",
+                    "nextState": "87203367-6bdb-4623-a652-d16a97dbd489",
+                    "roles": [
+                        "BPA_ARCHITECT",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "87203367-6bdb-4623-a652-d16a97dbd489",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "INITIATED",
+            "applicationStatus": "INPROGRESS",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "f50c1a16-370c-42ef-bc1e-ca91ee01cbce",
+                    "tenantId": "dj",
+                    "currentState": "87203367-6bdb-4623-a652-d16a97dbd489",
+                    "action": "CREATE",
+                    "nextState": "533443e2-5b1b-4487-b296-b674abd82942",
+                    "roles": [
+                        "BPA_ARCHITECT",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "533443e2-5b1b-4487-b296-b674abd82942",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "AGENT_NOT_ASSIGNED",
+            "applicationStatus": "AGENT_NOT_ASSIGNED",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "6bb3ec29-23fc-4c19-8e74-1d9d5d9a6574",
+                    "tenantId": "dj",
+                    "currentState": "533443e2-5b1b-4487-b296-b674abd82942",
+                    "action": "ASSIGN_TO_AGENT",
+                    "nextState": "c92c13d3-eb92-4c65-8496-a9557df88eb1",
+                    "roles": [
+                        "BPA_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "e3ff3cfb-9fce-4f8f-8e6b-199f2e425c2d",
+                    "tenantId": "dj",
+                    "currentState": "533443e2-5b1b-4487-b296-b674abd82942",
+                    "action": "ADD_QUERY",
+                    "nextState": "533443e2-5b1b-4487-b296-b674abd82942",
+                    "roles": [
+                        "BPA_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "c92c13d3-eb92-4c65-8496-a9557df88eb1",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "PENDING_ACTION_BY_AGENT",
+            "applicationStatus": "PENDING_ACTION",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "3bf539a0-2c6e-4533-985c-6c680482b237",
+                    "tenantId": "dj",
+                    "currentState": "c92c13d3-eb92-4c65-8496-a9557df88eb1",
+                    "action": "ADD_QUERY",
+                    "nextState": "c92c13d3-eb92-4c65-8496-a9557df88eb1",
+                    "roles": [
+                        "BPA_AGENTS",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "f54db417-9e15-4a44-b2b9-44de5f926705",
+                    "tenantId": "dj",
+                    "currentState": "c92c13d3-eb92-4c65-8496-a9557df88eb1",
+                    "action": "SEND_TO_HOD",
+                    "nextState": "5cc9e794-2140-4877-848e-89eb9ae86c81",
+                    "roles": [
+                        "BPA_AGENTS",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "5cc9e794-2140-4877-848e-89eb9ae86c81",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "AGENT_REPORT_READY",
+            "applicationStatus": "AGENT_REPORT_READY",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "ccd336e3-f0a4-410e-b84a-ef030dae17a5",
+                    "tenantId": "dj",
+                    "currentState": "5cc9e794-2140-4877-848e-89eb9ae86c81",
+                    "action": "NON_CONFORM",
+                    "nextState": "f6500b97-d8cc-48c6-88bf-83c908883494",
+                    "roles": [
+                        "BPA_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "6520ac38-08f1-447a-bc6a-0ad4929958cd",
+                    "tenantId": "dj",
+                    "currentState": "5cc9e794-2140-4877-848e-89eb9ae86c81",
+                    "action": "SEND_TO_SDECC_HOD",
+                    "nextState": "f12cca2d-03a2-4b62-9ad1-15869e5e1477",
+                    "roles": [
+                        "BPA_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "aea461df-085e-4d5f-9849-d4bfec8691aa",
+                    "tenantId": "dj",
+                    "currentState": "5cc9e794-2140-4877-848e-89eb9ae86c81",
+                    "action": "ADD_QUERY",
+                    "nextState": "5cc9e794-2140-4877-848e-89eb9ae86c81",
+                    "roles": [
+                        "BPA_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "f6500b97-d8cc-48c6-88bf-83c908883494",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "DECLARED_NON_CONFORM",
+            "applicationStatus": "DECLARED_NON_CONFORM",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "1cba6701-75ba-4700-950c-230e5c77212e",
+                    "tenantId": "dj",
+                    "currentState": "f6500b97-d8cc-48c6-88bf-83c908883494",
+                    "action": "ADD_QUERY",
+                    "nextState": "f6500b97-d8cc-48c6-88bf-83c908883494",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "56dc6ebb-c34e-44e7-adf3-941a729c0fcc",
+                    "tenantId": "dj",
+                    "currentState": "f6500b97-d8cc-48c6-88bf-83c908883494",
+                    "action": "SEND_TO_COMMISSIONER",
+                    "nextState": "1769ab21-b9c0-490e-8d79-afe89b5790e0",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "d26697bf-d9ea-41c6-9d38-b904e29d149b",
+                    "tenantId": "dj",
+                    "currentState": "f6500b97-d8cc-48c6-88bf-83c908883494",
+                    "action": "REJECT",
+                    "nextState": "9f3b400e-0482-4d1c-937b-135426b0c666",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "f12cca2d-03a2-4b62-9ad1-15869e5e1477",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "SDECC_AGENT_NOT_ASSSIGNED",
+            "applicationStatus": "SDECC_AGENT_NOT_ASSSIGNED",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "d31e7966-cc15-4171-8b20-d44fcb845f80",
+                    "tenantId": "dj",
+                    "currentState": "f12cca2d-03a2-4b62-9ad1-15869e5e1477",
+                    "action": "ADD_QUERY",
+                    "nextState": "f12cca2d-03a2-4b62-9ad1-15869e5e1477",
+                    "roles": [
+                        "BPA_SDECC_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "5d1c48e5-ed1a-4fda-b707-7d730a0bf258",
+                    "tenantId": "dj",
+                    "currentState": "f12cca2d-03a2-4b62-9ad1-15869e5e1477",
+                    "action": "ASSIGN_TO_SDECC_AGENT",
+                    "nextState": "60621e56-fd0d-4479-965b-654279cc8b3e",
+                    "roles": [
+                        "BPA_SDECC_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "60621e56-fd0d-4479-965b-654279cc8b3e",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "PENDING_ACTION_BY_SDECC_AGENT",
+            "applicationStatus": "PENDING_ACTION_BY_SDECC_AGENT",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "01ab096a-2aeb-46df-88bf-6c639650cac4",
+                    "tenantId": "dj",
+                    "currentState": "60621e56-fd0d-4479-965b-654279cc8b3e",
+                    "action": "SEND_TO_SDECC_HOD",
+                    "nextState": "63ae0f5b-9dea-4c35-8637-009265253690",
+                    "roles": [
+                        "BPA_SDECC_AGENT",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "b009d85e-2f5a-4235-ac5c-fb53ae4c920b",
+                    "tenantId": "dj",
+                    "currentState": "60621e56-fd0d-4479-965b-654279cc8b3e",
+                    "action": "ADD_QUERY",
+                    "nextState": "60621e56-fd0d-4479-965b-654279cc8b3e",
+                    "roles": [
+                        "BPA_SDECC_AGENT",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "63ae0f5b-9dea-4c35-8637-009265253690",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "SDECC_AGENT_REPORT_READY",
+            "applicationStatus": "SDECC_AGENT_REPORT_READY",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "5d15c48b-a84c-4ba4-85ba-56ce9a11ccdf",
+                    "tenantId": "dj",
+                    "currentState": "63ae0f5b-9dea-4c35-8637-009265253690",
+                    "action": "ADD_QUERY",
+                    "nextState": "63ae0f5b-9dea-4c35-8637-009265253690",
+                    "roles": [
+                        "BPA_SDECC_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "41455b2c-8183-4308-a5d8-bc0a6546fa50",
+                    "tenantId": "dj",
+                    "currentState": "63ae0f5b-9dea-4c35-8637-009265253690",
+                    "action": "SEND_TO_DIRECTOR",
+                    "nextState": "9942df8d-176e-46eb-80e0-865da1d9e5f9",
+                    "roles": [
+                        "BPA_SDECC_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "dbccda65-ba7c-4b8b-9ccd-8c0f0903eea3",
+                    "tenantId": "dj",
+                    "currentState": "63ae0f5b-9dea-4c35-8637-009265253690",
+                    "action": "NON_CONFORM",
+                    "nextState": "f6500b97-d8cc-48c6-88bf-83c908883494",
+                    "roles": [
+                        "BPA_SDECC_HOD",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "9942df8d-176e-46eb-80e0-865da1d9e5f9",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "NOT_FORWARDED_TO_COMMISSIONER",
+            "applicationStatus": "NOT_FORWARDED_TO_COMMISSIONER",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "84b8d449-5f28-4dc3-9932-d95e94251c11",
+                    "tenantId": "dj",
+                    "currentState": "9942df8d-176e-46eb-80e0-865da1d9e5f9",
+                    "action": "REJECT",
+                    "nextState": "9f3b400e-0482-4d1c-937b-135426b0c666",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "5af9307c-3152-4296-a92a-867ceec22e18",
+                    "tenantId": "dj",
+                    "currentState": "9942df8d-176e-46eb-80e0-865da1d9e5f9",
+                    "action": "ADD_QUERY",
+                    "nextState": "9942df8d-176e-46eb-80e0-865da1d9e5f9",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "a6095899-cd6a-43ec-baa5-0d7e2d4502cd",
+                    "tenantId": "dj",
+                    "currentState": "9942df8d-176e-46eb-80e0-865da1d9e5f9",
+                    "action": "SEND_TO_COMMISSIONER",
+                    "nextState": "1769ab21-b9c0-490e-8d79-afe89b5790e0",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "1769ab21-b9c0-490e-8d79-afe89b5790e0",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "AWAITING_ON_COMMISSIONER",
+            "applicationStatus": "AWAITING_ON_COMMISSIONER",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [
+                "BPA_PCO_SDECC",
+                "BPA_PCO_DGDCF",
+                "BPA_PCO_ONEAD",
+                "BPA_PCO_DNPC",
+                "BPA_PCO_EDD",
+                "BPA_PCO_INSPD"
+            ],
+            "actions": [
+                {
+                    "uuid": "80d09393-16d5-42b4-939b-3d9f9a0c0a97",
+                    "tenantId": "dj",
+                    "currentState": "1769ab21-b9c0-490e-8d79-afe89b5790e0",
+                    "action": "ADD_QUERY",
+                    "nextState": "1769ab21-b9c0-490e-8d79-afe89b5790e0",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "98079f76-e7a5-4b88-93ad-c1618affebe6",
+                    "tenantId": "dj",
+                    "currentState": "1769ab21-b9c0-490e-8d79-afe89b5790e0",
+                    "action": "REJECT",
+                    "nextState": "9f3b400e-0482-4d1c-937b-135426b0c666",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "424c353b-df3c-45ec-90c9-f0bb023b2c28",
+                    "tenantId": "dj",
+                    "currentState": "1769ab21-b9c0-490e-8d79-afe89b5790e0",
+                    "action": "SEND_TO_CITIZEN_PAYMENT",
+                    "nextState": "dd258fc2-9fa3-499d-b173-0675fe0eba67",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "dd258fc2-9fa3-499d-b173-0675fe0eba67",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "AWAITING_CITIZEN_PAYMENT",
+            "applicationStatus": "AWAITING_CITIZEN_PAYMENT",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "21c60356-2cc6-4b02-8610-86c8b1532431",
+                    "tenantId": "dj",
+                    "currentState": "dd258fc2-9fa3-499d-b173-0675fe0eba67",
+                    "action": "ADD_QUERY",
+                    "nextState": "dd258fc2-9fa3-499d-b173-0675fe0eba67",
+                    "roles": [
+                        "CITIZEN",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                },
+                {
+                    "uuid": "7d90b37f-942e-4b78-9849-10e0ba254bc8",
+                    "tenantId": "dj",
+                    "currentState": "dd258fc2-9fa3-499d-b173-0675fe0eba67",
+                    "action": "MAKE_PAYMENT",
+                    "nextState": "4bace39f-7c5d-40b2-9138-392dc585b6b2",
+                    "roles": [
+                        "CITIZEN",
+                        "COUNTER_EMPLOYEE",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "4bace39f-7c5d-40b2-9138-392dc585b6b2",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "CITIZEN_PAYMENT_DONE",
+            "applicationStatus": "CITIZEN_PAYMENT_DONE",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+                {
+                    "uuid": "58c0b36a-c467-4a1f-a35a-692aca803b61",
+                    "tenantId": "dj",
+                    "currentState": "4bace39f-7c5d-40b2-9138-392dc585b6b2",
+                    "action": "APPROVE",
+                    "nextState": "30f6fa36-e2a2-4a2f-a1da-176063302e6c",
+                    "roles": [
+                        "BPA_DIRECTOR",
+                        "STUDIO_ADMIN"
+                    ],
+                    "active": true
+                }
+            ]
+        },
+        {
+            "uuid": "30f6fa36-e2a2-4a2f-a1da-176063302e6c",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "PERMIT_GRANTED",
+            "applicationStatus": "PERMIT_GRANTED",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": true,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": null
+        },
+        {
+            "uuid": "9f3b400e-0482-4d1c-937b-135426b0c666",
+            "tenantId": "dj",
+            "businessServiceId": "f7cbe04f-8e34-4c10-85ce-5ee11989a225",
+            "sla": null,
+            "state": "PERMIT_REJECTED",
+            "applicationStatus": "PERMIT_REJECTED",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": true,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": null
+        }
+    ]
+}

@@ -67,17 +67,14 @@ class RoleActionApiService {
    * Load roles from API
    */
   async loadRoles(): Promise<Role[]> {
-    const response: MdmsResponse<Role> = await this.makeApiCall(
-      "/egov-mdms-service/v2/_search",
-      {
-        MdmsCriteria: {
-          tenantId: this.tenantId,
-          schemaCode: "ACCESSCONTROL-ROLES.roles",
-          limit: 1000,
-          offset: 0,
-        },
-      }
-    );
+    const response = (await this.makeApiCall("/egov-mdms-service/v2/_search", {
+      MdmsCriteria: {
+        tenantId: this.tenantId,
+        schemaCode: "ACCESSCONTROL-ROLES.roles",
+        limit: 1000,
+        offset: 0,
+      },
+    })) as MdmsResponse<Role>;
 
     return response.mdms?.map((item) => item.data) || [];
   }
@@ -86,17 +83,14 @@ class RoleActionApiService {
    * Load actions from API
    */
   async loadActions(): Promise<Action[]> {
-    const response: MdmsResponse<Action> = await this.makeApiCall(
-      "/egov-mdms-service/v2/_search",
-      {
-        MdmsCriteria: {
-          tenantId: this.tenantId,
-          schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
-          limit: 5000,
-          offset: 0,
-        },
-      }
-    );
+    const response = (await this.makeApiCall("/egov-mdms-service/v2/_search", {
+      MdmsCriteria: {
+        tenantId: this.tenantId,
+        schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
+        limit: 5000,
+        offset: 0,
+      },
+    })) as MdmsResponse<Action>;
 
     return response.mdms?.map((item) => item.data) || [];
   }
@@ -105,17 +99,14 @@ class RoleActionApiService {
    * Load role-actions from API
    */
   async loadRoleActions(): Promise<RoleAction[]> {
-    const response: MdmsResponse<RoleAction> = await this.makeApiCall(
-      "/egov-mdms-service/v2/_search",
-      {
-        MdmsCriteria: {
-          tenantId: this.tenantId,
-          schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
-          limit: 10000,
-          offset: 0,
-        },
-      }
-    );
+    const response = (await this.makeApiCall("/egov-mdms-service/v2/_search", {
+      MdmsCriteria: {
+        tenantId: this.tenantId,
+        schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
+        limit: 10000,
+        offset: 0,
+      },
+    })) as MdmsResponse<RoleAction>;
 
     return response.mdms?.map((item) => item.data) || [];
   }

@@ -3,12 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
-import type { WorkboxPlugin } from "workbox-core";
-
-// Define a custom plugin type that includes our state property
-type CustomCachePlugin = WorkboxPlugin & {
-  _cacheableRequest?: Request;
-};
 
 // https://vite.dev/config/
 export default defineConfig({

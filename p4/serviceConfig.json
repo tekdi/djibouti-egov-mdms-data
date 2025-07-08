@@ -1,0 +1,1207 @@
+{
+    "module": "BPA",
+    "service": "BPA_PL",
+    "fields": [
+        {
+            "name": "landAndBuildingDetailing",
+            "label": "Land and Building Detailing",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "siteLocation",
+                    "label": "Site location",
+                    "type": "string",
+                    "format": "multilineText",
+                    "minLength": 2,
+                    "maxLength": 500,
+                    "required": true,
+                    "placeholder": "Adresse complète"
+                },
+                {
+                    "name": "area",
+                    "label": "Area",
+                    "type": "number",
+                    "format": "number",
+                    "required": true,
+                    "validation": {
+                        "min": 0.01,
+                        "message": "Must be greater than zero"
+                    },
+                    "placeholder": "XX m²"
+                },
+                {
+                    "name": "legalCurrentStatus",
+                    "label": "Legal current status",
+                    "type": "string",
+                    "format": "text",
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "required": true,
+                    "placeholder": "Select / Sélectionner"
+                },
+                {
+                    "name": "registrationCertificate",
+                    "label": "Registration certificate",
+                    "type": "string",
+                    "format": "radioordropdown",
+                    "required": true,
+                    "values": [
+                        {
+                            "code": "YES",
+                            "value": "Yes"
+                        },
+                        {
+                            "code": "NO",
+                            "value": "No"
+                        }
+                    ],
+                    "placeholder": "Select / Sélectionner"
+                },
+                {
+                    "name": "definitiveLandTitle",
+                    "label": "Definitive Land Title (TF)",
+                    "type": "string",
+                    "format": "radioordropdown",
+                    "required": true,
+                    "values": [
+                        {
+                            "code": "YES",
+                            "value": "Yes"
+                        },
+                        {
+                            "code": "NO",
+                            "value": "No"
+                        }
+                    ],
+                    "placeholder": "Select / Sélectionner"
+                },
+                {
+                    "name": "tfNumber",
+                    "label": "TF Number",
+                    "type": "string",
+                    "format": "text",
+                    "minLength": 2,
+                    "maxLength": 20,
+                    "required": false,
+                    "validation": {
+                        "regex": "^[a-zA-Z0-9]*$",
+                        "message": "Alphanumeric input only"
+                    },
+                    "condition": "{?.definitiveLandTitle == 'YES'}",
+                    "placeholder": "TF Number"
+                },
+                {
+                    "name": "otherDetails",
+                    "label": "Other",
+                    "type": "string",
+                    "format": "multilineText",
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "required": false,
+                    "placeholder": "Autres détails"
+                },
+                {
+                    "name": "typeOfWork",
+                    "label": "Type of Work",
+                    "type": "string",
+                    "format": "radioordropdown",
+                    "required": true,
+                    "schema": "BPA.WorkType",
+                    "placeholder": "Select"
+                },
+                {
+                    "name": "numberOfHousingUnits",
+                    "label": "Number of Housing Units",
+                    "type": "number",
+                    "format": "number",
+                    "required": false,
+                    "validation": {
+                        "min": 1,
+                        "message": "Must be a positive integer"
+                    },
+                    "condition": "{?.typeOfWork == 'HOUSING'}",
+                    "placeholder": "Enter a number"
+                },
+                {
+                    "name": "detailsOnOtherTypes",
+                    "label": "Details on other types",
+                    "type": "string",
+                    "format": "multilineText",
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "required": false,
+                    "condition": "{?.typeOfWork == 'OTHERS'}",
+                    "placeholder": "Détails sur les autres travaux"
+                },
+                {
+                    "name": "maxAuthorizedCES",
+                    "label": "Maximum authorized C.E.S",
+                    "type": "number",
+                    "format": "number",
+                    "required": true,
+                    "validation": {
+                        "regex": "^\\d+(\\.\\d{1,2})?$",
+                        "message": "Decimal format supported (up to 2 decimal places)"
+                    },
+                    "placeholder": "e.g., 0.60"
+                },
+                {
+                    "name": "projectedCES",
+                    "label": "Projected C.E.S.",
+                    "type": "number",
+                    "format": "number",
+                    "required": true,
+                    "validation": {
+                        "regex": "^\\d+(\\.\\d{1,2})?$",
+                        "message": "Decimal format supported (up to 2 decimal places)",
+                        "lessThanOrEqualToRef": "maxAuthorizedCES",
+                        "messageRef": "Must be less than or equal to maximum authorized C.E.S."
+                    },
+                    "placeholder": "e.g., 0.60"
+                },
+                {
+                    "name": "maxAuthorizedCOS",
+                    "label": "Maximum authorized C.O.S",
+                    "type": "number",
+                    "format": "number",
+                    "required": true,
+                    "validation": {
+                        "regex": "^\\d+(\\.\\d{1,2})?$",
+                        "message": "Decimal format supported (up to 2 decimal places)"
+                    },
+                    "placeholder": "e.g., 2.60"
+                },
+                {
+                    "name": "projectedCOS",
+                    "label": "Projected C.O.S.",
+                    "type": "number",
+                    "format": "number",
+                    "required": true,
+                    "validation": {
+                        "regex": "^\\d+(\\.\\d{1,2})?$",
+                        "message": "Decimal format supported (up to 2 decimal places)",
+                        "lessThanOrEqualToRef": "maxAuthorizedCOS",
+                        "messageRef": "Must be less than or equal to maximum authorized C.O.S."
+                    },
+                    "placeholder": "e.g., 2.50"
+                },
+                {
+                    "name": "coveredProjectArea",
+                    "label": "Covered project area",
+                    "type": "number",
+                    "format": "number",
+                    "required": true,
+                    "validation": {
+                        "min": 0,
+                        "lessThanOrEqualToRef": "area",
+                        "messageRef": "Cannot exceed site area"
+                    },
+                    "placeholder": "Enter area in m²"
+                },
+                {
+                    "name": "constructionCostPerSqM",
+                    "label": "Construction cost per m² excluding work",
+                    "type": "number",
+                    "format": "currency",
+                    "required": true,
+                    "validation": {
+                        "min": 0.01,
+                        "message": "Cannot be zero"
+                    },
+                    "placeholder": "e.g., 80,000 FDj"
+                }
+            ]
+        },
+        {
+            "name": "designOfficeDetailing",
+            "label": "Design Office Detailing",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "nameOfDesignOffice",
+                    "label": "Name of design office",
+                    "type": "string",
+                    "format": "text",
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "required": true,
+                    "placeholder": "Nom du bureau"
+                },
+                {
+                    "name": "legalNameOfArchitect",
+                    "label": "Legal name of architect",
+                    "type": "string",
+                    "format": "text",
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "required": true,
+                    "placeholder": "Nom complet"
+                },
+                {
+                    "name": "architectTelephone",
+                    "label": "Telephone",
+                    "type": "string",
+                    "format": "mobileNumber",
+                    "required": true,
+                    "validation": {
+                        "regex": "^[0-9]{8}$",
+                        "message": "Must be an 8 digit number"
+                    },
+                    "properties": [
+                        {
+                            "name": "countryCode",
+                            "type": "string",
+                            "default": "+253",
+                            "readonly": true
+                        },
+                        {
+                            "name": "number",
+                            "type": "string",
+                            "minLength": 8,
+                            "maxLength": 8,
+                            "placeholder": "XXYYZZZZ"
+                        }
+                    ],
+                    "prefill": "loginPhoneNumber"
+                },
+                {
+                    "name": "officialEmail",
+                    "label": "Official Email",
+                    "type": "string",
+                    "format": "email",
+                    "minLength": 2,
+                    "required": true,
+                    "placeholder": "email@example.com"
+                },
+                {
+                    "name": "registrationNo",
+                    "label": "Registration no.",
+                    "type": "string",
+                    "format": "text",
+                    "minLength": 2,
+                    "required": true,
+                    "validation": {
+                        "regex": "^[a-zA-Z0-9]*$",
+                        "message": "Alphanumeric input only"
+                    },
+                    "placeholder": "DJXXXXYYYYY"
+                },
+                {
+                    "name": "registrationNumberOnProfessionalRoll",
+                    "label": "Registration number on the professional roll",
+                    "type": "string",
+                    "format": "text",
+                    "minLength": 2,
+                    "required": false,
+                    "validation": {
+                        "regex": "^[a-zA-Z0-9]*$",
+                        "message": "Alphanumeric input only"
+                    },
+                    "placeholder": "DJXXXXYYYYY"
+                }
+            ]
+        }
+    ],
+    "workflow": {
+        "businessService": "BPA_PL",
+        "business": "public-services",
+        "businessServiceSla": null,
+        "generateDemandAt": [
+            "SEND_TO_CITIZEN_PAYMENT"
+        ],
+        "nextActionAfterPayment": "MAKE_PAYMENT",
+        "states": [
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "",
+                "applicationStatus": "",
+                "docUploadRequired": false,
+                "isStartState": true,
+                "isTerminateState": false,
+                "isStateUpdatable": true,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "",
+                        "action": "DRAFT",
+                        "nextState": "INITIATED",
+                        "roles": [
+                            "BPA_ARCHITECT",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "INITIATED",
+                "applicationStatus": "INPROGRESS",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "INITIATED",
+                        "action": "CREATE",
+                        "nextState": "AGENT_NOT_ASSIGNED",
+                        "roles": [
+                            "BPA_ARCHITECT",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "AGENT_NOT_ASSIGNED",
+                "applicationStatus": "AGENT_NOT_ASSIGNED",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AGENT_NOT_ASSIGNED",
+                        "action": "ASSIGN_TO_AGENT",
+                        "nextState": "PENDING_ACTION_BY_AGENT",
+                        "roles": [
+                            "BPA_HOD",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AGENT_NOT_ASSIGNED",
+                        "action": "ADD_QUERY",
+                        "nextState": "AGENT_NOT_ASSIGNED",
+                        "roles": [
+                            "BPA_HOD",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "PENDING_ACTION_BY_AGENT",
+                "applicationStatus": "PENDING_ACTION",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "PENDING_ACTION_BY_AGENT",
+                        "action": "SEND_TO_HOD",
+                        "nextState": "AGENT_REPORT_READY",
+                        "roles": [
+                            "BPA_AGENTS",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "AGENT_REPORT_READY",
+                "applicationStatus": "AGENT_REPORT_READY",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AGENT_REPORT_READY",
+                        "action": "SEND_TO_DIRECTOR",
+                        "nextState": "NOT_FORWARDED_TO_COMMISSIONER",
+                        "roles": [
+                            "BPA_HOD",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AGENT_REPORT_READY",
+                        "action": "ADD_QUERY",
+                        "nextState": "AGENT_REPORT_READY",
+                        "roles": [
+                            "BPA_HOD",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AGENT_REPORT_READY",
+                        "action": "NON_CONFORM",
+                        "nextState": "DECLARED_NON_CONFORM",
+                        "roles": [
+                            "BPA_HOD",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "DECLARED_NON_CONFORM",
+                "applicationStatus": "DECLARED_NON_CONFORM",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "DECLARED_NON_CONFORM",
+                        "action": "REJECT",
+                        "nextState": "PERMIT_REJECTED",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "DECLARED_NON_CONFORM",
+                        "action": "ADD_QUERY",
+                        "nextState": "DECLARED_NON_CONFORM",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "DECLARED_NON_CONFORM",
+                        "action": "SEND_TO_COMMISSIONER",
+                        "nextState": "AWAITING_ON_COMMISSIONER",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "NOT_FORWARDED_TO_COMMISSIONER",
+                "applicationStatus": "NOT_FORWARDED_TO_COMMISSIONER",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "NOT_FORWARDED_TO_COMMISSIONER",
+                        "action": "REJECT",
+                        "nextState": "PERMIT_REJECTED",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "NOT_FORWARDED_TO_COMMISSIONER",
+                        "action": "ADD_QUERY",
+                        "nextState": "NOT_FORWARDED_TO_COMMISSIONER",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "NOT_FORWARDED_TO_COMMISSIONER",
+                        "action": "SEND_TO_COMMISSIONER",
+                        "nextState": "AWAITING_ON_COMMISSIONER",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "AWAITING_ON_COMMISSIONER",
+                "applicationStatus": "AWAITING_ON_COMMISSIONER",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [
+                    "BPA_PL_SDECC",
+                    "BPA_PL_DGDCF",
+                    "BPA_PL_ONEAD",
+                    "BPA_PL_DNPC",
+                    "BPA_PL_EDD",
+                    "BPA_PL_INSPD"
+                ],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AWAITING_ON_COMMISSIONER",
+                        "action": "ADD_QUERY",
+                        "nextState": "AWAITING_ON_COMMISSIONER",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AWAITING_ON_COMMISSIONER",
+                        "action": "SEND_TO_CITIZEN_PAYMENT",
+                        "nextState": "AWAITING_CITIZEN_PAYMENT",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AWAITING_ON_COMMISSIONER",
+                        "action": "REJECT",
+                        "nextState": "PERMIT_REJECTED",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "AWAITING_CITIZEN_PAYMENT",
+                "applicationStatus": "AWAITING_CITIZEN_PAYMENT",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AWAITING_CITIZEN_PAYMENT",
+                        "action": "MAKE_PAYMENT",
+                        "nextState": "CITIZEN_PAYMENT_DONE",
+                        "roles": [
+                            "CITIZEN",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    },
+                    {
+                        "tenantId": "dj",
+                        "currentState": "AWAITING_CITIZEN_PAYMENT",
+                        "action": "ADD_QUERY",
+                        "nextState": "AWAITING_CITIZEN_PAYMENT",
+                        "roles": [
+                            "CITIZEN",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "CITIZEN_PAYMENT_DONE",
+                "applicationStatus": "CITIZEN_PAYMENT_DONE",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": false,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": [
+                    {
+                        "tenantId": "dj",
+                        "currentState": "CITIZEN_PAYMENT_DONE",
+                        "action": "APPROVE",
+                        "nextState": "PERMIT_GRANTED",
+                        "roles": [
+                            "BPA_DIRECTOR",
+                            "STUDIO_ADMIN"
+                        ],
+                        "active": true
+                    }
+                ]
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "PERMIT_GRANTED",
+                "applicationStatus": "PERMIT_GRANTED",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": true,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": null
+            },
+            {
+                "tenantId": "dj",
+                "sla": null,
+                "state": "PERMIT_REJECTED",
+                "applicationStatus": "PERMIT_REJECTED",
+                "docUploadRequired": false,
+                "isStartState": false,
+                "isTerminateState": true,
+                "isStateUpdatable": false,
+                "triggerParallelWorkflows": [],
+                "actions": null
+            }
+        ]
+    },
+    "documents": [
+        {
+            "code": "PL_APPLICATION_FORM",
+            "name": "lotting-permit-application-form",
+            "active": true,
+            "isMandatory": true,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": "pl-application",
+            "maxFilesAllowed": 1,
+            "allowedFileTypes": [
+                "pdf"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_LAND_TITLE_OR_CONCESSION_DECREE",
+            "name": "land-title-or-provisional-concession-decree",
+            "active": true,
+            "isMandatory": true,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_BACKFILL_PERMIT_COPY",
+            "name": "backfill-permit-copy",
+            "active": true,
+            "isMandatory": false,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_EXTRACTION_TAX_RECEIPT",
+            "name": "receipt-for-payment-of-extraction-taxes",
+            "active": true,
+            "isMandatory": false,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_BACKFILL_CERTIFICATE_COPY",
+            "name": "copy-backfill-certificate",
+            "active": true,
+            "isMandatory": false,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_LOCATION_MAP",
+            "name": "location-map",
+            "active": true,
+            "isMandatory": true,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_CADASTRAL_SITE_PLAN",
+            "name": "cadastral-site-plan",
+            "active": true,
+            "isMandatory": true,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_PROJECT_LAYOUT_PLAN_PL",
+            "name": "project-layout-plan",
+            "active": true,
+            "isMandatory": true,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_SANITATION_PLANS",
+            "name": "sanitation-plans",
+            "active": true,
+            "isMandatory": true,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_DESCRIPTIVE_ESTIMATE",
+            "name": "descriptive-estimate",
+            "active": true,
+            "isMandatory": true,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_COST_ESTIMATE",
+            "name": "cost-estimate",
+            "active": true,
+            "isMandatory": true,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_PROJECT_FILES_CAD",
+            "name": "project-files-cad",
+            "active": true,
+            "isMandatory": false,
+            "maxSizeInMB": 10,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 10,
+            "allowedFileTypes": [
+                "dwg",
+                "dxf",
+                "skp",
+                "pla",
+                "pln",
+                "rvt",
+                "rfa",
+                "zip",
+                "rar",
+                "sevenz",
+                "pdf"
+            ],
+            "templatedownloadURL": null
+        },
+        {
+            "code": "PL_OTHERS",
+            "name": "other-documents",
+            "active": true,
+            "isMandatory": false,
+            "maxSizeInMB": 5,
+            "showTextInput": false,
+            "templatePDFKey": null,
+            "maxFilesAllowed": 5,
+            "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+            ],
+            "templatedownloadURL": null
+        }
+    ],
+    "idgen": [
+        {
+            "format": "SVC-[cy:yyyy-MM-dd]-[SEQ_PUBLIC_SERVICE]",
+            "idname": "public-service.service.id",
+            "type": "service"
+        },
+        {
+            "format": "PCO-[SEQ_DJ_PCO]/[cy:yyyy]",
+            "name": "egov.idgen.bpa.applicationNum",
+            "type": "application"
+        },
+        {
+            "format": "PCO-RPT-[SEQ_DJ_PCO_RPT]/[cy:yyyy]",
+            "name": "bpa.pco.receipt.id",
+            "type": "receipt"
+        }
+    ],
+    "pdf": [
+        {
+            "key": "pco-application",
+            "type": "application",
+            "states": [
+                "INITIATED"
+            ]
+        },
+        {
+            "key": "application-receipt",
+            "type": "receipt",
+            "states": [
+                "AGENT_NOT_ASSIGNED"
+            ]
+        },
+        {
+            "key": "payment-receipt",
+            "type": "receipt",
+            "states": [
+                "CITIZEN_PAYMENT_DONE"
+            ]
+        },
+        {
+            "key": "pco-permit",
+            "type": "permit",
+            "states": [
+                "PERMIT_GRANTED"
+            ]
+        }
+    ],
+    "localization": {
+        "modules": [
+            "rainmaker-studio-bpa"
+        ]
+    },
+    "applicant": {
+        "types": [
+            "individual",
+            "organisation"
+        ],
+        "maximum": 3,
+        "minimum": 1
+    },
+    "boundary": {
+        "hierarchyType": "REVENUE",
+        "lowestLevel": "locality"
+    },
+    "access": {
+        "roles": [
+            "BPA_ARCHITECT",
+            "STUDIO_ADMIN"
+        ],
+        "actions": [
+            {
+                "url": "/public-service/v1/application"
+            }
+        ]
+    },
+    "payment": {
+        "gateway": "D-MONEY"
+    },
+    "inbox": {
+        "index": "public-service-index",
+        "module": "public-service",
+        "sortBy": {
+            "path": "Data.auditDetails.createdTime",
+            "defaultOrder": "DESC"
+        },
+        "sourceFilterPathList": [
+            "Data.businessService",
+            "Data.applicationNumber",
+            "Data.currentProcessInstance",
+            "Data.auditDetails",
+            "Data.additionalDetails",
+            "Data.module",
+            "Data.locality",
+            "Data.status"
+        ],
+        "allowedSearchCriteria": [
+            {
+                "name": "tenantId",
+                "path": "Data.tenantId.keyword",
+                "operator": "EQUAL",
+                "isMandatory": true
+            },
+            {
+                "name": "status",
+                "path": "Data.workflowStatus",
+                "isMandatory": false
+            },
+            {
+                "name": "applicationNumber",
+                "path": "Data.applicationNumber.keyword",
+                "isMandatory": false
+            },
+            {
+                "name": "module",
+                "path": "Data.module.keyword",
+                "isMandatory": false
+            },
+            {
+                "name": "businessService",
+                "path": "Data.businessService.keyword",
+                "isMandatory": false
+            },
+            {
+                "name": "locality",
+                "path": "Data.address.locality.keyword",
+                "isMandatory": false
+            },
+            {
+                "name": "assignee",
+                "path": "Data.currentProcessInstance.assignes.uuid.keyword",
+                "isMandatory": false
+            }
+        ]
+    },
+    "bill": {
+        "taxHead": [
+            {
+                "code": "PCO_TOTAL",
+                "name": "PCO permit fee with tax",
+                "order": "2",
+                "isDebit": false,
+                "service": "PCO",
+                "category": "FEE",
+                "isRequired": false,
+                "isActualDemand": true
+            }
+        ],
+        "taxPeriod": [
+            {
+                "code": "PCO2024",
+                "toDate": 1774938599999,
+                "service": "PCO",
+                "fromDate": 1743445800000,
+                "periodCycle": "ANNUAL",
+                "financialYear": "2024-25"
+            }
+        ],
+        "BusinessService": {
+            "code": "PCO",
+            "businessService": "PCO",
+            "demandUpdateTime": 604800000,
+            "isAdvanceAllowed": false,
+            "partPaymentAllowed": false,
+            "isVoucherCreationEnabled": false,
+            "collectionModesNotAllowed": [
+                "DD",
+                "OFFLINE_NEFT",
+                "OFFLINE_RTGS",
+                "POSTAL_ORDER"
+            ]
+        }
+    },
+    "calculator2": {
+        "type": "custom",
+        "billingSlabs": [
+            {
+                "key": "PCO_TOTAL",
+                "value": 2000
+            }
+        ]
+    },
+    "calculator": {
+        "type": "api",
+        "host": "https://djibouti.tekdinext.com",
+        "method": "post",
+        "endpoint": "/calculator-service/v1/BPA_PL/demand"
+    },
+    "notification": {
+        "sms": [
+            {
+                "code": "DIGIT_STUDIO_NEW_APPLICATION",
+                "states": [
+                    "AGENT_NOT_ASSIGNED"
+                ],
+                "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} is received"
+            },
+            {
+                "code": "DIGIT_STUDIO_APPLY_APPROVED",
+                "states": [
+                    "approved"
+                ],
+                "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} is approved"
+            },
+            {
+                "code": "DIGIT_STUDIO_DEMAND_CREATED",
+                "states": [
+                    "pending_payment"
+                ],
+                "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} has pending dues of amount Rs {Bill.totalAmount} "
+            }
+        ],
+        "email": [
+            {
+                "code": "DIGIT_STUDIO_NEW_APPLICATION",
+                "states": [
+                    "AGENT_NOT_ASSIGNED"
+                ],
+                "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} is received"
+            },
+            {
+                "code": "DIGIT_STUDIO_APPLY_APPROVED",
+                "states": [
+                    "approved"
+                ],
+                "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} is approved"
+            },
+            {
+                "code": "DIGIT_STUDIO_DEMAND_CREATED",
+                "states": [
+                    "pending_payment"
+                ],
+                "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} has pending dues of amount Rs {Bill.totalAmount} "
+            }
+        ]
+    },
+    "enabled": [
+        "citizen",
+        "employee"
+    ]
+}
