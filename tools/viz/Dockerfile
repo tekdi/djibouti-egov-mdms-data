@@ -5,10 +5,11 @@ FROM oven/bun:1 AS app-build
 WORKDIR /app
 
 # Copy app package files (build context is repository root)
-COPY tools/viz/app/package.json tools/viz/app/bun.lockb ./
+COPY tools/viz/app/package.json ./
+COPY tools/viz/app/bun.lockb* ./
 
-# Install app dependencies
-RUN bun install --frozen-lockfile
+# Install app dependencies (will create/update lockfile as needed)
+RUN bun install
 
 # Copy app source code (build context is repository root)
 COPY tools/viz/app/ ./
