@@ -4,7 +4,7 @@
 
 0. Create a mock `service` through the service api (found in this swagger.yaml)
 1. Get the new permit flow form Canva. Identify and document the details of the new permit.
-   - Name of the
+   - Name of the permit
    - permit
    - module name
    - service name
@@ -22,7 +22,6 @@
 7. Add documents <based on conversation with Akshay>
 8. Add how inbox works <based on conversation with Akshay>
 9. Add application flow <based on conversation with Akshay>
-10.
 
 # Validation of Configuration
 
@@ -808,5 +807,3 @@ curl --location 'https://djibouti.tekdinext.com/egov-workflow-v2/egov-wf/busines
     ]
 }'
 ```
-
-6.

@@ -4,14 +4,14 @@ FROM oven/bun:1 AS app-build
 # Set working directory for app build
 WORKDIR /app
 
-# Copy app package files
-COPY app/package.json app/bun.lockb ./
+# Copy app package files from the correct path
+COPY tools/viz/app/package.json tools/viz/app/bun.lockb ./
 
 # Install app dependencies
 RUN bun install --frozen-lockfile
 
-# Copy app source code
-COPY app/ ./
+# Copy app source code from the correct path
+COPY tools/viz/app/ ./
 
 # Build the Vite app
 RUN bun run build
@@ -20,17 +20,20 @@ RUN bun run build
 FROM oven/bun:1 AS production
 
 # Install basic utilities
-RUN apt-get update && apt-get install -y curl git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y curl git python3 && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
 
-# Copy server package.json and install server dependencies
-COPY server/package.json ./
-RUN bun install
+# Note: This Dockerfile should be run from the repository root with build context
+# docker build -f tools/viz/Dockerfile -t viz-app .
 
-# Copy server source code
-COPY server/ ./
+# Copy the entire repository (needed for data directory and git operations)
+COPY . ./
+
+# Install server dependencies
+WORKDIR /app/tools/viz/server
+RUN bun install
 
 # Copy built app from the build stage to be served by the server
 COPY --from=app-build /app/dist ./public/app
@@ -39,6 +42,7 @@ COPY --from=app-build /app/dist ./public/app
 RUN echo '#!/bin/bash\n\
 echo "Starting visualization server with Bun..."\n\
 echo "Server will serve the built app from /public/app"\n\
+echo "Data directory available at: /app/data"\n\
 echo "Available at: http://0.0.0.0:8001"\n\
 exec bun run server.js' > start.sh && \
     chmod +x start.sh

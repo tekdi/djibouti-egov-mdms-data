@@ -1,11 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
-import type * as monaco from 'monaco-editor'
-import {
-  ResizablePanelGroup,
-  ResizablePanel,
-  ResizableHandle,
-} from '@/components/ui/resizable'
-import mermaid from 'mermaid'
 import {
   SAMPLE_WORKFLOW,
   type Workflow,
@@ -14,6 +7,53 @@ import {
 import { WorkflowHeader } from '@/components/workflow/WorkflowHeader'
 import { JsonEditorPanel } from '@/components/workflow/JsonEditorPanel'
 import { DiagramViewerPanel } from '@/components/workflow/DiagramViewerPanel'
+import { Button } from '@/components/ui/button'
+import { Loader2 } from 'lucide-react'
+import { useAuth } from '@/lib/auth/auth'
+
+// Type definitions for MDMS API response
+interface WorkflowState {
+  state: string;
+  actions?: Array<{
+    action: string;
+    nextState: string;
+    currentState: string;
+    roles: string[];
+    active: boolean;
+    tenantId: string;
+  }>;
+  isStartState?: boolean;
+  isTerminateState?: boolean;
+  applicationStatus: string;
+  tenantId: string;
+}
+
+interface ServiceConfiguration {
+  id: string;
+  tenantId: string;
+  schemaCode: string;
+  uniqueIdentifier: string;
+  data: {
+    workflow?: {
+      states: WorkflowState[];
+      businessService: string;
+      business: string;
+    };
+    service?: string;
+  };
+}
+
+interface MdmsResponse {
+  ResponseInfo: {
+    apiId: string | null;
+    ver: string | null;
+    ts: number | null;
+    resMsgId: string;
+    msgId: string | null;
+    status: string;
+  };
+  mdms: ServiceConfiguration[];
+}
 
 export function WorkflowVisualizer() {
   const [jsonValue, setJsonValue] = useState(JSON.stringify(SAMPLE_WORKFLOW, null, 2));
@@ -24,126 +64,114 @@ export function WorkflowVisualizer() {
   const [autoUpdate, setAutoUpdate] = useState(true);
   const [autoApplyCode, setAutoApplyCode] = useState(true);
   const [activeTab, setActiveTab] = useState('preview');
-  const [zoom, setZoom] = useState(100);
   const [searchTerm, setSearchTerm] = useState('');
+  const [availableWorkflows, setAvailableWorkflows] = useState<ServiceConfiguration[]>([]);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [diagramNode, setDiagramNode] = useState<HTMLDivElement | null>(null);
-  const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
+  const editorRef = useRef<any>(null);
+  const { token, user } = useAuth();
 
-  const diagramRefCallback = useCallback((node: HTMLDivElement | null) => {
-    if (node !== null) {
-      setDiagramNode(node);
+  // Function to fetch workflows from MDMS service
+  const fetchWorkflowsFromMDMS = async () => {
+    if (!token || !user) {
+      setError('Authentication required');
+      return;
     }
-  }, []);
 
-  const updateDiagramFromCode = useCallback(async (code: string) => {
-    if (!diagramNode) return;
-
-    try {
-      setError('');
-      setIsLoading(true);
-
-      if (!code.trim()) {
-        setError('No Mermaid code to render');
-        diagramNode.innerHTML = ''; // Clear the diagram
-        return;
-      }
-
-      if (diagramNode) {
-        diagramNode.innerHTML = ''; // Clear previous diagram
-        
-        const uniqueId = `workflow-diagram-code-${Date.now()}`;
-        const { svg } = await mermaid.render(uniqueId, code);
-        diagramNode.innerHTML = svg;
-        
-        // Apply zoom
-        const svgElement = diagramNode.querySelector('svg');
-        if (svgElement) {
-          svgElement.style.transform = `scale(${zoom / 100})`;
-          svgElement.style.transformOrigin = 'top left';
-        }
-      }
-
-    } catch (e) {
-      const errorMessage = e instanceof Error ? e.message : 'Unknown error';
-      setError(`Mermaid error: ${errorMessage}`);
-      if (diagramNode) diagramNode.innerHTML = ''; // Clear on error
-    } finally {
-      setIsLoading(false);
-    }
-  }, [zoom, diagramNode]);
-
-  const updateDiagram = useCallback(async () => {
-    if (!diagramNode) return;
-
-    try {
-      setError('');
-      setIsLoading(true);
-
-      if (!jsonValue.trim()) {
-        setError('No JSON content to visualize');
-        if (diagramNode) diagramNode.innerHTML = ''; // Clear diagram
-        return;
-      }
-
-      const workflow: Workflow = JSON.parse(jsonValue);
-      const mermaidCodeGenerated = workflowToMermaid(workflow);
-      setMermaidCode(mermaidCodeGenerated);
-
-      if (diagramNode) {
-        diagramNode.innerHTML = ''; // Clear previous diagram
-        
-        const uniqueId = `workflow-diagram-${Date.now()}`;
-        const { svg } = await mermaid.render(uniqueId, mermaidCodeGenerated);
-        diagramNode.innerHTML = svg;
-        
-        // Apply zoom
-        const svgElement = diagramNode.querySelector('svg');
-        if (svgElement) {
-          svgElement.style.transform = `scale(${zoom / 100})`;
-          svgElement.style.transformOrigin = 'top left';
-        }
-      }
-
-    } catch (e) {
-      const errorMessage = e instanceof Error ? e.message : 'Unknown error';
-      setError(`Error: ${errorMessage}`);
-      if (diagramNode) diagramNode.innerHTML = ''; // Clear on error
-    } finally {
-      setIsLoading(false);
-    }
-  }, [jsonValue, zoom, diagramNode]);
-
-  useEffect(() => {
-    mermaid.initialize({ 
-      startOnLoad: true, 
-      theme: 'default',
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true
-      }
-    });
+    setIsLoading(true);
+    setError('');
     
-    updateDiagram();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    try {
+      const response = await fetch('/api/egov-mdms-service/v2/_search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': token
+        },
+        body: JSON.stringify({
+          RequestInfo: {
+            authToken: token,
+            userInfo: user
+          },
+          MdmsCriteria: {
+            tenantId: "dj",
+            schemaCode: "Studio.ServiceConfiguration"
+          }
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data: MdmsResponse = await response.json();
+      
+      if (data.mdms && data.mdms.length > 0) {
+        setAvailableWorkflows(data.mdms);
+        setMessage(`Found ${data.mdms.length} workflow configurations`);
+      } else {
+        setMessage('No workflow configurations found');
+      }
+    } catch (err) {
+      setError(`Failed to fetch workflows: ${err instanceof Error ? err.message : String(err)}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Function to load a specific workflow configuration
+  const loadWorkflowConfig = (config: ServiceConfiguration) => {
+    try {
+      if (!config.data.workflow) {
+        setError('Selected configuration does not contain workflow data');
+        return;
+      }
+
+      // Transform the MDMS workflow format to our expected format
+      const transformedWorkflow: Workflow = {
+        tenantId: config.tenantId,
+        businessService: config.data.workflow.businessService || config.uniqueIdentifier,
+        states: config.data.workflow.states.map(state => ({
+          tenantId: state.tenantId || config.tenantId,
+          state: state.state,
+          applicationStatus: state.applicationStatus,
+          isStartState: state.isStartState || false,
+          isTerminateState: state.isTerminateState || false,
+          actions: state.actions || []
+        }))
+      };
+
+      setJsonValue(JSON.stringify(transformedWorkflow, null, 2));
+      setMessage(`Loaded workflow: ${config.uniqueIdentifier}`);
+      setError('');
+    } catch (err) {
+      setError(`Failed to load workflow configuration: ${err instanceof Error ? err.message : String(err)}`);
+    }
+  };
+
+  // Update diagram when JSON changes
+  const updateDiagram = useCallback(() => {
+    try {
+      const parsedData = JSON.parse(jsonValue);
+      const code = workflowToMermaid(parsedData);
+      setMermaidCode(code);
+      setError('');
+    } catch (err) {
+      setError(`Failed to parse JSON: ${err instanceof Error ? err.message : String(err)}`);
+    }
+  }, [jsonValue]);
+
+  // Update diagram from mermaid code
+  const updateDiagramFromCode = useCallback((code: string) => {
+    setMermaidCode(code);
   }, []);
 
+  // Auto-update diagram when JSON changes
   useEffect(() => {
-    if (autoUpdate && jsonValue) {
-      const timeoutId = setTimeout(() => {
-        updateDiagram();
-      }, 500); // Debounce updates
-      
-      return () => clearTimeout(timeoutId);
+    if (autoUpdate) {
+      updateDiagram();
     }
   }, [jsonValue, autoUpdate, updateDiagram]);
-
-  useEffect(() => {
-    if (activeTab === 'preview' && mermaidCode && diagramNode) {
-      updateDiagramFromCode(mermaidCode);
-    }
-  }, [activeTab, mermaidCode, diagramNode, updateDiagramFromCode]);
 
   const loadSampleWorkflow = () => {
     setJsonValue(JSON.stringify(SAMPLE_WORKFLOW, null, 2));
@@ -182,29 +210,6 @@ export function WorkflowVisualizer() {
     }
   };
 
-  const regenerateFromJSON = () => {
-    try {
-      if (!jsonValue.trim()) {
-        setError('No JSON content to regenerate from');
-        return;
-      }
-
-      const workflow: Workflow = JSON.parse(jsonValue);
-      const mermaidCodeGenerated = workflowToMermaid(workflow);
-      setMermaidCode(mermaidCodeGenerated);
-
-      if (autoApplyCode) {
-        updateDiagramFromCode(mermaidCodeGenerated);
-      }
-
-      setMessage('Mermaid code regenerated from JSON!');
-      setTimeout(() => setMessage(''), 3000);
-    } catch (e) {
-      const errorMessage = e instanceof Error ? e.message : 'Unknown error';
-      setError(`JSON parsing error: ${errorMessage}`);
-    }
-  };
-
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -225,29 +230,6 @@ export function WorkflowVisualizer() {
     reader.readAsText(file);
   };
 
-  const handleZoom = (factor: number) => {
-    const newZoom = Math.max(25, Math.min(300, zoom * factor));
-    setZoom(newZoom);
-    
-    if (diagramNode) {
-      const svgElement = diagramNode.querySelector('svg');
-      if (svgElement) {
-        svgElement.style.transform = `scale(${newZoom / 100})`;
-        svgElement.style.transformOrigin = 'top left';
-      }
-    }
-  };
-
-  const resetZoom = () => {
-    setZoom(100);
-    if (diagramNode) {
-      const svgElement = diagramNode.querySelector('svg');
-      if (svgElement) {
-        svgElement.style.transform = 'scale(1)';
-      }
-    }
-  };
-
   const handleSearch = () => {
     if(editorRef.current) {
       const model = editorRef.current.getModel();
@@ -263,58 +245,92 @@ export function WorkflowVisualizer() {
   return (
     <div className="h-full flex flex-col bg-gray-50">
       <WorkflowHeader
-        zoom={zoom}
         isLoading={isLoading}
         error={error}
         message={message}
       />
 
       <div className="flex-1 min-h-0">
-        <ResizablePanelGroup 
-          direction="horizontal" 
-          className="h-full"
-          autoSaveId="workflow-visualizer-panels"
-        >
-          <ResizablePanel defaultSize={50} minSize={30} className="flex flex-col bg-white">
-            <JsonEditorPanel
-              jsonValue={jsonValue}
-              setJsonValue={setJsonValue}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              handleSearch={handleSearch}
-              loadSampleWorkflow={loadSampleWorkflow}
-              loadServiceConfig={loadServiceConfig}
-              formatJSON={formatJSON}
-              updateDiagram={updateDiagram}
-              isLoading={isLoading}
-              fileInputRef={fileInputRef}
-              autoUpdate={autoUpdate}
-              setAutoUpdate={setAutoUpdate}
-              editorRef={editorRef}
-            />
-          </ResizablePanel>
+        <div className="h-full flex" style={{ maxWidth: '100vw', overflow: 'hidden' }}>
+          {/* Left Panel - JSON Editor with MDMS Integration - Fixed 50% width */}
+          <div className="w-1/2 flex flex-col bg-white border-r border-gray-200" style={{ maxWidth: '50%', overflow: 'hidden' }}>
+            {/* MDMS Integration Section */}
+            <div className="border-b border-gray-200 p-4 flex-shrink-0 bg-gray-50">
+              <h3 className="font-medium text-gray-900 mb-3">MDMS Integration</h3>
+              <div className="flex flex-wrap items-center gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={fetchWorkflowsFromMDMS}
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="h-4 w-4 mr-1 animate-spin" />
+                      Fetching...
+                    </>
+                  ) : (
+                    'Fetch Workflows from MDMS'
+                  )}
+                </Button>
+                
+                {availableWorkflows.length > 0 && (
+                  <select 
+                    className="px-3 py-1 border border-gray-300 rounded text-sm"
+                    onChange={(e) => {
+                      const selectedId = e.target.value;
+                      const selectedWorkflow = availableWorkflows.find(w => w.id === selectedId);
+                      if (selectedWorkflow) {
+                        loadWorkflowConfig(selectedWorkflow);
+                      }
+                    }}
+                    defaultValue=""
+                  >
+                    <option value="">Select workflow...</option>
+                    {availableWorkflows.map((workflow) => (
+                      <option key={workflow.id} value={workflow.id}>
+                        {workflow.data.service || workflow.uniqueIdentifier}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
+            </div>
+
+            <div className="flex-1" style={{ overflow: 'hidden' }}>
+              <JsonEditorPanel
+                jsonValue={jsonValue}
+                setJsonValue={setJsonValue}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                handleSearch={handleSearch}
+                loadSampleWorkflow={loadSampleWorkflow}
+                loadServiceConfig={loadServiceConfig}
+                formatJSON={formatJSON}
+                updateDiagram={updateDiagram}
+                isLoading={isLoading}
+                fileInputRef={fileInputRef}
+                autoUpdate={autoUpdate}
+                setAutoUpdate={setAutoUpdate}
+                editorRef={editorRef}
+              />
+            </div>
+          </div>
           
-          <ResizableHandle withHandle />
-          
-          <ResizablePanel defaultSize={50} minSize={30} className="flex flex-col bg-gray-50">
+          {/* Right Panel - Diagram Viewer - Fixed 50% width */}
+          <div className="w-1/2 flex flex-col bg-white" style={{ maxWidth: '50%', overflow: 'hidden', minHeight: '600px' }}>
             <DiagramViewerPanel
               activeTab={activeTab}
               setActiveTab={setActiveTab}
-              zoom={zoom}
-              handleZoom={handleZoom}
-              resetZoom={resetZoom}
-              diagramRef={diagramRefCallback}
               jsonValue={jsonValue}
               mermaidCode={mermaidCode}
               setMermaidCode={setMermaidCode}
-              regenerateFromJSON={regenerateFromJSON}
               updateDiagramFromCode={updateDiagramFromCode}
-              isLoading={isLoading}
               autoApplyCode={autoApplyCode}
               setAutoApplyCode={setAutoApplyCode}
             />
-          </ResizablePanel>
-        </ResizablePanelGroup>
+          </div>
+        </div>
       </div>
 
       <input

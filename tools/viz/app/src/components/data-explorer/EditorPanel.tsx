@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import type * as monaco from 'monaco-editor';
 import Editor from '@monaco-editor/react';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
@@ -19,7 +18,7 @@ interface EditorPanelProps {
 const EditorPanel = ({ selectedFile, isFetchingFile }: EditorPanelProps) => {
     const [isReadOnly, setIsReadOnly] = useState(true);
     const [isSaving, setIsSaving] = useState(false);
-    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
+    const editorRef = useRef<any>(null);
     const { toast } = useToast();
 
     const handleSave = async () => {

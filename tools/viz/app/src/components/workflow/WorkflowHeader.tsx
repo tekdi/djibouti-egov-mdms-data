@@ -1,15 +1,13 @@
-import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { GitBranch, Loader2, AlertCircle, CheckCircle } from 'lucide-react';
 
 interface WorkflowHeaderProps {
-  zoom: number;
   isLoading: boolean;
   error: string;
   message: string;
 }
 
-export function WorkflowHeader({ zoom, isLoading, error, message }: WorkflowHeaderProps) {
+export function WorkflowHeader({ isLoading, error, message }: WorkflowHeaderProps) {
   return (
     <div className="bg-white border-b border-gray-200 px-6 py-4 flex-shrink-0">
       <div className="flex items-center justify-between">
@@ -19,9 +17,6 @@ export function WorkflowHeader({ zoom, isLoading, error, message }: WorkflowHead
         </div>
         
         <div className="flex items-center space-x-2">
-          <Badge variant="secondary" className="text-xs">
-            {zoom}% zoom
-          </Badge>
           {isLoading && <Loader2 className="h-4 w-4 animate-spin text-blue-600" />}
         </div>
       </div>

@@ -1,22 +1,17 @@
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Switch } from '@/components/ui/switch';
-import { Eye, Code, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
+import { Eye, Code } from 'lucide-react';
 import Editor from '@monaco-editor/react';
+import ZoomableMermaid from './ZoomableMermaid';
 
 interface DiagramViewerPanelProps {
   activeTab: string;
   setActiveTab: (value: string) => void;
-  zoom: number;
-  handleZoom: (factor: number) => void;
-  resetZoom: () => void;
-  diagramRef: (node: HTMLDivElement | null) => void;
   jsonValue: string;
   mermaidCode: string;
   setMermaidCode: (value: string) => void;
-  regenerateFromJSON: () => void;
   updateDiagramFromCode: (code: string) => void;
-  isLoading: boolean;
   autoApplyCode: boolean;
   setAutoApplyCode: (value: boolean) => void;
 }
@@ -24,16 +19,10 @@ interface DiagramViewerPanelProps {
 export function DiagramViewerPanel({
   activeTab,
   setActiveTab,
-  zoom,
-  handleZoom,
-  resetZoom,
-  diagramRef,
   jsonValue,
   mermaidCode,
   setMermaidCode,
-  regenerateFromJSON,
   updateDiagramFromCode,
-  isLoading,
   autoApplyCode,
   setAutoApplyCode,
 }: DiagramViewerPanelProps) {
@@ -54,55 +43,41 @@ export function DiagramViewerPanel({
       </div>
 
       {/* Preview Tab */}
-      <TabsContent value="preview" className="flex-1 flex flex-col m-0 p-0 min-h-0">
-        {/* Zoom Controls */}
-        <div className="border-b border-gray-200 bg-white p-4 flex-shrink-0">
-          <div className="flex items-center space-x-2">
-            <Button variant="outline" size="sm" onClick={() => handleZoom(0.8)}>
-              <ZoomOut className="h-4 w-4" />
-            </Button>
-            <span className="text-sm font-medium min-w-[50px] text-center">
-              {zoom}%
-            </span>
-            <Button variant="outline" size="sm" onClick={() => handleZoom(1.25)}>
-              <ZoomIn className="h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="sm" onClick={resetZoom}>
-              <RotateCcw className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Diagram Container */}
-        <div className="flex-1 overflow-auto bg-white p-4 min-h-0">
-          <div 
-            ref={diagramRef}
-            className="min-h-full"
-            style={{ transformOrigin: 'top left' }}
-          >
-            {!jsonValue.trim() && (
-              <div className="flex items-center justify-center h-64 text-gray-500">
-                Enter workflow JSON to see the diagram...
-              </div>
-            )}
-          </div>
+      <TabsContent value="preview" className="flex-1 flex flex-col m-0 p-0 h-full">
+        {/* Diagram Container with ZoomableMermaid */}
+        <div 
+          className="flex-1 bg-white" 
+          style={{ 
+            width: '100%', 
+            height: '100%',
+            maxWidth: '100%',
+            overflow: 'hidden',
+            position: 'relative',
+            minHeight: '500px'
+          }}
+        >
+          {!jsonValue.trim() ? (
+            <div className="flex items-center justify-center h-full text-gray-500">
+              Enter workflow JSON to see the diagram...
+            </div>
+          ) : (
+            <ZoomableMermaid 
+              diagram={mermaidCode} 
+              options={{
+                theme: 'default',
+                flowchart: { useMaxWidth: true }
+              }}
+            />
+          )}
         </div>
       </TabsContent>
 
       {/* Code Tab */}
-      <TabsContent value="code" className="flex-1 flex flex-col m-0 p-0 min-h-0">
+      <TabsContent value="code" className="flex-1 flex flex-col m-0 p-0 h-full">
         {/* Code Controls */}
         <div className="border-b border-gray-200 bg-white p-4 flex-shrink-0">
           <div className="flex items-center space-x-2">
-            <Button variant="outline" size="sm" onClick={regenerateFromJSON}>
-              Regenerate from JSON
-            </Button>
-            <Button 
-              variant="default" 
-              size="sm" 
-              onClick={() => updateDiagramFromCode(mermaidCode)}
-              disabled={isLoading}
-            >
+            <Button variant="outline" size="sm" onClick={() => updateDiagramFromCode(mermaidCode)}>
               Apply Code
             </Button>
             
