@@ -4,13 +4,13 @@ FROM oven/bun:1 AS app-build
 # Set working directory for app build
 WORKDIR /app
 
-# Copy app package files from the correct path
+# Copy app package files (build context is repository root)
 COPY tools/viz/app/package.json tools/viz/app/bun.lockb ./
 
 # Install app dependencies
 RUN bun install --frozen-lockfile
 
-# Copy app source code from the correct path
+# Copy app source code (build context is repository root)
 COPY tools/viz/app/ ./
 
 # Build the Vite app
@@ -25,10 +25,10 @@ RUN apt-get update && apt-get install -y curl git python3 && rm -rf /var/lib/apt
 # Set working directory
 WORKDIR /app
 
-# Note: This Dockerfile should be run from the repository root with build context
-# docker build -f tools/viz/Dockerfile -t viz-app .
+# Note: This Dockerfile is run from repository root with tools/viz/Dockerfile
+# docker build -f tools/viz/Dockerfile -t viz-app . (from repository root)
 
-# Copy the entire repository (needed for data directory and git operations)
+# Copy the entire repository (build context is repository root)
 COPY . ./
 
 # Install server dependencies
