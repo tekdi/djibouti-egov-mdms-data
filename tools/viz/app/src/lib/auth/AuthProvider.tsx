@@ -1,6 +1,7 @@
 import { useState, useEffect, type ReactNode } from 'react';
 import { LoginPage } from './LoginPage';
 import { type User, type AuthContextType, AuthContext, AUTH_CONFIG } from './auth';
+import { setGlobalLogoutCallback, apiClient } from '@/lib/api/apiClient';
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -12,7 +13,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const logout = () => {
+    // Clear state
+    setToken(null);
+    setUser(null);
+    setIsAuthenticated(false);
+
+    // Clear localStorage
+    localStorage.removeItem('egov_token');
+    localStorage.removeItem('egov_userInfo');
+  };
+
   useEffect(() => {
+    // Register logout callback with API client
+    setGlobalLogoutCallback(logout);
+
     // Check for stored auth data on mount
     const storedToken = localStorage.getItem('egov_token');
     const storedUser = localStorage.getItem('egov_userInfo');
@@ -69,48 +84,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     localStorage.setItem('egov_userInfo', JSON.stringify(userInfo));
   };
 
-  const logout = () => {
-    // Clear state
-    setToken(null);
-    setUser(null);
-    setIsAuthenticated(false);
-
-    // Clear localStorage
-    localStorage.removeItem('egov_token');
-    localStorage.removeItem('egov_userInfo');
-  };
-
   const makeApiCall = async (endpoint: string, data?: unknown) => {
-    if (!token) {
-      throw new Error('Not authenticated. Please login.');
-    }
-
-    const response = await fetch(AUTH_CONFIG.API_BASE + endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json, text/plain, */*'
-      },
-      body: JSON.stringify({
-        ...(data && typeof data === 'object' ? data : {}),
-        RequestInfo: {
-          apiId: "Rainmaker",
-          authToken: token,
-          userInfo: user
-        }
-      })
-    });
-
-    if (response.status === 401 || response.status === 403) {
-      logout();
-      throw new Error('Session expired. Please login again.');
-    }
-
-    if (!response.ok) {
-      throw new Error(`API call failed: ${response.status} ${response.statusText}`);
-    }
-
-    return await response.json();
+    const response = await apiClient.authenticated(AUTH_CONFIG.API_BASE + endpoint, data);
+    return response.data;
   };
 
   const value: AuthContextType = {

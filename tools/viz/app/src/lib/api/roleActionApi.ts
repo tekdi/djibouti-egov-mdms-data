@@ -1,6 +1,6 @@
 // API service for role-action data
 import { useCallback } from "react";
-import { useAuth } from "@/lib/auth/auth";
+import { useApiClient } from "./useApiClient";
 import type { Role, Action, RoleAction } from "@/types/roleAction";
 
 export type NewRolePayload = Omit<Role, "description"> & {
@@ -23,8 +23,8 @@ interface MdmsResponse<T> {
 }
 
 // API configuration
-const API_BASE_URL = "/api"; // This will be handled by Vite proxy
 const DEFAULT_TENANT_ID = "dj"; // Default tenant ID
+const API_BASE_URL = "/api"; // This will be handled by Vite proxy
 
 class RoleActionApiService {
   private tenantId: string;
@@ -280,114 +280,14 @@ class RoleActionApiService {
 }
 
 // Export a singleton instance
-// Hook-based API functions with authentication
+// Hook-based API functions with authentication using the new API client
 export function useRoleActionApi() {
-  const { token, user } = useAuth();
-
-  const makeAuthenticatedApiCall = useCallback(
-    async (
-      endpoint: string,
-      data: Record<string, unknown>,
-      isSearch: boolean = true
-    ): Promise<any> => {
-      const userInfo = user as unknown as Record<string, unknown>;
-      // Add RequestInfo with authentication to the data
-      const requestPayload = isSearch
-        ? {
-            ...data,
-            RequestInfo: {
-              apiId: "Rainmaker",
-              ver: ".01",
-              ts: "",
-              action: "_search",
-              did: "1",
-              key: "",
-              msgId: "20170310130900|en_IN",
-              authToken: token,
-              userInfo: userInfo,
-            },
-          }
-        : {
-            RequestInfo: {
-              apiId: "Rainmaker",
-              ver: ".01",
-              ts: "",
-              action: "_create",
-              did: "1",
-              key: "",
-              msgId: "20170310130900|en_IN",
-              authToken: token,
-              userInfo: userInfo,
-            },
-            ...data,
-          };
-
-      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          accept: "application/json, text/plain, */*",
-        },
-        body: JSON.stringify(requestPayload),
-      });
-
-      if (!response.ok) {
-        const errorBody = await response.text();
-        console.error("API Error Response:", errorBody);
-        throw new Error(
-          `API call failed: ${response.status} ${response.statusText}`
-        );
-      }
-
-      return await response.json();
-    },
-    [token, user]
-  );
-
-  const makeCreateApiCall = useCallback(
-    async (endpoint: string, data: Record<string, unknown>): Promise<any> => {
-      const userInfo = user as unknown as Record<string, unknown>;
-      const requestPayload = {
-        RequestInfo: {
-          apiId: "Rainmaker",
-          ver: ".01",
-          ts: "",
-          action: "_create",
-          did: "1",
-          key: "",
-          msgId: "20170310130900|en_IN",
-          authToken: token,
-          userInfo: userInfo,
-        },
-        ...data,
-      };
-
-      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          accept: "application/json, text/plain, */*",
-        },
-        body: JSON.stringify(requestPayload),
-      });
-
-      if (!response.ok) {
-        const errorBody = await response.text();
-        console.error("API Error Response:", errorBody);
-        throw new Error(
-          `API call failed: ${response.status} ${response.statusText}`
-        );
-      }
-
-      return await response.json();
-    },
-    [token, user]
-  );
+  const apiClient = useApiClient();
 
   const loadApiData = useCallback(async () => {
     const [rolesResponse, actionsResponse, roleActionsResponse] =
       await Promise.all([
-        makeAuthenticatedApiCall("/egov-mdms-service/v2/_search", {
+        apiClient.callApi<MdmsResponse<Role>>("/egov-mdms-service/v2/_search", {
           MdmsCriteria: {
             tenantId: DEFAULT_TENANT_ID,
             schemaCode: "ACCESSCONTROL-ROLES.roles",
@@ -395,22 +295,28 @@ export function useRoleActionApi() {
             offset: 0,
           },
         }),
-        makeAuthenticatedApiCall("/egov-mdms-service/v2/_search", {
-          MdmsCriteria: {
-            tenantId: DEFAULT_TENANT_ID,
-            schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
-            limit: 5000,
-            offset: 0,
-          },
-        }),
-        makeAuthenticatedApiCall("/egov-mdms-service/v2/_search", {
-          MdmsCriteria: {
-            tenantId: DEFAULT_TENANT_ID,
-            schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
-            limit: 10000,
-            offset: 0,
-          },
-        }),
+        apiClient.callApi<MdmsResponse<Action>>(
+          "/egov-mdms-service/v2/_search",
+          {
+            MdmsCriteria: {
+              tenantId: DEFAULT_TENANT_ID,
+              schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
+              limit: 5000,
+              offset: 0,
+            },
+          }
+        ),
+        apiClient.callApi<MdmsResponse<RoleAction>>(
+          "/egov-mdms-service/v2/_search",
+          {
+            MdmsCriteria: {
+              tenantId: DEFAULT_TENANT_ID,
+              schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
+              limit: 10000,
+              offset: 0,
+            },
+          }
+        ),
       ]);
 
     const getRoles = (res: MdmsResponse<Role>): Role[] => {
@@ -438,11 +344,11 @@ export function useRoleActionApi() {
       actions: getActions(actionsResponse),
       roleActions: getRoleActions(roleActionsResponse),
     };
-  }, [makeAuthenticatedApiCall]);
+  }, [apiClient]);
 
   const createRole = useCallback(
     async (role: NewRolePayload) => {
-      return makeCreateApiCall("/egov-mdms-service/v2/_create", {
+      return apiClient.callApi("/egov-mdms-service/v2/_create", {
         Mdms: {
           tenantId: DEFAULT_TENANT_ID,
           schemaCode: "ACCESSCONTROL-ROLES.roles",
@@ -450,12 +356,12 @@ export function useRoleActionApi() {
         },
       });
     },
-    [makeCreateApiCall]
+    [apiClient]
   );
 
   const createAction = useCallback(
     async (action: NewActionPayload) => {
-      return makeCreateApiCall("/egov-mdms-service/v2/_create", {
+      return apiClient.callApi("/egov-mdms-service/v2/_create", {
         Mdms: {
           tenantId: DEFAULT_TENANT_ID,
           schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
@@ -463,12 +369,12 @@ export function useRoleActionApi() {
         },
       });
     },
-    [makeCreateApiCall]
+    [apiClient]
   );
 
   const createRoleAction = useCallback(
     async (roleAction: NewRoleActionPayload) => {
-      return makeCreateApiCall("/egov-mdms-service/v2/_create", {
+      return apiClient.callApi("/egov-mdms-service/v2/_create", {
         Mdms: {
           tenantId: DEFAULT_TENANT_ID,
           schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
@@ -476,7 +382,7 @@ export function useRoleActionApi() {
         },
       });
     },
-    [makeCreateApiCall]
+    [apiClient]
   );
 
   return {

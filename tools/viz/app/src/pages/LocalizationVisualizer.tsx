@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   flexRender,
   getCoreRowModel,
@@ -11,7 +11,7 @@ import {
   getFacetedUniqueValues,
   getPaginationRowModel,
 } from '@tanstack/react-table';
-import { Globe, ChevronDown, PlusCircle } from 'lucide-react';
+import { Globe, ChevronDown, PlusCircle, RefreshCw } from 'lucide-react';
 import { useLocalizationApi } from '@/lib/api/localization';
 import type { LocalizationString, SupportedLanguage } from '@/types/localization';
 import { SUPPORTED_LANGUAGES } from '@/types/localization';
@@ -20,7 +20,7 @@ import { AddStringDialog } from '@/components/localization/AddStringDialog';
 import { getColumns } from '@/components/localization/columns';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Input } from '@/components/ui/input';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsContent } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -44,20 +44,42 @@ export function LocalizationVisualizer() {
   const [columnVisibility, setColumnVisibility] = useState({})
   const [globalFilter, setGlobalFilter] = useState('');
 
+  // Refs to prevent duplicate calls in React StrictMode
+  const hasInitialized = useRef(false);
+  const isFetching = useRef(false);
+
   const { toast } = useToast();
   const { searchLocalizationStrings, upsertLocalizationString } = useLocalizationApi();
 
-  const fetchData = useCallback(async () => {
+  const fetchData = useCallback(async (force: boolean = false) => {
+    // Prevent overlapping requests (helps with React StrictMode)
+    if (isFetching.current && !force) {
+      console.log('⏳ Fetch already in progress, skipping duplicate call');
+      return;
+    }
+    
+    isFetching.current = true;
     setIsLoading(true);
     setError(null);
+    
+    console.log(`🔄 Fetching localization data${force ? ' (forced refresh)' : ''}...`);
+    
     try {
+      // Clear any previous data to ensure fresh fetch
+      if (force) {
+        setData([]);
+      }
+      
       const fetches = SUPPORTED_LANGUAGES.map(lang => 
         searchLocalizationStrings(lang)
       );
       const allLangData = await Promise.all(fetches);
       const messagesByCodeModule: Record<string, LocalizationString> = {};
+      
       allLangData.forEach(({ messages }, langIndex) => {
         const lang = SUPPORTED_LANGUAGES[langIndex];
+        console.log(`📡 Loaded ${messages.length} ${lang} localization strings`);
+        
         messages.forEach(msg => {
           const key = `${msg.code}|${msg.module}`;
           if (!messagesByCodeModule[key]) {
@@ -70,21 +92,36 @@ export function LocalizationVisualizer() {
           messagesByCodeModule[key].translations[lang] = msg.message;
         });
       });
-      setData(Object.values(messagesByCodeModule).sort((a, b) => a.code.localeCompare(b.code)));
+      
+      const sortedData = Object.values(messagesByCodeModule).sort((a, b) => a.code.localeCompare(b.code));
+      setData(sortedData);
+      console.log(`✅ Processed ${sortedData.length} unique localization entries`);
+      
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
       setError(errorMessage);
       toast({
-        title: 'Error',
-        description: errorMessage,
+        title: 'Localization API Error',
+        description: `Failed to fetch localization strings: ${errorMessage}`,
         variant: 'destructive',
       });
+      console.error('❌ Localization fetch error:', err);
     } finally {
+      isFetching.current = false;
       setIsLoading(false);
     }
   }, [searchLocalizationStrings, toast]);
   
   useEffect(() => {
+    // Prevent duplicate initialization in React StrictMode
+    if (hasInitialized.current) {
+      console.log('⚠️ LocalizationVisualizer already initialized, skipping...');
+      return;
+    }
+    
+    hasInitialized.current = true;
+    let isMounted = true;
+    
     async function loadModules() {
       try {
         const res = await fetch('/data/dj/common-masters/StateInfo.json');
@@ -93,18 +130,33 @@ export function LocalizationVisualizer() {
         const fetchedModules = (stateInfo.StateInfo && stateInfo.StateInfo[0] && stateInfo.StateInfo[0].localizationModules)
           ? stateInfo.StateInfo[0].localizationModules.map((m: { value: string }) => m.value)
           : [];
-        setModules(fetchedModules);
-      } catch {
+        
+        if (isMounted) {
+          setModules(fetchedModules);
+          console.log(`📂 Loaded ${fetchedModules.length} localization modules`);
+        }
+      } catch (err) {
+        if (!isMounted) return;
+        
+        const errorMsg = err instanceof Error ? err.message : 'Unknown error';
         toast({
-          title: 'Error',
-          description: 'Failed to load modules from StateInfo.json',
+          title: 'Module Load Error',
+          description: `Failed to load modules from StateInfo.json: ${errorMsg}`,
           variant: 'destructive',
         });
+        console.error('❌ Failed to load modules:', err);
       }
     }
+    
+    console.log('🚀 LocalizationVisualizer initializing... (StrictMode-safe)');
     loadModules();
-    fetchData();
-  }, [toast, fetchData]);
+    fetchData(true);
+    
+    // Cleanup function to prevent state updates if component unmounts
+    return () => {
+      isMounted = false;
+    };
+  }, []); // ✅ Empty dependency array to prevent loops
 
   const handleUpdateString = useCallback(async (code: string, module: string, lang: SupportedLanguage, value: string) => {
     try {
@@ -136,7 +188,8 @@ export function LocalizationVisualizer() {
   }, [upsertLocalizationString, toast]);
 
   const handleAddStringSuccess = useCallback(() => {
-    fetchData();
+    console.log('🔄 Refreshing data after string addition...');
+    fetchData(true); // Force fresh fetch after adding new string
   }, [fetchData]);
 
   const columns = useMemo(() => getColumns(handleUpdateString), [handleUpdateString]);
@@ -285,7 +338,16 @@ export function LocalizationVisualizer() {
                   })}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button onClick={() => setIsAddStringDialogOpen(true)} className="ml-4">
+            <Button 
+              variant="outline" 
+              onClick={() => fetchData(true)} 
+              className="ml-4"
+              disabled={isLoading}
+            >
+              <RefreshCw className={`mr-2 h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+              {isLoading ? 'Refreshing...' : 'Refresh'}
+            </Button>
+            <Button onClick={() => setIsAddStringDialogOpen(true)} className="ml-2">
               <PlusCircle className="mr-2 h-4 w-4"/> Add String
             </Button>
           </div>

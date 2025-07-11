@@ -10,6 +10,9 @@ import { DiagramViewerPanel } from '@/components/workflow/DiagramViewerPanel'
 import { Button } from '@/components/ui/button'
 import { Loader2 } from 'lucide-react'
 import { useAuth } from '@/lib/auth/auth'
+import { useApiClient } from '@/lib/api/useApiClient';
+import { ApiDebugPanel } from '@/components/debug/ApiDebugPanel';
+import { useToast } from '@/components/ui/use-toast';
 
 // Type definitions for MDMS API response
 interface WorkflowState {
@@ -43,20 +46,8 @@ interface ServiceConfiguration {
   };
 }
 
-interface MdmsResponse {
-  ResponseInfo: {
-    apiId: string | null;
-    ver: string | null;
-    ts: number | null;
-    resMsgId: string;
-    msgId: string | null;
-    status: string;
-  };
-  mdms: ServiceConfiguration[];
-}
-
 export function WorkflowVisualizer() {
-  const [jsonValue, setJsonValue] = useState(JSON.stringify(SAMPLE_WORKFLOW, null, 2));
+  const [jsonValue, setJsonValue] = useState('');
   const [mermaidCode, setMermaidCode] = useState('');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
@@ -66,15 +57,24 @@ export function WorkflowVisualizer() {
   const [activeTab, setActiveTab] = useState('preview');
   const [searchTerm, setSearchTerm] = useState('');
   const [availableWorkflows, setAvailableWorkflows] = useState<ServiceConfiguration[]>([]);
-  
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [_selectedWorkflowId, _setSelectedWorkflowId] = useState('');
+  const [_isLoadingWorkflows, _setIsLoadingWorkflows] = useState(false);
   const editorRef = useRef<any>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const { token, user } = useAuth();
+  const apiClient = useApiClient();
+  const { toast } = useToast();
 
   // Function to fetch workflows from MDMS service
   const fetchWorkflowsFromMDMS = async () => {
     if (!token || !user) {
-      setError('Authentication required');
+      const errorMsg = 'Authentication required';
+      setError(errorMsg);
+      toast({
+        title: "Authentication Error",
+        description: errorMsg,
+        variant: "destructive",
+      });
       return;
     }
 
@@ -82,29 +82,16 @@ export function WorkflowVisualizer() {
     setError('');
     
     try {
-      const response = await fetch('/api/egov-mdms-service/v2/_search', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'auth-token': token
-        },
-        body: JSON.stringify({
-          RequestInfo: {
-            authToken: token,
-            userInfo: user
-          },
-          MdmsCriteria: {
-            tenantId: "dj",
-            schemaCode: "Studio.ServiceConfiguration"
-          }
-        })
+      const endpoint = '/egov-mdms-service/v2/_search';
+      const data = await apiClient.callApi<{
+        ResponseInfo: any;
+        mdms: ServiceConfiguration[];
+      }>(endpoint, {
+        MdmsCriteria: {
+          tenantId: "dj",
+          schemaCode: "Studio.ServiceConfiguration"
+        }
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data: MdmsResponse = await response.json();
       
       if (data.mdms && data.mdms.length > 0) {
         setAvailableWorkflows(data.mdms);
@@ -113,7 +100,14 @@ export function WorkflowVisualizer() {
         setMessage('No workflow configurations found');
       }
     } catch (err) {
-      setError(`Failed to fetch workflows: ${err instanceof Error ? err.message : String(err)}`);
+      const endpoint = '/egov-mdms-service/v2/_search';
+      const errorMsg = `Failed to fetch workflows from ${endpoint}: ${err instanceof Error ? err.message : String(err)}`;
+      setError(errorMsg);
+      toast({
+        title: "API Error",
+        description: `MDMS Service API (${endpoint}) failed: ${err instanceof Error ? err.message : String(err)}`,
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -168,10 +162,21 @@ export function WorkflowVisualizer() {
 
   // Auto-update diagram when JSON changes
   useEffect(() => {
-    if (autoUpdate) {
-      updateDiagram();
+    if (autoUpdate && jsonValue.trim()) {
+      console.log('🔄 Auto-updating diagram from JSON change...');
+      try {
+        const parsedData = JSON.parse(jsonValue);
+        const code = workflowToMermaid(parsedData);
+        setMermaidCode(code);
+        setError('');
+        console.log('✅ Diagram updated successfully');
+      } catch (err) {
+        const errorMsg = `Failed to parse JSON: ${err instanceof Error ? err.message : String(err)}`;
+        setError(errorMsg);
+        console.error('❌ Diagram update error:', err);
+      }
     }
-  }, [jsonValue, autoUpdate, updateDiagram]);
+  }, [jsonValue, autoUpdate]); // ✅ Removed updateDiagram from dependencies to prevent loops
 
   const loadSampleWorkflow = () => {
     setJsonValue(JSON.stringify(SAMPLE_WORKFLOW, null, 2));
@@ -182,7 +187,8 @@ export function WorkflowVisualizer() {
   const loadServiceConfig = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('./workflow.json');
+      const endpoint = './workflow.json';
+      const response = await fetch(endpoint);
       if (!response.ok) {
         throw new Error('workflow.json not found. Run the extraction script first.');
       }
@@ -191,8 +197,15 @@ export function WorkflowVisualizer() {
       setMessage('Service configuration loaded!');
       setTimeout(() => setMessage(''), 3000);
     } catch (e) {
+      const endpoint = './workflow.json';
       const errorMessage = e instanceof Error ? e.message : 'Unknown error';
-      setError(`Error loading service config: ${errorMessage}`);
+      const fullError = `Error loading service config from ${endpoint}: ${errorMessage}`;
+      setError(fullError);
+      toast({
+        title: "File Load Error",
+        description: `Static file (${endpoint}) failed to load: ${errorMessage}`,
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -243,12 +256,19 @@ export function WorkflowVisualizer() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-gray-50">
-      <WorkflowHeader
+    <div className="h-screen flex flex-col bg-gray-50">
+      <WorkflowHeader 
         isLoading={isLoading}
         error={error}
         message={message}
       />
+      
+      {/* Debug Panel - Development Only */}
+      {import.meta.env.DEV && (
+        <div className="p-4 bg-yellow-50 border-b border-yellow-200">
+          <ApiDebugPanel />
+        </div>
+      )}
 
       <div className="flex-1 min-h-0">
         <div className="h-full flex" style={{ maxWidth: '100vw', overflow: 'hidden' }}>
@@ -335,7 +355,7 @@ export function WorkflowVisualizer() {
 
       <input
         type="file"
-        ref={fileInputRef as React.RefObject<HTMLInputElement>}
+        ref={fileInputRef}
         onChange={handleFileUpload}
         className="hidden"
         accept=".json"

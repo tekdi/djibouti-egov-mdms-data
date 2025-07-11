@@ -1,3 +1,5 @@
+import { apiClient } from "./apiClient";
+
 export interface TreeNode {
   name: string;
   path: string;
@@ -11,28 +13,25 @@ export interface RecentFile {
 }
 
 export async function fetchDataTree(): Promise<TreeNode[]> {
-  const res = await fetch("/api-local/data-tree");
-  if (!res.ok) {
-    throw new Error("Failed to fetch data tree");
-  }
-  return res.json();
+  const response = await apiClient.get<TreeNode[]>("/api-local/data-tree");
+  return response.data;
 }
 
 export async function fetchRecentConfigs(): Promise<RecentFile[]> {
-  const res = await fetch("/api-local/recently-changed-configs");
-  if (!res.ok) {
+  try {
+    const response = await apiClient.get<RecentFile[]>(
+      "/api-local/recently-changed-configs"
+    );
+    return response.data;
+  } catch {
     // Gracefully fail if recent configs are not available
     return [];
   }
-  return res.json();
 }
 
 export async function fetchFileContent(path: string): Promise<string> {
-  const res = await fetch(path);
-  if (!res.ok) {
-    throw new Error(`Failed to load file: ${path}`);
-  }
-  const text = await res.text();
+  const response = await apiClient.get<string>(path);
+  const text = response.data;
   // Try to pretty-print JSON
   try {
     return JSON.stringify(JSON.parse(text), null, 2);
@@ -45,15 +44,5 @@ export async function saveFileContent(
   path: string,
   content: string
 ): Promise<void> {
-  const res = await fetch("/api-local/save-file", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ path, content }),
-  });
-  if (!res.ok) {
-    const errorText = await res.text();
-    throw new Error(`Failed to save file: ${errorText}`);
-  }
+  await apiClient.post<void>("/api-local/save-file", { path, content });
 }

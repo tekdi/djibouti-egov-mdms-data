@@ -43,8 +43,21 @@ console.log('Looking for React app at:', reactAppPath);
 if (fs.existsSync(reactAppPath)) {
     console.log('✅ React app found - serving from public/app');
 
-    // Serve static assets (CSS, JS, images, etc.)
-    app.use(express.static(reactAppPath));
+    // Serve static assets (CSS, JS, images, etc.) with proper cache headers
+    app.use(express.static(reactAppPath, {
+        maxAge: '1d', // Cache static assets for 1 day
+        etag: true,
+        lastModified: true,
+        setHeaders: (res, path) => {
+            // Set longer cache for JS/CSS files with hashes
+            if (path.match(/\.(js|css)$/)) {
+                res.setHeader('Cache-Control', 'public, max-age=31536000'); // 1 year for hashed assets
+            }
+            // Set CORS headers for all assets
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+        }
+    }));
 
 } else {
     console.log('⚠️  React app not built yet - serving fallback');

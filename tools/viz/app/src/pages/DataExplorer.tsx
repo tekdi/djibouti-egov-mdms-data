@@ -5,6 +5,7 @@ import { fetchDataTree, fetchRecentConfigs, fetchFileContent } from '@/lib/api/d
 import FileTree from '@/components/data-explorer/FileTree';
 import { Skeleton } from '@/components/ui/skeleton';
 import EditorPanel from '@/components/data-explorer/EditorPanel';
+import { useToast } from '@/components/ui/use-toast';
 
 interface SelectedFile {
     path: string;
@@ -18,6 +19,7 @@ const DataExplorer = () => {
     const [error, setError] = useState<string | null>(null);
     const [selectedFile, setSelectedFile] = useState<SelectedFile | null>(null);
     const [isFetchingFile, setIsFetchingFile] = useState(false);
+    const { toast } = useToast();
 
     useEffect(() => {
         const loadData = async () => {
@@ -31,7 +33,13 @@ const DataExplorer = () => {
                 setRecentFiles(recent);
                 setError(null);
             } catch (err) {
-                setError(err instanceof Error ? err.message : 'An unknown error occurred.');
+                const errorMsg = err instanceof Error ? err.message : 'An unknown error occurred.';
+                setError(errorMsg);
+                toast({
+                    title: "Data Explorer API Error",
+                    description: `Failed to load data tree or recent configs: ${errorMsg}`,
+                    variant: "destructive",
+                });
             } finally {
                 setLoading(false);
             }
@@ -45,7 +53,13 @@ const DataExplorer = () => {
             const content = await fetchFileContent(path);
             setSelectedFile({ path, content });
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Failed to load file.');
+            const errorMsg = err instanceof Error ? err.message : 'Failed to load file.';
+            setError(errorMsg);
+            toast({
+                title: "File Load Error",
+                description: `Failed to load file "${path}": ${errorMsg}`,
+                variant: "destructive",
+            });
         } finally {
             setIsFetchingFile(false);
         }

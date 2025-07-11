@@ -26,6 +26,9 @@ const ZoomableMermaid: React.FC<ZoomableMermaidProps> = ({ diagram, options = {}
         mermaid.initialize({
           startOnLoad: false,
           theme: 'default',
+          // Production-safe configuration
+          securityLevel: 'loose',
+          logLevel: 'error',
           flowchart: { 
             useMaxWidth: true,
             htmlLabels: true,
@@ -38,6 +41,8 @@ const ZoomableMermaid: React.FC<ZoomableMermaidProps> = ({ diagram, options = {}
             lineColor: '#000'
           },
           maxWidth: '100%',
+          // Help with dynamic imports in production
+          externDiagramDefinition: true,
           ...options
         });
 
