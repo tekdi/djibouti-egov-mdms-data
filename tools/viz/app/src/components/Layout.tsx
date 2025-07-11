@@ -7,19 +7,23 @@ import {
   BarChart3,
   GitBranch,
   Users,
+  UserCheck,
   Languages,
   Database,
   Menu,
   PanelLeft,
-  PanelLeftClose
+  PanelLeftClose,
+  RefreshCw
 } from 'lucide-react'
 import { useAuth } from '@/lib/auth/auth'
 import { UserMenu } from '@/components/auth/UserMenu'
+import { useRefresh } from '@/lib/contexts/RefreshContext'
 
 const navigationItems = [
   { icon: BarChart3, label: 'Dashboard', path: '/dashboard' },
   { icon: GitBranch, label: 'Workflow Visualizer', path: '/workflow' },
   { icon: Users, label: 'Role Action Visualizer', path: '/role-action' },
+  { icon: UserCheck, label: 'Employee Management', path: '/employees' },
   { icon: Languages, label: 'Localization Visualizer', path: '/localization' },
   { icon: Database, label: 'Data Explorer', path: '/data-explorer' },
 ]
@@ -31,6 +35,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation()
   const { user } = useAuth()
+  const { triggerRefresh, isRefreshing } = useRefresh()
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
   const NavContent = () => (
@@ -126,6 +131,25 @@ export default function Layout({ children }: LayoutProps) {
             </div>
 
             <div className="ml-auto flex items-center space-x-4">
+              <Button 
+                onClick={() => {
+                  try {
+                    triggerRefresh();
+                  } catch (error) {
+                    console.error('Refresh error:', error);
+                  }
+                }} 
+                disabled={isRefreshing} 
+                variant="outline" 
+                size="sm"
+              >
+                {isRefreshing ? (
+                  <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <RefreshCw className="mr-2 h-4 w-4" />
+                )}
+                Refresh
+              </Button>
               {user && <UserMenu />}
             </div>
           </div>

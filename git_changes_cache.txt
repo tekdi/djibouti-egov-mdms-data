@@ -4,11 +4,16 @@ Files changed in the past 7 days:
 File                                                            Commits
 --------------------------------------------------------------------------------
 tools/viz/Dockerfile                                                  4
+git_changes_cache.txt                                                 2
+tools/viz/app/src/components/workflow/ZoomableMermaid.tsx             2
+tools/viz/app/src/lib/api/roleActionApi.ts                            2
+tools/viz/app/src/pages/WorkflowVisualizer.tsx                        2
+tools/viz/app/vite.config.ts                                          2
 tools/viz/docker-dev.sh                                               2
+tools/viz/server/server.js                                            2
 data/dj/Workflow/BusinessService.PCO_SIMPLE.json                      1
 data/dj/Workflow/PCO_Simple_Without_SDECC.json                        1
 data/dj/Workflow/old_worfklow_from_search.json                        1
-git_changes_cache.txt                                                 1
 p4/comments.md                                                        1
 p4/documents.json                                                     1
 p4/fields.json                                                        1
@@ -20,6 +25,7 @@ tools/viz/.dockerignore                                               1
 tools/viz/app/.vite/deps/_metadata.json                               1
 tools/viz/app/.vite/deps/package.json                                 1
 tools/viz/app/dev-dist/sw.js                                          1
+tools/viz/app/docs/api-wrapper-guide.md                               1
 tools/viz/app/eslint.config.js                                        1
 tools/viz/app/implementation/00-overview/project-architecture.md          1
 tools/viz/app/implementation/00-overview/technology-decisions.md          1
@@ -52,15 +58,19 @@ tools/viz/app/implementation/validation-checklist.md                  1
 tools/viz/app/package-lock.json                                       1
 tools/viz/app/package.json                                            1
 tools/viz/app/src/components/data-explorer/EditorPanel.tsx            1
+tools/viz/app/src/components/debug/ApiDebugPanel.tsx                  1
 tools/viz/app/src/components/workflow/DiagramViewerPanel.tsx          1
 tools/viz/app/src/components/workflow/JsonEditorPanel.tsx             1
 tools/viz/app/src/components/workflow/WorkflowHeader.tsx              1
-tools/viz/app/src/components/workflow/ZoomableMermaid.tsx             1
 tools/viz/app/src/index.css                                           1
-tools/viz/app/src/lib/api/roleActionApi.ts                            1
-tools/viz/app/src/pages/WorkflowVisualizer.tsx                        1
+tools/viz/app/src/lib/api/apiClient.ts                                1
+tools/viz/app/src/lib/api/data-explorer.ts                            1
+tools/viz/app/src/lib/api/localization.ts                             1
+tools/viz/app/src/lib/api/useApiClient.ts                             1
+tools/viz/app/src/lib/auth/AuthProvider.tsx                           1
+tools/viz/app/src/pages/DataExplorer.tsx                              1
+tools/viz/app/src/pages/LocalizationVisualizer.tsx                    1
 tools/viz/app/tsconfig.app.json                                       1
-tools/viz/app/vite.config.ts                                          1
 tools/viz/docs/new-permit.md                                          1
 tools/viz/server/.gitignore                                           1
 tools/viz/server/auth.js                                              1
@@ -71,9 +81,8 @@ tools/viz/server/localization-visualizer.html                         1
 tools/viz/server/package.json                                         1
 tools/viz/server/role-action-visualizer-embedded.html                 1
 tools/viz/server/role-action-visualizer.html                          1
-tools/viz/server/server.js                                            1
 tools/viz/server/workflow-visualizer.html                             1
 tools/viz/server/workflow.json                                        1
 --------------------------------------------------------------------------------
-Total unique files changed: 71
-Total commits: 75
+Total unique files changed: 80
+Total commits: 90

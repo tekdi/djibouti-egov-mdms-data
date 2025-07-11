@@ -21,8 +21,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/components/ui/use-toast';
 import Fuse from 'fuse.js';
 import { useRoleActionApi } from '@/lib/api/roleActionApi';
+import { useEmployeeApi } from '@/lib/api/employeeApi';
 import type { NewRolePayload, NewActionPayload, NewRoleActionPayload } from '@/lib/api/roleActionApi';
-import { ArrowUp, ArrowDown, ChevronsUpDown, ChevronDown, PlusCircle } from 'lucide-react';
+import { ArrowUp, ArrowDown, ChevronsUpDown, ChevronDown, PlusCircle, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -49,6 +50,7 @@ interface Role {
   code: string;
   name: string;
   description?: string;
+  employeeCount?: number; // Add employee count to Role interface
 }
 
 interface Action {
@@ -86,6 +88,7 @@ const RoleActionVisualizer: React.FC = () => {
   const [filteredRoles, setFilteredRoles] = useState<Role[]>([]);
   const [filteredActions, setFilteredActions] = useState<Action[]>([]);
   const [isLoading, setLoading] = useState(true);
+  const [isLoadingEmployeeCounts, setIsLoadingEmployeeCounts] = useState(false);
   
   const [mappingsRoleSearch, setMappingsRoleSearch] = useState('');
   const [mappingsActionSearch, setMappingsActionSearch] = useState('');
@@ -117,16 +120,22 @@ const RoleActionVisualizer: React.FC = () => {
 
   const { toast } = useToast();
   const api = useRoleActionApi();
+  const employeeApi = useEmployeeApi();
 
   const loadDataFromApi = async () => {
     setLoading(true);
     try {
       const result = await api.loadApiData();
+      const rolesWithoutEmployeeCounts = result.roles.map(role => ({ ...role, employeeCount: 0 }));
+      
       setData({
-        roles: result.roles,
+        roles: rolesWithoutEmployeeCounts,
         actions: result.actions.map(a => ({ ...a, enabled: a.enabled ?? false })),
         roleActions: result.roleActions
       });
+
+      // Load employee counts separately to avoid blocking the initial data load
+      await loadEmployeeCounts(rolesWithoutEmployeeCounts);
     } catch (error) {
       toast({
         title: "Error loading data",
@@ -135,6 +144,30 @@ const RoleActionVisualizer: React.FC = () => {
       });
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadEmployeeCounts = async (roles: Role[]) => {
+    if (!employeeApi.isAuthenticated) {
+      return; // Skip if not authenticated
+    }
+
+    setIsLoadingEmployeeCounts(true);
+    try {
+      const rolesWithCounts = await employeeApi.enhanceRolesWithEmployeeCounts(roles);
+      setData(prevData => ({
+        ...prevData,
+        roles: rolesWithCounts
+      }));
+    } catch (error) {
+      console.warn("Failed to load employee counts:", error);
+      toast({
+        title: "Warning",
+        description: "Could not load employee counts. Role data will be shown without counts.",
+        variant: "default",
+      });
+    } finally {
+      setIsLoadingEmployeeCounts(false);
     }
   };
 
@@ -290,7 +323,26 @@ const RoleActionVisualizer: React.FC = () => {
     roleColumnHelper.accessor('code', { header: 'Code', cell: (info: any) => info.getValue() }),
     roleColumnHelper.accessor('name', { header: 'Name', cell: (info: any) => info.getValue() }),
     roleColumnHelper.accessor('description', { header: 'Description', cell: (info: any) => info.getValue() }),
-  ], [roleColumnHelper]);
+    roleColumnHelper.accessor('employeeCount', { 
+      header: () => (
+        <div className="flex items-center gap-2">
+          <Users className="h-4 w-4" />
+          Employee Count
+          {isLoadingEmployeeCounts && <div className="animate-spin h-3 w-3 border border-current border-t-transparent rounded-full" />}
+        </div>
+      ), 
+      cell: (info: any) => {
+        const count = info.getValue();
+        return (
+          <div className="flex items-center gap-2">
+            <Badge variant={count > 0 ? "default" : "secondary"}>
+              {count || 0}
+            </Badge>
+          </div>
+        );
+      }
+    }),
+  ], [roleColumnHelper, isLoadingEmployeeCounts]);
 
   const actionColumns = useMemo<ColumnDef<Action, any>[]>(() => [
     actionColumnHelper.accessor('id', { header: 'ID', cell: (info: any) => info.getValue() }),
@@ -686,7 +738,6 @@ export function DataTableFacetedFilter<TData, TValue>({
     title,
     options,
   }: DataTableFacetedFilterProps<TData, TValue>) {
-    const facets = column?.getFacetedUniqueValues()
     const selectedValues = new Set(column?.getFilterValue() as string[])
   
     return (

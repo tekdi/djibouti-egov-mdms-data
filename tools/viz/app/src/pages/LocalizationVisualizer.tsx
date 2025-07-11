@@ -11,8 +11,9 @@ import {
   getFacetedUniqueValues,
   getPaginationRowModel,
 } from '@tanstack/react-table';
-import { Globe, ChevronDown, PlusCircle, RefreshCw } from 'lucide-react';
+import { Globe, ChevronDown, PlusCircle } from 'lucide-react';
 import { useLocalizationApi } from '@/lib/api/localization';
+import { useRefresh } from '@/lib/contexts/RefreshContext';
 import type { LocalizationString, SupportedLanguage } from '@/types/localization';
 import { SUPPORTED_LANGUAGES } from '@/types/localization';
 import { useToast } from '@/components/ui/use-toast';
@@ -50,6 +51,7 @@ export function LocalizationVisualizer() {
 
   const { toast } = useToast();
   const { searchLocalizationStrings, upsertLocalizationString } = useLocalizationApi();
+  const { setRefreshHandler, setRefreshingState } = useRefresh();
 
   const fetchData = useCallback(async (force: boolean = false) => {
     // Prevent overlapping requests (helps with React StrictMode)
@@ -157,6 +159,18 @@ export function LocalizationVisualizer() {
       isMounted = false;
     };
   }, []); // ✅ Empty dependency array to prevent loops
+
+  // Register refresh handler with Layout
+  useEffect(() => {
+    const refreshHandler = () => fetchData(true);
+    setRefreshHandler(refreshHandler);
+    return () => setRefreshHandler(undefined);
+  }, [setRefreshHandler, fetchData]);
+
+  // Update Layout refresh state when loading changes
+  useEffect(() => {
+    setRefreshingState(isLoading);
+  }, [isLoading, setRefreshingState]);
 
   const handleUpdateString = useCallback(async (code: string, module: string, lang: SupportedLanguage, value: string) => {
     try {
@@ -338,15 +352,7 @@ export function LocalizationVisualizer() {
                   })}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button 
-              variant="outline" 
-              onClick={() => fetchData(true)} 
-              className="ml-4"
-              disabled={isLoading}
-            >
-              <RefreshCw className={`mr-2 h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
-              {isLoading ? 'Refreshing...' : 'Refresh'}
-            </Button>
+
             <Button onClick={() => setIsAddStringDialogOpen(true)} className="ml-2">
               <PlusCircle className="mr-2 h-4 w-4"/> Add String
             </Button>
