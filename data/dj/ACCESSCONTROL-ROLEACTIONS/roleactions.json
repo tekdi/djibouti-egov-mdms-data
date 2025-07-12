@@ -27,6 +27,12 @@
       "actioncode": ""
     },
     {
+      "actionid": 10024,
+      "rolecode": "COUNTER_EMPLOYEE",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 4,
       "rolecode": "COUNTER_EMPLOYEE",
       "tenantId": "dj",
@@ -1547,6 +1553,12 @@
     {
       "actionid": 1829,
       "rolecode": "BPA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10024,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
       "tenantId": "dj",
       "actioncode": ""
     },
