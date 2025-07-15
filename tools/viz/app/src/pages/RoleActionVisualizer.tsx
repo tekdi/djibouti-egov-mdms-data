@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   createColumnHelper,
@@ -87,6 +87,7 @@ const RoleActionVisualizer: React.FC = () => {
   const [data, setData] = useState<{ roles: Role[], actions: Action[], roleActions: RoleAction[] }>({ roles: [], actions: [], roleActions: [] });
   const [isLoading, setLoading] = useState(true);
   const [isLoadingEmployeeCounts, setIsLoadingEmployeeCounts] = useState(false);
+  const [hasAttemptedEmployeeCounts, setHasAttemptedEmployeeCounts] = useState(false);
   
   // Global filter for searching across all columns
   const [globalFilter, setGlobalFilter] = useState('');
@@ -119,6 +120,7 @@ const RoleActionVisualizer: React.FC = () => {
 
   const loadDataFromApi = async () => {
     setLoading(true);
+    setHasAttemptedEmployeeCounts(false); // Reset flag when reloading data
     try {
       const result = await api.loadApiData();
       const rolesWithoutEmployeeCounts = result.roles.map(role => ({ ...role, employeeCount: 0 }));
@@ -129,8 +131,9 @@ const RoleActionVisualizer: React.FC = () => {
         roleActions: result.roleActions
       });
 
-      // Load employee counts separately to avoid blocking the initial data load
-      await loadEmployeeCounts(rolesWithoutEmployeeCounts);
+      // Load employee counts separately without blocking the initial render
+      // Don't await this to prevent race conditions with authentication state
+      loadEmployeeCounts(rolesWithoutEmployeeCounts);
     } catch (error) {
       toast({
         title: "Error loading data",
@@ -142,12 +145,13 @@ const RoleActionVisualizer: React.FC = () => {
     }
   };
 
-  const loadEmployeeCounts = async (roles: Role[]) => {
+  const loadEmployeeCounts = useCallback(async (roles: Role[]) => {
     if (!employeeApi.isAuthenticated) {
       return; // Skip if not authenticated
     }
 
     setIsLoadingEmployeeCounts(true);
+    setHasAttemptedEmployeeCounts(true);
     try {
       const rolesWithCounts = await employeeApi.enhanceRolesWithEmployeeCounts(roles);
       setData(prevData => ({
@@ -164,11 +168,27 @@ const RoleActionVisualizer: React.FC = () => {
     } finally {
       setIsLoadingEmployeeCounts(false);
     }
-  };
+  }, [employeeApi, toast]);
 
   useEffect(() => {
     loadDataFromApi();
   }, []);
+
+  // Retry loading employee counts when authentication becomes available
+  useEffect(() => {
+    if (
+      employeeApi.isAuthenticated && 
+      data.roles.length > 0 && 
+      !isLoadingEmployeeCounts && 
+      !hasAttemptedEmployeeCounts
+    ) {
+      // Check if any roles are missing employee counts (indicating they haven't been loaded yet)
+      const needsEmployeeCounts = data.roles.some(role => role.employeeCount === 0);
+      if (needsEmployeeCounts) {
+        loadEmployeeCounts(data.roles);
+      }
+    }
+  }, [employeeApi.isAuthenticated, data.roles.length, isLoadingEmployeeCounts, hasAttemptedEmployeeCounts, loadEmployeeCounts]);
 
   // Handlers for creating new entities
   const handleAddRole = async () => {
