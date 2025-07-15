@@ -361,13 +361,16 @@ export function useRoleActionApi() {
 
   const createAction = useCallback(
     async (action: NewActionPayload) => {
-      return apiClient.callApi("/egov-mdms-service/v2/_create", {
-        Mdms: {
-          tenantId: DEFAULT_TENANT_ID,
-          schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
-          data: { ...action, tenantId: DEFAULT_TENANT_ID },
-        },
-      });
+      return apiClient.callApi(
+        "/egov-mdms-service/v2/_create/ACCESSCONTROL-ACTIONS-TEST.actions-test",
+        {
+          Mdms: {
+            tenantId: DEFAULT_TENANT_ID,
+            schemaCode: "ACCESSCONTROL-ACTIONS-TEST.actions-test",
+            data: { ...action, tenantId: DEFAULT_TENANT_ID },
+          },
+        }
+      );
     },
     [apiClient]
   );
