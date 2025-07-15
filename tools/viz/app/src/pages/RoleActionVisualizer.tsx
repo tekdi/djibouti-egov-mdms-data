@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   createColumnHelper,
   flexRender,
@@ -19,10 +20,9 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/components/ui/use-toast';
-import Fuse from 'fuse.js';
 import { useRoleActionApi } from '@/lib/api/roleActionApi';
 import { useEmployeeApi } from '@/lib/api/employeeApi';
-import type { NewRolePayload, NewActionPayload, NewRoleActionPayload } from '@/lib/api/roleActionApi';
+import type { NewRolePayload, NewActionPayload } from '@/lib/api/roleActionApi';
 import { ArrowUp, ArrowDown, ChevronsUpDown, ChevronDown, PlusCircle, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -83,17 +83,13 @@ interface ProcessedRoleActionMapping {
 }
 
 const RoleActionVisualizer: React.FC = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState<{ roles: Role[], actions: Action[], roleActions: RoleAction[] }>({ roles: [], actions: [], roleActions: [] });
-  const [filteredMappings, setFilteredMappings] = useState<ProcessedRoleActionMapping[]>([]);
-  const [filteredRoles, setFilteredRoles] = useState<Role[]>([]);
-  const [filteredActions, setFilteredActions] = useState<Action[]>([]);
   const [isLoading, setLoading] = useState(true);
   const [isLoadingEmployeeCounts, setIsLoadingEmployeeCounts] = useState(false);
   
-  const [mappingsRoleSearch, setMappingsRoleSearch] = useState('');
-  const [mappingsActionSearch, setMappingsActionSearch] = useState('');
-  const [rolesSearch, setRolesSearch] = useState('');
-  const [actionsSearch, setActionsSearch] = useState('');
+  // Global filter for searching across all columns
+  const [globalFilter, setGlobalFilter] = useState('');
   
   const [mappingsSorting, setMappingsSorting] = useState<SortingState>([]);
   const [rolesSorting, setRolesSorting] = useState<SortingState>([]);
@@ -114,8 +110,7 @@ const RoleActionVisualizer: React.FC = () => {
   const [isAddActionOpen, setAddActionOpen] = useState(false);
   const [newAction, setNewAction] = useState<Partial<NewActionPayload>>({ id: undefined, name: '', url: '', enabled: true });
 
-  const [isAddMappingOpen, setAddMappingOpen] = useState(false);
-  const [newMapping, setNewMapping] = useState<Partial<NewRoleActionPayload>>({ rolecode: '', actionid: undefined, tenantId: 'dj' });
+
 
 
   const { toast } = useToast();
@@ -206,103 +201,30 @@ const RoleActionVisualizer: React.FC = () => {
     }
   };
 
-  const handleAddMapping = async () => {
-    if (!newMapping.rolecode || !newMapping.actionid) {
-      toast({ title: "Error", description: "Role and Action are required.", variant: "destructive" });
-      return;
-    }
-    try {
-      await api.createRoleAction(newMapping as NewRoleActionPayload);
-      toast({ title: "Success", description: "Role-Action mapping created successfully." });
-      setAddMappingOpen(false);
-      loadDataFromApi();
-    } catch (error) {
-      toast({ title: "Error creating mapping", description: error instanceof Error ? error.message : "Unknown error", variant: "destructive" });
-    }
-  };
 
 
+
+  // Initial data processing
   const processedData = useMemo(() => {
-    const actionMap = new Map(data.actions.map(action => [action.id, action]));
-    const roleMap = new Map(data.roles.map(role => [role.code, role]));
-
     return data.roleActions.map(mapping => {
-      const action = actionMap.get(mapping.actionid) ?? {} as Action;
-      const role = roleMap.get(mapping.rolecode) ?? {} as Role;
+      const role = data.roles.find(r => r.code === mapping.rolecode);
+      const action = data.actions.find(a => a.id === mapping.actionid);
       return {
         roleCode: mapping.rolecode,
-        roleName: role.name,
-        roleDescription: role.description || '',
+        roleName: role?.name || 'Unknown',
+        roleDescription: role?.description || '',
         actionId: mapping.actionid,
-        actionName: action.name,
-        actionUrl: action.url,
-        actionDisplayName: action.displayName || action.name,
-        serviceCode: action.serviceCode || '',
-        enabled: action.enabled,
-        tenantId: mapping.tenantId || '' 
+        actionName: action?.name || 'Unknown',
+        actionUrl: action?.url || '',
+        actionDisplayName: action?.displayName || action?.name || 'Unknown',
+        serviceCode: action?.serviceCode || '',
+        enabled: action?.enabled ?? false,
+        tenantId: mapping.tenantId || 'unknown',
       };
     });
   }, [data]);
-  
-  // Mappings search
-  const mappingsFuse = useMemo(() => new Fuse(processedData, {
-    keys: ['roleCode', 'roleName', 'actionName', 'actionDisplayName', 'actionUrl', 'serviceCode'],
-    threshold: 0.3,
-    ignoreLocation: true,
-  }), [processedData]);
 
-  useEffect(() => {
-    let currentData = processedData;
-    if (mappingsRoleSearch) {
-      currentData = mappingsFuse.search(mappingsRoleSearch).map(result => result.item)
-        .filter(item => 
-          item.roleCode.toLowerCase().includes(mappingsRoleSearch.toLowerCase()) ||
-          item.roleName.toLowerCase().includes(mappingsRoleSearch.toLowerCase())
-        );
-    }
-    
-    const actionFuse = new Fuse(currentData, {
-      keys: ['actionId', 'actionName', 'actionDisplayName', 'actionUrl', 'serviceCode'],
-      threshold: 0.3,
-      ignoreLocation: true,
-    });
 
-    if (mappingsActionSearch) {
-      currentData = actionFuse.search(mappingsActionSearch).map(result => result.item);
-    }
-
-    setFilteredMappings(currentData);
-  }, [mappingsRoleSearch, mappingsActionSearch, processedData, mappingsFuse]);
-
-  // Roles search
-  const rolesFuse = useMemo(() => new Fuse(data.roles, {
-    keys: ['code', 'name', 'description'],
-    threshold: 0.3,
-    ignoreLocation: true,
-  }), [data.roles]);
-
-  useEffect(() => {
-    if (rolesSearch) {
-      setFilteredRoles(rolesFuse.search(rolesSearch).map(result => result.item));
-    } else {
-      setFilteredRoles(data.roles);
-    }
-  }, [rolesSearch, data.roles, rolesFuse]);
-
-  // Actions search
-  const actionsFuse = useMemo(() => new Fuse(data.actions, {
-    keys: ['id', 'name', 'displayName', 'url', 'serviceCode'],
-    threshold: 0.3,
-    ignoreLocation: true,
-  }), [data.actions]);
-
-  useEffect(() => {
-    if (actionsSearch) {
-      setFilteredActions(actionsFuse.search(actionsSearch).map(result => result.item));
-    } else {
-      setFilteredActions(data.actions);
-    }
-  }, [actionsSearch, data.actions, actionsFuse]);
 
 
   // Table definitions
@@ -357,18 +279,20 @@ const RoleActionVisualizer: React.FC = () => {
   ], [actionColumnHelper]);
 
   const table = useReactTable({
-    data: filteredMappings,
+    data: processedData, // Use processedData directly
     columns,
     state: { 
       sorting: mappingsSorting,
       columnFilters,
       columnVisibility,
       pagination,
+      globalFilter,
     },
     onPaginationChange: setPagination,
     onSortingChange: setMappingsSorting,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
+    onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -378,34 +302,39 @@ const RoleActionVisualizer: React.FC = () => {
   });
 
   const rolesTable = useReactTable({
-    data: filteredRoles,
+    data: data.roles, // Use data.roles directly
     columns: roleColumns,
     state: { 
         sorting: rolesSorting,
         columnVisibility: rolesColumnVisibility,
         pagination: rolesPagination,
+        globalFilter,
     },
     onPaginationChange: setRolesPagination,
     onSortingChange: setRolesSorting,
     onColumnVisibilityChange: setRolesColumnVisibility,
+    onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
 
   const actionsTable = useReactTable({
-    data: filteredActions,
+    data: data.actions, // Use data.actions directly
     columns: actionColumns,
     state: {
       sorting: actionsSorting,
       columnFilters: actionsColumnFilters,
       columnVisibility: actionsColumnVisibility,
       pagination: actionsPagination,
+      globalFilter,
     },
     onPaginationChange: setActionsPagination,
     onSortingChange: setActionsSorting,
     onColumnFiltersChange: setActionsColumnFilters,
     onColumnVisibilityChange: setActionsColumnVisibility,
+    onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -622,68 +551,27 @@ const RoleActionVisualizer: React.FC = () => {
             </DialogContent>
           </Dialog>
 
-          <Dialog open={isAddMappingOpen} onOpenChange={setAddMappingOpen}>
-            <DialogTrigger asChild>
-                <Button variant="outline"><PlusCircle className="mr-2 h-4 w-4" /> Add Mapping</Button>
-            </DialogTrigger>
-            <DialogContent>
-                <DialogHeader>
-                    <DialogTitle>Add New Role-Action Mapping</DialogTitle>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="mapping-role" className="text-right">Role</Label>
-                        <Select onValueChange={(value) => setNewMapping({...newMapping, rolecode: value})}>
-                            <SelectTrigger className="col-span-3">
-                                <SelectValue placeholder="Select a role" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {data.roles.map(role => (
-                                    <SelectItem key={role.code} value={role.code}>{role.name} ({role.code})</SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="mapping-action" className="text-right">Action</Label>
-                         <Select onValueChange={(value) => setNewMapping({...newMapping, actionid: parseInt(value)})}>
-                            <SelectTrigger className="col-span-3">
-                                <SelectValue placeholder="Select an action" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {data.actions.map(action => (
-                                    <SelectItem key={action.id} value={action.id.toString()}>{action.name} ({action.id})</SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                    </div>
-                </div>
-                <DialogFooter>
-                    <Button onClick={handleAddMapping}>Save Mapping</Button>
-                </DialogFooter>
-            </DialogContent>
-          </Dialog>
+          <Button 
+            variant="outline" 
+            onClick={() => navigate('/role-action/create')}
+          >
+            <PlusCircle className="mr-2 h-4 w-4" /> Add Mappings
+          </Button>
 
         </div>
       </div>
       <Tabs defaultValue="mappings" className="w-full">
         <TabsList>
-          <TabsTrigger value="mappings">Role-Action Mappings ({filteredMappings.length})</TabsTrigger>
-          <TabsTrigger value="roles">Roles ({filteredRoles.length})</TabsTrigger>
-          <TabsTrigger value="actions">Actions ({filteredActions.length})</TabsTrigger>
+          <TabsTrigger value="mappings">Role-Action Mappings ({processedData.length})</TabsTrigger>
+          <TabsTrigger value="roles">Roles ({data.roles.length})</TabsTrigger>
+          <TabsTrigger value="actions">Actions ({data.actions.length})</TabsTrigger>
         </TabsList>
         <TabsContent value="mappings">
           <DataTable tableInstance={table}>
             <Input
-              placeholder="Filter by role..."
-              value={mappingsRoleSearch}
-              onChange={(e) => setMappingsRoleSearch(e.target.value)}
-              className="max-w-sm"
-            />
-            <Input
-              placeholder="Filter by action..."
-              value={mappingsActionSearch}
-              onChange={(e) => setMappingsActionSearch(e.target.value)}
+              placeholder="Search all columns..."
+              value={globalFilter ?? ''}
+              onChange={(e) => setGlobalFilter(e.target.value)}
               className="max-w-sm"
             />
           </DataTable>
@@ -691,19 +579,19 @@ const RoleActionVisualizer: React.FC = () => {
         <TabsContent value="roles">
           <DataTable tableInstance={rolesTable}>
             <Input
-                placeholder="Filter roles..."
-                value={rolesSearch}
-                onChange={(e) => setRolesSearch(e.target.value)}
-                className="max-w-sm"
+              placeholder="Search all columns..."
+              value={globalFilter ?? ''}
+              onChange={(e) => setGlobalFilter(e.target.value)}
+              className="max-w-sm"
             />
           </DataTable>
         </TabsContent>
         <TabsContent value="actions">
           <DataTable tableInstance={actionsTable}>
             <Input
-              placeholder="Filter actions..."
-              value={actionsSearch}
-              onChange={(e) => setActionsSearch(e.target.value)}
+              placeholder="Search all columns..."
+              value={globalFilter ?? ''}
+              onChange={(e) => setGlobalFilter(e.target.value)}
               className="max-w-sm"
             />
             {actionsTable.getColumn("serviceCode") && (
