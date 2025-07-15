@@ -348,13 +348,16 @@ export function useRoleActionApi() {
 
   const createRole = useCallback(
     async (role: NewRolePayload) => {
-      return apiClient.callApi("/egov-mdms-service/v2/_create", {
-        Mdms: {
-          tenantId: DEFAULT_TENANT_ID,
-          schemaCode: "ACCESSCONTROL-ROLES.roles",
-          data: role,
-        },
-      });
+      return apiClient.callApi(
+        "/egov-mdms-service/v2/_create/ACCESSCONTROL-ROLES.roles",
+        {
+          Mdms: {
+            tenantId: DEFAULT_TENANT_ID,
+            schemaCode: "ACCESSCONTROL-ROLES.roles",
+            data: role,
+          },
+        }
+      );
     },
     [apiClient]
   );
@@ -377,13 +380,16 @@ export function useRoleActionApi() {
 
   const createRoleAction = useCallback(
     async (roleAction: NewRoleActionPayload) => {
-      return apiClient.callApi("/egov-mdms-service/v2/_create", {
-        Mdms: {
-          tenantId: DEFAULT_TENANT_ID,
-          schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
-          data: { ...roleAction, tenantId: DEFAULT_TENANT_ID },
-        },
-      });
+      return apiClient.callApi(
+        "/egov-mdms-service/v2/_create/ACCESSCONTROL-ROLEACTIONS.roleactions",
+        {
+          Mdms: {
+            tenantId: DEFAULT_TENANT_ID,
+            schemaCode: "ACCESSCONTROL-ROLEACTIONS.roleactions",
+            data: { ...roleAction, tenantId: DEFAULT_TENANT_ID },
+          },
+        }
+      );
     },
     [apiClient]
   );
