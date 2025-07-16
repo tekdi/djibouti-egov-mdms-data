@@ -27,6 +27,18 @@
       "actioncode": ""
     },
     {
+      "actionid": 4872,
+      "rolecode": "COUNTER_EMPLOYEE",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5586,
+      "rolecode": "COUNTER_EMPLOYEE",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 10024,
       "rolecode": "COUNTER_EMPLOYEE",
       "tenantId": "dj",
@@ -113,6 +125,12 @@
     {
       "actionid": 701,
       "rolecode": "EMPLOYEE",
+      "tenantid": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5586,
+      "rolecode": "CITIZEN",
       "tenantid": "dj",
       "actioncode": ""
     },
@@ -220,6 +238,12 @@
     },
     {
       "actionid": 10024,
+      "rolecode": "CITIZEN",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 4,
       "rolecode": "CITIZEN",
       "tenantId": "dj",
       "actioncode": ""
@@ -1606,6 +1630,12 @@
     },
     {
       "actionid": 5584,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 5586,
       "rolecode": "BPA_SRA_SUB_DIRECTOR",
       "tenantId": "dj",
       "actioncode": ""

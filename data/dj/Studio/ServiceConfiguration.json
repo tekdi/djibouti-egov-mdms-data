@@ -904,12 +904,12 @@
         },
         {
           "format": "PCO-[SEQ_DJ_PCO]/[cy:yyyy]",
-          "name": "egov.idgen.bpa.applicationNum",
+          "idname": "egov.idgen.bpa.applicationNum",
           "type": "application"
         },
         {
           "format": "PCO-RPT-[SEQ_DJ_PCO_RPT]/[cy:yyyy]",
-          "name": "bpa.pco.receipt.id",
+          "idname": "bpa.pco.receipt.id",
           "type": "receipt"
         }
       ],
