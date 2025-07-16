@@ -791,7 +791,7 @@
                 "currentState": "AWAITING_CITIZEN_PAYMENT",
                 "action": "ADD_QUERY",
                 "nextState": "AWAITING_CITIZEN_PAYMENT",
-                "roles": ["CITIZEN", "STUDIO_ADMIN"],
+                "roles": ["BPA_DIRECTOR", "CITIZEN", "STUDIO_ADMIN"],
                 "active": true
               },
               {
@@ -1897,7 +1897,7 @@
                 "currentState": "AWAITING_CITIZEN_PAYMENT",
                 "action": "ADD_QUERY",
                 "nextState": "AWAITING_CITIZEN_PAYMENT",
-                "roles": ["CITIZEN", "STUDIO_ADMIN"],
+                "roles": ["BPA_DIRECTOR", "CITIZEN", "STUDIO_ADMIN"],
                 "active": true
               },
               {
