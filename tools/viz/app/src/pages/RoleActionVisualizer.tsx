@@ -104,6 +104,9 @@ const RoleActionVisualizer: React.FC = () => {
   const [rolesPagination, setRolesPagination] = useState({ pageIndex: 0, pageSize: 10 });
   const [actionsPagination, setActionsPagination] = useState({ pageIndex: 0, pageSize: 10 });
 
+  // Add activeTab state to track which tab is currently open
+  const [activeTab, setActiveTab] = useState<string>('mappings');
+
   // Modal States
   const [isAddRoleOpen, setAddRoleOpen] = useState(false);
   const [newRole, setNewRole] = useState<NewRolePayload>({ code: '', name: '', description: '' });
@@ -131,9 +134,7 @@ const RoleActionVisualizer: React.FC = () => {
         roleActions: result.roleActions
       });
 
-      // Load employee counts separately without blocking the initial render
-      // Don't await this to prevent race conditions with authentication state
-      loadEmployeeCounts(rolesWithoutEmployeeCounts);
+      // Don't load employee counts automatically - only when roles tab is active
     } catch (error) {
       toast({
         title: "Error loading data",
@@ -174,13 +175,14 @@ const RoleActionVisualizer: React.FC = () => {
     loadDataFromApi();
   }, []);
 
-  // Retry loading employee counts when authentication becomes available
+  // Retry loading employee counts when authentication becomes available and roles tab is active
   useEffect(() => {
     if (
       employeeApi.isAuthenticated && 
       data.roles.length > 0 && 
       !isLoadingEmployeeCounts && 
-      !hasAttemptedEmployeeCounts
+      !hasAttemptedEmployeeCounts &&
+      activeTab === 'roles' // Only load when roles tab is active
     ) {
       // Check if any roles are missing employee counts (indicating they haven't been loaded yet)
       const needsEmployeeCounts = data.roles.some(role => role.employeeCount === 0);
@@ -188,7 +190,30 @@ const RoleActionVisualizer: React.FC = () => {
         loadEmployeeCounts(data.roles);
       }
     }
-  }, [employeeApi.isAuthenticated, data.roles.length, isLoadingEmployeeCounts, hasAttemptedEmployeeCounts, loadEmployeeCounts]);
+  }, [employeeApi.isAuthenticated, data.roles.length, isLoadingEmployeeCounts, hasAttemptedEmployeeCounts, activeTab, loadEmployeeCounts]);
+
+  // Load employee counts when switching to roles tab
+  useEffect(() => {
+    if (activeTab === 'roles') {
+      // Switching to roles tab - load employee counts if needed
+      if (
+        employeeApi.isAuthenticated &&
+        data.roles.length > 0 &&
+        !isLoadingEmployeeCounts &&
+        !hasAttemptedEmployeeCounts
+      ) {
+        const needsEmployeeCounts = data.roles.some(role => role.employeeCount === 0);
+        if (needsEmployeeCounts) {
+          loadEmployeeCounts(data.roles);
+        }
+      }
+    } else {
+      // Switching away from roles tab - reset the attempt flag so counts can be loaded again when returning
+      if (hasAttemptedEmployeeCounts) {
+        setHasAttemptedEmployeeCounts(false);
+      }
+    }
+  }, [activeTab, employeeApi.isAuthenticated, data.roles.length, isLoadingEmployeeCounts, hasAttemptedEmployeeCounts, loadEmployeeCounts]);
 
   // Handlers for creating new entities
   const handleAddRole = async () => {
@@ -580,7 +605,7 @@ const RoleActionVisualizer: React.FC = () => {
 
         </div>
       </div>
-      <Tabs defaultValue="mappings" className="w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList>
           <TabsTrigger value="mappings">Role-Action Mappings ({processedData.length})</TabsTrigger>
           <TabsTrigger value="roles">Roles ({data.roles.length})</TabsTrigger>
