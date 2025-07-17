@@ -448,9 +448,7 @@
               "showTextInput": false,
               "templatePDFKey": "pco-application",
               "maxFilesAllowed": 1,
-              "allowedFileTypes": [
-                "pdf"
-              ],
+              "allowedFileTypes": ["pdf"],
               "templatedownloadURL": null
             }
           ]
@@ -960,9 +958,178 @@
               "showTextInput": false,
               "templatePDFKey": "pco-application",
               "maxFilesAllowed": 1,
+              "allowedFileTypes": ["pdf"],
+              "templatedownloadURL": null
+            }
+          ]
+        },
+        {
+          "action": "DEFAULT",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        },
+        {
+          "action": "VERIFY_AND_FORWARD",
+          "assignee": {
+            "show": false,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        }
+      ],
+      "bannerLabel": "BPA_BANNER",
+      "maxSizeInMB": 5,
+      "allowedFileTypes": [
+        "pdf",
+        "doc",
+        "docx",
+        "xlsx",
+        "xls",
+        "jpeg",
+        "jpg",
+        "png"
+      ]
+    },
+    {
+      "module": "BPA.BPA_PCS",
+      "actions": [
+        {
+          "action": "APPLY",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": [
+            {
+              "code": "PCS_LAND_TITLE",
+              "name": "land-title",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
               "allowedFileTypes": [
-                "pdf"
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
               ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCS_PAYMENT_PROOF",
+              "name": "payment-proof",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCS_LOCATION_MAP",
+              "name": "location-map",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCS_CADASTRAL_SITE_PLAN",
+              "name": "cadastral-site-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCS_OTHERS",
+              "name": "others",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "UNSIGNED_DEMANDE_PCS",
+              "name": "unsigned-demande-pcs",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": "pco-application",
+              "maxFilesAllowed": 1,
+              "allowedFileTypes": ["pdf"],
               "templatedownloadURL": null
             }
           ]

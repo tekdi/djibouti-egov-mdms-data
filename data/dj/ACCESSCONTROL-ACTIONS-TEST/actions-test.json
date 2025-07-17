@@ -223,6 +223,18 @@
       "parentModule": ""
     },
     {
+      "id": 10025,
+      "url": "/public-service/v1/application/SVC-2025-06-24-000003",
+      "code": "",
+      "name": "create Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create OC Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
       "id": 10024,
       "url": "/public-service/v1/application/SVC-2025-06-18-000002",
       "code": "",
