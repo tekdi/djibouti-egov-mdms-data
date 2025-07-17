@@ -2250,7 +2250,7 @@
                   "min": 0,
                   "max": 120,
                   "regex": "^(?:0|[1-9]\\d{0,1}|1\\d{2}|120)(?:\\.\\d{1,2})?$",
-                  "message": "AREA_NEGATIVE_ERR"
+                  "message": "PCS_AREA_NEGATIVE_ERR"
                 },
                 "required": true,
                 "placeholder": "ENTER_AREA"
