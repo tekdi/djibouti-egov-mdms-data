@@ -1,7 +1,7 @@
 import { useState, useEffect, type ReactNode } from 'react';
 import { LoginPage } from './LoginPage';
 import { type User, type AuthContextType, AuthContext, AUTH_CONFIG } from './auth';
-import { setGlobalLogoutCallback, apiClient } from '@/lib/api/apiClient';
+import { setGlobalLogoutCallback, apiClient, getCurrentTargetUrl } from '@/lib/api/apiClient';
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -61,7 +61,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': AUTH_CONFIG.CLIENT_AUTH
+        'Authorization': AUTH_CONFIG.CLIENT_AUTH,
+        'X-Target-URL': getCurrentTargetUrl() // Ensure login goes to selected environment
       },
       body: new URLSearchParams(loginPayload)
     });

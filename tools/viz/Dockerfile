@@ -20,8 +20,28 @@ RUN bun run build
 # Production stage with the existing Express server
 FROM oven/bun:1 AS production
 
-# Install basic utilities
-RUN apt-get update && apt-get install -y curl git python3 && rm -rf /var/lib/apt/lists/*
+# Install basic utilities, kubectl, and AWS CLI
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    python3 \
+    python3-pip \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install kubectl
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+    && chmod +x kubectl \
+    && mv kubectl /usr/local/bin/
+
+# Install AWS CLI v2
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+    && unzip awscliv2.zip \
+    && ./aws/install \
+    && rm -rf awscliv2.zip aws/
+
+# Verify installations
+RUN kubectl version --client && aws --version
 
 # Set working directory
 WORKDIR /app

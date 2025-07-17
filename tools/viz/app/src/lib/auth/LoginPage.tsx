@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2 } from 'lucide-react';
+import { TargetUrlSelector } from '@/components/ui/TargetUrlSelector';
 
 export function LoginPage() {
   const [username, setUsername] = useState('');
@@ -29,13 +30,19 @@ export function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-muted">
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-2xl">DIGIT Login</CardTitle>
-          <CardDescription>
-            Enter your username and OTP to access the visualization tools.
-          </CardDescription>
-        </CardHeader>
+      <div className="w-full max-w-sm space-y-4">
+        {/* Target URL Selector */}
+        <div className="flex justify-center">
+          <TargetUrlSelector />
+        </div>
+        
+        <Card className="w-full">
+          <CardHeader>
+            <CardTitle className="text-2xl">DIGIT Login</CardTitle>
+            <CardDescription>
+              Select your target environment above, then enter your username and OTP to access the visualization tools.
+            </CardDescription>
+          </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid gap-2">
@@ -73,6 +80,7 @@ export function LoginPage() {
           </form>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 } 

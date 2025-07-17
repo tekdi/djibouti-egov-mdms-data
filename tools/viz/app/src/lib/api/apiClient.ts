@@ -70,6 +70,50 @@ function handle401Response(response: Response) {
 }
 
 /**
+ * Get the target URL from localStorage or return default
+ */
+function getTargetUrl(): string {
+  return (
+    localStorage.getItem("viz_target_url") || "https://djibouti.tekdinext.com"
+  );
+}
+
+/**
+ * Set the target URL for API proxy requests
+ * If user is authenticated, this will logout the user since tokens are environment-specific
+ */
+export function setTargetUrl(url: string): void {
+  const currentUrl = getTargetUrl();
+  const isAuthenticated = localStorage.getItem("egov_token");
+
+  // If user is authenticated and trying to change target URL, logout first
+  if (isAuthenticated && currentUrl !== url) {
+    localStorage.removeItem("egov_token");
+    localStorage.removeItem("egov_userInfo");
+    // Trigger logout callback if available
+    if (globalLogoutCallback) {
+      globalLogoutCallback();
+    }
+  }
+
+  localStorage.setItem("viz_target_url", url);
+}
+
+/**
+ * Get the current target URL
+ */
+export function getCurrentTargetUrl(): string {
+  return getTargetUrl();
+}
+
+/**
+ * Reset target URL to default
+ */
+export function resetTargetUrl(): void {
+  localStorage.removeItem("viz_target_url");
+}
+
+/**
  * Core request method that handles response and errors
  */
 async function request<T = any>(
@@ -80,6 +124,7 @@ async function request<T = any>(
 
   const requestHeaders = {
     "Content-Type": "application/json",
+    "X-Target-URL": getTargetUrl(), // Add target URL header to all requests
     ...headers,
   };
 
