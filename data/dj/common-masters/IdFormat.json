@@ -41,6 +41,14 @@
     {
       "format": "IND-[cy:yyyy-MM-dd]-[SEQ_INDIVIDUAL_ID]",
       "idname": "individual.id"
+    },
+    {
+      "format": "PD-[SEQ_DJ_PD]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.pd.applicationNum"
+    },
+    {
+      "format": "PD-RPT-[SEQ_DJ_PD_RPT]/[cy:yyyy]",
+      "idname": "bpa.pd.receipt.id"
     }
   ]
 }
