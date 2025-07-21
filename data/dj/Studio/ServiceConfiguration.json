@@ -2215,6 +2215,56 @@
       "service": "BPA_PCS",
       "fields": [
         {
+          "name": "legalEntityDetails",
+          "label": "Legal entity details",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": [
+              {
+                "name": "corporateName",
+                "label": "Corporate Name",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": false,
+                "placeholder": "ENTER_CORPORATE_NAME"
+              },
+              {
+                "name": "registrationNumber",
+                "label": "Registration number",
+                "type": "string",
+                "format": "text",
+                "minLength": 6,
+                "maxLength": 8,
+                "required": false,
+                "placeholder": "ENTER_REGISTRATION_NUMBER"
+              },
+              {
+                "name": "companyType",
+                "label": "Type of company",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": false,
+                "schema": "BPA.CompanyType",
+                "placeholder": "SELECT_TYPE_OF_COMPANY"
+              },
+              {
+                "name": "otherCompanyType",
+                "label": "Other type of company",
+                "type": "string",
+                "format": "text",
+                "minLength": 0,
+                "maxLength": 256,
+                "required": false,
+                "placeholder": "ENTER_TYPE_OF_COMPANY"
+              }
+            ]
+          }
+        },
+        {
           "name": "landandProjectDesignDetails",
           "label": "Land and Project Design Details",
           "type": "array",
