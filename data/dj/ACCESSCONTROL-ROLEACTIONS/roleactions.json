@@ -549,6 +549,54 @@
       "actioncode": ""
     },
     {
+      "actionid": 10033,
+      "rolecode": "BPA_ARCHITECT",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10033,
+      "rolecode": "BPA_HOD",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10033,
+      "rolecode": "BPA_AGENTS",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10033,
+      "rolecode": "BPA_SRA_SUB_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10033,
+      "rolecode": "COUNTER_EMPLOYEE",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10033,
+      "rolecode": "BPA_DIRECTOR",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10033,
+      "rolecode": "CITIZEN",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10033,
+      "rolecode": "STUDIO_ADMIN",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 1860,
       "rolecode": "MDMS_ADMIN",
       "actioncode": "",
