@@ -1193,6 +1193,18 @@
       "orderNumber": 0,
       "serviceCode": "inbox",
       "parentModule": "inbox"
-    }
-  ]
+    },
+    {
+      "id": 10033,
+      "url": "/public-service/v1/application/SVC-2025-07-14-000011",
+      "code": "",
+      "name": "create OC Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create OC Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    } 
+   ]
 }

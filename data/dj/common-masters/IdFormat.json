@@ -65,6 +65,14 @@
     {
       "format": "ATARR-RPT-[SEQ_DJ_ATARR_RPT]/[cy:yyyy]",
       "idname": "bpa.atarr.receipt.id"
+    },
+    {
+        "format": "PL-[SEQ_DJ_PL]/[cy:yyyy]",
+        "idname": "egov.idgen.bpa.pl.applicationNum"
+      },
+    {
+      "format": "PL-RPT-[SEQ_DJ_PL_RPT]/[cy:yyyy]",
+      "idname": "bpa.pl.receipt.id"
     }
   ]
 }
