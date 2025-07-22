@@ -1387,6 +1387,306 @@
         "jpg",
         "png"
       ]
+    },
+    {
+      "module": "BPA.BPA_PS",
+      "actions": [
+        {
+          "action": "APPLY",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": [
+            {
+              "code": "PS_LAND_TITLE",
+              "name": "land-title",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_INITIAL_PERMIT_COPY",
+              "name": "initial-permit-copy",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_COMPLETE_CURRENT_PLANS",
+              "name": "complete-current-plans",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_STRUCTURAL_ANALYSIS",
+              "name": "structural-analysis",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_LOCATION_MAP",
+              "name": "location-map",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_CADASTRAL_SITE_PLAN",
+              "name": "cadastral-site-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_ELEVATION_PLAN",
+              "name": "elevation-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_DESCRIPTIVE_ESTIMATE",
+              "name": "descriptive_estimate",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_COST_ESTIMATE",
+              "name": "cost-estimate",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_PROJECT_FILES",
+              "name": "project-files",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 10,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 10,
+              "allowedFileTypes": [
+                "pdf",
+                "dwg",
+                "dxf",
+                "skp",
+                "pla",
+                "pln",
+                "rvt",
+                "rfa",
+                "zip",
+                "rar",
+                "sevenz"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PS_OTHERS",
+              "name": "others",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "UNSIGNED_DEMANDE_PS",
+              "name": "unsigned-demande-ps",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": "pco-application",
+              "maxFilesAllowed": 1,
+              "allowedFileTypes": ["pdf"],
+              "templatedownloadURL": null
+            }
+          ]
+        },
+        {
+          "action": "DEFAULT",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        },
+        {
+          "action": "VERIFY_AND_FORWARD",
+          "assignee": {
+            "show": false,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        }
+      ],
+      "bannerLabel": "BPA_BANNER",
+      "maxSizeInMB": 5,
+      "allowedFileTypes": [
+        "pdf",
+        "doc",
+        "docx",
+        "xlsx",
+        "xls",
+        "jpeg",
+        "jpg",
+        "png"
+      ]
     }
   ]
 }

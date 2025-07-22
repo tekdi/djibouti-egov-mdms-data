@@ -3796,6 +3796,1179 @@
         ]
       },
       "enabled": ["citizen", "employee"]
+    },
+    {
+      "module": "BPA",
+      "service": "BPA_PS",
+      "fields": [
+        {
+          "name": "legalEntityDetails",
+          "label": "Legal entity details",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": [
+              {
+                "name": "corporateName",
+                "label": "Corporate Name",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": false,
+                "placeholder": "ENTER_CORPORATE_NAME"
+              },
+              {
+                "name": "registrationNumber",
+                "label": "Registration number",
+                "type": "string",
+                "format": "text",
+                "minLength": 6,
+                "maxLength": 8,
+                "required": false,
+                "placeholder": "ENTER_REGISTRATION_NUMBER"
+              },
+              {
+                "name": "companyType",
+                "label": "Type of company",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": false,
+                "schema": "BPA.CompanyType",
+                "placeholder": "SELECT_TYPE_OF_COMPANY"
+              },
+              {
+                "name": "otherCompanyType",
+                "label": "Other type of company",
+                "type": "string",
+                "format": "text",
+                "minLength": 0,
+                "maxLength": 256,
+                "required": false,
+                "placeholder": "ENTER_TYPE_OF_COMPANY"
+              }
+            ]
+          }
+        },
+        {
+          "name": "landandProjectDesignDetails",
+          "label": "Land and Project Design Details",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": [
+              {
+                "name": "siteLocation",
+                "label": "Site Location",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 500,
+                "required": false,
+                "placeholder": "ENTER_SITE_LOCATION"
+              },
+              {
+                "name": "region",
+                "label": "Region",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.Region",
+                "placeholder": "SELECT_REGION"
+              },
+              {
+                "name": "area",
+                "label": "Area (in m²)",
+                "type": "string",
+                "format": "number",
+                "validation": {
+                  "min": 0,
+                  "message": "AREA_NEGATIVE_ERR"
+                },
+                "required": true,
+                "placeholder": "ENTER_AREA"
+              },
+              {
+                "name": "legalStatus",
+                "label": "Legal Current Status",
+                "type": "string",
+                "format": "text",
+                "validation": {
+                  "min": 0,
+                  "message": "LEGAL_STATUS_ERR"
+                },
+                "required": false,
+                "placeholder": "ENTER_LEGAL_STATUS"
+              },
+              {
+                "name": "registrationCertificate",
+                "label": "Registration Certificate",
+                "type": "string",
+                "reference": "enum",
+                "format": "radio",
+                "required": true,
+                "values": ["Yes", "No"]
+              },
+              {
+                "name": "definitiveLandTitle",
+                "label": "Definitive Land Title (TF)",
+                "type": "string",
+                "reference": "enum",
+                "format": "radio",
+                "required": true,
+                "values": ["Yes", "No"]
+              },
+              {
+                "name": "tfNo",
+                "label": "If Yes, please indicate TF No",
+                "type": "string",
+                "format": "text",
+                "maxLength": 20,
+                "required": false,
+                "placeholder": "ENTER_INDICATE_TF_NO"
+              },
+              {
+                "name": "other",
+                "label": "Other",
+                "type": "string",
+                "format": "text",
+                "maxLength": 256,
+                "required": false,
+                "placeholder": "ENTER_OTHER"
+              },
+              {
+                "name": "workType",
+                "label": "Type of Work",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.WorkType",
+                "placeholder": "SELECT_WORK_TYPE"
+              },
+              {
+                "name": "noOfUnits",
+                "label": "Number of Housing Units",
+                "type": "number",
+                "format": "number",
+                "required": false,
+                "validation": {
+                  "min": 0,
+                  "message": "Number of housing units should be non negative"
+                },
+                "placeholder": "ENTER_NO_OF_UNITS"
+              },
+              {
+                "name": "detailsOnOtherType",
+                "label": "Details on other types",
+                "type": "string",
+                "format": "text",
+                "maxLength": 256,
+                "placeholder": "ENTER_DETAILS_ON_OTHER_WORK_TYPE"
+              },
+              {
+                "name": "existingFloorCount",
+                "label": "Existing floor count",
+                "type": "number",
+                "format": "number",
+                "required": true,
+                "validation": {
+                  "min": 0,
+                  "message": "EXISTING_FLOOR_COUNT_ERR"
+                },
+                "placeholder": "ENTER_EXISTING_FLOOR_COUNT"
+              },
+              {
+                "name": "summaryOfProposedChanges",
+                "label": "Summary of proposed changes",
+                "type": "string",
+                "format": "text",
+                "maxLength": 500,
+                "placeholder": "ENTER_SUMMARY_OF_PROPOSED_CHANGES"
+              },
+              {
+                "name": "maximumAuthorizedCes",
+                "label": "Maximum authorized C.E.S (2) for the zone",
+                "type": "string",
+                "format": "number",
+                "required": true,
+                "placeholder": "ENTER_MAXIMUM_CES"
+              },
+              {
+                "name": "prjectedCes",
+                "label": "Projected C.E.S.",
+                "type": "string",
+                "format": "number",
+                "required": true,
+                "placeholder": "ENTER_PROJECTED_CES"
+              },
+              {
+                "name": "maximumAuthorizedCos",
+                "label": "Maximum authorized C.O.S (3) for the zone",
+                "type": "string",
+                "format": "number",
+                "required": true,
+                "placeholder": "ENTER_MAXIMUM_COS"
+              },
+              {
+                "name": "projectedCos",
+                "label": "Projected C.O.S.",
+                "type": "string",
+                "format": "number",
+                "required": true,
+                "placeholder": "ENTER_PROJECTED_COS"
+              },
+              {
+                "name": "coveredProjectArea",
+                "label": "Covered project area (m²)",
+                "type": "string",
+                "format": "number",
+                "required": true,
+                "placeholder": "ENTER_COVERED_PROJECT_AREA"
+              },
+              {
+                "name": "constructionCostPerSqMt",
+                "label": "Construction cost per m² excluding work",
+                "type": "string",
+                "format": "number",
+                "required": true,
+                "minLength": 1,
+                "placeholder": "ENTER_CONSTRUCTION_COST_EXCLUDING_WORK"
+              }
+            ]
+          }
+        },
+        {
+          "name": "designOfficeDetailing",
+          "label": "Design office detailing",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": [
+              {
+                "name": "nameOfDesignOffice",
+                "label": "Name of Design Office",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 100,
+                "required": true,
+                "placeholder": "ENTER_NAME_OF_DESIGN_OFFICE"
+              },
+              {
+                "name": "architectName",
+                "label": "Architect's Full Name",
+                "type": "string",
+                "format": "text",
+                "minLength": 2,
+                "maxLength": 256,
+                "required": true,
+                "placeholder": "ENTER_ARCHITECT_FULL_NAME"
+              },
+              {
+                "name": "telephone",
+                "label": "Telephone",
+                "type": "number",
+                "format": "mobileNumber",
+                "validation": {
+                  "regex": "(^$|^77[0-9]{6}$)",
+                  "message": "TELEPHONE_NUMBER_ERR"
+                },
+                "required": true,
+                "placeholder": "00 00 00 00",
+                "minLength": 8,
+                "maxLength": 8
+              },
+              {
+                "name": "officeEmail",
+                "label": "Office email",
+                "type": "string",
+                "format": "text",
+                "validation": {
+                  "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+                  "message": "EMAIL_ERR"
+                },
+                "required": true,
+                "placeholder": "ENTER_OFFICE_EMAIL"
+              },
+              {
+                "name": "registrationNo",
+                "label": "Registration no.",
+                "type": "string",
+                "format": "text",
+                "required": false,
+                "placeholder": "ENTER_REGISTRATION_NO"
+              },
+              {
+                "name": "registrationNoOnProfessionalRoll",
+                "type": "string",
+                "label": "Registration no. on the professional roll",
+                "format": "text",
+                "required": false,
+                "placeholder": "ENTER_REGISTRATION_NO_ON_PROFESSIONAL_ROLL"
+              }
+            ]
+          }
+        }
+      ],
+      "workflow": {
+        "businessService": "BPA_PS",
+        "business": "public-services",
+        "businessSericeSla": null,
+        "generateDemandAt": ["SEND_TO_CITIZEN_PAYMENT"],
+        "nextActionAfterPayment": "MAKE_PAYMENT",
+        "states": [
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "",
+            "applicationStatus": "",
+            "docUploadRequired": false,
+            "isStartState": true,
+            "isTerminateState": false,
+            "isStateUpdatable": true,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "",
+                "action": "DRAFT",
+                "nextState": "INITIATED",
+                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "INITIATED",
+            "applicationStatus": "INPROGRESS",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "INITIATED",
+                "action": "CREATE",
+                "nextState": "AGENT_NOT_ASSIGNED",
+                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "INITIATED",
+                "action": "EDIT",
+                "nextState": "AGENT_NOT_ASSIGNED",
+                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "AGENT_NOT_ASSIGNED",
+            "applicationStatus": "AGENT_NOT_ASSIGNED",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "AGENT_NOT_ASSIGNED",
+                "action": "ADD_QUERY",
+                "nextState": "AGENT_NOT_ASSIGNED",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AGENT_NOT_ASSIGNED",
+                "action": "ASSIGN_TO_AGENT",
+                "nextState": "PENDING_ACTION_BY_AGENT",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AGENT_NOT_ASSIGNED",
+                "action": "SEND_BACK_TO_ARCHITECT",
+                "nextState": "PENDING_ACTION_BY_ARCHITECT",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PENDING_ACTION_BY_ARCHITECT",
+            "applicationStatus": "PENDING_ACTION_BY_ARCHITECT",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_ARCHITECT",
+                "action": "EDIT",
+                "nextState": "AGENT_NOT_ASSIGNED",
+                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_ARCHITECT",
+                "action": "CANCEL",
+                "nextState": "APPLICATION_CANCEL",
+                "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "APPLICATION_CANCEL",
+            "applicationStatus": "APPLICATION_CANCEL",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": true,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": []
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PENDING_ACTION_BY_AGENT",
+            "applicationStatus": "PENDING_ACTION",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_AGENT",
+                "action": "SEND_TO_HOD",
+                "nextState": "AGENT_REPORT_READY",
+                "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_AGENT",
+                "action": "ADD_QUERY",
+                "nextState": "PENDING_ACTION_BY_AGENT",
+                "roles": ["BPA_HOD", "BPA_AGENTS", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_AGENT",
+                "action": "SEND_BACK_TO_ARCHITECT",
+                "nextState": "PENDING_ACTION_BY_ARCHITECT",
+                "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "AGENT_REPORT_READY",
+            "applicationStatus": "AGENT_REPORT_READY",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "AGENT_REPORT_READY",
+                "action": "ADD_QUERY",
+                "nextState": "AGENT_REPORT_READY",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AGENT_REPORT_READY",
+                "action": "SEND_TO_SDECC_HOD",
+                "nextState": "SDECC_AGENT_NOT_ASSSIGNED",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AGENT_REPORT_READY",
+                "action": "SEND_BACK_TO_ARCHITECT",
+                "nextState": "PENDING_ACTION_BY_ARCHITECT",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AGENT_REPORT_READY",
+                "action": "ASSIGN_TO_AGENT",
+                "nextState": "PENDING_ACTION_BY_AGENT",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "SDECC_AGENT_NOT_ASSSIGNED",
+            "applicationStatus": "SDECC_AGENT_NOT_ASSSIGNED",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "SDECC_AGENT_NOT_ASSSIGNED",
+                "action": "ADD_QUERY",
+                "nextState": "SDECC_AGENT_NOT_ASSSIGNED",
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "SDECC_AGENT_NOT_ASSSIGNED",
+                "action": "ASSIGN_TO_SDECC_AGENT",
+                "nextState": "PENDING_ACTION_BY_SDECC_AGENT",
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PENDING_ACTION_BY_SDECC_AGENT",
+            "applicationStatus": "PENDING_ACTION_BY_SDECC_AGENT",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_SDECC_AGENT",
+                "action": "SEND_TO_SDECC_HOD",
+                "nextState": "SDECC_AGENT_REPORT_READY",
+                "roles": ["BPA_SDECC_AGENT", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_ACTION_BY_SDECC_AGENT",
+                "action": "ADD_QUERY",
+                "nextState": "PENDING_ACTION_BY_SDECC_AGENT",
+                "roles": ["BPA_SDECC_HOD", "BPA_SDECC_AGENT", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "SDECC_AGENT_REPORT_READY",
+            "applicationStatus": "SDECC_AGENT_REPORT_READY",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "SDECC_AGENT_REPORT_READY",
+                "action": "SEND_TO_HOD",
+                "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "SDECC_AGENT_REPORT_READY",
+                "action": "ADD_QUERY",
+                "nextState": "SDECC_AGENT_REPORT_READY",
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "SDECC_AGENT_REPORT_READY",
+                "action": "ASSIGN_TO_SDECC_AGENT",
+                "nextState": "PENDING_ACTION_BY_SDECC_AGENT",
+                "roles": ["BPA_SDECC_HOD", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PENDING_REVIEW_BY_SRA_HOD",
+            "applicationStatus": "PENDING_REVIEW_BY_SRA_HOD",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SRA_HOD",
+                "action": "ADD_QUERY",
+                "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SRA_HOD",
+                "action": "ASSIGN_TO_AGENT",
+                "nextState": "PENDING_REVIEW_BY_SRA_AGENT",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SRA_HOD",
+                "action": "SEND_TO_SUB_DIRECTOR",
+                "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SRA_HOD",
+                "action": "SEND_BACK_TO_ARCHITECT",
+                "nextState": "PENDING_ACTION_BY_ARCHITECT",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PENDING_REVIEW_BY_SRA_AGENT",
+            "applicationStatus": "PENDING_REVIEW_BY_SRA_AGENT",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SRA_AGENT",
+                "action": "ADD_QUERY",
+                "nextState": "PENDING_REVIEW_BY_SRA_AGENT",
+                "roles": ["BPA_HOD", "BPA_AGENTS", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SRA_AGENT",
+                "action": "SEND_BACK_TO_ARCHITECT",
+                "nextState": "PENDING_ACTION_BY_ARCHITECT",
+                "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SRA_AGENT",
+                "action": "SEND_TO_HOD",
+                "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+                "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+            "applicationStatus": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+                "action": "ADD_QUERY",
+                "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+                "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+                "action": "SEND_TO_DIRECTOR",
+                "nextState": "PENDING_REVIEW_BY_DIRECTOR",
+                "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+                "action": "SEND_TO_HOD",
+                "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+                "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PENDING_REVIEW_BY_DIRECTOR",
+            "applicationStatus": "PENDING_REVIEW_BY_DIRECTOR",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_DIRECTOR",
+                "action": "REJECT",
+                "nextState": "PERMIT_REJECTED",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_DIRECTOR",
+                "action": "ADD_QUERY",
+                "nextState": "PENDING_REVIEW_BY_DIRECTOR",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_DIRECTOR",
+                "action": "SEND_TO_COMMISSIONER",
+                "nextState": "AWAITING_ON_COMMISSIONER",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "PENDING_REVIEW_BY_DIRECTOR",
+                "action": "SEND_TO_SUB_DIRECTOR",
+                "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "AWAITING_ON_COMMISSIONER",
+            "applicationStatus": "AWAITING_ON_COMMISSIONER",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [
+              "BPA_PCO_SDECC",
+              "BPA_PCO_DGDCF",
+              "BPA_PCO_ONEAD",
+              "BPA_PCO_DNPC",
+              "BPA_PCO_EDD",
+              "BPA_PCO_INSPD"
+            ],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "AWAITING_ON_COMMISSIONER",
+                "action": "REJECT",
+                "nextState": "PERMIT_REJECTED",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AWAITING_ON_COMMISSIONER",
+                "action": "ADD_QUERY",
+                "nextState": "AWAITING_ON_COMMISSIONER",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AWAITING_ON_COMMISSIONER",
+                "action": "SEND_TO_CITIZEN_PAYMENT",
+                "nextState": "AWAITING_CITIZEN_PAYMENT",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AWAITING_ON_COMMISSIONER",
+                "action": "SEND_TO_SUB_DIRECTOR",
+                "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "AWAITING_CITIZEN_PAYMENT",
+            "applicationStatus": "AWAITING_CITIZEN_PAYMENT",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "AWAITING_CITIZEN_PAYMENT",
+                "action": "ADD_QUERY",
+                "nextState": "AWAITING_CITIZEN_PAYMENT",
+                "roles": ["BPA_DIRECTOR", "CITIZEN", "STUDIO_ADMIN"],
+                "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AWAITING_CITIZEN_PAYMENT",
+                "action": "MAKE_PAYMENT",
+                "nextState": "CITIZEN_PAYMENT_DONE",
+                "roles": ["CITIZEN", "COUNTER_EMPLOYEE", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "CITIZEN_PAYMENT_DONE",
+            "applicationStatus": "CITIZEN_PAYMENT_DONE",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": false,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": [],
+            "actions": [
+              {
+                "tenantId": "dj",
+                "currentState": "CITIZEN_PAYMENT_DONE",
+                "action": "APPROVE",
+                "nextState": "PERMIT_GRANTED",
+                "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+                "active": true
+              }
+            ]
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PERMIT_GRANTED",
+            "applicationStatus": "PERMIT_GRANTED",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": true,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": []
+          },
+          {
+            "tenantId": "dj",
+            "sla": null,
+            "state": "PERMIT_REJECTED",
+            "applicationStatus": "PERMIT_REJECTED",
+            "docUploadRequired": false,
+            "isStartState": false,
+            "isTerminateState": true,
+            "isStateUpdatable": false,
+            "triggerParallelWorkflows": []
+          }
+        ]
+      },
+      "documents": [
+        {
+          "category": "address-proof",
+          "documentTypes": ["aadhar", "voter"],
+          "active": true,
+          "isMandatory": false,
+          "allowedFileTypes": [
+            "pdf",
+            "doc",
+            "docx",
+            "xlsx",
+            "xls",
+            "jpeg",
+            "jpg",
+            "png"
+          ],
+          "maxSizeInMB": 5,
+          "maxFilesAllowed": 1
+        },
+        {
+          "category": "identity-proof",
+          "documentTypes": ["aadhar", "voter"],
+          "active": true,
+          "isMandatory": true,
+          "allowedFileTypes": [
+            "pdf",
+            "doc",
+            "docx",
+            "xlsx",
+            "xls",
+            "jpeg",
+            "jpg",
+            "png"
+          ],
+          "maxSizeInMB": 5,
+          "maxFilesAllowed": 1
+        },
+        {
+          "category": "owner-photo",
+          "documentTypes": ["photo"],
+          "active": true,
+          "isMandatory": true,
+          "allowedFileTypes": ["jpeg", "jpg", "png"],
+          "maxSizeInMB": 5,
+          "maxFilesAllowed": 1
+        }
+      ],
+      "idgen": [
+        {
+          "format": "SVC-[cy:yyyy-MM-dd]-[SEQ_PUBLIC_SERVICE]",
+          "idname": "public-service.service.id",
+          "type": "service"
+        },
+        {
+          "format": "PS-[SEQ_DJ_PS]/[cy:yyyy]",
+          "idname": "egov.idgen.bpa.ps.applicationNum",
+          "type": "application"
+        },
+        {
+          "format": "PS-RPT-[SEQ_DJ_PS_RPT]/[cy:yyyy]",
+          "idname": "bpa.ps.receipt.id",
+          "type": "receipt"
+        }
+      ],
+      "pdf": [
+        {
+          "key": "pco-application",
+          "type": "application",
+          "states": ["INITIATED"]
+        },
+        {
+          "key": "application-receipt",
+          "type": "receipt",
+          "states": ["AGENT_NOT_ASSIGNED"]
+        },
+        {
+          "key": "payment-receipt",
+          "type": "receipt",
+          "states": ["CITIZEN_PAYMENT_DONE"]
+        },
+        {
+          "key": "pco-permit",
+          "type": "permit",
+          "states": ["PERMIT_GRANTED"]
+        }
+      ],
+      "localization": {
+        "modules": ["rainmaker-studio-bpa"]
+      },
+      "applicant": {
+        "types": ["individual", "organisation"],
+        "maximum": 3,
+        "minimum": 1
+      },
+      "boundary": {
+        "hierarchyType": "REVENUE",
+        "lowestLevel": "locality"
+      },
+      "access": {
+        "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+        "actions": [
+          {
+            "url": "/public-service/v1/application"
+          }
+        ]
+      },
+      "payment": {
+        "gateway": "D-MONEY"
+      },
+      "inbox": {
+        "index": "public-service-index",
+        "module": "public-service",
+        "sortBy": {
+          "path": "Data.auditDetails.createdTime",
+          "defaultOrder": "DESC"
+        },
+        "sourceFilterPathList": [
+          "Data.businessService",
+          "Data.applicationNumber",
+          "Data.currentProcessInstance",
+          "Data.auditDetails",
+          "Data.additionalDetails",
+          "Data.module",
+          "Data.locality",
+          "Data.status"
+        ],
+        "allowedSearchCriteria": [
+          {
+            "name": "tenantId",
+            "path": "Data.tenantId.keyword",
+            "operator": "EQUAL",
+            "isMandatory": true
+          },
+          {
+            "name": "status",
+            "path": "Data.workflowStatus",
+            "isMandatory": false
+          },
+          {
+            "name": "applicationNumber",
+            "path": "Data.applicationNumber.keyword",
+            "isMandatory": false
+          },
+          {
+            "name": "module",
+            "path": "Data.module.keyword",
+            "isMandatory": false
+          },
+          {
+            "name": "businessService",
+            "path": "Data.businessService.keyword",
+            "isMandatory": false
+          },
+          {
+            "name": "locality",
+            "path": "Data.address.locality.keyword",
+            "isMandatory": false
+          },
+          {
+            "name": "assignee",
+            "path": "Data.currentProcessInstance.assignes.uuid.keyword",
+            "isMandatory": false
+          }
+        ]
+      },
+      "bill": {
+        "taxHead": [
+          {
+            "code": "PCO_TOTAL",
+            "name": "PCO permit fee with tax",
+            "order": "2",
+            "isDebit": false,
+            "service": "PCO",
+            "category": "FEE",
+            "isRequired": false,
+            "isActualDemand": true
+          }
+        ],
+        "taxPeriod": [
+          {
+            "code": "PCO2024",
+            "toDate": 1774938599999,
+            "service": "PCO",
+            "fromDate": 1743445800000,
+            "periodCycle": "ANNUAL",
+            "financialYear": "2024-25"
+          }
+        ],
+        "BusinessService": {
+          "code": "PCO",
+          "businessService": "PCO",
+          "demandUpdateTime": 604800000,
+          "isAdvanceAllowed": false,
+          "partPaymentAllowed": false,
+          "isVoucherCreationEnabled": false,
+          "collectionModesNotAllowed": [
+            "DD",
+            "OFFLINE_NEFT",
+            "OFFLINE_RTGS",
+            "POSTAL_ORDER"
+          ]
+        }
+      },
+      "calculator2": {
+        "type": "custom",
+        "billingSlabs": [
+          {
+            "key": "PCO_TOTAL",
+            "value": 2000
+          }
+        ]
+      },
+      "calculator": {
+        "type": "api",
+        "host": "https://djibouti.tekdinext.com",
+        "method": "post",
+        "endpoint": "/calculator-service/v1/BPA_PCO/demand"
+      },
+      "notification": {
+        "sms": [
+          {
+            "code": "DIGIT_STUDIO_NEW_APPLICATION",
+            "states": ["AGENT_NOT_ASSIGNED"],
+            "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} is received"
+          },
+          {
+            "code": "DIGIT_STUDIO_APPLY_APPROVED",
+            "states": ["approved"],
+            "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} is approved"
+          },
+          {
+            "code": "DIGIT_STUDIO_DEMAND_CREATED",
+            "states": ["pending_payment"],
+            "template": "Dear {PublicService.applicants[0].name} a new OC Application with application no {PublicService.applicationNo} has pending dues of amount Rs {Bill.totalAmount} "
+          }
+        ],
+        "email": [
+          {
+            "code": "DIGIT_STUDIO_NEW_APPLICATION",
+            "states": ["AGENT_NOT_ASSIGNED"],
+            "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} is received"
+          },
+          {
+            "code": "DIGIT_STUDIO_APPLY_APPROVED",
+            "states": ["approved"],
+            "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} is approved"
+          },
+          {
+            "code": "DIGIT_STUDIO_DEMAND_CREATED",
+            "states": ["pending_payment"],
+            "template": "Dear {PublicService.applicants[0].name} a new Application with application no {PublicService.applicationNo} has pending dues of amount Rs {Bill.totalAmount} "
+          }
+        ]
+      },
+      "enabled": ["citizen", "employee"]
     }
   ]
 }
