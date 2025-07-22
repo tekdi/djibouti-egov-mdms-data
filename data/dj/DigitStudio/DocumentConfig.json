@@ -1687,6 +1687,282 @@
         "jpg",
         "png"
       ]
+    },
+    {
+      "module": "BPA.BPA_ATARR",
+      "actions": [
+        {
+          "action": "APPLY",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": [
+            {
+              "code": "ATARR_LAND_TITLE",
+              "name": "land-title",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_LOCATION_MAP",
+              "name": "location-map",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_CADASTRAL_SITE_PLAN",
+              "name": "cadastral-site-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_PROJECT_SITE_PLAN",
+              "name": "project-site-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_INTERIOR_LAYOUT_PLAN",
+              "name": "interior-layout-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_ELEVATION_PLAN",
+              "name": "elevation-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_CROSS_SECTION_PLAN",
+              "name": "cross-section-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_DESCRIPTIVE_ESTIMATE",
+              "name": "descriptive-estimate",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_COST_ESTIMATE",
+              "name": "cost-estimate",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "ATARR_OTHERS",
+              "name": "others",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "UNSIGNED_DEMANDE_ATARR",
+              "name": "unsigned-demande-atarr",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": "pco-application",
+              "maxFilesAllowed": 1,
+              "allowedFileTypes": ["pdf"],
+              "templatedownloadURL": null
+            }
+          ]
+        },
+        {
+          "action": "DEFAULT",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        },
+        {
+          "action": "VERIFY_AND_FORWARD",
+          "assignee": {
+            "show": false,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        }
+      ],
+      "bannerLabel": "BPA_BANNER",
+      "maxSizeInMB": 5,
+      "allowedFileTypes": [
+        "pdf",
+        "doc",
+        "docx",
+        "xlsx",
+        "xls",
+        "jpeg",
+        "jpg",
+        "png"
+      ]
     }
   ]
 }

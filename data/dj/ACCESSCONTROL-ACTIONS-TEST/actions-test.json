@@ -223,7 +223,19 @@
       "parentModule": ""
     },
     {
-      "id": 10036,
+      "id": 10038,
+      "url": "/public-service/v1/application/SVC-2025-07-22-000015",
+      "code": "",
+      "name": "Create Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
+      "id": 10037,
       "url": "/public-service/v1/application/SVC-2025-07-21-000015",
       "code": "",
       "name": "Create Application",
