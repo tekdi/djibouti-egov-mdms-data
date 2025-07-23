@@ -1205,6 +1205,18 @@
       "orderNumber": 1,
       "serviceCode": "public-service",
       "parentModule": ""
-    } 
+    },
+    {
+      "id": 10036,
+      "url": "/public-service/v1/application/SVC-2025-07-18-000014",
+      "code": "",
+      "name": "create OC Application",
+      "path": "",
+      "enabled": true,
+      "displayName": "Create OC Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    }  
    ]
 }

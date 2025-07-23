@@ -2365,6 +2365,305 @@
         "jpg",
         "png"
       ]
+    },
+    {
+      "module": "BPA.BPA_PF",
+      "actions": [
+        {
+          "action": "APPLY",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": [
+            {
+              "code": "PCO_LAND_TITLE",
+              "name": "land-title",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_BACKFILL_PERMIT_COPY",
+              "name": "backfill-permit-copy",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_RECEIPT_FOR_PAYMENT_OF_EXTRACTION_TAXES",
+              "name": "receipt-for-payment-of-extraction-taxes",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_COPY_BACKFILL_CERTI",
+              "name": "copy-backfill-certi",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_LOCATION_MAP",
+              "name": "location-map",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_CADASTRAL_SITE_PLAN",
+              "name": "cadastral-site-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_PROJECT_SITE_PLAN",
+              "name": "project-site-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_ELEVATION_PLAN",
+              "name": "elevation-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_SECTION_PLAN",
+              "name": "section-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_FOUNDATION_PLAN",
+              "name": "foundation-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PCO_OTHERS",
+              "name": "others",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "UNSIGNED_DEMANDE_PCO",
+              "name": "unsigned-demande-pco",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": "pco-application",
+              "maxFilesAllowed": 1,
+              "allowedFileTypes": [
+                "pdf"
+              ],
+              "templatedownloadURL": null
+            }
+          ]
+        },
+        {
+          "action": "DEFAULT",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        },
+        {
+          "action": "VERIFY_AND_FORWARD",
+          "assignee": {
+            "show": false,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        }
+      ],
+      "bannerLabel": "BPA_BANNER",
+      "maxSizeInMB": 5,
+      "allowedFileTypes": [
+        "pdf",
+        "doc",
+        "docx",
+        "xlsx",
+        "xls",
+        "jpeg",
+        "jpg",
+        "png"
+      ]
     }
   ]
 }
