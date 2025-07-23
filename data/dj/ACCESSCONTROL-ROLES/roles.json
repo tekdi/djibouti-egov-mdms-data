@@ -131,6 +131,11 @@
       "code": "BPA_CAD_DGDCF_SUB_DIRECTOR",
       "name": "BPA CAD DGDCF SUB DIRECTOR",
       "description": "BPA CAD DGDCF SUB DIRECTOR"
+    },
+    {
+      "code": "BPA_PL_COMM",
+      "name": "BPA PL COMMISSIONER",
+      "description": "Djiboutian Roads Agency commissioner"
     }
   ]
 }
