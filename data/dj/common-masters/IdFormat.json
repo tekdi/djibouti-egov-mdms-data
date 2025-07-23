@@ -73,6 +73,14 @@
     {
       "format": "PL-RPT-[SEQ_DJ_PL_RPT]/[cy:yyyy]",
       "idname": "bpa.pl.receipt.id"
+    },
+    {
+      "format": "PF-[SEQ_DJ_PF]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.pf.applicationNum"
+    },
+    {
+      "format": "PF-RPT-[SEQ_DJ_PF_RPT]/[cy:yyyy]",
+      "idname": "bpa.pf.receipt.id"
     }
   ]
 }
