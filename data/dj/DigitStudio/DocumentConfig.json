@@ -1002,6 +1002,408 @@
       ]
     },
     {
+      "module": "BPA.BPA_PL",
+      "actions": [
+        {
+          "action": "APPLY",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": [
+            {
+              "code": "PL_LAND_TITLE_OR_CONCESSION_DECREE",
+              "name": "land-title-or-provisional-concession-decree",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_BACKFILL_PERMIT_COPY",
+              "name": "backfill-permit-copy",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_EXTRACTION_TAX_RECEIPT",
+              "name": "receipt-for-payment-of-extraction-taxes",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_BACKFILL_CERTIFICATE_COPY",
+              "name": "copy-backfill-certificate",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_LOCATION_MAP",
+              "name": "location-map",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_CADASTRAL_SITE_PLAN",
+              "name": "cadastral-site-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_PROJECT_LAYOUT_PL",
+              "name": "project-layout-plan",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_INTERIOR_LAYOUT_PL",
+              "name": "interior-layout-plans",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_DESCRIPTIVE_ESTIMATE",
+              "name": "descriptive-estimate",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_COST_ESTIMATE",
+              "name": "cost-estimate",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_PROJECT_FILES_CAD",
+              "name": "project-files-cad",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 10,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 10,
+              "allowedFileTypes": [
+                "dwg",
+                "dxf",
+                "skp",
+                "pla",
+                "pln",
+                "rvt",
+                "rfa",
+                "zip",
+                "rar",
+                "sevenz",
+                "pdf"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_SALES_PROMISES",
+              "name": "sales-promises",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 10,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 10,
+              "allowedFileTypes": [
+                "dwg",
+                "dxf",
+                "skp",
+                "pla",
+                "pln",
+                "rvt",
+                "rfa",
+                "zip",
+                "rar",
+                "sevenz",
+                "pdf"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_TAX_EXEMPTION_DOCUMENT",
+              "name": "tax-exemption-document",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 10,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 10,
+              "allowedFileTypes": [
+                "dwg",
+                "dxf",
+                "skp",
+                "pla",
+                "pln",
+                "rvt",
+                "rfa",
+                "zip",
+                "rar",
+                "sevenz",
+                "pdf"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_MEMORANDUM_OF_UNDERSTANDING",
+              "name": "memorandum-of-understanding",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 10,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 10,
+              "allowedFileTypes": [
+                "dwg",
+                "dxf",
+                "skp",
+                "pla",
+                "pln",
+                "rvt",
+                "rfa",
+                "zip",
+                "rar",
+                "sevenz",
+                "pdf"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_OTHERS",
+              "name": "other-documents",
+              "active": true,
+              "isMandatory": false,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": null,
+              "maxFilesAllowed": 5,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            },
+            {
+              "code": "PL_APPLICATION_FORM",
+              "name": "lotting-permit-application-form",
+              "active": true,
+              "isMandatory": true,
+              "maxSizeInMB": 5,
+              "showTextInput": false,
+              "templatePDFKey": "pl-application",
+              "maxFilesAllowed": 1,
+              "allowedFileTypes": [
+                "pdf",
+                "doc",
+                "docx",
+                "xlsx",
+                "xls",
+                "jpeg",
+                "jpg",
+                "png"
+              ],
+              "templatedownloadURL": null
+            }
+          ]
+        },
+        {
+          "action": "DEFAULT",
+          "assignee": {
+            "show": true,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        },
+        {
+          "action": "VERIFY_AND_FORWARD",
+          "assignee": {
+            "show": false,
+            "isMandatory": false
+          },
+          "comments": {
+            "show": true,
+            "isMandatory": false
+          },
+          "documents": []
+        }
+      ],
+      "bannerLabel": "BPA_BANNER",
+      "maxSizeInMB": 5,
+      "allowedFileTypes": [
+        "pdf",
+        "doc",
+        "docx",
+        "xlsx",
+        "xls",
+        "jpeg",
+        "jpg",
+        "png"
+      ]
+    },
+    {
       "module": "BPA.BPA_PCS",
       "actions": [
         {
@@ -1127,7 +1529,7 @@
               "isMandatory": true,
               "maxSizeInMB": 5,
               "showTextInput": false,
-              "templatePDFKey": "pco-application",
+              "templatePDFKey": "pcs-application",
               "maxFilesAllowed": 1,
               "allowedFileTypes": ["pdf"],
               "templatedownloadURL": null
@@ -1965,408 +2367,6 @@
       ]
     },
     {
-      "module": "BPA.BPA_PL",
-      "actions": [
-        {
-          "action": "APPLY",
-          "assignee": {
-            "show": true,
-            "isMandatory": false
-          },
-          "comments": {
-            "show": true,
-            "isMandatory": false
-          },
-          "documents": [
-            {
-              "code": "PL_LAND_TITLE_OR_CONCESSION_DECREE",
-              "name": "land-title-or-provisional-concession-decree",
-              "active": true,
-              "isMandatory": true,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_BACKFILL_PERMIT_COPY",
-              "name": "backfill-permit-copy",
-              "active": true,
-              "isMandatory": false,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_EXTRACTION_TAX_RECEIPT",
-              "name": "receipt-for-payment-of-extraction-taxes",
-              "active": true,
-              "isMandatory": false,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_BACKFILL_CERTIFICATE_COPY",
-              "name": "copy-backfill-certificate",
-              "active": true,
-              "isMandatory": false,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_LOCATION_MAP",
-              "name": "location-map",
-              "active": true,
-              "isMandatory": true,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_CADASTRAL_SITE_PLAN",
-              "name": "cadastral-site-plan",
-              "active": true,
-              "isMandatory": true,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_PROJECT_LAYOUT_PL",
-              "name": "project-layout-plan",
-              "active": true,
-              "isMandatory": true,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_INTERIOR_LAYOUT_PL",
-              "name": "interior-layout-plans",
-              "active": true,
-              "isMandatory": true,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_DESCRIPTIVE_ESTIMATE",
-              "name": "descriptive-estimate",
-              "active": true,
-              "isMandatory": true,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_COST_ESTIMATE",
-              "name": "cost-estimate",
-              "active": true,
-              "isMandatory": true,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_PROJECT_FILES_CAD",
-              "name": "project-files-cad",
-              "active": true,
-              "isMandatory": false,
-              "maxSizeInMB": 10,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 10,
-              "allowedFileTypes": [
-                "dwg",
-                "dxf",
-                "skp",
-                "pla",
-                "pln",
-                "rvt",
-                "rfa",
-                "zip",
-                "rar",
-                "sevenz",
-                "pdf"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_SALES_PROMISES",
-              "name": "sales-promises",
-              "active": true,
-              "isMandatory": false,
-              "maxSizeInMB": 10,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 10,
-              "allowedFileTypes": [
-                "dwg",
-                "dxf",
-                "skp",
-                "pla",
-                "pln",
-                "rvt",
-                "rfa",
-                "zip",
-                "rar",
-                "sevenz",
-                "pdf"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_TAX_EXEMPTION_DOCUMENT",
-              "name": "tax-exemption-document",
-              "active": true,
-              "isMandatory": false,
-              "maxSizeInMB": 10,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 10,
-              "allowedFileTypes": [
-                "dwg",
-                "dxf",
-                "skp",
-                "pla",
-                "pln",
-                "rvt",
-                "rfa",
-                "zip",
-                "rar",
-                "sevenz",
-                "pdf"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_MEMORANDUM_OF_UNDERSTANDING",
-              "name": "memorandum-of-understanding",
-              "active": true,
-              "isMandatory": false,
-              "maxSizeInMB": 10,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 10,
-              "allowedFileTypes": [
-                "dwg",
-                "dxf",
-                "skp",
-                "pla",
-                "pln",
-                "rvt",
-                "rfa",
-                "zip",
-                "rar",
-                "sevenz",
-                "pdf"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_OTHERS",
-              "name": "other-documents",
-              "active": true,
-              "isMandatory": false,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": null,
-              "maxFilesAllowed": 5,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            },
-            {
-              "code": "PL_APPLICATION_FORM",
-              "name": "lotting-permit-application-form",
-              "active": true,
-              "isMandatory": true,
-              "maxSizeInMB": 5,
-              "showTextInput": false,
-              "templatePDFKey": "pl-application",
-              "maxFilesAllowed": 1,
-              "allowedFileTypes": [
-                "pdf",
-                "doc",
-                "docx",
-                "xlsx",
-                "xls",
-                "jpeg",
-                "jpg",
-                "png"
-              ],
-              "templatedownloadURL": null
-            }
-          ]
-        },
-        {
-          "action": "DEFAULT",
-          "assignee": {
-            "show": true,
-            "isMandatory": false
-          },
-          "comments": {
-            "show": true,
-            "isMandatory": false
-          },
-          "documents": []
-        },
-        {
-          "action": "VERIFY_AND_FORWARD",
-          "assignee": {
-            "show": false,
-            "isMandatory": false
-          },
-          "comments": {
-            "show": true,
-            "isMandatory": false
-          },
-          "documents": []
-        }
-      ],
-      "bannerLabel": "BPA_BANNER",
-      "maxSizeInMB": 5,
-      "allowedFileTypes": [
-        "pdf",
-        "doc",
-        "docx",
-        "xlsx",
-        "xls",
-        "jpeg",
-        "jpg",
-        "png"
-      ]
-    },
-    {
       "module": "BPA.BPA_PF",
       "actions": [
         {
@@ -2620,9 +2620,7 @@
               "showTextInput": false,
               "templatePDFKey": "pco-application",
               "maxFilesAllowed": 1,
-              "allowedFileTypes": [
-                "pdf"
-              ],
+              "allowedFileTypes": ["pdf"],
               "templatedownloadURL": null
             }
           ]

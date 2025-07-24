@@ -3817,8 +3817,7 @@
           "isStateUpdatable": false,
           "actions": null
         }
-      ],
-      "tenantId": "dj"
+      ]
     },
     {
       "tenanId": "dj",
@@ -3832,11 +3831,7 @@
               "active": true,
               "currentState": "",
               "nextState": "INITIATED",
-              "roles": [
-                "BPA_ARCHITECT",
-                "STUDIO_ADMIN",
-                "CITIZEN"
-              ],
+              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "tenantId": "dj"
             }
           ],
@@ -3866,11 +3861,7 @@
               "active": true,
               "currentState": "INITIATED",
               "nextState": "AGENT_NOT_ASSIGNED",
-              "roles": [
-                "BPA_ARCHITECT",
-                "STUDIO_ADMIN",
-                "CITIZEN"
-              ],
+              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "tenantId": "dj"
             },
             {
@@ -3878,11 +3869,7 @@
               "active": true,
               "currentState": "INITIATED",
               "nextState": "AGENT_NOT_ASSIGNED",
-              "roles": [
-                "BPA_ARCHITECT",
-                "STUDIO_ADMIN",
-                "CITIZEN"
-              ],
+              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "tenantId": "dj"
             }
           ]
@@ -3903,10 +3890,7 @@
               "currentState": "AGENT_NOT_ASSIGNED",
               "action": "ASSIGN_TO_AGENT",
               "nextState": "PENDING_ACTION_BY_AGENT",
-              "roles": [
-                "BPA_HOD",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -3914,10 +3898,7 @@
               "active": true,
               "currentState": "AGENT_NOT_ASSIGNED",
               "nextState": "AGENT_NOT_ASSIGNED",
-              "roles": [
-                "BPA_HOD",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -3925,10 +3906,7 @@
               "currentState": "AGENT_NOT_ASSIGNED",
               "action": "SEND_BACK_TO_SOURCE",
               "nextState": "PENDING_ACTION_BY_SOURCE",
-              "roles": [
-                "BPA_HOD",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
               "active": true
             }
           ]
@@ -3949,10 +3927,7 @@
               "active": true,
               "currentState": "PENDING_ACTION_BY_SOURCE",
               "nextState": "AGENT_NOT_ASSIGNED",
-              "roles": [
-                "BPA_ARCHITECT",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -3960,10 +3935,7 @@
               "active": true,
               "currentState": "PENDING_ACTION_BY_SOURCE",
               "nextState": "APPLICATION_CANCEL",
-              "roles": [
-                "BPA_ARCHITECT",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
               "tenantId": "dj"
             }
           ]
@@ -3984,10 +3956,7 @@
               "active": true,
               "currentState": "PENDING_ACTION_BY_AGENT",
               "nextState": "AGENT_REPORT_READY",
-              "roles": [
-                "BPA_AGENTS",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -3995,11 +3964,7 @@
               "active": true,
               "currentState": "PENDING_ACTION_BY_AGENT",
               "nextState": "PENDING_ACTION_BY_AGENT",
-              "roles": [
-                "BPA_HOD",
-                "BPA_AGENTS",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_HOD", "BPA_AGENTS", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4007,10 +3972,7 @@
               "currentState": "PENDING_ACTION_BY_AGENT",
               "action": "SEND_BACK_TO_SOURCE",
               "nextState": "PENDING_ACTION_BY_SOURCE",
-              "roles": [
-                "BPA_AGENTS",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
               "active": true
             }
           ]
@@ -4031,10 +3993,7 @@
               "active": true,
               "currentState": "AGENT_REPORT_READY",
               "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
-              "roles": [
-                "BPA_HOD",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4042,10 +4001,7 @@
               "active": true,
               "currentState": "AGENT_REPORT_READY",
               "nextState": "AGENT_REPORT_READY",
-              "roles": [
-                "BPA_HOD",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4053,10 +4009,7 @@
               "active": true,
               "currentState": "AGENT_REPORT_READY",
               "nextState": "PENDING_ACTION_BY_AGENT",
-              "roles": [
-                "BPA_HOD",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4064,10 +4017,7 @@
               "active": true,
               "currentState": "AGENT_REPORT_READY",
               "nextState": "PENDING_ACTION_BY_SOURCE",
-              "roles": [
-                "BPA_HOD",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
               "tenantId": "dj"
             }
           ]
@@ -4088,10 +4038,7 @@
               "active": true,
               "currentState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
               "nextState": "PENDING_REVIEW_BY_DIRECTOR",
-              "roles": [
-                "BPA_SRA_SUB_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4099,10 +4046,7 @@
               "active": true,
               "currentState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
               "nextState": "AGENT_REPORT_READY",
-              "roles": [
-                "BPA_SRA_SUB_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4110,10 +4054,7 @@
               "active": true,
               "currentState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
               "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
-              "roles": [
-                "BPA_SRA_SUB_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             }
           ]
@@ -4134,10 +4075,7 @@
               "active": true,
               "currentState": "PENDING_REVIEW_BY_DIRECTOR",
               "nextState": "PERMIT_REJECTED",
-              "roles": [
-                "BPA_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4145,10 +4083,7 @@
               "active": true,
               "currentState": "PENDING_REVIEW_BY_DIRECTOR",
               "nextState": "PENDING_REVIEW_BY_DIRECTOR",
-              "roles": [
-                "BPA_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4156,10 +4091,7 @@
               "active": true,
               "currentState": "PENDING_REVIEW_BY_DIRECTOR",
               "nextState": "AWAITING_ON_COMMISSIONER",
-              "roles": [
-                "BPA_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4167,10 +4099,7 @@
               "active": true,
               "currentState": "PENDING_REVIEW_BY_DIRECTOR",
               "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
-              "roles": [
-                "BPA_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             }
           ]
@@ -4197,10 +4126,7 @@
               "active": true,
               "currentState": "AWAITING_ON_COMMISSIONER",
               "nextState": "AWAITING_ON_COMMISSIONER",
-              "roles": [
-                "BPA_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4208,10 +4134,7 @@
               "active": true,
               "currentState": "AWAITING_ON_COMMISSIONER",
               "nextState": "AWAITING_CITIZEN_PAYMENT",
-              "roles": [
-                "BPA_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             },
             {
@@ -4219,10 +4142,7 @@
               "active": true,
               "currentState": "AWAITING_ON_COMMISSIONER",
               "nextState": "PERMIT_REJECTED",
-              "roles": [
-                "BPA_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             }
           ]
@@ -4243,11 +4163,7 @@
               "active": true,
               "currentState": "AWAITING_CITIZEN_PAYMENT",
               "nextState": "CITIZEN_PAYMENT_DONE",
-              "roles": [
-                "CITIZEN",
-                "STUDIO_ADMIN",
-                "COUNTER_EMPLOYEE"
-              ],
+              "roles": ["CITIZEN", "STUDIO_ADMIN", "COUNTER_EMPLOYEE"],
               "tenantId": "dj"
             },
             {
@@ -4255,11 +4171,7 @@
               "active": true,
               "currentState": "AWAITING_CITIZEN_PAYMENT",
               "nextState": "AWAITING_CITIZEN_PAYMENT",
-              "roles": [
-                "BPA_DIRECTOR",
-                "CITIZEN",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "CITIZEN", "STUDIO_ADMIN"],
               "tenantId": "dj"
             }
           ]
@@ -4280,10 +4192,7 @@
               "active": true,
               "currentState": "CITIZEN_PAYMENT_DONE",
               "nextState": "PERMIT_GRANTED",
-              "roles": [
-                "BPA_DIRECTOR",
-                "STUDIO_ADMIN"
-              ],
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             }
           ]
