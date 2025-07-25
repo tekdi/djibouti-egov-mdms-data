@@ -2522,15 +2522,25 @@
                 "placeholder": "ENTER_SITE_LOCATION"
               },
               {
-                "name": "plotArea",
-                "type": "number",
-                "label": "Plot Area",
-                "format": "number",
+                "name": "region",
+                "label": "Region",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
                 "required": true,
+                "schema": "BPA.Region",
+                "placeholder": "SELECT_REGION"
+              },
+              {
+                "name": "area",
+                "label": "Area (in m²)",
+                "type": "string",
+                "format": "number",
                 "validation": {
                   "min": 0,
                   "message": "AREA_NEGATIVE_ERR"
                 },
+                "required": true,
                 "placeholder": "ENTER_AREA"
               },
               {
