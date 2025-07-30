@@ -154,6 +154,16 @@
                 "placeholder": "SELECT_WORK_TYPE"
               },
               {
+                "name": "intededUse",
+                "label": "Inteded use",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.IntededUse",
+                "placeholder": "SELECT_INTEDED_USE"
+              },
+              {
                 "name": "noOfUnits",
                 "label": "Number of Housing Units",
                 "type": "number",
@@ -1309,6 +1319,16 @@
                 "placeholder": "SELECT_WORK_TYPE"
               },
               {
+                "name": "intededUse",
+                "label": "Inteded use",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.IntededUse",
+                "placeholder": "SELECT_INTEDED_USE"
+              },
+              {
                 "name": "noOfUnits",
                 "label": "Number of Housing Units",
                 "type": "number",
@@ -2320,17 +2340,17 @@
           "states": ["INITIATED"]
         },
         {
-          "key": "application-receipt",
+          "key": "pl-application-receipt",
           "type": "receipt",
           "states": ["AGENT_NOT_ASSIGNED"]
         },
         {
-          "key": "payment-receipt",
+          "key": "pl-payment-receipt",
           "type": "receipt",
           "states": ["CITIZEN_PAYMENT_DONE"]
         },
         {
-          "key": "pco-permit",
+          "key": "pl-permit",
           "type": "permit",
           "states": ["PERMIT_GRANTED"]
         }
@@ -2600,6 +2620,16 @@
                 "required": true,
                 "reference": "mdms",
                 "placeholder": "SELECT_WORK_TYPE"
+              },
+              {
+                "name": "intededUse",
+                "label": "Inteded use",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.IntededUse",
+                "placeholder": "SELECT_INTEDED_USE"
               },
               {
                 "name": "noOfUnits",
@@ -3434,6 +3464,16 @@
                 "placeholder": "SELECT_WORK_TYPE"
               },
               {
+                "name": "intededUse",
+                "label": "Inteded use",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.IntededUse",
+                "placeholder": "SELECT_INTEDED_USE"
+              },
+              {
                 "name": "noOfUnits",
                 "label": "Number of Housing Units",
                 "type": "number",
@@ -3921,17 +3961,17 @@
           "states": ["INITIATED"]
         },
         {
-          "key": "application-receipt",
+          "key": "pcs-application-receipt",
           "type": "receipt",
           "states": ["PENDING_REVIEW_BY_SRA_HOD"]
         },
         {
-          "key": "payment-receipt",
+          "key": "pcs-payment-receipt",
           "type": "receipt",
           "states": ["CITIZEN_PAYMENT_DONE"]
         },
         {
-          "key": "pco-permit",
+          "key": "pcs-permit",
           "type": "permit",
           "states": ["PERMIT_GRANTED"]
         }
@@ -4282,6 +4322,16 @@
                 "required": true,
                 "schema": "BPA.WorkType",
                 "placeholder": "SELECT_WORK_TYPE"
+              },
+              {
+                "name": "intededUse",
+                "label": "Inteded use",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.IntededUse",
+                "placeholder": "SELECT_INTEDED_USE"
               },
               {
                 "name": "noOfUnits",
@@ -4693,17 +4743,17 @@
       ],
       "pdf": [
         {
-          "key": "pco-application",
+          "key": "pd-application",
           "type": "application",
           "states": ["INITIATED"]
         },
         {
-          "key": "application-receipt",
+          "key": "pd-application-receipt",
           "type": "receipt",
           "states": ["PENDING_REVIEW_BY_SRA_HOD"]
         },
         {
-          "key": "pco-permit",
+          "key": "pd-permit",
           "type": "permit",
           "states": ["PERMIT_GRANTED"]
         }
@@ -5028,6 +5078,16 @@
                 "required": true,
                 "schema": "BPA.WorkType",
                 "placeholder": "SELECT_WORK_TYPE"
+              },
+              {
+                "name": "intededUse",
+                "label": "Inteded use",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.IntededUse",
+                "placeholder": "SELECT_INTEDED_USE"
               },
               {
                 "name": "noOfUnits",
@@ -5861,22 +5921,22 @@
       ],
       "pdf": [
         {
-          "key": "pco-application",
+          "key": "ps-application",
           "type": "application",
           "states": ["INITIATED"]
         },
         {
-          "key": "application-receipt",
+          "key": "ps-application-receipt",
           "type": "receipt",
           "states": ["AGENT_NOT_ASSIGNED"]
         },
         {
-          "key": "payment-receipt",
+          "key": "ps-payment-receipt",
           "type": "receipt",
           "states": ["CITIZEN_PAYMENT_DONE"]
         },
         {
-          "key": "pco-permit",
+          "key": "ps-permit",
           "type": "permit",
           "states": ["PERMIT_GRANTED"]
         }
@@ -6201,6 +6261,16 @@
                 "required": true,
                 "schema": "BPA.WorkType",
                 "placeholder": "SELECT_WORK_TYPE"
+              },
+              {
+                "name": "intededUse",
+                "label": "Inteded use",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.IntededUse",
+                "placeholder": "SELECT_INTEDED_USE"
               },
               {
                 "name": "noOfUnits",
@@ -6685,22 +6755,22 @@
       ],
       "pdf": [
         {
-          "key": "pco-application",
+          "key": "atarr-application",
           "type": "application",
           "states": ["INITIATED"]
         },
         {
-          "key": "application-receipt",
+          "key": "atarr-application-receipt",
           "type": "receipt",
           "states": ["PENDING_REVIEW_BY_SRA_HOD"]
         },
         {
-          "key": "payment-receipt",
+          "key": "atarr-payment-receipt",
           "type": "receipt",
           "states": ["CITIZEN_PAYMENT_DONE"]
         },
         {
-          "key": "pco-permit",
+          "key": "atarr-permit",
           "type": "permit",
           "states": ["PERMIT_GRANTED"]
         }
@@ -6880,22 +6950,22 @@
       "service": "BPA_PF",
       "pdf": [
         {
-          "key": "pco-application",
+          "key": "pf-application",
           "type": "application",
           "states": ["INITIATED"]
         },
         {
-          "key": "application-receipt",
+          "key": "pf-application-receipt",
           "type": "receipt",
           "states": ["AGENT_NOT_ASSIGNED"]
         },
         {
-          "key": "payment-receipt",
+          "key": "pf-payment-receipt",
           "type": "receipt",
           "states": ["CITIZEN_PAYMENT_DONE"]
         },
         {
-          "key": "pco-permit",
+          "key": "pf-permit",
           "type": "permit",
           "states": ["PERMIT_GRANTED"]
         }
@@ -7155,6 +7225,16 @@
                 "required": true,
                 "reference": "mdms",
                 "placeholder": "SELECT_WORK_TYPE"
+              },
+              {
+                "name": "intededUse",
+                "label": "Inteded use",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.IntededUse",
+                "placeholder": "SELECT_INTEDED_USE"
               },
               {
                 "name": "noOfUnits",
