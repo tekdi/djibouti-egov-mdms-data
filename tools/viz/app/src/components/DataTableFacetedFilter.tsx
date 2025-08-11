@@ -1,24 +1,24 @@
-import * as React from "react"
-import { type Column } from "@tanstack/react-table"
-import { PlusCircle } from "lucide-react"
+import * as React from "react";
+import { type Column } from "@tanstack/react-table";
+import { PlusCircle } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuCheckboxItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 interface DataTableFacetedFilterProps<TData, TValue> {
-  column?: Column<TData, TValue>
-  title?: string
+  column?: Column<TData, TValue>;
+  title?: string;
   options: {
-    label: string
-    value: string
-    icon?: React.ComponentType<{ className?: string }>
-  }[]
+    label: string;
+    value: string;
+    icon?: React.ComponentType<{ className?: string }>;
+  }[];
 }
 
 export function DataTableFacetedFilter<TData, TValue>({
@@ -26,7 +26,7 @@ export function DataTableFacetedFilter<TData, TValue>({
   title,
   options,
 }: DataTableFacetedFilterProps<TData, TValue>) {
-  const selectedValues = new Set(column?.getFilterValue() as string[])
+  const selectedValues = new Set(column?.getFilterValue() as string[]);
 
   return (
     <DropdownMenu>
@@ -58,9 +58,14 @@ export function DataTableFacetedFilter<TData, TValue>({
                       <Badge
                         variant="secondary"
                         key={option.value}
-                        className="rounded-sm px-1 font-normal"
+                        className="rounded-sm px-1 font-normal max-w-[140px]"
                       >
-                        {option.label}
+                        <span
+                          className="truncate inline-block align-middle max-w-[120px]"
+                          title={option.label}
+                        >
+                          {option.label}
+                        </span>
                       </Badge>
                     ))
                 )}
@@ -69,30 +74,32 @@ export function DataTableFacetedFilter<TData, TValue>({
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="w-[260px]">
         {options.map((option) => {
-          const isSelected = selectedValues.has(option.value)
+          const isSelected = selectedValues.has(option.value);
           return (
             <DropdownMenuCheckboxItem
               key={option.value}
               checked={isSelected}
               onCheckedChange={() => {
                 if (isSelected) {
-                  selectedValues.delete(option.value)
+                  selectedValues.delete(option.value);
                 } else {
-                  selectedValues.add(option.value)
+                  selectedValues.add(option.value);
                 }
-                const filterValues = Array.from(selectedValues)
+                const filterValues = Array.from(selectedValues);
                 column?.setFilterValue(
                   filterValues.length ? filterValues : undefined
-                )
+                );
               }}
             >
-              {option.label}
+              <div className="max-w-[220px] truncate" title={option.label}>
+                {option.label}
+              </div>
             </DropdownMenuCheckboxItem>
-          )
+          );
         })}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-} 
+  );
+}

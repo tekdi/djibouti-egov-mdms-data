@@ -90,7 +90,7 @@ class KubernetesManager {
         this.coreV1Api = null;
         this.networkingV1Api = null;
         this.initialized = false;
-        this.defaultNamespace = process.env.K8S_NAMESPACE || 'egov';
+        this.defaultNamespace = process.env.K8S_NAMESPACE || 'default';
 
         this.init();
     }
@@ -128,12 +128,12 @@ class KubernetesManager {
 
         try {
             // Use CoreV1Api to check connection by listing namespaces
-            const response = await this.coreV1Api.listNamespace();
+            const response = await this.coreV1Api.listNamespace({});
             return {
                 status: 'healthy',
                 message: 'Connected to Kubernetes API',
-                namespaceCount: response.body.items.length,
-                kubeconfig: process.env.KUBECONFIG ? 'custom' : 'egov'
+                namespaceCount: response.items?.length || 0,
+                kubeconfig: process.env.KUBECONFIG ? 'custom' : 'default'
             };
         } catch (error) {
             return {
@@ -151,9 +151,15 @@ class KubernetesManager {
 
         const serviceConfig = ServiceConfig.EGOV_ACCESSCONTROL;
 
+        // Ensure namespace is defined
+        const namespace = serviceConfig.namespace || this.defaultNamespace;
+        if (!namespace) {
+            throw new Error(`No namespace defined for service: EGOV_ACCESSCONTROL`);
+        }
+
         try {
             // Find the deployment name by looking for pods
-            const pods = await this.coreV1Api.listNamespacedPod({ namespace: serviceConfig.namespace });
+            const pods = await this.coreV1Api.listNamespacedPod({ namespace });
 
             const matchingPod = pods.items.find(pod =>
                 pod.metadata.name.includes(serviceConfig.name)
@@ -183,23 +189,25 @@ class KubernetesManager {
             console.log('Pod details:', matchingPod);
             console.log('Deployment name:', deploymentName);
 
-            const response = await this.appsV1Api.patchNamespacedDeployment({
-                name: deploymentName,
-                namespace: serviceConfig.namespace,
-                body: patch,
-                headers: { 'content-type': k8s.PatchStrategy.StrategicMergePatch }
-            });
+            const response = await this.appsV1Api.patchNamespacedDeployment(
+                {
+                    name: deploymentName,
+                    namespace: namespace,
+                    body: patch
+                },
+                k8s.setHeaderOptions('Content-Type', k8s.PatchStrategy.StrategicMergePatch)
+            );
 
             console.log('Response after restart:', response);
 
             return {
                 intent: IntentType.RESTART_EGOV_ACCESSCONTROL,
                 service: serviceConfig.name,
-                namespace: serviceConfig.namespace,
+                namespace: namespace,
                 deploymentName,
                 restarted: true,
                 restartedAt: new Date().toISOString(),
-                currentReplicas: response.status.replicas || 0,
+                currentReplicas: response.status?.replicas || 0,
                 message: `Successfully restarted ${serviceConfig.name}`
             };
         } catch (error) {
@@ -214,6 +222,12 @@ class KubernetesManager {
         }
 
         const serviceConfig = ServiceConfig.POSTGRES;
+
+        // Ensure namespace is defined
+        const namespace = serviceConfig.namespace || this.defaultNamespace;
+        if (!namespace) {
+            throw new Error(`No namespace defined for service: POSTGRES`);
+        }
 
         try {
             // Validate the command is a SELECT query for safety
@@ -232,7 +246,7 @@ class KubernetesManager {
 
             return new Promise((resolve, reject) => {
                 const kubectlCmd = [
-                    'kubectl', 'exec', '-n', serviceConfig.namespace,
+                    'kubectl', 'exec', '-n', namespace,
                     serviceConfig.name, '--',
                     ...command
                 ];
@@ -247,7 +261,7 @@ class KubernetesManager {
                         resolve({
                             intent: IntentType.EXECUTE_POSTGRES_COMMAND,
                             service: serviceConfig.name,
-                            namespace: serviceConfig.namespace,
+                            namespace: namespace,
                             command: sqlCommand,
                             output: stdout.trim(),
                             stderr: stderr.trim(),
@@ -273,9 +287,15 @@ class KubernetesManager {
             throw new Error(`Unknown service: ${serviceKey}`);
         }
 
+        // Ensure namespace is defined
+        const namespace = serviceConfig.namespace || this.defaultNamespace;
+        if (!namespace) {
+            throw new Error(`No namespace defined for service: ${serviceKey}`);
+        }
+
         try {
-            const pods = await this.coreV1Api.listNamespacedPod(serviceConfig.namespace);
-            const matchingPod = pods.body.items.find(pod =>
+            const pods = await this.coreV1Api.listNamespacedPod({ namespace });
+            const matchingPod = pods.items.find(pod =>
                 pod.metadata.name.includes(serviceConfig.name)
             );
 
@@ -283,7 +303,7 @@ class KubernetesManager {
                 return {
                     intent: IntentType.GET_SERVICE_STATUS,
                     service: serviceConfig.name,
-                    namespace: serviceConfig.namespace,
+                    namespace: namespace,
                     status: 'not_found',
                     message: 'No pod found for this service'
                 };
@@ -292,7 +312,7 @@ class KubernetesManager {
             return {
                 intent: IntentType.GET_SERVICE_STATUS,
                 service: serviceConfig.name,
-                namespace: serviceConfig.namespace,
+                namespace: namespace,
                 podName: matchingPod.metadata.name,
                 status: matchingPod.status.phase,
                 ready: matchingPod.status.containerStatuses?.every(c => c.ready) || false,
@@ -317,9 +337,15 @@ class KubernetesManager {
             throw new Error(`Unknown service: ${serviceKey}`);
         }
 
+        // Ensure namespace is defined
+        const namespace = serviceConfig.namespace || this.defaultNamespace;
+        if (!namespace) {
+            throw new Error(`No namespace defined for service: ${serviceKey}`);
+        }
+
         try {
-            const pods = await this.coreV1Api.listNamespacedPod(serviceConfig.namespace);
-            const matchingPod = pods.body.items.find(pod =>
+            const pods = await this.coreV1Api.listNamespacedPod({ namespace });
+            const matchingPod = pods.items.find(pod =>
                 pod.metadata.name.includes(serviceConfig.name)
             );
 
@@ -333,25 +359,20 @@ class KubernetesManager {
                 timestamps: options.timestamps !== false,
             };
 
-            const response = await this.coreV1Api.readNamespacedPodLog(
-                matchingPod.metadata.name,
-                serviceConfig.namespace,
-                undefined,
-                logOptions.follow,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                logOptions.tailLines,
-                logOptions.timestamps
-            );
+            const response = await this.coreV1Api.readNamespacedPodLog({
+                name: matchingPod.metadata.name,
+                namespace: namespace,
+                follow: logOptions.follow,
+                tailLines: logOptions.tailLines,
+                timestamps: logOptions.timestamps
+            });
 
             return {
                 intent: IntentType.GET_SERVICE_LOGS,
                 service: serviceConfig.name,
-                namespace: serviceConfig.namespace,
+                namespace: namespace,
                 podName: matchingPod.metadata.name,
-                logs: response.body,
+                logs: response,
                 options: logOptions,
                 retrievedAt: new Date().toISOString()
             };
@@ -367,25 +388,43 @@ class KubernetesManager {
             throw new Error(`Unknown service: ${serviceKey}`);
         }
 
+        // Ensure namespace is defined
+        const namespace = serviceConfig.namespace || this.defaultNamespace;
+        if (!namespace) {
+            throw new Error(`No namespace defined for service: ${serviceKey}`);
+        }
+
         try {
-            const pods = await this.coreV1Api.listNamespacedPod(serviceConfig.namespace);
-            const matchingPod = pods.body.items.find(pod =>
+            console.log(`🔍 Searching for pods in namespace: ${namespace}`);
+            const pods = await this.coreV1Api.listNamespacedPod({ namespace });
+
+            console.log(`📋 Found ${pods.items.length} pods in namespace ${namespace}:`);
+            pods.items.forEach(pod => {
+                console.log(`  - ${pod.metadata.name} (Status: ${pod.status.phase})`);
+            });
+
+            console.log(`🎯 Looking for pod matching service name: ${serviceConfig.name}`);
+            const matchingPod = pods.items.find(pod =>
                 pod.metadata.name.includes(serviceConfig.name)
             );
 
             if (!matchingPod) {
-                throw new Error(`No pod found for service: ${serviceConfig.name}`);
+                console.log(`❌ No pod found matching service name: ${serviceConfig.name}`);
+                console.log(`Available pods: ${pods.items.map(p => p.metadata.name).join(', ')}`);
+                throw new Error(`No pod found for service: ${serviceConfig.name} in namespace: ${namespace}`);
             }
+
+            console.log(`✅ Found matching pod: ${matchingPod.metadata.name}`);
 
             // For postgres, use internal port 5432, for others use 8080
             const targetPort = serviceConfig.name.includes('postgres') ? 5432 : 8080;
 
-            const command = `kubectl port-forward -n ${serviceConfig.namespace} ${matchingPod.metadata.name} ${serviceConfig.port}:${targetPort}`;
+            const command = `kubectl port-forward -n ${namespace} ${matchingPod.metadata.name} ${serviceConfig.port}:${targetPort}`;
 
             return {
                 intent: IntentType.SETUP_SERVICE_PORT_FORWARD,
                 service: serviceConfig.name,
-                namespace: serviceConfig.namespace,
+                namespace: namespace,
                 podName: matchingPod.metadata.name,
                 localPort: serviceConfig.port,
                 remotePort: targetPort,

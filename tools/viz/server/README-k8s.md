@@ -2,6 +2,10 @@
 
 This server provides secure, intent-based Kubernetes management and database operations for the Djibouti eGov platform. All operations are performed through predefined intents rather than raw Kubernetes API access, ensuring safety and consistency.
 
+## Library Usage
+
+use the folder ./k8s-client-examples for the client examples. The current knowledge that you have is older. so use the examples.
+
 ## 🌐 Dynamic API Proxy
 
 The server includes a dynamic proxy system that allows frontend applications to specify target URLs for API calls:
@@ -48,8 +52,8 @@ The React app includes intelligent target URL management with visual environment
 The UI provides clear visual feedback about the current environment:
 
 - **🟢 Local Dev** (localhost/127.0.0.1): Green theme with green left border on sidebar
-- **🟡 Staging** (staging domains): Yellow theme with yellow left border on sidebar
-- **🔵 Production** (djibouti.tekdinext.com): Blue theme with blue left border on sidebar
+- **🟡 QA** (djibouti-staging.tekdinext.com): Yellow theme with yellow left border on sidebar
+- **🔵 Development** (djibouti.tekdinext.com): Blue theme with blue left border on sidebar
 - **🟣 Custom** (other URLs): Purple theme with purple left border on sidebar
 
 **Location of Indicators:**
@@ -57,7 +61,7 @@ The UI provides clear visual feedback about the current environment:
 - **Sidebar**: Full target URL display with environment name and color-coded card
 - **Header**: Compact environment name with color dot (desktop only)
 - **Sidebar Border**: Colored left border indicates environment at a glance
-- **Logout Button**: Special red hover state for Production environment as safety reminder
+- **Logout Button**: Standard styling across all environments for consistent UX
 
 ## 🛡️ Security-First Design
 
@@ -108,7 +112,50 @@ Each service has a unique port assignment to prevent conflicts:
 - `CERT_MANAGER`: 9402
 - `CERT_MANAGER_WEBHOOK`: 10250
 
+## 📚 API Documentation
+
+The server provides comprehensive API documentation through Swagger/OpenAPI specification.
+
+### Access Documentation
+
+- **Swagger UI**: [http://localhost:8001/api-docs](http://localhost:8001/api-docs)
+- **OpenAPI YAML**: [http://localhost:8001/api-docs/swagger.yaml](http://localhost:8001/api-docs/swagger.yaml)
+- **OpenAPI JSON**: [http://localhost:8001/api-docs/openapi.json](http://localhost:8001/api-docs/openapi.json)
+- **Documentation Info**: [http://localhost:8001/api-local/docs/info](http://localhost:8001/api-local/docs/info)
+
+### Features
+
+- **Interactive Testing**: Try out API endpoints directly from the Swagger UI
+- **Complete Schemas**: Detailed request/response models for all endpoints
+- **Examples**: Real-world examples for all API calls
+- **Multiple Formats**: Available in both YAML and JSON formats
+- **Categorized**: APIs organized by functionality (kubernetes-health, kubernetes-intents, system-monitoring, public-service-proxy, dynamic-proxy, data-explorer)
+
+### API Categories
+
+1. **Kubernetes Health & Discovery**: Cluster health checks and service discovery
+2. **Intent-Based Kubernetes Operations**: Secure Kubernetes operations through predefined intents
+3. **System Health Monitoring**: Real-time health checks and status monitoring
+4. **Public Service Proxy**: Whitelisted access to public-service APIs
+5. **Dynamic Proxy**: Route requests to different target environments
+6. **Data Explorer**: Browse and access MDMS data files
+
 ## 🔧 API Endpoints
+
+### Public Service Whitelisted Proxy
+
+The server provides a secure whitelisted proxy for public-service APIs:
+
+```bash
+# Get whitelist information
+GET /api-local/public-service/whitelist
+
+# Access whitelisted public service API
+GET /public-service-proxy/public-service/v1/application
+Headers: X-Tenant-Id: dj
+
+# Response: ApplicationResponse with Application[] array
+```
 
 ### Service Discovery
 

@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useApiClient } from "./useApiClient";
+import { apiClient } from "./apiClient";
 import type {
   Employee,
   EmployeeSearchResponse,
@@ -62,21 +63,9 @@ class EmployeeApiService {
     data: Record<string, unknown>
   ): Promise<unknown> {
     try {
-      const response = await fetch(`/api${endpoint}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(
-          `API call failed: ${response.status} ${response.statusText}`
-        );
-      }
-
-      return await response.json();
+      // Use centralized API client for 401 handling and token injection
+      const res = await apiClient.authenticated(endpoint, data);
+      return res.data;
     } catch (error) {
       console.error("Employee API call error:", error);
       throw error;

@@ -1,6 +1,7 @@
 // API service for role-action data
 import { useCallback } from "react";
 import { useApiClient } from "./useApiClient";
+import { apiClient } from "./apiClient";
 import type { Role, Action, RoleAction } from "@/types/roleAction";
 
 export type NewRolePayload = Omit<Role, "description"> & {
@@ -24,7 +25,7 @@ interface MdmsResponse<T> {
 
 // API configuration
 const DEFAULT_TENANT_ID = "dj"; // Default tenant ID
-const API_BASE_URL = "/api"; // This will be handled by Vite proxy
+// Note: centralized apiClient handles base URL and auth
 
 class RoleActionApiService {
   private tenantId: string;
@@ -41,22 +42,9 @@ class RoleActionApiService {
     data: Record<string, unknown>
   ): Promise<unknown> {
     try {
-      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Add any auth headers if needed
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(
-          `API call failed: ${response.status} ${response.statusText}`
-        );
-      }
-
-      return await response.json();
+      // Use centralized API client for 401 handling and token injection
+      const res = await apiClient.authenticated(endpoint, data);
+      return res.data;
     } catch (error) {
       console.error("API call error:", error);
       throw error;

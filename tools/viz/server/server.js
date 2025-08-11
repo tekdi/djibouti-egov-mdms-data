@@ -21,7 +21,7 @@ try {
 }
 
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 const DEFAULT_TARGET = 'https://djibouti.tekdinext.com';
 
 // Parse JSON bodies
@@ -304,12 +304,248 @@ app.get('/api-local/system/database-health', requireK8s, async (req, res) => {
     }
 });
 
+// === PUBLIC SERVICE WHITELISTED PROXY ===
+
+// Whitelist for public-service APIs
+const PUBLIC_SERVICE_WHITELIST = [
+    '/public-service/v1/application'
+];
+
+// Check if a path is whitelisted for public-service proxy
+function isPublicServicePathWhitelisted(path) {
+    return PUBLIC_SERVICE_WHITELIST.some(whitelistedPath =>
+        path.startsWith(whitelistedPath)
+    );
+}
+
+// Setup public-service port forward and create whitelisted proxy
+app.use('/public-service-proxy', requireK8s, async (req, res, next) => {
+    try {
+        // Check if the requested path is whitelisted
+        if (!isPublicServicePathWhitelisted(req.path)) {
+            return res.status(403).json({
+                error: 'API endpoint not whitelisted',
+                path: req.path,
+                whitelistedPaths: PUBLIC_SERVICE_WHITELIST
+            });
+        }
+
+        // Get the port forward info for PUBLIC_SERVICE
+        const portForwardInfo = await k8sManager.executeIntent_SetupServicePortForward('PUBLIC_SERVICE');
+
+        if (!portForwardInfo.localPort) {
+            return res.status(500).json({
+                error: 'Failed to get port forward information for public-service',
+                portForwardInfo
+            });
+        }
+
+        // Create dynamic proxy to the forwarded port
+        const targetUrl = `http://localhost:${portForwardInfo.localPort}`;
+
+        const proxy = createProxyMiddleware({
+            target: targetUrl,
+            changeOrigin: true,
+            pathRewrite: {
+                '^/public-service-proxy': '' // Remove the proxy prefix
+            },
+            onError: (err, req, res) => {
+                console.error(`Public Service Proxy Error for ${targetUrl}:`, err);
+                if (!res.headersSent) {
+                    res.status(503).json({
+                        error: 'Public service unavailable',
+                        target: targetUrl,
+                        path: req.path,
+                        message: 'Ensure port forwarding is active for public-service'
+                    });
+                }
+            },
+            onProxyReq: (proxyReq, req, res) => {
+                console.log(`[PUBLIC-SERVICE-PROXY] ${req.method} ${req.path} -> ${targetUrl}${req.path}`);
+
+                // Log headers being forwarded
+                console.log(`📋 Headers being forwarded:`);
+                Object.keys(req.headers).forEach(headerName => {
+                    console.log(`  ${headerName}: ${req.headers[headerName]}`);
+                });
+
+                // Explicitly ensure important headers are forwarded
+                if (req.headers['auth-token']) {
+                    proxyReq.setHeader('auth-token', req.headers['auth-token']);
+                }
+                if (req.headers['x-tenant-id']) {
+                    proxyReq.setHeader('x-tenant-id', req.headers['x-tenant-id']);
+                }
+                if (req.headers['authorization']) {
+                    proxyReq.setHeader('authorization', req.headers['authorization']);
+                }
+                if (req.headers['content-type']) {
+                    proxyReq.setHeader('content-type', req.headers['content-type']);
+                }
+            }
+        });
+
+        proxy(req, res, next);
+    } catch (error) {
+        console.error('Public Service Proxy Setup Error:', error);
+        res.status(500).json({
+            error: 'Failed to setup public service proxy',
+            message: error.message
+        });
+    }
+});
+
+// Endpoint to get available whitelisted paths
+app.get('/api-local/public-service/whitelist', (req, res) => {
+    res.json({
+        whitelistedPaths: PUBLIC_SERVICE_WHITELIST,
+        baseUrl: `http://localhost:${PORT}/public-service-proxy`,
+        examples: PUBLIC_SERVICE_WHITELIST.map(path => ({
+            path,
+            fullUrl: `http://localhost:${PORT}/public-service-proxy${path}`,
+            method: 'GET'
+        }))
+    });
+});
+
+// Manually trigger public service port forwarding
+app.post('/api-local/public-service/setup-port-forward', async (req, res) => {
+    try {
+        console.log('🔄 Manually setting up public service port forwarding...');
+        const portForwardInfo = await k8sManager.executeIntent_SetupServicePortForward('PUBLIC_SERVICE');
+        console.log('✅ Manual port forwarding setup successful:', portForwardInfo);
+
+        res.json({
+            success: true,
+            message: 'Public service port forwarding setup initiated',
+            portForwardInfo,
+            instructions: 'Execute the kubectl command shown above in your terminal to activate port forwarding'
+        });
+    } catch (error) {
+        console.error('❌ Manual Public Service Port Forward Error:', error);
+        res.status(500).json({
+            error: 'Failed to setup public service port forwarding',
+            message: error.message,
+            instructions: 'Check if public-service pod exists and is running in your Kubernetes cluster'
+        });
+    }
+});
+
+// === API DOCUMENTATION ===
+
+// Serve Swagger YAML specification
+app.get('/api-docs/swagger.yaml', (req, res) => {
+    const swaggerPath = path.join(__dirname, 'swagger.yaml');
+    if (fs.existsSync(swaggerPath)) {
+        res.setHeader('Content-Type', 'text/yaml');
+        res.sendFile(swaggerPath);
+    } else {
+        res.status(404).json({ error: 'Swagger specification not found' });
+    }
+});
+
+// Serve Swagger UI (basic HTML page)
+app.get('/api-docs', (req, res) => {
+    const swaggerUIHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djibouti eGov API Documentation</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@5.10.5/swagger-ui.css" />
+    <style>
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        body {
+            margin:0;
+            background: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://unpkg.com/swagger-ui-dist@5.10.5/swagger-ui-bundle.js"></script>
+    <script>
+        window.onload = function() {
+            const ui = SwaggerUIBundle({
+                url: '/api-docs/swagger.yaml',
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIBundle.presets.standalone
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "StandaloneLayout",
+                tryItOutEnabled: true,
+                requestInterceptor: function(request) {
+                    // Add any default headers here if needed
+                    return request;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+    `;
+    res.send(swaggerUIHTML);
+});
+
+// API documentation info endpoint
+app.get('/api-local/docs/info', (req, res) => {
+    res.json({
+        title: 'Djibouti eGov Visualization Proxy Server',
+        version: '1.0.0',
+        description: 'Intent-based Kubernetes management and visualization proxy server',
+        endpoints: {
+            swagger_yaml: `http://localhost:${PORT}/api-docs/swagger.yaml`,
+            swagger_ui: `http://localhost:${PORT}/api-docs`,
+            openapi_json: `http://localhost:${PORT}/api-docs/openapi.json`
+        },
+        categories: [
+            'kubernetes-health',
+            'kubernetes-intents',
+            'system-monitoring',
+            'public-service-proxy',
+            'dynamic-proxy',
+            'data-explorer'
+        ]
+    });
+});
+
+// Serve OpenAPI JSON format (converted from YAML)
+app.get('/api-docs/openapi.json', (req, res) => {
+    const swaggerPath = path.join(__dirname, 'swagger.yaml');
+    if (fs.existsSync(swaggerPath)) {
+        const yaml = require('js-yaml');
+        try {
+            const yamlContent = fs.readFileSync(swaggerPath, 'utf8');
+            const jsonContent = yaml.load(yamlContent);
+            res.json(jsonContent);
+        } catch (error) {
+            res.status(500).json({ error: 'Failed to convert YAML to JSON', details: error.message });
+        }
+    } else {
+        res.status(404).json({ error: 'Swagger specification not found' });
+    }
+});
+
 // Handle SPA routing - serve index.html for non-API, non-data routes
 app.get('*', (req, res, next) => {
     // Skip if it's an API, data, or file request
     if (req.path.startsWith('/api') ||
         req.path.startsWith('/data') ||
         req.path.startsWith('/api-local') ||
+        req.path.startsWith('/public-service-proxy') ||
         req.path.includes('.')) {
         return next();
     }
@@ -327,6 +563,11 @@ app.listen(PORT, () => {
     console.log(`🚀 Server running: http://localhost:${PORT}`);
     console.log(`📊 Dashboard: http://localhost:${PORT}/`);
     console.log(`📁 Data browser: http://localhost:${PORT}/data`);
+    console.log(`📚 API Documentation: http://localhost:${PORT}/api-docs`);
+    console.log(`   - Swagger UI: GET /api-docs`);
+    console.log(`   - OpenAPI YAML: GET /api-docs/swagger.yaml`);
+    console.log(`   - OpenAPI JSON: GET /api-docs/openapi.json`);
+    console.log(`   - Documentation info: GET /api-local/docs/info`);
     console.log(`🎯 Intent-based API: http://localhost:${PORT}/api-local/intent/`);
     console.log(`   - Available services: GET /api-local/k8s/services`);
     console.log(`   - Available intents: GET /api-local/k8s/intents`);
@@ -335,6 +576,10 @@ app.listen(PORT, () => {
     console.log(`   - Service status: GET /api-local/intent/service-status/:serviceKey`);
     console.log(`   - Service logs: GET /api-local/intent/service-logs/:serviceKey`);
     console.log(`   - Port forward: POST /api-local/intent/port-forward/:serviceKey`);
+    console.log(`🔒 Public Service Proxy: http://localhost:${PORT}/public-service-proxy/`);
+    console.log(`   - Whitelisted paths: GET /api-local/public-service/whitelist`);
+    console.log(`   - Setup port forwarding: POST /api-local/public-service/setup-port-forward`);
+    console.log(`   - Application API: GET /public-service-proxy/public-service/v1/application`);
     console.log(`📈 System checks: http://localhost:${PORT}/api-local/system/`);
     console.log(`   - Critical services: GET /api-local/system/critical-services-status`);
     console.log(`   - Database health: GET /api-local/system/database-health`);

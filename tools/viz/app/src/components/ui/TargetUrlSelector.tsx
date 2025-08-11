@@ -25,9 +25,9 @@ import { useToast } from '@/components/ui/use-toast';
 import { useAuth } from '@/lib/auth/auth';
 
 const PRESET_TARGETS = [
-  { name: 'Djibouti Production', url: 'https://djibouti.tekdinext.com' },
+  { name: 'Djibouti Development', url: 'https://djibouti.tekdinext.com' },
+  { name: 'Djibouti QA', url: 'https://djibouti-staging.tekdinext.com' },
   { name: 'Local Development', url: 'http://localhost:8080' },
-  { name: 'Staging Environment', url: 'https://djibouti-staging.tekdinext.com/' },
 ];
 
 export function TargetUrlSelector() {
