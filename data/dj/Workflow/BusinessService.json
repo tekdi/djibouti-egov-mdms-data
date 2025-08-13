@@ -4144,6 +4144,14 @@
               "nextState": "PERMIT_REJECTED",
               "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_COMMISSIONER",
+              "action": "SEND_TO_SUB_DIRECTOR",
+              "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
             }
           ]
         },
