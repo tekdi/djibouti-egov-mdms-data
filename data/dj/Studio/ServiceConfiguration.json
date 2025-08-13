@@ -7157,6 +7157,16 @@
                 "placeholder": "ENTER_SITE_LOCATION"
               },
               {
+                "name": "region",
+                "label": "Region",
+                "type": "string",
+                "reference": "mdms",
+                "format": "radioordropdown",
+                "required": true,
+                "schema": "BPA.Region",
+                "placeholder": "SELECT_REGION"
+              },
+              {
                 "name": "plotArea",
                 "type": "number",
                 "label": "Plot Area",
@@ -7173,7 +7183,7 @@
                 "type": "string",
                 "label": "Legal current status",
                 "format": "text",
-                "required": false,
+                "required": true,
                 "validation": {
                   "min": 0,
                   "message": "LEGAL_STATUS_ERR"
@@ -7181,12 +7191,21 @@
                 "placeholder": "ENTER_LEGAL_STATUS"
               },
               {
+                "name": "registrationCertificate",
+                "type": "string",
+                "label": "Registration certificate",
+                "format": "radio",
+                "values": ["Yes", "No"],
+                "required": true,
+                "reference": "enum"
+              },
+              {
                 "name": "definitiveLandTitle",
                 "type": "string",
                 "label": "Definitive Land Title (TF)",
                 "format": "radio",
                 "values": ["Yes", "No"],
-                "required": false,
+                "required": true,
                 "reference": "enum"
               },
               {
@@ -7197,15 +7216,6 @@
                 "required": false,
                 "maxLength": 20,
                 "placeholder": "ENTER_INDICATE_TF_NO"
-              },
-              {
-                "name": "registrationCertificate",
-                "type": "string",
-                "label": "Registration certificate",
-                "format": "radio",
-                "values": ["Yes", "No"],
-                "required": false,
-                "reference": "enum"
               },
               {
                 "name": "other",
