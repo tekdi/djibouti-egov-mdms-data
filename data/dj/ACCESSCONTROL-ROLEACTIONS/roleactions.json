@@ -1263,6 +1263,12 @@
       "actioncode": ""
     },
     {
+      "actionid": 10036,
+      "rolecode": "BPA_SDECC_COMM",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 10033,
       "rolecode": "BPA_SDECC_COMM",
       "tenantId": "dj",
@@ -1323,6 +1329,12 @@
       "actioncode": ""
     },
     {
+      "actionid": 10036,
+      "rolecode": "BPA_DGDCF_COMM",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 5586,
       "rolecode": "BPA_DGDCF_COMM",
       "tenantId": "dj",
@@ -1443,6 +1455,12 @@
       "actioncode": ""
     },
     {
+      "actionid": 10036,
+      "rolecode": "BPA_DNPC_COMM",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
       "actionid": 10033,
       "rolecode": "BPA_DNPC_COMM",
       "tenantId": "dj",
@@ -1499,6 +1517,12 @@
     {
       "actionid": 1829,
       "rolecode": "BPA_DNPC_COMM",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10036,
+      "rolecode": "BPA_EDD_COMM",
       "tenantId": "dj",
       "actioncode": ""
     },
@@ -1937,6 +1961,12 @@
     {
       "actionid": 10036,
       "rolecode": "STUDIO_ADMIN",
+      "tenantId": "dj",
+      "actioncode": ""
+    },
+    {
+      "actionid": 10036,
+      "rolecode": "BPA_PL_COMM",
       "tenantId": "dj",
       "actioncode": ""
     },
