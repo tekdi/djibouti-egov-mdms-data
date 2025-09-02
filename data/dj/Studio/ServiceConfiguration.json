@@ -977,6 +977,14 @@
                 "nextState": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
                 "roles": ["BPA_HOD", "STUDIO_ADMIN"],
                 "active": true
+              },
+              {
+                "tenantId": "dj",
+                "currentState": "AWAITING_ON_SRA_HOD_REVIEW",
+                "action": "SEND_BACK_TO_ARCHITECT",
+                "nextState": "PENDING_ACTION_BY_ARCHITECT",
+                "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+                "active": true
               }
             ]
           },
