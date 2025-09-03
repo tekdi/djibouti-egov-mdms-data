@@ -2345,7 +2345,7 @@
       ]
     },
     {
-      "tenanId": "dj",
+      "tenantId": "dj",
       "business": "public-services",
       "businessService": "BPA_PL",
       "states": [
@@ -2395,6 +2395,72 @@
               "currentState": "INITIATED",
               "nextState": "AGENT_NOT_ASSIGNED",
               "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
+              "tenantId": "dj"
+            }
+          ]
+        },
+        {
+          "tenantId": "dj",
+          "state": "UNDER_REVIEW_BY_DIRECTOR",
+          "applicationStatus": "UNDER_REVIEW_BY_DIRECTOR",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isStateUpdatable": false,
+          "isTerminateState": false,
+          "sla": null,
+          "triggerParallelWorkflows": [],
+          "actions": [
+            {
+              "active": true,
+              "currentState": "UNDER_REVIEW_BY_DIRECTOR",
+              "action": "SEND_TO_SUB_DIRECTOR",
+              "nextState": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "tenantId": "dj"
+            },
+            {
+              "action": "ADD_QUERY",
+              "active": true,
+              "currentState": "UNDER_REVIEW_BY_DIRECTOR",
+              "nextState": "UNDER_REVIEW_BY_DIRECTOR",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "tenantId": "dj"
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "UNDER_REVIEW_BY_DIRECTOR",
+              "action": "SEND_BACK_TO_SOURCE",
+              "nextState": "PENDING_ACTION_BY_SOURCE",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "dj",
+          "state": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+          "applicationStatus": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isStateUpdatable": false,
+          "isTerminateState": false,
+          "sla": null,
+          "triggerParallelWorkflows": [],
+          "actions": [
+            {
+              "active": true,
+              "currentState": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+              "action": "SEND_TO_HOD",
+              "nextState": "AGENT_NOT_ASSIGNED",
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+              "tenantId": "dj"
+            },
+            {
+              "action": "ADD_QUERY",
+              "active": true,
+              "currentState": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+              "nextState": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
             }
           ]
@@ -2451,8 +2517,8 @@
               "action": "EDIT",
               "active": true,
               "currentState": "PENDING_ACTION_BY_SOURCE",
-              "nextState": "AGENT_NOT_ASSIGNED",
-              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+              "nextState": "UNDER_REVIEW_BY_DIRECTOR",
+              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "tenantId": "dj"
             },
             {
@@ -2460,7 +2526,7 @@
               "active": true,
               "currentState": "PENDING_ACTION_BY_SOURCE",
               "nextState": "APPLICATION_CANCEL",
-              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN"],
+              "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "tenantId": "dj"
             }
           ]
@@ -2491,14 +2557,6 @@
               "nextState": "PENDING_ACTION_BY_AGENT",
               "roles": ["BPA_HOD", "BPA_AGENTS", "STUDIO_ADMIN"],
               "tenantId": "dj"
-            },
-            {
-              "tenantId": "dj",
-              "currentState": "PENDING_ACTION_BY_AGENT",
-              "action": "SEND_BACK_TO_SOURCE",
-              "nextState": "PENDING_ACTION_BY_SOURCE",
-              "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
-              "active": true
             }
           ]
         },
@@ -2655,12 +2713,12 @@
               "tenantId": "dj"
             },
             {
-              "action": "SEND_TO_CITIZEN_PAYMENT",
-              "active": true,
+              "tenantId": "dj",
               "currentState": "AWAITING_ON_COMMISSIONER",
-              "nextState": "AWAITING_CITIZEN_PAYMENT",
+              "action": "SEND_TO_SUB_DIRECTOR",
+              "nextState": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
               "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
-              "tenantId": "dj"
+              "active": true
             },
             {
               "action": "REJECT",
@@ -2669,6 +2727,161 @@
               "nextState": "PERMIT_REJECTED",
               "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "tenantId": "dj"
+            }
+          ]
+        },
+        {
+          "tenantId": "dj",
+          "sla": null,
+          "state": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
+          "applicationStatus": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": false,
+          "triggerParallelWorkflows": [],
+          "actions": [
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
+              "action": "ADD_QUERY",
+              "nextState": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
+              "action": "SEND_TO_HOD",
+              "nextState": "AWAITING_ON_SRA_HOD_REVIEW",
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
+              "action": "SEND_TO_DIRECTOR",
+              "nextState": "AWAITING_ON_DIRECTOR_REVIEW",
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "dj",
+          "sla": null,
+          "state": "AWAITING_ON_SRA_HOD_REVIEW",
+          "applicationStatus": "AWAITING_ON_SRA_HOD_REVIEW",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": false,
+          "triggerParallelWorkflows": [],
+          "actions": [
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_SRA_HOD_REVIEW",
+              "action": "ADD_QUERY",
+              "nextState": "AWAITING_ON_SRA_HOD_REVIEW",
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_SRA_HOD_REVIEW",
+              "action": "ASSIGN_TO_AGENT",
+              "nextState": "AWAITING_ON_CALCULATION_FEE_BY_SRA_AGENT",
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_SRA_HOD_REVIEW",
+              "action": "SEND_TO_SUB_DIRECTOR",
+              "nextState": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_SRA_HOD_REVIEW",
+              "action": "SEND_BACK_TO_SOURCE",
+              "nextState": "PENDING_ACTION_BY_SOURCE",
+              "roles": ["BPA_HOD", "STUDIO_ADMIN"],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "dj",
+          "sla": null,
+          "state": "AWAITING_ON_CALCULATION_FEE_BY_SRA_AGENT",
+          "applicationStatus": "AWAITING_ON_CALCULATION_FEE_BY_SRA_AGENT",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": false,
+          "triggerParallelWorkflows": [],
+          "actions": [
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_CALCULATION_FEE_BY_SRA_AGENT",
+              "action": "ADD_QUERY",
+              "nextState": "AWAITING_ON_CALCULATION_FEE_BY_SRA_AGENT",
+              "roles": ["BPA_HOD", "BPA_AGENTS", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_CALCULATION_FEE_BY_SRA_AGENT",
+              "action": "SEND_TO_HOD",
+              "nextState": "AWAITING_ON_SRA_HOD_REVIEW",
+              "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "dj",
+          "sla": null,
+          "state": "AWAITING_ON_DIRECTOR_REVIEW",
+          "applicationStatus": "AWAITING_ON_DIRECTOR_REVIEW",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": false,
+          "actions": [
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_DIRECTOR_REVIEW",
+              "action": "REJECT",
+              "nextState": "PERMIT_REJECTED",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_DIRECTOR_REVIEW",
+              "action": "ADD_QUERY",
+              "nextState": "AWAITING_ON_DIRECTOR_REVIEW",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_DIRECTOR_REVIEW",
+              "action": "SEND_TO_CITIZEN_PAYMENT",
+              "nextState": "AWAITING_CITIZEN_PAYMENT",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_ON_DIRECTOR_REVIEW",
+              "action": "SEND_TO_SUB_DIRECTOR",
+              "nextState": "AWAITING_ON_SUB_DIRECTOR_REVIEW",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
             }
           ]
         },
@@ -2757,8 +2970,7 @@
           "tenantId": "dj",
           "triggerParallelWorkflows": []
         }
-      ],
-      "tenantId": "dj"
+      ]
     },
     {
       "tenantId": "dj",
