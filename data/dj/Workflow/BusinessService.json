@@ -2488,7 +2488,7 @@
               "action": "CREATE",
               "active": true,
               "currentState": "INITIATED",
-              "nextState": "AGENT_NOT_ASSIGNED",
+              "nextState": "UNDER_REVIEW_BY_DIRECTOR",
               "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "tenantId": "dj"
             },
@@ -2496,7 +2496,7 @@
               "action": "EDIT",
               "active": true,
               "currentState": "INITIATED",
-              "nextState": "AGENT_NOT_ASSIGNED",
+              "nextState": "UNDER_REVIEW_BY_DIRECTOR",
               "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "tenantId": "dj"
             }
