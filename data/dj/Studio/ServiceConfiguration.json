@@ -4291,7 +4291,7 @@
                 "tenantId": "dj",
                 "currentState": "PENDING_ACTION_BY_SOURCE",
                 "action": "EDIT",
-                "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+                "nextState": "PENDING_REVIEW_BY_DGDCF",
                 "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
                 "active": true
               },
