@@ -1349,7 +1349,7 @@
       },
       "calculator": {
         "type": "api",
-        "host": "https://djibouti.tekdinext.com",
+        "host": "https://djibouti-staging.tekdinext.com",
         "method": "post",
         "endpoint": "/calculator-service/v1/BPA_PCO/demand"
       },
@@ -2740,7 +2740,7 @@
       },
       "calculator": {
         "type": "api",
-        "host": "https://djibouti.tekdinext.com",
+        "host": "https://djibouti-staging.tekdinext.com",
         "method": "post",
         "endpoint": "/calculator-service/v1/BPA_PCO/demand"
       },
@@ -3920,7 +3920,7 @@
         }
       ],
       "calculator": {
-        "host": "https://djibouti.tekdinext.com",
+        "host": "https://djibouti-staging.tekdinext.com",
         "type": "api",
         "method": "post",
         "endpoint": "/calculator-service/v1/BPA_PCO/demand"
@@ -4871,7 +4871,7 @@
       },
       "calculator": {
         "type": "api",
-        "host": "https://djibouti.tekdinext.com",
+        "host": "https://djibouti-staging.tekdinext.com",
         "method": "post",
         "endpoint": "/calculator-service/v1/BPA_PCO/demand"
       },
@@ -5653,7 +5653,7 @@
       },
       "calculator": {
         "type": "api",
-        "host": "https://djibouti.tekdinext.com",
+        "host": "https://djibouti-staging.tekdinext.com",
         "method": "post",
         "endpoint": "/calculator-service/v1/BPA_PCO/demand"
       },
@@ -6836,7 +6836,7 @@
       },
       "calculator": {
         "type": "api",
-        "host": "https://djibouti.tekdinext.com",
+        "host": "https://djibouti-staging.tekdinext.com",
         "method": "post",
         "endpoint": "/calculator-service/v1/BPA_PCO/demand"
       },
@@ -7670,7 +7670,7 @@
       },
       "calculator": {
         "type": "api",
-        "host": "https://djibouti.tekdinext.com",
+        "host": "https://djibouti-staging.tekdinext.com",
         "method": "post",
         "endpoint": "/calculator-service/v1/BPA_PCO/demand"
       },
@@ -8573,7 +8573,7 @@
         }
       ],
       "calculator": {
-        "host": "https://djibouti.tekdinext.com",
+        "host": "https://djibouti-staging.tekdinext.com",
         "type": "api",
         "method": "post",
         "endpoint": "/calculator-service/v1/BPA_PCO/demand"
