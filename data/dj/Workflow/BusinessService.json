@@ -4638,7 +4638,7 @@
               "tenantId": "dj",
               "currentState": "INITIATED",
               "action": "CREATE",
-              "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+              "nextState": "UNDER_REVIEW_BY_DIRECTOR",
               "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "active": true
             },
@@ -4646,9 +4646,75 @@
               "tenantId": "dj",
               "currentState": "INITIATED",
               "action": "EDIT",
-              "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+              "nextState": "UNDER_REVIEW_BY_DIRECTOR",
               "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "dj",
+          "state": "UNDER_REVIEW_BY_DIRECTOR",
+          "applicationStatus": "UNDER_REVIEW_BY_DIRECTOR",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isStateUpdatable": false,
+          "isTerminateState": false,
+          "sla": null,
+          "triggerParallelWorkflows": [],
+          "actions": [
+            {
+              "active": true,
+              "currentState": "UNDER_REVIEW_BY_DIRECTOR",
+              "action": "SEND_TO_SUB_DIRECTOR",
+              "nextState": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "tenantId": "dj"
+            },
+            {
+              "action": "ADD_QUERY",
+              "active": true,
+              "currentState": "UNDER_REVIEW_BY_DIRECTOR",
+              "nextState": "UNDER_REVIEW_BY_DIRECTOR",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "tenantId": "dj"
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "UNDER_REVIEW_BY_DIRECTOR",
+              "action": "SEND_BACK_TO_SOURCE",
+              "nextState": "PENDING_ACTION_BY_SOURCE",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
+              "active": true
+            }
+          ]
+        },
+        {
+          "tenantId": "dj",
+          "state": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+          "applicationStatus": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isStateUpdatable": false,
+          "isTerminateState": false,
+          "sla": null,
+          "triggerParallelWorkflows": [],
+          "actions": [
+            {
+              "active": true,
+              "currentState": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+              "action": "SEND_TO_HOD",
+              "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+              "tenantId": "dj"
+            },
+            {
+              "action": "ADD_QUERY",
+              "active": true,
+              "currentState": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+              "nextState": "UNDER_REVIEW_BY_SUB_DIRECTOR",
+              "roles": ["BPA_SRA_SUB_DIRECTOR", "STUDIO_ADMIN"],
+              "tenantId": "dj"
             }
           ]
         },
@@ -4704,7 +4770,7 @@
               "tenantId": "dj",
               "currentState": "PENDING_ACTION_BY_SOURCE",
               "action": "EDIT",
-              "nextState": "PENDING_REVIEW_BY_SRA_HOD",
+              "nextState": "UNDER_REVIEW_BY_DIRECTOR",
               "roles": ["BPA_ARCHITECT", "STUDIO_ADMIN", "CITIZEN"],
               "active": true
             },
@@ -4754,14 +4820,6 @@
               "action": "ADD_QUERY",
               "nextState": "PENDING_REVIEW_BY_SRA_AGENT",
               "roles": ["BPA_HOD", "BPA_AGENTS", "STUDIO_ADMIN"],
-              "active": true
-            },
-            {
-              "tenantId": "dj",
-              "currentState": "PENDING_REVIEW_BY_SRA_AGENT",
-              "action": "SEND_BACK_TO_SOURCE",
-              "nextState": "PENDING_ACTION_BY_SOURCE",
-              "roles": ["BPA_AGENTS", "STUDIO_ADMIN"],
               "active": true
             }
           ]
@@ -4918,6 +4976,14 @@
               "action": "MAKE_PAYMENT",
               "nextState": "CITIZEN_PAYMENT_DONE",
               "roles": ["CITIZEN", "COUNTER_EMPLOYEE", "STUDIO_ADMIN"],
+              "active": true
+            },
+            {
+              "tenantId": "dj",
+              "currentState": "AWAITING_CITIZEN_PAYMENT",
+              "action": "SEND_TO_SUB_DIRECTOR",
+              "nextState": "PENDING_REVIEW_BY_SUB_DIRECTOR",
+              "roles": ["BPA_DIRECTOR", "STUDIO_ADMIN"],
               "active": true
             }
           ]
