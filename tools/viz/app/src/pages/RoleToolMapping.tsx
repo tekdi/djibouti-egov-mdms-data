@@ -53,7 +53,6 @@ import {
 } from "lucide-react";
 import { defaultRoleToolMappingData } from "@/data/roleToolMapping";
 import { fetchAllRoles, saveRoleToolMapping, loadRoleToolMapping } from "@/lib/api/roleToolMappingApi";
-import type { RoleMappingData } from "@/lib/api/roleToolMappingApi";
 
 interface Tool {
   id: string;

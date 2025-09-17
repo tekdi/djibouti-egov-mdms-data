@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GitBranch, Users, Languages, Database } from "lucide-react";
 import { Link, Navigate } from "react-router-dom";
 import { useRoleAccess } from "@/lib/hooks/useRoleAccess";
-import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 
 const tools = [

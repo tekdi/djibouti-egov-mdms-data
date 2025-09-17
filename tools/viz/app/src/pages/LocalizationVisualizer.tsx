@@ -11,9 +11,10 @@ import {
   getFacetedUniqueValues,
   getPaginationRowModel,
 } from "@tanstack/react-table";
-import { Globe, ChevronDown, PlusCircle } from "lucide-react";
+import { Globe, ChevronDown, PlusCircle, Info } from "lucide-react";
 import { useLocalizationApi } from "@/lib/api/localization";
 import { useRefresh } from "@/lib/contexts/RefreshContext";
+import { useAuth } from "@/lib/auth/auth";
 import type {
   LocalizationString,
   SupportedLanguage,
@@ -41,6 +42,15 @@ export default function LocalizationVisualizer() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isAddStringDialogOpen, setIsAddStringDialogOpen] = useState(false);
+  
+  const { user } = useAuth();
+  
+  // Check if user is Studio Admin
+  const isStudioAdmin = Boolean(
+    user?.roles?.some(
+      (role) => role?.name === "Studio Admin" || role?.code === "STUDIO_ADMIN"
+    )
+  );
 
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -338,11 +348,19 @@ export default function LocalizationVisualizer() {
 
   return (
     <div className="h-full flex flex-col p-4 space-y-3">
-      <div className="flex items-center space-x-2">
-        <Globe className="h-6 w-6 text-blue-600" />
-        <h1 className="text-2xl font-semibold text-slate-900">
-          Localization Visualizer
-        </h1>
+      <div className="space-y-2">
+        <div className="flex items-center space-x-2">
+          <Globe className="h-6 w-6 text-blue-600" />
+          <h1 className="text-2xl font-semibold text-slate-900">
+            Localization Visualizer
+          </h1>
+        </div>
+        {!isStudioAdmin && (
+          <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/30 p-2 rounded-md">
+            <Info className="h-4 w-4" />
+            <span>View-only access. Studio Admin role required for editing.</span>
+          </div>
+        )}
       </div>
 
       <Tabs
@@ -407,12 +425,14 @@ export default function LocalizationVisualizer() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button
-              onClick={() => setIsAddStringDialogOpen(true)}
-              className="ml-2 h-8"
-            >
-              <PlusCircle className="mr-2 h-4 w-4" /> Add String
-            </Button>
+            {isStudioAdmin && (
+              <Button
+                onClick={() => setIsAddStringDialogOpen(true)}
+                className="ml-2 h-8"
+              >
+                <PlusCircle className="mr-2 h-4 w-4" /> Add String
+              </Button>
+            )}
           </div>
           <div className="rounded-md border flex-1 flex flex-col min-h-0 text-sm">
             <div className="flex-1 overflow-auto">
