@@ -35,7 +35,7 @@ import {
 import { DataTablePagination } from "@/components/DataTablePagination";
 import { DataTableFacetedFilter } from "@/components/DataTableFacetedFilter";
 
-export function LocalizationVisualizer() {
+export default function LocalizationVisualizer() {
   const [data, setData] = useState<LocalizationString[]>([]);
   const [modules, setModules] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);

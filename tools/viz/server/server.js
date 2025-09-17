@@ -22,7 +22,7 @@ try {
 
 const app = express();
 const PORT = process.env.PORT || 8001;
-const DEFAULT_TARGET = 'https://djibouti.tekdinext.com';
+const DEFAULT_TARGET = process.env.PROXY_TARGET || 'https://djibouti.tekdinext.com';
 
 // Parse JSON bodies
 // app.use(express.json());
@@ -99,6 +99,51 @@ if (fs.existsSync(dataPath)) {
 
 // Parse JSON bodies only for local API routes (not proxy routes)
 app.use('/api-local', express.json());
+
+// === ROLE-TOOL MAPPING ENDPOINTS ===
+
+const roleToolMappingPath = path.join(__dirname, '../app/src/data/role-tool-mapping.json');
+
+// Get role-tool mapping configuration
+app.get('/api-local/role-tool-mapping', (req, res) => {
+    try {
+        if (fs.existsSync(roleToolMappingPath)) {
+            const data = fs.readFileSync(roleToolMappingPath, 'utf8');
+            res.json(JSON.parse(data));
+        } else {
+            res.status(404).json({ error: 'Role-tool mapping configuration not found' });
+        }
+    } catch (error) {
+        console.error('Error reading role-tool mapping:', error);
+        res.status(500).json({ error: 'Failed to read role-tool mapping configuration' });
+    }
+});
+
+// Save role-tool mapping configuration
+app.post('/api-local/role-tool-mapping', (req, res) => {
+    try {
+        const data = req.body;
+        
+        // Validate the data structure
+        if (!data.mappings || !data.tools) {
+            return res.status(400).json({ error: 'Invalid data structure. Must have mappings and tools.' });
+        }
+        
+        // Write the updated configuration
+        fs.writeFileSync(roleToolMappingPath, JSON.stringify(data, null, 2), 'utf8');
+        
+        res.json({ 
+            success: true, 
+            message: 'Role-tool mapping configuration saved successfully',
+            path: roleToolMappingPath
+        });
+        
+        console.log('✅ Role-tool mapping configuration updated at:', roleToolMappingPath);
+    } catch (error) {
+        console.error('Error saving role-tool mapping:', error);
+        res.status(500).json({ error: 'Failed to save role-tool mapping configuration' });
+    }
+});
 
 // Helper function to check k8s availability
 const requireK8s = (req, res, next) => {

@@ -10,6 +10,7 @@ import {
   Languages,
   Database,
   ClipboardList,
+  Shield,
   Menu,
   PanelLeft,
   PanelLeftClose,
@@ -20,18 +21,21 @@ import { useAuth } from "@/lib/auth/auth";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { useRefresh } from "@/lib/contexts/RefreshContext";
 import { getCurrentTargetUrl } from "@/lib/api/apiClient";
+import { useRoleAccess } from "@/lib/hooks/useRoleAccess";
+import { DebugInfo } from "@/components/DebugInfo";
 
-const navigationItems = [
-  { icon: BarChart3, label: "Dashboard", path: "/dashboard" },
-  { icon: GitBranch, label: "Workflow Visualizer", path: "/workflow" },
-  { icon: Users, label: "Role Action Visualizer", path: "/role-action" },
-  { icon: UserCheck, label: "Employee Management", path: "/employees" },
-  { icon: Languages, label: "Localization Visualizer", path: "/localization" },
-  { icon: Database, label: "Data Explorer", path: "/data-explorer" },
+const allNavigationItems = [
+  { icon: BarChart3, label: "Dashboard", path: "/dashboard", toolId: "dashboard" },
+  { icon: GitBranch, label: "Workflow Visualizer", path: "/workflow", toolId: "workflow" },
+  { icon: Users, label: "Role Action Visualizer", path: "/role-action", toolId: "role-action" },
+  { icon: Shield, label: "Role Tool Mapping", path: "/role-tool-mapping", toolId: "role-tool-mapping" },
+  { icon: UserCheck, label: "Employee Management", path: "/employees", toolId: "employees" },
+  { icon: Languages, label: "Localization Visualizer", path: "/localization", toolId: "localization" },
   {
     icon: ClipboardList,
     label: "Application Visualizer",
     path: "/applications",
+    toolId: "applications",
   },
 ];
 
@@ -43,8 +47,15 @@ export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const { user, logout } = useAuth();
   const { triggerRefresh, isRefreshing } = useRefresh();
+  const { hasAccess, isLoading: isAccessLoading } = useRoleAccess();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [currentTarget, setCurrentTarget] = useState<string>("");
+  
+  // Filter navigation items based on user's role access
+  // Show all items while loading to prevent flashing
+  const navigationItems = isAccessLoading 
+    ? allNavigationItems 
+    : allNavigationItems.filter(item => hasAccess(item.toolId));
 
   // Update current target URL on component mount and when it changes
   useEffect(() => {
@@ -279,6 +290,9 @@ export default function Layout({ children }: LayoutProps) {
         {/* Main Content Area */}
         <main className="flex-1 overflow-hidden">{children}</main>
       </div>
+      
+      {/* Debug Info Component */}
+      {process.env.NODE_ENV === 'development' && <DebugInfo />}
     </div>
   );
 }

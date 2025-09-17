@@ -74,7 +74,7 @@ function handle401Response(response: Response) {
  */
 function getTargetUrl(): string {
   return (
-    localStorage.getItem("viz_target_url") || "https://djibouti.tekdinext.com"
+    localStorage.getItem("viz_target_url") || "https://djibouti-staging.tekdinext.com"
   );
 }
 

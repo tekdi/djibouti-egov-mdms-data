@@ -44,11 +44,11 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         "/api": {
-          target: "http://localhost:8001",
+          target: "http://localhost:9001",
           changeOrigin: true,
         },
         "/data": {
-          target: "http://localhost:8001",
+          target: "http://localhost:9001",
           changeOrigin: true,
         },
       },

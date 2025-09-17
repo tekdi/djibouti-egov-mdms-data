@@ -75,6 +75,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const accessToken = data.access_token;
     const userInfo = data.UserRequest;
 
+    // Debug logging
+    console.group('🔐 LOGIN DEBUG INFO');
+    console.log('Full response data:', data);
+    console.log('UserRequest object:', userInfo);
+    console.log('User roles:', userInfo?.roles);
+    console.log('User role type:', typeof userInfo?.roles);
+    console.log('First role:', userInfo?.roles?.[0]);
+    console.log('Access token:', accessToken ? 'EXISTS' : 'MISSING');
+    console.groupEnd();
+
     // Store in state
     setToken(accessToken);
     setUser(userInfo);

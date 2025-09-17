@@ -1,19 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, RefreshCw, ExternalLink, AlertCircle, CheckCircle, Clock } from 'lucide-react';
-import { 
-  fetchApplications, 
+import React, { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+  Loader2,
+  RefreshCw,
+  ExternalLink,
+  AlertCircle,
+  CheckCircle,
+  Clock,
+} from "lucide-react";
+import {
+  fetchApplications,
   setupPublicServicePortForward,
   getPublicServiceWhitelist,
   type Application,
-  type ApplicationResponse 
-} from '@/lib/api/applicationApi';
-import { useRefresh } from '@/lib/contexts/RefreshContext';
-import { toast } from '@/components/ui/use-toast';
+  type ApplicationResponse,
+} from "@/lib/api/applicationApi";
+import { useRefresh } from "@/lib/contexts/RefreshContext";
+import { toast } from "@/components/ui/use-toast";
 
 interface ApplicationVisualizerState {
   applications: Application[];
@@ -24,7 +44,7 @@ interface ApplicationVisualizerState {
   isSettingUpProxy: boolean;
 }
 
-export function ApplicationVisualizer() {
+export default function ApplicationVisualizer() {
   const { triggerRefresh, isRefreshing } = useRefresh();
   const [state, setState] = useState<ApplicationVisualizerState>({
     applications: [],
@@ -37,58 +57,58 @@ export function ApplicationVisualizer() {
 
   // Format timestamp for display
   const formatTimestamp = (timestamp: number): string => {
-    if (!timestamp || timestamp === 0) return 'N/A';
-    return new Date(timestamp).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+    if (!timestamp || timestamp === 0) return "N/A";
+    return new Date(timestamp).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     });
   };
 
   // Get status badge variant
   const getStatusBadgeVariant = (status: string) => {
     switch (status?.toLowerCase()) {
-      case 'active':
-        return 'default';
-      case 'inactive':
-        return 'secondary';
-      case 'pending':
-        return 'outline';
+      case "active":
+        return "default";
+      case "inactive":
+        return "secondary";
+      case "pending":
+        return "outline";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
   // Get workflow status badge variant
   const getWorkflowStatusBadgeVariant = (status: string) => {
     switch (status?.toLowerCase()) {
-      case 'applied':
-        return 'outline';
-      case 'awaiting_citizen_payment':
-        return 'secondary';
-      case 'approved':
-        return 'default';
-      case 'rejected':
-        return 'destructive';
+      case "applied":
+        return "outline";
+      case "awaiting_citizen_payment":
+        return "secondary";
+      case "approved":
+        return "default";
+      case "rejected":
+        return "destructive";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
   // Setup port forwarding for public service
   const setupPortForwarding = async () => {
-    setState(prev => ({ ...prev, isSettingUpProxy: true, error: null }));
-    
+    setState((prev) => ({ ...prev, isSettingUpProxy: true, error: null }));
+
     try {
-      console.log('🔄 Setting up port forwarding for public-service...');
+      console.log("🔄 Setting up port forwarding for public-service...");
       const portInfo = await setupPublicServicePortForward();
-      
-      setState(prev => ({ 
-        ...prev, 
+
+      setState((prev) => ({
+        ...prev,
         portForwardInfo: portInfo,
-        isSettingUpProxy: false 
+        isSettingUpProxy: false,
       }));
 
       toast({
@@ -96,13 +116,15 @@ export function ApplicationVisualizer() {
         description: `Public service available on port ${portInfo.localPort}`,
       });
 
-      console.log('✅ Port forwarding setup complete:', portInfo);
+      console.log("✅ Port forwarding setup complete:", portInfo);
     } catch (error) {
-      console.error('❌ Failed to setup port forwarding:', error);
-      setState(prev => ({ 
-        ...prev, 
-        error: `Failed to setup port forwarding: ${error instanceof Error ? error.message : 'Unknown error'}`,
-        isSettingUpProxy: false 
+      console.error("❌ Failed to setup port forwarding:", error);
+      setState((prev) => ({
+        ...prev,
+        error: `Failed to setup port forwarding: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`,
+        isSettingUpProxy: false,
       }));
 
       toast({
@@ -117,25 +139,25 @@ export function ApplicationVisualizer() {
   const fetchWhitelist = async () => {
     try {
       const whitelistInfo = await getPublicServiceWhitelist();
-      setState(prev => ({ ...prev, whitelist: whitelistInfo }));
-      console.log('📋 Whitelist fetched:', whitelistInfo);
+      setState((prev) => ({ ...prev, whitelist: whitelistInfo }));
+      console.log("📋 Whitelist fetched:", whitelistInfo);
     } catch (error) {
-      console.error('❌ Failed to fetch whitelist:', error);
+      console.error("❌ Failed to fetch whitelist:", error);
     }
   };
 
   // Load applications data
-  const loadApplications = async (tenantId: string = 'dj') => {
-    setState(prev => ({ ...prev, isLoading: true, error: null }));
-    
+  const loadApplications = async (tenantId: string = "dj") => {
+    setState((prev) => ({ ...prev, isLoading: true, error: null }));
+
     try {
-      console.log('📋 Loading applications...');
+      console.log("📋 Loading applications...");
       const response: ApplicationResponse = await fetchApplications(tenantId);
-      
-      setState(prev => ({ 
-        ...prev, 
+
+      setState((prev) => ({
+        ...prev,
         applications: response.Application || [],
-        isLoading: false 
+        isLoading: false,
       }));
 
       toast({
@@ -143,15 +165,16 @@ export function ApplicationVisualizer() {
         description: `Found ${response.Application?.length || 0} applications`,
       });
 
-      console.log('✅ Applications loaded:', response.Application?.length || 0);
+      console.log("✅ Applications loaded:", response.Application?.length || 0);
     } catch (error) {
-      console.error('❌ Failed to load applications:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-      
-      setState(prev => ({ 
-        ...prev, 
+      console.error("❌ Failed to load applications:", error);
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error occurred";
+
+      setState((prev) => ({
+        ...prev,
         error: `Failed to load applications: ${errorMessage}`,
-        isLoading: false 
+        isLoading: false,
       }));
 
       toast({
@@ -184,12 +207,16 @@ export function ApplicationVisualizer() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button 
-            onClick={handleRefresh} 
+          <Button
+            onClick={handleRefresh}
             disabled={isRefreshing || state.isLoading}
             variant="outline"
           >
-            <RefreshCw className={`mr-2 h-4 w-4 ${(isRefreshing || state.isLoading) ? 'animate-spin' : ''}`} />
+            <RefreshCw
+              className={`mr-2 h-4 w-4 ${
+                isRefreshing || state.isLoading ? "animate-spin" : ""
+              }`}
+            />
             Refresh
           </Button>
         </div>
@@ -209,11 +236,14 @@ export function ApplicationVisualizer() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="bg-muted p-4 rounded-md">
-              <p className="text-sm font-medium mb-2">Step 1: Setup Port Forwarding</p>
-              <p className="text-sm text-muted-foreground mb-3">
-                This will establish a secure connection to the public-service in your Kubernetes cluster.
+              <p className="text-sm font-medium mb-2">
+                Step 1: Setup Port Forwarding
               </p>
-              <Button 
+              <p className="text-sm text-muted-foreground mb-3">
+                This will establish a secure connection to the public-service in
+                your Kubernetes cluster.
+              </p>
+              <Button
                 onClick={setupPortForwarding}
                 disabled={state.isSettingUpProxy}
                 className="w-full sm:w-auto"
@@ -231,14 +261,18 @@ export function ApplicationVisualizer() {
                 )}
               </Button>
             </div>
-            
+
             {state.whitelist && (
               <div className="bg-muted p-4 rounded-md">
                 <p className="text-sm font-medium mb-2">Whitelisted APIs</p>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  {state.whitelist.whitelistedPaths?.map((path: string, index: number) => (
-                    <li key={index} className="font-mono">{path}</li>
-                  ))}
+                  {state.whitelist.whitelistedPaths?.map(
+                    (path: string, index: number) => (
+                      <li key={index} className="font-mono">
+                        {path}
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
             )}
@@ -259,11 +293,15 @@ export function ApplicationVisualizer() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <p className="text-sm font-medium">Service</p>
-                <p className="text-sm text-muted-foreground">{state.portForwardInfo.service}</p>
+                <p className="text-sm text-muted-foreground">
+                  {state.portForwardInfo.service}
+                </p>
               </div>
               <div>
                 <p className="text-sm font-medium">Local Port</p>
-                <p className="text-sm text-muted-foreground">{state.portForwardInfo.localPort}</p>
+                <p className="text-sm text-muted-foreground">
+                  {state.portForwardInfo.localPort}
+                </p>
               </div>
               <div>
                 <p className="text-sm font-medium">Status</p>
@@ -328,7 +366,7 @@ export function ApplicationVisualizer() {
                         {app.id?.substring(0, 8)}...
                       </TableCell>
                       <TableCell className="font-medium">
-                        {app.applicationNumber || 'N/A'}
+                        {app.applicationNumber || "N/A"}
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className="text-xs">
@@ -341,8 +379,12 @@ export function ApplicationVisualizer() {
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        <Badge variant={getWorkflowStatusBadgeVariant(app.workflowStatus)}>
-                          {app.workflowStatus?.replace(/_/g, ' ')}
+                        <Badge
+                          variant={getWorkflowStatusBadgeVariant(
+                            app.workflowStatus
+                          )}
+                        >
+                          {app.workflowStatus?.replace(/_/g, " ")}
                         </Badge>
                       </TableCell>
                       <TableCell>{app.channel}</TableCell>
@@ -350,10 +392,10 @@ export function ApplicationVisualizer() {
                         {formatTimestamp(app.auditDetails?.createdTime)}
                       </TableCell>
                       <TableCell>
-                        {app.serviceDetails?.identity?.[0]?.firstName && app.serviceDetails?.identity?.[0]?.lastName
+                        {app.serviceDetails?.identity?.[0]?.firstName &&
+                        app.serviceDetails?.identity?.[0]?.lastName
                           ? `${app.serviceDetails.identity[0].firstName} ${app.serviceDetails.identity[0].lastName}`
-                          : app.serviceDetails?.identity?.[0]?.name || 'N/A'
-                        }
+                          : app.serviceDetails?.identity?.[0]?.name || "N/A"}
                       </TableCell>
                     </TableRow>
                   ))}
@@ -365,17 +407,21 @@ export function ApplicationVisualizer() {
       )}
 
       {/* Empty State */}
-      {!state.isLoading && state.applications.length === 0 && state.portForwardInfo && (
-        <Card>
-          <CardContent className="flex flex-col items-center justify-center py-8">
-            <Clock className="h-12 w-12 text-muted-foreground mb-4" />
-            <h3 className="text-lg font-medium mb-2">No Applications Found</h3>
-            <p className="text-muted-foreground text-center">
-              There are no applications available for the current tenant.
-            </p>
-          </CardContent>
-        </Card>
-      )}
+      {!state.isLoading &&
+        state.applications.length === 0 &&
+        state.portForwardInfo && (
+          <Card>
+            <CardContent className="flex flex-col items-center justify-center py-8">
+              <Clock className="h-12 w-12 text-muted-foreground mb-4" />
+              <h3 className="text-lg font-medium mb-2">
+                No Applications Found
+              </h3>
+              <p className="text-muted-foreground text-center">
+                There are no applications available for the current tenant.
+              </p>
+            </CardContent>
+          </Card>
+        )}
     </div>
   );
-} 
+}
