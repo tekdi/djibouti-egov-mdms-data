@@ -968,6 +968,18 @@
       "orderNumber": 0,
       "serviceCode": "inbox",
       "parentModule": "inbox"
+    },
+    {
+      "id": 1753,
+      "url": "/user/users/_updatenovalidate",
+      "code": "null",
+      "name": "User Update No Validate",
+      "path": "Administration.User Management",
+      "enabled": true,
+      "displayName": "User Update (No Validation)",
+      "orderNumber": 1,
+      "serviceCode": "ADMIN",
+      "parentModule": "User Management"
     }
   ]
 }

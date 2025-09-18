@@ -11,6 +11,8 @@ import {
   type ColumnFiltersState,
   type VisibilityState,
 } from "@tanstack/react-table";
+import { useUserApi } from "@/lib/api/userApi";
+import { useEmployeeApi } from "@/lib/api/employeeApi";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -59,6 +61,7 @@ interface Tool {
   name: string;
   path: string;
   description: string;
+  requiredRole?: string | null;
 }
 
 interface RoleMapping {
@@ -85,6 +88,8 @@ export default function RoleToolMapping() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSyncing, setIsSyncing] = useState(false);
   const { toast } = useToast();
+  const userApi = useUserApi();
+  const employeeApi = useEmployeeApi();
 
   // Table state
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -259,8 +264,10 @@ export default function RoleToolMapping() {
     const mapping = data.mappings.find(m => m.role === role);
     const isRemoving = mapping?.tools.includes(toolId);
     
-    setData(prevData => {
-      const newMappings = prevData.mappings.map(mapping => {
+    // Update local state immediately for responsive UI
+    const updatedData = {
+      ...data,
+      mappings: data.mappings.map(mapping => {
         if (mapping.role === role) {
           const tools = mapping.tools.includes(toolId)
             ? mapping.tools.filter(t => t !== toolId)
@@ -268,31 +275,130 @@ export default function RoleToolMapping() {
           return { ...mapping, tools };
         }
         return mapping;
-      });
-      return { ...prevData, mappings: newMappings };
+      })
+    };
+    
+    setData(updatedData);
+    
+    // Show immediate toast for tool access change
+    toast({
+      title: "Tool Access Updated",
+      description: `${isRemoving ? 'Removed' : 'Added'} ${tool?.name || 'tool'} access for ${role}`,
+      duration: 2000,
     });
     
-    // Auto-save the change
+    // Auto-save the change in the background
     try {
-      const updatedData = {
-        ...data,
-        mappings: data.mappings.map(mapping => {
-          if (mapping.role === role) {
-            const tools = mapping.tools.includes(toolId)
-              ? mapping.tools.filter(t => t !== toolId)
-              : [...mapping.tools, toolId];
-            return { ...mapping, tools };
-          }
-          return mapping;
-        })
-      };
-      
-      await saveRoleToolMapping(updatedData);
-      
-      toast({
-        title: "Changes Saved",
-        description: `${isRemoving ? 'Removed' : 'Added'} ${tool?.name || 'tool'} access for ${role}`,
+      // Save to backend without waiting
+      saveRoleToolMapping(updatedData).catch(error => {
+        console.error('Background save failed:', error);
+        toast({
+          title: "⚠️ Save Failed",
+          description: "Failed to save changes. Please try again.",
+          variant: "destructive",
+          duration: 3000,
+        });
       });
+      
+      // Check if this tool requires a specific role to be assigned/removed
+      const requiredRole = tool?.requiredRole;
+      if (requiredRole && role !== 'STUDIO_ADMIN') {
+        // Wait a bit before showing the updating message to avoid overlap
+        setTimeout(() => {
+          toast({
+            title: "🔄 Updating User Permissions",
+            description: `${isRemoving ? 'Removing' : 'Adding'} ${requiredRole} role for users with ${role} role...`,
+            duration: 3000,
+          });
+        }, 500);
+        
+        try {
+          // Get all employees with this role
+          const employees = await employeeApi.searchEmployeesByRoles([role]);
+          
+          if (employees.length === 0) {
+            setTimeout(() => {
+              toast({
+                title: "ℹ️ No Users Found",
+                description: `No users found with ${role} role to update.`,
+                duration: 4000,
+              });
+            }, 1000);
+          } else {
+            // Update required role for each employee
+            const updatePromises = employees.map(async (employee) => {
+              try {
+                // Search for the user to get current details
+                const user = await userApi.searchUserByUsername(employee.userName);
+                if (!user) {
+                  console.error(`User ${employee.userName} not found`);
+                  return { userName: employee.userName, success: false };
+                }
+                
+                let updatedRoles;
+                if (isRemoving) {
+                  // Remove the required role
+                  updatedRoles = user.roles.filter(r => r.code !== requiredRole);
+                } else {
+                  // Add the required role if not present
+                  const hasRole = user.roles.some(r => r.code === requiredRole);
+                  if (!hasRole) {
+                    updatedRoles = [...user.roles, {
+                      code: requiredRole,
+                      name: requiredRole === 'LOC_ADMIN' ? 'Location Admin' : requiredRole,
+                      tenantId: user.tenantId || 'dj'
+                    }];
+                  } else {
+                    updatedRoles = user.roles;
+                  }
+                }
+                
+                // Update the user's roles
+                await userApi.updateUserRoles(user, updatedRoles);
+                return { userName: employee.userName, success: true };
+              } catch (error) {
+                console.error(`Failed to update user ${employee.userName}:`, error);
+                return { userName: employee.userName, success: false };
+              }
+            });
+            
+            const results = await Promise.all(updatePromises);
+            const successCount = results.filter(r => r.success).length;
+            const failCount = results.filter(r => !r.success).length;
+            const successfulUsers = results.filter(r => r.success).map(r => r.userName);
+            
+            if (successCount > 0) {
+              // Delay the success message to ensure it's visible
+              setTimeout(() => {
+                toast({
+                  title: "✅ User Permissions Updated",
+                  description: `Successfully ${isRemoving ? 'removed' : 'added'} ${requiredRole} role for ${successCount} user(s)${failCount > 0 ? ` (${failCount} failed)` : ''}`,
+                  duration: 6000,
+                });
+              }, 1000);
+              
+              // Log successful updates for debugging
+              console.log(`Updated users: ${successfulUsers.join(', ')}`);
+            } else if (failCount > 0) {
+              setTimeout(() => {
+                toast({
+                  title: "⚠️ Update Failed",
+                  description: `Failed to update ${failCount} user(s) with ${role} role.`,
+                  variant: "destructive",
+                  duration: 5000,
+                });
+              }, 1000);
+            }
+          }
+        } catch (error) {
+          console.error('Error updating user roles:', error);
+          toast({
+            title: "⚠️ Role Update Error",
+            description: `Could not update user permissions for ${role} role.`,
+            variant: "destructive",
+          });
+        }
+      }
     } catch (error) {
       console.error('Error auto-saving:', error);
       setHasChanges(true); // Mark as having changes if save failed

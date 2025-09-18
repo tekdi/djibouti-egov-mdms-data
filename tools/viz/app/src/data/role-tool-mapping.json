@@ -89,6 +89,126 @@
       "tools": [
         "localization"
       ]
+    },
+    {
+      "role": "LOC_ADMIN",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_SUB_DIRECTOR",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "CHAKSHU",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_SDECC_AGENT",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_SDECC_HOD",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_INSPD_COMM",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_EDD_COMM",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_ONEAD_COMM",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_DGDCF_COMM",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_SDECC_COMM",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_DIRECTOR",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_AGENTS",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_HOD",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_ARCHITECT",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "MDMS_ADMIN",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "EMPLOYEE_COMMON",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "SUPERUSER",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "HRMS_ADMIN",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "SYSTEM",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "CITIZEN",
+      "tools": [
+        "localization"
+      ]
     }
   ],
   "tools": [
@@ -96,43 +216,50 @@
       "id": "dashboard",
       "name": "Dashboard",
       "path": "/dashboard",
-      "description": "Overview and analytics dashboard"
+      "description": "Overview and analytics dashboard",
+      "requiredRole": null
     },
     {
       "id": "workflow",
       "name": "Workflow Visualizer",
       "path": "/workflow",
-      "description": "Visualize and manage business workflows"
+      "description": "Visualize and manage business workflows",
+      "requiredRole": null
     },
     {
       "id": "role-action",
       "name": "Role Action Visualizer",
       "path": "/role-action",
-      "description": "Manage role-based action permissions"
+      "description": "Manage role-based action permissions",
+      "requiredRole": null
     },
     {
       "id": "employees",
       "name": "Employee Management",
       "path": "/employees",
-      "description": "Manage employee records and assignments"
+      "description": "Manage employee records and assignments",
+      "requiredRole": null
     },
     {
       "id": "localization",
       "name": "Localization Visualizer",
       "path": "/localization",
-      "description": "Manage translations and localized content"
+      "description": "Manage translations and localized content",
+      "requiredRole": "LOC_ADMIN"
     },
     {
       "id": "applications",
       "name": "Application Visualizer",
       "path": "/applications",
-      "description": "View and manage applications"
+      "description": "View and manage applications",
+      "requiredRole": null
     },
     {
       "id": "role-tool-mapping",
       "name": "Role Tool Mapping",
       "path": "/role-tool-mapping",
-      "description": "Configure role-based tool access"
+      "description": "Configure role-based tool access",
+      "requiredRole": null
     }
   ]
 }

@@ -15,10 +15,13 @@ export const EditableCell = memo(({
   const currentValueRef = useRef(value);
   const { user } = useAuth();
   
-  // Check if user is Studio Admin
-  const isStudioAdmin = Boolean(
+  // Check if user has edit permissions (Studio Admin or LOC_ADMIN)
+  const canEdit = Boolean(
     user?.roles?.some(
-      (role) => role?.name === "Studio Admin" || role?.code === "STUDIO_ADMIN"
+      (role) => 
+        role?.name === "Studio Admin" || 
+        role?.code === "STUDIO_ADMIN" ||
+        role?.code === "LOC_ADMIN"
     )
   );
 
@@ -43,8 +46,8 @@ export const EditableCell = memo(({
     setTimer(newTimer);
   };
 
-  // If not Studio Admin, show read-only view
-  if (!isStudioAdmin) {
+  // If user cannot edit, show read-only view
+  if (!canEdit) {
     return (
       <div
         className="p-2 min-h-[40px] text-sm break-all whitespace-pre-wrap text-muted-foreground bg-muted/20 cursor-not-allowed"
