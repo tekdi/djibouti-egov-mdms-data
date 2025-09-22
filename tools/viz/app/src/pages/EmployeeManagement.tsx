@@ -7,6 +7,7 @@ import {
   useReactTable,
   type SortingState,
   type ColumnFiltersState,
+  type VisibilityState,
   getFilteredRowModel,
   getFacetedRowModel,
   getFacetedUniqueValues,
@@ -126,9 +127,7 @@ const EmployeeManagement: React.FC = () => {
   
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState({
-    roles: true, // Ensure roles column is visible by default
-  });
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 10 });
   const [globalFilter, setGlobalFilter] = useState('');
 
