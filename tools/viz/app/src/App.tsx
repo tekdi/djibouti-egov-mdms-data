@@ -7,6 +7,7 @@ import RoleActionVisualizer from "@/pages/RoleActionVisualizer";
 import CreateRoleActionMapping from "@/pages/CreateRoleActionMapping";
 import EmployeeManagement from "@/pages/EmployeeManagement";
 import CreateEmployee from "@/pages/CreateEmployee";
+import EditEmployee from "@/pages/EditEmployee";
 import LocalizationVisualizer from "@/pages/LocalizationVisualizer";
 import DataExplorer from "@/pages/DataExplorer";
 import ApplicationVisualizer from "@/pages/ApplicationVisualizer";
@@ -54,6 +55,11 @@ function App() {
               <Route path="/employees/create" element={
                 <ProtectedRoute toolId="employees">
                   <CreateEmployee />
+                </ProtectedRoute>
+              } />
+              <Route path="/employees/edit/:id" element={
+                <ProtectedRoute toolId="employees">
+                  <EditEmployee />
                 </ProtectedRoute>
               } />
               <Route path="/localization" element={

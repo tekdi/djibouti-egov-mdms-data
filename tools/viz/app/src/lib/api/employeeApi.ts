@@ -205,6 +205,39 @@ class EmployeeApiService {
   }
 
   /**
+   * Update an existing employee
+   */
+  async updateEmployee(
+    employeeData: CreateEmployee,
+    authToken: string,
+    user: User
+  ): Promise<Employee[]> {
+    const endpoint = "/egov-hrms/employees/_update";
+
+    const requestBody: CreateEmployeeRequest = {
+      RequestInfo: {
+        apiId: "asset-services",
+        ver: undefined,
+        ts: undefined,
+        action: undefined,
+        did: undefined,
+        key: undefined,
+        msgId: "update employee",
+        authToken,
+        correlationId: undefined,
+        userInfo: convertUserToEmployeeUserInfo(user),
+      },
+      Employees: [employeeData],
+    };
+
+    const response = (await this.makeApiCall(
+      endpoint,
+      requestBody as unknown as Record<string, unknown>
+    )) as CreateEmployeeResponse;
+    return response.Employees || [];
+  }
+
+  /**
    * Process raw employee data for display
    */
   processEmployeeData(employees: Employee[]): ProcessedEmployee[] {
@@ -303,12 +336,24 @@ export function useEmployeeApi() {
     [apiService, isAuthenticated, token, user]
   );
 
+  const updateEmployee = useCallback(
+    async (employeeData: CreateEmployee): Promise<Employee[]> => {
+      if (!isAuthenticated || !token || !user) {
+        throw new Error("Authentication required");
+      }
+
+      return apiService.updateEmployee(employeeData, token, user);
+    },
+    [apiService, isAuthenticated, token, user]
+  );
+
   return {
     searchEmployeesByRoles,
     searchAllEmployees,
     getEmployeeCountsByRole,
     enhanceRolesWithEmployeeCounts,
     createEmployee,
+    updateEmployee,
     isAuthenticated,
   };
 }

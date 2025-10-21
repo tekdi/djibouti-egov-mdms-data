@@ -19,7 +19,7 @@ import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowUp, ArrowDown, ChevronsUpDown, Users, PlusCircle, ChevronDown, UserPlus } from 'lucide-react';
+import { ArrowUp, ArrowDown, ChevronsUpDown, Users, PlusCircle, ChevronDown, UserPlus, Edit } from 'lucide-react';
 import {
     DropdownMenu,
     DropdownMenuCheckboxItem,
@@ -309,6 +309,20 @@ const EmployeeManagement: React.FC = () => {
         );
       },
       filterFn: "auto",
+    }),
+    columnHelper.display({
+      id: 'actions',
+      header: 'Actions',
+      cell: ({ row }) => (
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => navigate(`/employees/edit/${row.original.uuid}`)}
+          className="h-7 px-2"
+        >
+          <Edit className="h-3 w-3" />
+        </Button>
+      ),
     }),
   ];
 
