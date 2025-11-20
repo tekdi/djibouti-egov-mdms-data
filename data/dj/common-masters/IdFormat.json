@@ -15,6 +15,22 @@
       "idname": "public-service.service.id"
     },
     {
+      "format": "PCO-SMPL-[SEQ_DJ_PCO_SMPL]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.pco.smpl.applicationNum"
+    },
+    {
+      "format": "PCO-SMPL-RPT-[SEQ_DJ_PCO_SMPL_RPT]/[cy:yyyy]",
+      "idname": "bpa.pco.smpl.receipt.id"
+    },
+    {
+      "format": "PCS-[SEQ_DJ_PCS]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.pcs.applicationNum"
+    },
+    {
+      "format": "PCS-RPT-[SEQ_DJ_PCS_RPT]/[cy:yyyy]",
+      "idname": "bpa.pcs.receipt.id"
+    },
+    {
       "format": "USR-[SEQ_EG_USER_NAME]",
       "idname": "username.name"
     },
@@ -25,6 +41,46 @@
     {
       "format": "IND-[cy:yyyy-MM-dd]-[SEQ_INDIVIDUAL_ID]",
       "idname": "individual.id"
+    },
+    {
+      "format": "PD-[SEQ_DJ_PD]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.pd.applicationNum"
+    },
+    {
+      "format": "PD-RPT-[SEQ_DJ_PD_RPT]/[cy:yyyy]",
+      "idname": "bpa.pd.receipt.id"
+    },
+    {
+      "format": "PS-[SEQ_DJ_PS]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.ps.applicationNum"
+    },
+    {
+      "format": "PS-RPT-[SEQ_DJ_PS_RPT]/[cy:yyyy]",
+      "idname": "bpa.ps.receipt.id"
+    },
+    {
+      "format": "ATARR-[SEQ_DJ_ATARR]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.atarr.applicationNum"
+    },
+    {
+      "format": "ATARR-RPT-[SEQ_DJ_ATARR_RPT]/[cy:yyyy]",
+      "idname": "bpa.atarr.receipt.id"
+    },
+    {
+        "format": "PL-[SEQ_DJ_PL]/[cy:yyyy]",
+        "idname": "egov.idgen.bpa.pl.applicationNum"
+      },
+    {
+      "format": "PL-RPT-[SEQ_DJ_PL_RPT]/[cy:yyyy]",
+      "idname": "bpa.pl.receipt.id"
+    },
+    {
+      "format": "PF-[SEQ_DJ_PF]/[cy:yyyy]",
+      "idname": "egov.idgen.bpa.pf.applicationNum"
+    },
+    {
+      "format": "PF-RPT-[SEQ_DJ_PF_RPT]/[cy:yyyy]",
+      "idname": "bpa.pf.receipt.id"
     }
   ]
 }

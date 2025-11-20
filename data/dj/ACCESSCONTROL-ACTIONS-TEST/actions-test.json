@@ -223,6 +223,66 @@
       "parentModule": ""
     },
     {
+      "id": 10038,
+      "url": "/public-service/v1/application/SVC-2025-07-22-000015",
+      "code": "",
+      "name": "Create Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
+      "id": 10037,
+      "url": "/public-service/v1/application/SVC-2025-07-21-000015",
+      "code": "",
+      "name": "Create Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
+      "id": 10035,
+      "url": "/public-service/v1/application/SVC-2025-07-17-000013",
+      "code": "",
+      "name": "Create Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
+      "id": 10025,
+      "url": "/public-service/v1/application/SVC-2025-06-24-000003",
+      "code": "",
+      "name": "create Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create OC Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
+      "id": 10024,
+      "url": "/public-service/v1/application/SVC-2025-06-18-000002",
+      "code": "",
+      "name": "create OC Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create OC Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
       "id": 5584,
       "url": "/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02",
       "code": "null",
@@ -278,6 +338,18 @@
       "path": "",
       "enabled": false,
       "displayName": "update service",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
+      "id": 5586,
+      "url": "/public-service/v1/service",
+      "code": "null",
+      "name": "Get Service",
+      "path": "",
+      "enabled": false,
+      "displayName": "get service",
       "orderNumber": 1,
       "serviceCode": "public-service",
       "parentModule": ""
@@ -397,7 +469,6 @@
       "path": "9HRMS.Create",
       "leftIcon": "dynamic:HRIcon"
     },
-
     {
       "id": 21,
       "name": "Workflow search",
@@ -433,7 +504,6 @@
       "code": "null",
       "path": "Administration.Profile Update"
     },
-
     {
       "id": 26,
       "name": "Update Password",
@@ -481,7 +551,6 @@
       "code": "null",
       "path": ""
     },
-
     {
       "id": 34,
       "name": "Works Estimate Pdf",
@@ -490,6 +559,42 @@
       "orderNumber": 1,
       "enabled": false,
       "serviceCode": "egov-pdf",
+      "code": "null",
+      "path": ""
+    },
+    {
+      "id": 5544,
+      "name": "MDMS",
+      "url": "/egov-mdms-service/v2/_update/Studio.ServiceConfiguration",
+      "displayName": "Update Studio Service Configuration",
+      "orderNumber": 1,
+      "parentModule": "",
+      "enabled": true,
+      "serviceCode": "MDMS",
+      "code": "null",
+      "path": ""
+    },
+    {
+      "id": 5545,
+      "name": "MDMS",
+      "url": "/mdms-v2/v2/_update/Studio.ServiceConfiguration",
+      "displayName": "Update MDMS",
+      "orderNumber": 1,
+      "parentModule": "",
+      "enabled": true,
+      "serviceCode": "MDMS",
+      "code": "null",
+      "path": ""
+    },
+    {
+      "id": 5546,
+      "name": "MDMS",
+      "url": "/mdms-v2/v2/_update",
+      "displayName": "Update MDMS",
+      "orderNumber": 1,
+      "parentModule": "",
+      "enabled": true,
+      "serviceCode": "MDMS",
       "code": "null",
       "path": ""
     },
@@ -560,6 +665,26 @@
       "lastModifiedDate": null
     },
     {
+      "id": 1950,
+      "url": "/egov-mdms-service/v2/_create/Studio.ServiceConfiguration",
+      "name": "MDMS",
+      "path": "",
+      "enabled": true,
+      "leftIcon": "",
+      "tenantId": "dj",
+      "createdBy": null,
+      "rightIcon": "",
+      "createdDate": null,
+      "displayName": "Create service configuration",
+      "orderNumber": 1,
+      "queryParams": "",
+      "serviceCode": "MDMS",
+      "parentModule": "",
+      "navigationURL": "",
+      "lastModifiedBy": null,
+      "lastModifiedDate": null
+    },
+    {
       "id": 1948,
       "url": "/egov-mdms-service/v2/_create/ACCESSCONTROL-ROLEACTIONS.roleactions",
       "name": "MDMS",
@@ -571,6 +696,46 @@
       "rightIcon": "",
       "createdDate": null,
       "displayName": "Create ACCESSCONTROL-ROLES roles",
+      "orderNumber": 1,
+      "queryParams": "",
+      "serviceCode": "MDMS",
+      "parentModule": "",
+      "navigationURL": "",
+      "lastModifiedBy": null,
+      "lastModifiedDate": null
+    },
+    {
+      "id": 1949,
+      "url": "/egov-mdms-service/v2/_create/Studio.serviceConfiguration",
+      "name": "MDMS",
+      "path": "",
+      "enabled": true,
+      "leftIcon": "",
+      "tenantId": "dj",
+      "createdBy": null,
+      "rightIcon": "",
+      "createdDate": null,
+      "displayName": "Create service configuration",
+      "orderNumber": 1,
+      "queryParams": "",
+      "serviceCode": "MDMS",
+      "parentModule": "",
+      "navigationURL": "",
+      "lastModifiedBy": null,
+      "lastModifiedDate": null
+    },
+    {
+      "id": 2949,
+      "url": "/egov-mdms-service/v2/_create/DigitStudio.DocumentConfig",
+      "name": "MDMS",
+      "path": "",
+      "enabled": true,
+      "leftIcon": "",
+      "tenantId": "dj",
+      "createdBy": null,
+      "rightIcon": "",
+      "createdDate": null,
+      "displayName": "Create DocumentConfig",
       "orderNumber": 1,
       "queryParams": "",
       "serviceCode": "MDMS",
@@ -716,6 +881,66 @@
       "id": 1862,
       "url": "/egov-mdms-service/v2/_search",
       "name": "MDMS v2 Search",
+      "path": "",
+      "enabled": true,
+      "leftIcon": "",
+      "tenantId": "dj",
+      "createdBy": null,
+      "rightIcon": "",
+      "createdDate": null,
+      "displayName": "MDMS v2",
+      "orderNumber": 1,
+      "queryParams": "",
+      "serviceCode": "MDMS v2",
+      "parentModule": "",
+      "navigationURL": "",
+      "lastModifiedBy": null,
+      "lastModifiedDate": null
+    },
+    {
+      "id": 1861,
+      "url": "/egov-mdms-service/schema/v1/_search",
+      "name": "MDMS Schema Search",
+      "path": "",
+      "enabled": true,
+      "leftIcon": "",
+      "tenantId": "dj",
+      "createdBy": null,
+      "rightIcon": "",
+      "createdDate": null,
+      "displayName": "MDMS v2",
+      "orderNumber": 1,
+      "queryParams": "",
+      "serviceCode": "MDMS v2",
+      "parentModule": "",
+      "navigationURL": "",
+      "lastModifiedBy": null,
+      "lastModifiedDate": null
+    },
+    {
+      "id": 1859,
+      "url": "/egov-mdms-service/schema/v1/_update",
+      "name": "MDMS Schema Update",
+      "path": "",
+      "enabled": true,
+      "leftIcon": "",
+      "tenantId": "dj",
+      "createdBy": null,
+      "rightIcon": "",
+      "createdDate": null,
+      "displayName": "MDMS v2",
+      "orderNumber": 1,
+      "queryParams": "",
+      "serviceCode": "MDMS v2",
+      "parentModule": "",
+      "navigationURL": "",
+      "lastModifiedBy": null,
+      "lastModifiedDate": null
+    },
+    {
+      "id": 1858,
+      "url": "/egov-mdms-service/schema/v1/_create",
+      "name": "MDMS Schema Create",
       "path": "",
       "enabled": true,
       "leftIcon": "",
@@ -970,16 +1195,28 @@
       "parentModule": "inbox"
     },
     {
-      "id": 1753,
-      "url": "/user/users/_updatenovalidate",
-      "code": "null",
-      "name": "User Update No Validate",
-      "path": "Administration.User Management",
-      "enabled": true,
-      "displayName": "User Update (No Validation)",
+      "id": 10033,
+      "url": "/public-service/v1/application/SVC-2025-07-14-000011",
+      "code": "",
+      "name": "create OC Application",
+      "path": "",
+      "enabled": false,
+      "displayName": "Create OC Application",
       "orderNumber": 1,
-      "serviceCode": "ADMIN",
-      "parentModule": "User Management"
-    }
-  ]
+      "serviceCode": "public-service",
+      "parentModule": ""
+    },
+    {
+      "id": 10036,
+      "url": "/public-service/v1/application/SVC-2025-07-18-000014",
+      "code": "",
+      "name": "create OC Application",
+      "path": "",
+      "enabled": true,
+      "displayName": "Create OC Application",
+      "orderNumber": 1,
+      "serviceCode": "public-service",
+      "parentModule": ""
+    }  
+   ]
 }

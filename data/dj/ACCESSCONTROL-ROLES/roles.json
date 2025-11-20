@@ -73,6 +73,11 @@
       "description": "BPA DIRECTOR"
     },
     {
+      "code": "BPA_DGDCF",
+      "name": "BPA DGDFC",
+      "description": "BPA DGDCF"
+    },
+    {
       "code": "BPA_SDECC_COMM",
       "name": "BPA SDECC COMMISSIONER",
       "description": "Sub-Directorate of Construction Expertise and Control"
@@ -111,6 +116,31 @@
       "code": "BPA_SDECC_AGENT",
       "name": "BPA SDECC AGENT",
       "description": "Agent of Sub-Directorate For Expertise And Control Of Constructions"
+    },
+    {
+      "code": "BPA_SUB_DIRECTOR",
+      "name": "BPA SUB DIRECTOR",
+      "description": "BPA SUB DIRECTOR"
+    },
+    {
+      "code": "BPA_SRA_SUB_DIRECTOR",
+      "name": "BPA SRA SUB DIRECTOR",
+      "description": "BPA SRA SUB DIRECTOR"
+    },
+    {
+      "code": "BPA_SDECC_SUB_DIRECTOR",
+      "name": "BPA SDECC SUB DIRECTOR",
+      "description": "BPA SDECC SUB DIRECTOR"
+    },
+    {
+      "code": "BPA_CAD_DGDCF_SUB_DIRECTOR",
+      "name": "BPA CAD DGDCF SUB DIRECTOR",
+      "description": "BPA CAD DGDCF SUB DIRECTOR"
+    },
+    {
+      "code": "BPA_PL_COMM",
+      "name": "BPA PL COMMISSIONER",
+      "description": "Djiboutian Roads Agency commissioner"
     }
   ]
 }

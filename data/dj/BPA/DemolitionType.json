@@ -1,0 +1,21 @@
+{
+  "tenantId": "dj",
+  "moduleName": "BPA",
+  "DemolitionType": [
+    {
+      "code": "TOTAL_DEMOLITION",
+      "name": "Total Demolition",
+      "active": "true"
+    },
+    {
+      "code": "PARTIAL_DEMOLITION",
+      "name": "Partial Demolition",
+      "active": "true"
+    },
+    {
+      "code": "OTHER",
+      "name": "Other",
+      "active": "true"
+    }
+  ]
+}

@@ -1,9 +1,0 @@
-{
-    "tenantId": "dj.djibouti",
-    "moduleName": "FSM",
-    "zeroPricing": [
-        {
-            "zeroPricingStatus": true
-        }
-    ]
-}

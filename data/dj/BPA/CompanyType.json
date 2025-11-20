@@ -1,0 +1,21 @@
+{
+  "tenantId": "dj",
+  "moduleName": "BPA",
+  "CompanyType": [
+    {
+      "code": "SA",
+      "name": "SA",
+      "active": "true"
+    },
+    {
+      "code": "SARL",
+      "name": "SARL",
+      "active": "true"
+    },
+    {
+      "code": "OTHER",
+      "name": "Other",
+      "active": "true"
+    }
+  ]
+}

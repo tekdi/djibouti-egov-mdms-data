@@ -1,0 +1,671 @@
+{
+    "id": "207e4841-0a58-46ef-9683-dec2bd594aa4",
+    "tenantId": "dj",
+    "code": "Studio.ServiceConfiguration",
+    "description": "Schema for PCO permit type master data",
+    "definition": {
+        "type": "object",
+        "title": "Generated schema for Root",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "required": [
+            "module",
+            "service"
+        ],
+        "x-unique": [
+            "module",
+            "service"
+        ],
+        "properties": {
+            "module": {
+                "type": "string"
+            },
+            "service": {
+                "type": "string"
+            },
+            "fields": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "label": {
+                            "type": "string"
+                        },
+                        "format": {
+                            "type": "string"
+                        },
+                        "schema": {
+                            "type": "string"
+                        },
+                        "reference": {
+                            "type": "string"
+                        },
+                        "required": {
+                            "type": "boolean"
+                        },
+                        "maxLength": {
+                            "type": "number"
+                        },
+                        "minLength": {
+                            "type": "number"
+                        },
+                        "placeholder": {
+                            "type": "string"
+                        },
+                        "values": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "validation": {
+                            "type": "object",
+                            "properties": {
+                                "regex": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "min": {
+                                    "type": "number"
+                                },
+                                "max": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string"
+                                },
+                                "properties": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "label": {
+                                                "type": "string"
+                                            },
+                                            "format": {
+                                                "type": "string"
+                                            },
+                                            "schema": {
+                                                "type": "string"
+                                            },
+                                            "reference": {
+                                                "type": "string"
+                                            },
+                                            "required": {
+                                                "type": "boolean"
+                                            },
+                                            "maxLength": {
+                                                "type": "number"
+                                            },
+                                            "minLength": {
+                                                "type": "number"
+                                            },
+                                            "placeholder": {
+                                                "type": "string"
+                                            },
+                                            "values": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "validation": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "regex": {
+                                                        "type": "string"
+                                                    },
+                                                    "message": {
+                                                        "type": "string"
+                                                    },
+                                                    "min": {
+                                                        "type": "number"
+                                                    },
+                                                    "max": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "orderNumber": {
+                            "type": "number"
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "workflow": {
+                "type": "object",
+                "properties": {
+                    "businessService": {
+                        "type": "string"
+                    },
+                    "business": {
+                        "type": "string"
+                    },
+                    "businessSericeSla": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "generateDemandAt": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "nextActionAfterPayment": {
+                        "type": "string"
+                    },
+                    "states": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "tenantId": {
+                                    "type": "string"
+                                },
+                                "sla": {
+                                    "type": [
+                                        "null",
+                                        "number"
+                                    ]
+                                },
+                                "state": {
+                                    "type": "string"
+                                },
+                                "applicationStatus": {
+                                    "type": "string"
+                                },
+                                "docUploadRequired": {
+                                    "type": "boolean"
+                                },
+                                "isStartState": {
+                                    "type": "boolean"
+                                },
+                                "isTerminateState": {
+                                    "type": "boolean"
+                                },
+                                "isStateUpdatable": {
+                                    "type": "boolean"
+                                },
+                                "triggerParallelWorkflows": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "actions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "tenantId": {
+                                                "type": "string"
+                                            },
+                                            "currentState": {
+                                                "type": "string"
+                                            },
+                                            "action": {
+                                                "type": "string"
+                                            },
+                                            "nextState": {
+                                                "type": "string"
+                                            },
+                                            "roles": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "active": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "documents": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "category": {
+                            "type": "string"
+                        },
+                        "documentTypes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "active": {
+                            "type": "boolean"
+                        },
+                        "isMandatory": {
+                            "type": "boolean"
+                        },
+                        "allowedFileTypes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "maxSizeInMB": {
+                            "type": "number"
+                        },
+                        "maxFilesAllowed": {
+                            "type": "number"
+                        },
+                        "workflowAction": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "idgen": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "format": {
+                            "type": "string"
+                        },
+                        "idname": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "pdf": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "states": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "localization": {
+                "type": "object",
+                "properties": {
+                    "modules": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "applicant": {
+                "type": "object",
+                "properties": {
+                    "types": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "maximum": {
+                        "type": "number"
+                    },
+                    "minimum": {
+                        "type": "number"
+                    }
+                }
+            },
+            "boundary": {
+                "type": "object",
+                "properties": {
+                    "hierarchyType": {
+                        "type": "string"
+                    },
+                    "lowestLevel": {
+                        "type": "string"
+                    }
+                }
+            },
+            "access": {
+                "type": "object",
+                "properties": {
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "actions": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "url": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "payment": {
+                "type": "object",
+                "properties": {
+                    "gateway": {
+                        "type": "string"
+                    }
+                }
+            },
+            "inbox": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string"
+                    },
+                    "module": {
+                        "type": "string"
+                    },
+                    "sortBy": {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "type": "string"
+                            },
+                            "defaultOrder": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "sourceFilterPathList": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "allowedSearchCriteria": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "path": {
+                                    "type": "string"
+                                },
+                                "operator": {
+                                    "type": "string"
+                                },
+                                "isMandatory": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "bill": {
+                "type": "object",
+                "properties": {
+                    "taxHead": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "order": {
+                                    "type": "string"
+                                },
+                                "isDebit": {
+                                    "type": "boolean"
+                                },
+                                "service": {
+                                    "type": "string"
+                                },
+                                "category": {
+                                    "type": "string"
+                                },
+                                "isRequired": {
+                                    "type": "boolean"
+                                },
+                                "isActualDemand": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "taxPeriod": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "string"
+                                },
+                                "toDate": {
+                                    "type": "number"
+                                },
+                                "service": {
+                                    "type": "string"
+                                },
+                                "fromDate": {
+                                    "type": "number"
+                                },
+                                "periodCycle": {
+                                    "type": "string"
+                                },
+                                "financialYear": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "BusinessService": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "string"
+                            },
+                            "businessService": {
+                                "type": "string"
+                            },
+                            "demandUpdateTime": {
+                                "type": "number"
+                            },
+                            "isAdvanceAllowed": {
+                                "type": "boolean"
+                            },
+                            "partPaymentAllowed": {
+                                "type": "boolean"
+                            },
+                            "isVoucherCreationEnabled": {
+                                "type": "boolean"
+                            },
+                            "collectionModesNotAllowed": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "calculator2": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "billingSlabs": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "key",
+                                "value"
+                            ],
+                            "properties": {
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "calculator": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "method": {
+                        "type": "string"
+                    },
+                    "endpoint": {
+                        "type": "string"
+                    },
+                    "billingSlabs": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "key",
+                                "value"
+                            ],
+                            "properties": {
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "notification": {
+                "type": "object",
+                "properties": {
+                    "sms": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "string"
+                                },
+                                "states": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "template": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "email": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "string"
+                                },
+                                "states": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "template": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "enabled": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "isActive": true,
+    "auditDetails": {
+        "createdBy": "d7867ef2-d046-4361-9a82-94c35c98416e",
+        "lastModifiedBy": "d7867ef2-d046-4361-9a82-94c35c98416e",
+        "createdTime": 1747923374296,
+        "lastModifiedTime": 1747923374296
+    }
+}

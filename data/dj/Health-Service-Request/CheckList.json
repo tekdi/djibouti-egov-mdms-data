@@ -1,0 +1,834 @@
+{
+  "tenantId": "dj",
+  "moduleName": "Health-Service-Request",
+  "CheckList": [
+    {
+      "tenantId": "dj",
+      "code": "BPA_PCO.PENDING_ACTION_BY_AGENT",
+      "isActive": true,
+      "attributes": [
+        {
+          "tenantId": "dj",
+          "code": "LAND_TITLE_OR_PROVISIONAL_DECREE_Q5",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "5",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "LOCATION_MAP_Q6",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "6",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": " FLOOR_CADASTRAL_PLAN_Q7",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "7",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "CONCORDANCE_OR_DISCORDANCE_DOC_Q8",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "8",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "BACKFILL_PERMIT_NO_Q9",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "9",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "BACKFILL_CERTIFICATE_OF_CONFORMITY_NO_Q10",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "10",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "BACKFILL_TAX_RECEIPT_Q11",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "11",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "PROJECT_PLAN_Q12",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "12",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "PLAN_VIEWS_Q13",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "13",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "FOUNDATION_PLAN_Q14",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "14",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "ELACTRICAL_PLANS_Q15",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "15",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "SANITATION_BING_PLAN_Q16",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "16",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "ELEVATION_PLAN_Q17",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "17",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "SECTION_PLAN_Q18",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "18",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "ROOF_PLAN_VIEWS_Q19",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "19",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "SPECIFICATION_Q20",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "20",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "CES_Q21",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "21"
+        },
+        {
+          "tenantId": "dj",
+          "code": "CES_CONFORMANCE_Q22",
+          "dataType": "SingleValueList",
+          "values": ["YES", "NON_COMPLIANT", "EXCEEDED", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "22",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "COS_Q23",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "23",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "COS_CONFORMANCE_Q24",
+          "dataType": "SingleValueList",
+          "values": ["YES", "NON_COMPLIANT", "EXCEEDED", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "24"
+        },
+        {
+          "tenantId": "dj",
+          "code": "PLAN_SCALE_Q25",
+          "dataType": "SingleValueList",
+          "values": ["YES", "NON_COMPLIANT", "EXCEEDED", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "25",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "PLAN_SCALE_CONFORMANCE_Q26",
+          "dataType": "Text",
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "26",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "CONFORMITY_TO_CADASTRAL_PLAN_Q27",
+          "dataType": "SingleValueList",
+          "values": ["YES", "NON_COMPLIANT", "EXCEEDED", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "27",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "DEVIATION_FROM_CADASTRAL_PLAN_Q28",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "28"
+        },
+        {
+          "tenantId": "dj",
+          "code": "OVERHANG_Q29",
+          "dataType": "SingleValueList",
+          "values": ["YES", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "29",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "DEVIATION_IN_OVERHANG_Q30",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "30"
+        },
+        {
+          "tenantId": "dj",
+          "code": "ARE_STAIRS_STEPS_ON_ANY_PUBLIC_DOMAIN_Q31",
+          "dataType": "SingleValueList",
+          "values": ["YES", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "31",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "STAIRS_STEPS_ON_PUBLIC_DOMAIN_Q32",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "32"
+        },
+        {
+          "tenantId": "dj",
+          "code": "THRESHOLD_ELEVATION_CONFORMANCE_Q33",
+          "dataType": "SingleValueList",
+          "values": ["YES", "NON_COMPLIANT", "EXCEEDED", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "33"
+        },
+        {
+          "tenantId": "dj",
+          "code": "THRESHOLD_ELEVATION_Q34",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "34"
+        },
+        {
+          "tenantId": "dj",
+          "code": "SETBACK_FROM_NORTH_ROAD_Q35",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "35"
+        },
+        {
+          "tenantId": "dj",
+          "code": "SETBACK_FROM_SOUTHERN_PROPERTY_LINE_Q36",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "36"
+        },
+        {
+          "tenantId": "dj",
+          "code": "SETBACK_FROM_EAST_ROAD_Q37",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "37"
+        },
+        {
+          "tenantId": "dj",
+          "code": "SETBACK_FROM_WEST_ROAD_Q38",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "38"
+        },
+        {
+          "tenantId": "dj",
+          "code": "DISTANCE_BETWEEN_BUILDINGS_Q39",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "39"
+        },
+        {
+          "tenantId": "dj",
+          "code": "OPENINGS_ON_SHARED_WALLS_Q40",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "40"
+        },
+        {
+          "tenantId": "dj",
+          "code": "HEIGHT_CONFORMANCE_Q41",
+          "dataType": "SingleValueList",
+          "values": ["YES", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "41"
+        },
+        {
+          "tenantId": "dj",
+          "code": "HEIGHT_Q42",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "42"
+        },
+        {
+          "tenantId": "dj",
+          "code": "DESTINATION_Q43",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "43"
+        },
+        {
+          "tenantId": "dj",
+          "code": "TYPE_OF_ARCHITECT_Q44",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "44",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "AUTHER_OF_THE_PROJECT_Q45",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "45"
+        },
+        {
+          "tenantId": "dj",
+          "code": "GENERAL_COMMENTS_Q46",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "46",
+          "additionalFields": null
+        },
+        {
+          "tenantId": "dj",
+          "code": "SRA_MANAGER_COMMENT_DATE_Q47",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "47"
+        },
+        {
+          "tenantId": "dj",
+          "code": "SRA_MANAGER_NAME_Q48",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "48",
+          "additionalFields": null
+        }
+      ],
+      "additionalFields": null,
+      "clientId": "bpa_pco_preliminary_checklist"
+    },
+    {
+      "id": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+      "tenantId": "dj",
+      "code": "BPA_PCO.PENDING_ACTION_BY_SDECC_AGENT",
+      "isActive": true,
+      "attributes": [
+        {
+          "id": "73de828c-0ba9-40c2-8fcd-d494ba02fd08",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "PLAN_VIEWS_Q5",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "5",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "50c4bdfe-14cd-4ff8-97cb-e3d74dcbebeb",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "ELACTRICAL_PLANS_Q6",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "6",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "0a22929f-36dd-409f-9ee4-ebd3557e40f6",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "SANITATION_BING_PLAN_Q7",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "7",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "e8473d08-66d9-4a42-acb5-6a64e7e94a1a",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "ELEVATION_PLAN_Q8",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "8",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "7b016993-6ac6-4c60-ba49-72a815d35755",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "ROOF_PLAN_VIEWS_Q9",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "9",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "6996027b-0003-407c-9218-9582bb43de95",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "DISCRIPTIVE_ESTIMATE_Q10",
+          "dataType": "SingleValueList",
+          "values": ["YES", "MISSING", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "10",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "d02494c0-d8db-4603-b5b1-5fc334eabcf3",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "FOUNDATION_TYPE_Q11",
+          "dataType": "SingleValueList",
+          "values": ["COMPLIANT", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "11",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "3dc036af-8caa-4f89-8b9c-7e724de9ff4e",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "FOUNDATION_ANCHORAGE_HEIGHT_Q12",
+          "dataType": "SingleValueList",
+          "values": ["COMPLIANT", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "12",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "4607f478-e3ad-4a2c-82bf-3e1c55b9eac5",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": " TYPE_OF_STRUCTURE_Q13",
+          "dataType": "SingleValueList",
+          "values": ["REINFORCED", "METALLIC", "OTHER", "NOT_SELECTED"],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "13",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "95d6f0c4-067e-4933-a544-fe9ec7fb1979",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "OTHERS_Q14",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "14",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "40acb7b4-106b-4fb6-8cab-c9a6d0c499d7",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "STRUCTURE_LAYOUT_Q15",
+          "dataType": "SingleValueList",
+          "values": ["COMPLIANT", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "15",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "8609c9c4-1a92-4294-9e7e-5303e31bd229",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "STAIRCASE_LAYOUT_Q16",
+          "dataType": "SingleValueList",
+          "values": ["COMPLIANT", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "16",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "d4a1edf6-e65b-4a17-936a-572a958067a8",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "LOAD_SHARING_Q17",
+          "dataType": "SingleValueList",
+          "values": ["COMPLIANT", "NON_COMPLIANT", "NOT_SELECTED"],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "17",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "4deedcaf-4eb6-4458-84c3-2329c02f280a",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "BRACING_Q18",
+          "dataType": "SingleValueList",
+          "values": [
+            "COMPLIANT",
+            "NON_COMPLIANT",
+            "NOT_APPLICABLE",
+            "NOT_SELECTED"
+          ],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "18",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "47f8bd66-8d3b-4e7d-9c3f-bc4da40430bf",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "EQ_RESISTANT_JOINTS_Q19",
+          "dataType": "SingleValueList",
+          "values": [
+            "COMPLIANT",
+            "NON_COMPLIANT",
+            "NOT_APPLICABLE",
+            "NOT_SELECTED"
+          ],
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "19",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "be4b7bcc-2fa8-4099-82c6-41243580ba3e",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "OVERHANG_Q20",
+          "dataType": "SingleValueList",
+          "values": [
+            "COMPLIANT",
+            "NON_COMPLIANT",
+            "NOT_APPLICABLE",
+            "NOT_SELECTED"
+          ],
+          "isActive": true,
+          "required": true,
+          "regex": null,
+          "order": "20",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1749811922495,
+            "lastModifiedTime": 1750068910497
+          },
+          "additionalFields": null
+        },
+        {
+          "id": "7d38e802-3c3b-4530-8c42-4193fead558e",
+          "referenceId": "e9b9eacd-4d51-4958-a722-5aa109a77b58",
+          "tenantId": "dj",
+          "code": "GENERAL_COMMENTS_Q21",
+          "dataType": "Text",
+          "values": null,
+          "isActive": true,
+          "required": false,
+          "regex": null,
+          "order": "21",
+          "auditDetails": {
+            "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+            "createdTime": 1750068910498,
+            "lastModifiedTime": 1750068910498
+          },
+          "additionalFields": null
+        }
+      ],
+      "auditDetails": {
+        "createdBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+        "lastModifiedBy": "f4e90853-80b7-47cc-91e7-f8cd5ec00e20",
+        "createdTime": 1749811922495,
+        "lastModifiedTime": 1750068910497
+      },
+      "additionalFields": null,
+      "clientId": "bpa_pco_sdecc_preliminary_checklist"
+    }
+  ]
+}
