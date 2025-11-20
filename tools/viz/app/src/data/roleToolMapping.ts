@@ -1,0 +1,132 @@
+export const defaultRoleToolMappingData = {
+  "mappings": [
+    {
+      "role": "EMPLOYEE",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "COUNTER_EMPLOYEE",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_DGDCF",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_PL_COMM",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BCIE_AGENT",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BCIE_HOD",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "TOPOGRAPHY_CHIEF",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "TOPOGRAPHY_HOD",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "TOPOGRAPHY_AGENT",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_CAD_DGDCF_SUB_DIRECTOR",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_SDECC_SUB_DIRECTOR",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "BPA_SRA_SUB_DIRECTOR",
+      "tools": [
+        "localization"
+      ]
+    },
+    {
+      "role": "STUDIO_ADMIN",
+      "tools": [
+        "dashboard",
+        "workflow",
+        "role-action",
+        "employees",
+        "localization",
+        "applications",
+        "role-tool-mapping"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "path": "/dashboard",
+      "description": "Overview and analytics dashboard"
+    },
+    {
+      "id": "workflow",
+      "name": "Workflow Visualizer",
+      "path": "/workflow",
+      "description": "Visualize and manage business workflows"
+    },
+    {
+      "id": "role-action",
+      "name": "Role Action Visualizer",
+      "path": "/role-action",
+      "description": "Manage role-based action permissions"
+    },
+    {
+      "id": "employees",
+      "name": "Employee Management",
+      "path": "/employees",
+      "description": "Manage employee records and assignments"
+    },
+    {
+      "id": "localization",
+      "name": "Localization Visualizer",
+      "path": "/localization",
+      "description": "Manage translations and localized content"
+    },
+    {
+      "id": "applications",
+      "name": "Application Visualizer",
+      "path": "/applications",
+      "description": "View and manage applications"
+    },
+    {
+      "id": "role-tool-mapping",
+      "name": "Role Tool Mapping",
+      "path": "/role-tool-mapping",
+      "description": "Configure role-based tool access"
+    }
+  ]
+};

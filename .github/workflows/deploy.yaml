@@ -1,0 +1,21 @@
+name: Deploy on eks
+on:
+  push:
+    branches:
+      - djibouti-3
+jobs:
+  deploy_on_eks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Stack
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          command_timeout: 60m
+          script: |
+            cd /home/ubuntu/phase2/egov-mdms-data
+            docker build -t djibouti-mdms .
+            docker run -p 9876:8001 djibouti-mdms

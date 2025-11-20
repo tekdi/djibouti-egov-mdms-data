@@ -31,6 +31,18 @@
           "value": "rainmaker-abg"
         },
         {
+          "label": "rainmaker-studio-bpa",
+          "value": "rainmaker-studio-bpa"
+        },
+        {
+          "label": "rainmaker-bpa",
+          "value": "rainmaker-bpa"
+        },
+        {
+          "label": "egov-pg",
+          "value": "egov-pg"
+        },
+        {
           "label": "rainmaker-common",
           "value": "rainmaker-common"
         },

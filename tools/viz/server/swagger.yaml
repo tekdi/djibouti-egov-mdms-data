@@ -1,0 +1,1205 @@
+openapi: 3.0.3
+info:
+  title: Djibouti eGov Visualization Proxy Server
+  description: |
+    Intent-based Kubernetes management and visualization proxy server for the Djibouti eGov platform.
+
+    ## Features
+    - **Intent-Based Kubernetes Operations**: Secure, controlled access to Kubernetes resources
+    - **Dynamic API Proxy**: Route requests to different target environments
+    - **Public Service Proxy**: Whitelisted access to public-service APIs
+    - **System Health Monitoring**: Real-time health checks and status monitoring
+    - **Data Explorer**: Browse and access MDMS data files
+
+    ## Security
+    All Kubernetes operations are performed through predefined intents rather than raw API access,
+    ensuring safety and consistency. Only whitelisted operations are allowed.
+
+    ## Base URL
+    Default server URL: `http://localhost:8001`
+  version: 1.0.0
+  contact:
+    name: Djibouti eGov Platform
+    url: https://djibouti.tekdinext.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:8001
+    description: Local development server
+  - url: https://djibouti.tekdinext.com
+    description: Production server
+
+tags:
+  - name: kubernetes-health
+    description: Kubernetes cluster health and discovery
+  - name: kubernetes-intents
+    description: Intent-based Kubernetes operations
+  - name: system-monitoring
+    description: System health and monitoring
+  - name: public-service-proxy
+    description: Whitelisted public service proxy
+  - name: dynamic-proxy
+    description: Dynamic API proxy with target URL routing
+  - name: data-explorer
+    description: Data directory browsing and access
+
+paths:
+  # ============================================================================
+  # KUBERNETES HEALTH & DISCOVERY
+  # ============================================================================
+
+  /api-local/k8s/health:
+    get:
+      tags: [kubernetes-health]
+      summary: Check Kubernetes cluster health
+      description: Performs a health check on the Kubernetes cluster connection
+      responses:
+        "200":
+          description: Kubernetes cluster is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+                  cluster:
+                    type: string
+                    example: "djibouti-k8s-cluster"
+                  timestamp:
+                    type: string
+                    format: date-time
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  /api-local/k8s/services:
+    get:
+      tags: [kubernetes-health]
+      summary: List available services
+      description: Get all available Kubernetes services with their port mappings
+      responses:
+        "200":
+          description: List of available services
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "list_available_services"
+                  count:
+                    type: integer
+                    example: 45
+                  services:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ServiceInfo"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  /api-local/k8s/intents:
+    get:
+      tags: [kubernetes-health]
+      summary: List available intents
+      description: Get all available intent-based operations
+      responses:
+        "200":
+          description: List of available intents
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "list_available_intents"
+                  count:
+                    type: integer
+                    example: 5
+                  intents:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                        - restart_egov_accesscontrol
+                        - execute_postgres_command
+                        - get_service_status
+                        - get_service_logs
+                        - setup_service_port_forward
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  # ============================================================================
+  # INTENT-BASED KUBERNETES OPERATIONS
+  # ============================================================================
+
+  /api-local/intent/restart-egov-accesscontrol:
+    post:
+      tags: [kubernetes-intents]
+      summary: Restart egov-accesscontrol service
+      description: Restart the egov-accesscontrol deployment in the Kubernetes cluster
+      responses:
+        "200":
+          description: Service restarted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "restart_egov_accesscontrol"
+                  service:
+                    type: string
+                    example: "egov-accesscontrol"
+                  namespace:
+                    type: string
+                    example: "egov"
+                  deploymentName:
+                    type: string
+                    example: "egov-accesscontrol"
+                  restarted:
+                    type: boolean
+                    example: true
+                  restartedAt:
+                    type: string
+                    format: date-time
+                  currentReplicas:
+                    type: integer
+                    example: 1
+                  message:
+                    type: string
+                    example: "Successfully restarted egov-accesscontrol"
+        "500":
+          $ref: "#/components/responses/IntentError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  /api-local/intent/postgres-command:
+    post:
+      tags: [kubernetes-intents]
+      summary: Execute PostgreSQL command
+      description: Execute a safe SQL query on the PostgreSQL database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [sqlCommand]
+              properties:
+                sqlCommand:
+                  type: string
+                  description: SQL command to execute (only SELECT, SHOW, EXPLAIN allowed)
+                  example: "SELECT count(*) as active_users FROM eg_user WHERE active = true;"
+      responses:
+        "200":
+          description: Command executed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "execute_postgres_command"
+                  service:
+                    type: string
+                    example: "postgres-postgresql-0"
+                  namespace:
+                    type: string
+                    example: "backbone"
+                  command:
+                    type: string
+                    example: "SELECT count(*) as active_users FROM eg_user WHERE active = true;"
+                  output:
+                    type: string
+                    example: " active_users \n--------------\n         1250\n(1 row)"
+                  success:
+                    type: boolean
+                    example: true
+                  executedAt:
+                    type: string
+                    format: date-time
+        "400":
+          description: Invalid request - sqlCommand is required
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "sqlCommand is required"
+        "500":
+          $ref: "#/components/responses/IntentError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  /api-local/intent/service-status/{serviceKey}:
+    get:
+      tags: [kubernetes-intents]
+      summary: Get service status
+      description: Get the current status and health of a specific service
+      parameters:
+        - name: serviceKey
+          in: path
+          required: true
+          description: Service key (e.g., EGOV_ACCESSCONTROL, BILLING_SERVICE)
+          schema:
+            type: string
+            enum:
+              [
+                EGOV_ACCESSCONTROL,
+                BILLING_SERVICE,
+                GATEWAY,
+                EGOV_USER,
+                EGOV_WORKFLOW_V2,
+                PROPERTY_SERVICES,
+                TL_SERVICES,
+                PUBLIC_SERVICE,
+              ]
+      responses:
+        "200":
+          description: Service status retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "get_service_status"
+                  service:
+                    type: string
+                    example: "egov-accesscontrol"
+                  namespace:
+                    type: string
+                    example: "egov"
+                  podName:
+                    type: string
+                    example: "egov-accesscontrol-bddd98589-zhxs2"
+                  status:
+                    type: string
+                    enum: [Running, Pending, Failed, Succeeded]
+                    example: "Running"
+                  ready:
+                    type: boolean
+                    example: true
+                  restarts:
+                    type: integer
+                    example: 0
+                  created:
+                    type: string
+                    format: date-time
+                  assignedPort:
+                    type: integer
+                    example: 8090
+                  healthCheckUrl:
+                    type: string
+                    example: "http://localhost:8090/health"
+        "500":
+          $ref: "#/components/responses/IntentError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  /api-local/intent/service-logs/{serviceKey}:
+    get:
+      tags: [kubernetes-intents]
+      summary: Get service logs
+      description: Retrieve logs from a specific service
+      parameters:
+        - name: serviceKey
+          in: path
+          required: true
+          description: Service key (e.g., EGOV_ACCESSCONTROL, BILLING_SERVICE)
+          schema:
+            type: string
+        - name: tailLines
+          in: query
+          description: Number of lines to retrieve from the end of logs
+          schema:
+            type: integer
+            default: 100
+            minimum: 1
+            maximum: 1000
+        - name: timestamps
+          in: query
+          description: Include timestamps in log output
+          schema:
+            type: boolean
+            default: true
+      responses:
+        "200":
+          description: Service logs retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "get_service_logs"
+                  service:
+                    type: string
+                    example: "egov-workflow-v2"
+                  namespace:
+                    type: string
+                    example: "egov"
+                  podName:
+                    type: string
+                    example: "egov-workflow-v2-657dc4768f-wc5xd"
+                  logs:
+                    type: string
+                    example: "2024-01-15T10:30:00Z INFO: Application started..."
+                  options:
+                    type: object
+                    properties:
+                      tailLines:
+                        type: integer
+                        example: 50
+                      timestamps:
+                        type: boolean
+                        example: true
+                  retrievedAt:
+                    type: string
+                    format: date-time
+        "500":
+          $ref: "#/components/responses/IntentError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  /api-local/intent/port-forward/{serviceKey}:
+    post:
+      tags: [kubernetes-intents]
+      summary: Setup port forwarding
+      description: Setup port forwarding for a specific service
+      parameters:
+        - name: serviceKey
+          in: path
+          required: true
+          description: Service key (e.g., BILLING_SERVICE, PUBLIC_SERVICE)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Port forwarding setup successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "setup_service_port_forward"
+                  service:
+                    type: string
+                    example: "billing-service"
+                  namespace:
+                    type: string
+                    example: "egov"
+                  podName:
+                    type: string
+                    example: "billing-service-6d9cb46c5b-864tk"
+                  localPort:
+                    type: integer
+                    example: 8082
+                  remotePort:
+                    type: integer
+                    example: 8080
+                  command:
+                    type: string
+                    example: "kubectl port-forward -n egov billing-service-6d9cb46c5b-864tk 8082:8080"
+                  url:
+                    type: string
+                    example: "http://localhost:8082"
+                  message:
+                    type: string
+                    example: "Port forward setup for billing-service"
+                  instructions:
+                    type: string
+                    example: "Execute this command in your terminal: kubectl port-forward ..."
+        "500":
+          $ref: "#/components/responses/IntentError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  # ============================================================================
+  # SYSTEM HEALTH MONITORING
+  # ============================================================================
+
+  /api-local/system/critical-services-status:
+    get:
+      tags: [system-monitoring]
+      summary: Check critical services status
+      description: Get health status of all critical eGov services
+      responses:
+        "200":
+          description: Critical services status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "critical_services_status_check"
+                  timestamp:
+                    type: string
+                    format: date-time
+                  totalServices:
+                    type: integer
+                    example: 7
+                  results:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            serviceKey:
+                              type: string
+                              example: "EGOV_ACCESSCONTROL"
+                            intent:
+                              type: string
+                              example: "get_service_status"
+                            service:
+                              type: string
+                              example: "egov-accesscontrol"
+                            status:
+                              type: string
+                              example: "Running"
+                            ready:
+                              type: boolean
+                              example: true
+                            assignedPort:
+                              type: integer
+                              example: 8090
+                        - type: object
+                          properties:
+                            serviceKey:
+                              type: string
+                            error:
+                              type: string
+                            status:
+                              type: string
+                              example: "error"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  /api-local/system/database-health:
+    get:
+      tags: [system-monitoring]
+      summary: Check database health
+      description: Run health queries on PostgreSQL database
+      responses:
+        "200":
+          description: Database health check results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intent:
+                    type: string
+                    example: "database_health_check"
+                  timestamp:
+                    type: string
+                    format: date-time
+                  results:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: object
+                          properties:
+                            intent:
+                              type: string
+                              example: "execute_postgres_command"
+                            command:
+                              type: string
+                              example: "SELECT count(*) as active_connections FROM pg_stat_activity WHERE state = 'active';"
+                            output:
+                              type: string
+                              example: " active_connections \n-------------------\n                 5\n(1 row)"
+                            success:
+                              type: boolean
+                              example: true
+                        - type: object
+                          properties:
+                            query:
+                              type: string
+                            error:
+                              type: string
+                            success:
+                              type: boolean
+                              example: false
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/KubernetesUnavailable"
+
+  # ============================================================================
+  # PUBLIC SERVICE PROXY
+  # ============================================================================
+
+  /api-local/public-service/whitelist:
+    get:
+      tags: [public-service-proxy]
+      summary: Get whitelisted public service paths
+      description: List all whitelisted API paths for the public service proxy
+      responses:
+        "200":
+          description: Whitelisted paths information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  whitelistedPaths:
+                    type: array
+                    items:
+                      type: string
+                    example: ["/public-service/v1/application"]
+                  baseUrl:
+                    type: string
+                    example: "http://localhost:8001/public-service-proxy"
+                  examples:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                          example: "/public-service/v1/application"
+                        fullUrl:
+                          type: string
+                          example: "http://localhost:8001/public-service-proxy/public-service/v1/application"
+                        method:
+                          type: string
+                          example: "GET"
+
+  /public-service-proxy/public-service/v1/application:
+    get:
+      tags: [public-service-proxy]
+      summary: Get public service applications
+      description: Retrieve applications from the public service (whitelisted proxy)
+      parameters:
+        - name: X-Tenant-Id
+          in: header
+          required: true
+          description: Tenant ID for the request
+          schema:
+            type: string
+            example: "dj"
+      responses:
+        "200":
+          description: Applications retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApplicationResponse"
+        "403":
+          description: API endpoint not whitelisted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "API endpoint not whitelisted"
+                  path:
+                    type: string
+                    example: "/public-service/v1/unauthorized"
+                  whitelistedPaths:
+                    type: array
+                    items:
+                      type: string
+        "500":
+          description: Port forwarding setup failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Failed to get port forward information for public-service"
+                  portForwardInfo:
+                    type: object
+        "503":
+          description: Public service unavailable
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Public service unavailable"
+                  target:
+                    type: string
+                    example: "http://localhost:8120"
+                  path:
+                    type: string
+                    example: "/public-service/v1/application"
+                  message:
+                    type: string
+                    example: "Ensure port forwarding is active for public-service"
+
+  # ============================================================================
+  # DYNAMIC PROXY
+  # ============================================================================
+
+  /api/{proxy+}:
+    get:
+      tags: [dynamic-proxy]
+      summary: Dynamic API proxy (GET)
+      description: Proxy GET requests to target URL specified in X-Target-URL header
+      parameters:
+        - name: proxy+
+          in: path
+          required: true
+          description: The API path to proxy
+          schema:
+            type: string
+        - name: X-Target-URL
+          in: header
+          description: Target server URL to proxy to
+          schema:
+            type: string
+            example: "https://djibouti.tekdinext.com"
+      responses:
+        "200":
+          description: Request proxied successfully
+        "500":
+          description: Proxy error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Proxy error"
+                  details:
+                    type: string
+
+    post:
+      tags: [dynamic-proxy]
+      summary: Dynamic API proxy (POST)
+      description: Proxy POST requests to target URL specified in X-Target-URL header
+      parameters:
+        - name: proxy+
+          in: path
+          required: true
+          description: The API path to proxy
+          schema:
+            type: string
+        - name: X-Target-URL
+          in: header
+          description: Target server URL to proxy to
+          schema:
+            type: string
+            example: "https://djibouti.tekdinext.com"
+      requestBody:
+        description: Request body to proxy
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          description: Request proxied successfully
+        "500":
+          description: Proxy error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Proxy error"
+                  details:
+                    type: string
+
+  # ============================================================================
+  # DATA EXPLORER
+  # ============================================================================
+
+  /data/{path+}:
+    get:
+      tags: [data-explorer]
+      summary: Browse data directory
+      description: Browse and access MDMS data files with directory listing
+      parameters:
+        - name: path+
+          in: path
+          required: true
+          description: Path within the data directory
+          schema:
+            type: string
+            example: "dj/BillingService/BusinessService.json"
+      responses:
+        "200":
+          description: File content or directory listing
+          content:
+            application/json:
+              schema:
+                type: object
+                description: JSON file content (varies by file)
+            text/html:
+              schema:
+                type: string
+                description: Directory listing HTML page
+        "404":
+          description: File or directory not found
+
+# ============================================================================
+# COMPONENTS
+# ============================================================================
+
+components:
+  schemas:
+    ServiceInfo:
+      type: object
+      properties:
+        key:
+          type: string
+          example: "EGOV_ACCESSCONTROL"
+        name:
+          type: string
+          example: "egov-accesscontrol"
+        port:
+          type: integer
+          example: 8090
+        namespace:
+          type: string
+          example: "egov"
+
+    ApplicationResponse:
+      type: object
+      properties:
+        responseInfo:
+          type: object
+          properties:
+            apiId:
+              type: string
+            ver:
+              type: string
+            ts:
+              type: integer
+              format: int64
+            resMsgId:
+              type: string
+            msgId:
+              type: string
+            status:
+              type: string
+              example: "successful"
+            UserInfo:
+              $ref: "#/components/schemas/UserInfo"
+        Application:
+          type: array
+          items:
+            $ref: "#/components/schemas/Application"
+
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "8ec466c8-9c18-4d97-b974-091d337e12a4"
+        tenantId:
+          type: string
+          example: "dj"
+        module:
+          type: string
+        businessService:
+          type: string
+        status:
+          type: string
+          enum: [ACTIVE, INACTIVE, PENDING]
+          example: "INACTIVE"
+        channel:
+          type: string
+          example: "counter"
+        applicationNumber:
+          type: string
+        reference:
+          type: string
+          nullable: true
+        workflowStatus:
+          type: string
+          example: "applied"
+        serviceCode:
+          type: string
+          example: "SVC-DJ-BPA-BPA_PCO-02"
+        serviceDetails:
+          type: object
+          properties:
+            applicantsCommitment:
+              type: array
+              items:
+                $ref: "#/components/schemas/ApplicantCommitment"
+            buildingDensity:
+              type: array
+              items:
+                $ref: "#/components/schemas/BuildingDensity"
+            identity:
+              type: array
+              items:
+                $ref: "#/components/schemas/Identity"
+        applicants:
+          type: array
+          nullable: true
+        additionalDetails:
+          type: object
+          additionalProperties: true
+        address:
+          $ref: "#/components/schemas/Address"
+        workflow:
+          $ref: "#/components/schemas/Workflow"
+        auditDetails:
+          $ref: "#/components/schemas/AuditDetails"
+        processInstance:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProcessInstance"
+        documents:
+          type: array
+          nullable: true
+
+    UserInfo:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          example: "00000000-0000-0000-0000-000000000000"
+        userName:
+          type: string
+        name:
+          type: string
+        mobileNumber:
+          type: string
+        emailId:
+          type: string
+        locale:
+          type: string
+          nullable: true
+        type:
+          type: string
+        roles:
+          type: array
+          nullable: true
+        active:
+          type: boolean
+        tenantId:
+          type: string
+        permanentCity:
+          type: string
+          nullable: true
+
+    ApplicantCommitment:
+      type: object
+      properties:
+        accuracyDeclaration:
+          type: boolean
+        eligibilityDeclaration:
+          type: boolean
+        taxCalculationAgreement:
+          type: string
+
+    BuildingDensity:
+      type: object
+      properties:
+        constructionCostPerSqM:
+          type: string
+        coveredProjectArea:
+          type: string
+        maximumAuthorizedCes:
+          type: string
+        maximumAuthorizedCos:
+          type: string
+        prjectedCes:
+          type: string
+        projectedCos:
+          type: string
+
+    Identity:
+      type: object
+      properties:
+        Telephone:
+          type: string
+        address:
+          type: string
+        applicantType:
+          type: string
+          example: "MADAM"
+        area:
+          type: string
+        companyName:
+          type: string
+        companyType:
+          type: string
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        legalStatus:
+          type: string
+        name:
+          type: string
+        numberOfUnits:
+          type: string
+        other:
+          type: string
+        others:
+          type: string
+        registration:
+          type: string
+        registrationCertificate:
+          type: string
+          example: "YES"
+        registrationNumber:
+          type: string
+        representative:
+          type: string
+          example: "SIR"
+        siteLocation:
+          type: string
+        telephone:
+          type: string
+        tfNo:
+          type: string
+        titreFoncierDefinitif:
+          type: string
+          example: "NO"
+        typeOfWork:
+          type: string
+          example: "YES"
+
+    Address:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        addressNumber:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        landmark:
+          type: string
+        city:
+          type: string
+        pincode:
+          type: string
+        detail:
+          type: string
+        hierarchyType:
+          type: string
+        boundarylevel:
+          type: string
+        boundarycode:
+          type: string
+
+    Workflow:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        action:
+          type: string
+          example: "CREATE"
+        businessService:
+          type: string
+        comment:
+          type: string
+        assignees:
+          type: array
+        documents:
+          type: array
+          nullable: true
+        triggerSelectiveParallelWorkflows:
+          type: string
+
+    AuditDetails:
+      type: object
+      properties:
+        createdBy:
+          type: string
+          format: uuid
+        lastModifiedBy:
+          type: string
+          format: uuid
+        createdTime:
+          type: integer
+          format: int64
+        lastModifiedTime:
+          type: integer
+          format: int64
+
+    ProcessInstance:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+        businessService:
+          type: string
+        businessId:
+          type: string
+        action:
+          type: string
+        moduleName:
+          type: string
+        state:
+          $ref: "#/components/schemas/WorkflowState"
+        assigner:
+          $ref: "#/components/schemas/UserInfo"
+        businesssServiceSla:
+          type: integer
+          format: int64
+        auditDetails:
+          $ref: "#/components/schemas/AuditDetails"
+
+    WorkflowState:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+        businessServiceId:
+          type: string
+          format: uuid
+        state:
+          type: string
+          example: "AWAITING_CITIZEN_PAYMENT"
+        applicationStatus:
+          type: string
+          example: "AWAITING_CITIZEN_PAYMENT"
+        actions:
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkflowAction"
+        auditDetails:
+          $ref: "#/components/schemas/AuditDetails"
+
+    WorkflowAction:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        tenantId:
+          type: string
+        currentState:
+          type: string
+          format: uuid
+        action:
+          type: string
+          example: "MAKE_PAYMENT"
+        nextState:
+          type: string
+          format: uuid
+        roles:
+          type: array
+          items:
+            type: string
+            example: "CITIZEN"
+        auditDetails:
+          $ref: "#/components/schemas/AuditDetails"
+
+  responses:
+    ServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Internal server error"
+
+    KubernetesUnavailable:
+      description: Kubernetes functionality not available
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Kubernetes functionality not available"
+
+    IntentError:
+      description: Intent execution error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              intent:
+                type: string
+                example: "restart_egov_accesscontrol"
+              error:
+                type: string
+                example: "Failed to execute intent"
+              success:
+                type: boolean
+                example: false
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key for authentication
+
+# ============================================================================
+# SECURITY
+# ============================================================================
+
+security:
+  - ApiKeyAuth: []
+
+# ============================================================================
+# EXTERNAL DOCS
+# ============================================================================
+
+externalDocs:
+  description: Full documentation and setup guide
+  url: http://localhost:8001/data/tools/viz/server/README-k8s.md

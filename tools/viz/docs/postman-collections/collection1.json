@@ -1,0 +1,1354 @@
+{
+    "collection": {
+        "info": {
+            "_postman_id": "ed0b7292-2a01-45b2-af55-20f5b8725458",
+            "name": "Djibouti",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+            "updatedAt": "2025-06-23T07:06:50.000Z",
+            "createdAt": "2025-06-10T04:52:21.000Z",
+            "lastUpdatedBy": "7043186",
+            "uid": "7043186-ed0b7292-2a01-45b2-af55-20f5b8725458"
+        },
+        "item": [
+            {
+                "name": "workflow-create",
+                "id": "dee4cf20-3d32-445f-b975-cb7d9ab3351e",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"action\": \"\",\n        \"did\": 1,\n        \"key\": \"\",\n        \"msgId\": \"20170310130900|en_IN\",\n        \"requesterId\": \"\",\n        \"ts\": 1513579888683,\n        \"ver\": \".01\",\n        \"authToken\": {{auth-token}},\n        \"userInfo\": {{user-info}}\n    },\n    \"BusinessServices\": [\n        {\n            \"businessService\": \"DTELECOM_NOC_OFFLINE\",\n            \"business\": \"noc-services\",\n            \"businessServiceSla\": 604800000,\n            \"tenantId\": \"dj\",\n            \"states\": [\n                {\n                    \"sla\": null,\n                    \"state\": null,\n                    \"tenantId\": \"dj\",\n                    \"applicationStatus\": \"INITIATED\",\n                    \"docUploadRequired\": false,\n                    \"isStartState\": true,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": true,\n                    \"actions\": [\n                        {\n                            \"currentState\": \"null\",\n                            \"action\": \"INITIATE\",\n                            \"tenantId\": \"dj\",\n                            \"nextState\": \"INITIATED\",\n                            \"roles\": [\n                                \"CITIZEN\",\n                                \"BPA_ARCHITECT\",\n                                \"BPA_ENGINEER\",\n                                \"BPA_BUILDER\",\n                                \"BPA_STRUCTURALENGINEER\",\n                                \"BPA_TOWNPLANNER\",\n                                \"BPA_SUPERVISOR\"\n                            ]\n                        }\n                    ]\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"INITIATED\",\n                    \"applicationStatus\": \"INPROGRESS\",\n                    \"docUploadRequired\": false,\n                    \"tenantId\": \"dj\",\n                    \"isStartState\": false,\n                    \"isTerminateState\": false,\n                    \"isStateUpdatable\": false,\n                    \"actions\": [\n                        {\n                            \"currentState\": \"INITIATED\",\n                            \"action\": \"AUTO_APPROVE\",\n                            \"tenantId\": \"dj\",\n                            \"nextState\": \"AUTO_APPROVED\",\n                            \"roles\": [\n                                \"BPA_VERIFIER\",\n                                \"BPA_FIELD_INSPECTOR\",\n                                \"BPA_NOC_VERIFIER\",\n                                \"BPA_APPROVER\"\n                            ]\n                        },\n                        {\n                            \"currentState\": \"INITIATED\",\n                            \"action\": \"VOID\",\n                            \"tenantId\": \"dj\",\n                            \"nextState\": \"VOIDED\",\n                            \"roles\": [\n                                \"BPA_VERIFIER\",\n                                \"BPA_FIELD_INSPECTOR\",\n                                \"BPA_NOC_VERIFIER\",\n                                \"BPA_APPROVER\"\n                            ]\n                        }\n                    ]\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"VOIDED\",\n                    \"applicationStatus\": \"VOIDED\",\n                    \"docUploadRequired\": false,\n                    \"tenantId\": \"dj\",\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"actions\": null\n                },\n                {\n                    \"sla\": null,\n                    \"state\": \"AUTO_APPROVED\",\n                    \"applicationStatus\": \"AUTO_APPROVED\",\n                    \"docUploadRequired\": false,\n                    \"tenantId\": \"dj\",\n                    \"isStartState\": false,\n                    \"isTerminateState\": true,\n                    \"isStateUpdatable\": false,\n                    \"actions\": null\n                }\n            ]\n        }\n    ]\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "{{base_url}}/egov-workflow-v2/egov-wf/businessservice/_create",
+                        "host": [
+                            "{{base_url}}"
+                        ],
+                        "path": [
+                            "egov-workflow-v2",
+                            "egov-wf",
+                            "businessservice",
+                            "_create"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-dee4cf20-3d32-445f-b975-cb7d9ab3351e"
+            },
+            {
+                "name": "localisation-create",
+                "id": "ad0fe230-2cdd-4566-84ec-8a70dc944287",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": null,\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": \"POST\",\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"5bfa85e7-dfa1-47c8-98b2-747bf552be86\",\n        \"authToken\": \"9c257cb7-ec45-40b3-8448-6bc405e50a2a\",\n        \"userInfo\": {\n            \"id\": 1856,\n            \"uuid\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n            \"userName\": \"akshay.gandhi@tekditechnologies.com\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"77545454\",\n            \"emailId\": \"akshay.gandhi@tekditechnologies.com\",\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"Studio Admin\",\n                    \"code\": \"STUDIO_ADMIN\",\n                    \"tenantId\": \"dj\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"dj\",\n            \"permanentCity\": null\n        }\n    },\n    \"tenantId\": \"dj\",\n    \"messages\": [\n        {\n            \"code\": \"TEST_LOCAL\",\n            \"message\": \"REJETER\",\n            \"module\": \"rainmaker-common-noc\",\n            \"locale\": \"fr_FR_IN\"\n        }]\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "https://djibouti.tekdinext.com/localization/messages/v1/_upsert",
+                        "protocol": "https",
+                        "host": [
+                            "djibouti",
+                            "tekdinext",
+                            "com"
+                        ],
+                        "path": [
+                            "localization",
+                            "messages",
+                            "v1",
+                            "_upsert"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-ad0fe230-2cdd-4566-84ec-8a70dc944287"
+            },
+            {
+                "name": "generatepdf",
+                "id": "39f7a3cf-1996-4307-8c85-6036a383ccb8",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "X-Tenant-Id",
+                            "value": "dj",
+                            "type": "text",
+                            "disabled": true
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"authToken\": \"43663c40-8d96-4e1b-b060-25904835086a\",\n        \"userInfo\": {\n            \"id\": 1856,\n            \"uuid\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n            \"userName\": \"akshay.gandhi@tekditechnologies.com\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"77545454\",\n            \"emailId\": \"akshay.gandhi@tekditechnologies.com\",\n            \"locale\": \"en_IN\",\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"Studio Admin\",\n                    \"code\": \"STUDIO_ADMIN\",\n                    \"tenantId\": \"dj\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"dj\",\n            \"permanentCity\": null\n        },\n        \"msgId\": \"1747633348506|en_IN\",\n        \"plainAccessRequest\": {}\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:8095/studio-pdf/public-service/download/pdf?tenantId=dj&pdfKey=pco-application&serviceCode=SVC-DJ-BPA-BPA_PCO-02&applicationNumber=DJ-PCO-2025-05-24-000063",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8095",
+                        "path": [
+                            "studio-pdf",
+                            "public-service",
+                            "download",
+                            "pdf"
+                        ],
+                        "query": [
+                            {
+                                "key": "tenantId",
+                                "value": "dj"
+                            },
+                            {
+                                "key": "pdfKey",
+                                "value": "pco-application"
+                            },
+                            {
+                                "key": "X-Tenant-Id",
+                                "value": "dev",
+                                "disabled": true
+                            },
+                            {
+                                "key": "serviceCode",
+                                "value": "SVC-DJ-BPA-BPA_PCO-02"
+                            },
+                            {
+                                "key": "applicationNumber",
+                                "value": "DJ-PCO-2025-05-24-000063"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-39f7a3cf-1996-4307-8c85-6036a383ccb8"
+            },
+            {
+                "name": "getPublic-serviceServiceCode",
+                "id": "ec1432fa-e443-45f5-8063-dfeb5316061c",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "X-Tenant-Id",
+                            "value": "dev"
+                        }
+                    ],
+                    "url": {
+                        "raw": "https://unified-dev.digit.org/public-service/v1/application/SVC-DEV-TRADELICENSE-OLDTL-07?applicationNumber=APL-2025-05-08-000025",
+                        "protocol": "https",
+                        "host": [
+                            "unified-dev",
+                            "digit",
+                            "org"
+                        ],
+                        "path": [
+                            "public-service",
+                            "v1",
+                            "application",
+                            "SVC-DEV-TRADELICENSE-OLDTL-07"
+                        ],
+                        "query": [
+                            {
+                                "key": "applicationNumber",
+                                "value": "APL-2025-05-08-000025"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-ec1432fa-e443-45f5-8063-dfeb5316061c"
+            },
+            {
+                "name": "estimate-calculate",
+                "id": "52eb5fdd-3bfc-4f6d-a6ad-c7c540f77db6",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"responseInfo\": {\n        \"apiId\": \"\",\n        \"ver\": \"\",\n        \"ts\": 0,\n        \"resMsgId\": \"\",\n        \"msgId\": \"\",\n        \"status\": \"successful\",\n        \"UserInfo\": {\n            \"uuid\": \"00000000-0000-0000-0000-000000000000\",\n            \"userName\": \"\",\n            \"name\": \"\",\n            \"mobileNumber\": \"\",\n            \"emailId\": \"\",\n            \"locale\": null,\n            \"type\": \"\",\n            \"roles\": null,\n            \"active\": false,\n            \"tenantId\": \"\",\n            \"permanentCity\": null\n        }\n    },\n    \"Application\": [\n        {\n            \"id\": \"3d498706-1b0e-4a29-ab68-b07adf7bf15d\",\n            \"tenantId\": \"dj\",\n            \"module\": \"BPA\",\n            \"businessService\": \"BPA_PCO\",\n            \"status\": \"INACTIVE\",\n            \"channel\": \"counter\",\n            \"applicationNumber\": \"DJ-PCO-2025-05-24-000063\",\n            \"reference\": null,\n            \"workflowStatus\": \"applied\",\n            \"serviceCode\": \"SVC-DJ-BPA-BPA_PCO-02\",\n            \"serviceDetails\": {\n                \"designOfficeDetailing\": [\n                    {\n                        \"architectName\": \"Dhanashree\",\n                        \"nameOfDesignOffice\": \"Tekdi\",\n                        \"officeEmail\": \"dhanashree@gmail.com\",\n                        \"registrationNo\": \"7890\",\n                        \"telephone\": \"77456456\"\n                    }\n                ],\n                \"landandProjectDesignDetails\": [\n                    {\n                        \"area\": \"200\",\n                        \"constructionCostPerSqMt\": \"230\",\n                        \"coveredProjectArea\": \"100\",\n                        \"definitiveLandTitle\": \"YES\",\n                        \"detailsOnOtherType\": \"not applicable\",\n                        \"legalStatus\": \"legal\",\n                        \"maximumAuthorizedCes\": \"34\",\n                        \"maximumAuthorizedCos\": \"34\",\n                        \"noOfUnits\": \"5\",\n                        \"other\": \"no\",\n                        \"prjectedCes\": \"56\",\n                        \"projectedCos\": \"45\",\n                        \"registrationCertificate\": \"YES\",\n                        \"siteLocation\": \"Bavdhan Pune\",\n                        \"tfNo\": \"345\",\n                        \"workType\": \"HOUSING\"\n                    }\n                ],\n                \"section_4\": {\n                    \"uploaded\": \"\",\n                    \"uploadedDocs\": {\n                        \"Backfill Permit copy\": [],\n                        \"Cadastral site plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"4e914711-11fe-4f12-a6bd-226f87bf9ec9\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Copy of Backfill Certificate\": [],\n                        \"Cost estimate\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"03d44a4d-d326-4b03-9290-3151d84c7685\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Descriptive estimate\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"6e37a66d-597d-48b1-8a79-9e94abd8b7ad\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Electrical plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"9326a67a-2b3b-4445-8cf4-162025923b7a\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Elevation plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"c1c46688-39a2-4a06-bbe6-8eb00af83cf4\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Foundation plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"5346bbaa-426e-4ad4-b22e-6b29c328a47d\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Interior layout plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"e7f2de87-7353-4c37-8961-cd7c96ba3bc0\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Land Title or provisional concession decree\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"0da29983-4ca8-42cc-b286-51cc5dca4013\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Location map\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"ae16b56e-74a5-4198-8cb6-059cf6a99e8d\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Operating license for the concerned activities\": [],\n                        \"Others\": [],\n                        \"Project layout plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"48175ff8-be08-43db-9cae-0eaf16e99a39\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Receipt for payment of extraction taxes\": [],\n                        \"Sanitation plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"d5a4a261-6c35-4659-ae78-6b08edcb2aab\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Section plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"78f0daf0-4678-4187-a39b-17961a56256e\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Upload the signed and stamped Demande PCO\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"07dbf0dd-d3a5-4230-ab76-bf1394a2a95c\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ]\n                    }\n                },\n                \"summary\": {\n                    \"applicantDetails\": [\n                        {\n                            \"accuracyDeclaration\": true,\n                            \"address\": \"Bavdhan Pune\",\n                            \"checkValidation\": true,\n                            \"eligibilityDeclaration\": true,\n                            \"legalName\": \"Dhanashree Patil\",\n                            \"nationalIdNumber\": \"456789\",\n                            \"taxCalculationAgreement\": true,\n                            \"telephone\": \"77234234\",\n                            \"wayToAddress\": {\n                                \"active\": true,\n                                \"code\": \"FEMALE\",\n                                \"name\": \"COMMON-MASTERS_GENDERTYPE_WAYTOADDRESS_FEMALE\"\n                            }\n                        }\n                    ],\n                    \"designOfficeDetailing\": [\n                        {\n                            \"architectName\": \"Dhanashree\",\n                            \"nameOfDesignOffice\": \"Tekdi\",\n                            \"officeEmail\": \"dhanashree@gmail.com\",\n                            \"registrationNo\": \"7890\",\n                            \"telephone\": \"77456456\"\n                        }\n                    ],\n                    \"landandProjectDesignDetails\": [\n                        {\n                            \"area\": \"200\",\n                            \"constructionCostPerSqMt\": \"230\",\n                            \"coveredProjectArea\": \"100\",\n                            \"definitiveLandTitle\": {\n                                \"code\": \"YES\",\n                                \"name\": \"BPA_BPA_PCO_DEFINITIVELANDTITLE_YES\"\n                            },\n                            \"detailsOnOtherType\": \"not applicable\",\n                            \"legalStatus\": \"legal\",\n                            \"maximumAuthorizedCes\": \"34\",\n                            \"maximumAuthorizedCos\": \"34\",\n                            \"noOfUnits\": \"5\",\n                            \"other\": \"no\",\n                            \"prjectedCes\": \"56\",\n                            \"projectedCos\": \"45\",\n                            \"registrationCertificate\": {\n                                \"code\": \"YES\",\n                                \"name\": \"BPA_BPA_PCO_REGISTRATIONCERTIFICATE_YES\"\n                            },\n                            \"siteLocation\": \"Bavdhan Pune\",\n                            \"tfNo\": \"345\",\n                            \"workType\": {\n                                \"active\": \"true\",\n                                \"code\": \"HOUSING\",\n                                \"name\": \"BPA_WORKTYPE_WORKTYPE_HOUSING\"\n                            }\n                        }\n                    ],\n                    \"section_4\": {\n                        \"uploaded\": \"\",\n                        \"uploadedDocs\": {\n                            \"Backfill Permit copy\": [],\n                            \"Cadastral site plan\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"4e914711-11fe-4f12-a6bd-226f87bf9ec9\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Copy of Backfill Certificate\": [],\n                            \"Cost estimate\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"03d44a4d-d326-4b03-9290-3151d84c7685\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Descriptive estimate\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"6e37a66d-597d-48b1-8a79-9e94abd8b7ad\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Electrical plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"9326a67a-2b3b-4445-8cf4-162025923b7a\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Elevation plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"c1c46688-39a2-4a06-bbe6-8eb00af83cf4\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Foundation plan\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"5346bbaa-426e-4ad4-b22e-6b29c328a47d\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Interior layout plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"e7f2de87-7353-4c37-8961-cd7c96ba3bc0\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Land Title or provisional concession decree\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"0da29983-4ca8-42cc-b286-51cc5dca4013\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Location map\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"ae16b56e-74a5-4198-8cb6-059cf6a99e8d\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Operating license for the concerned activities\": [],\n                            \"Others\": [],\n                            \"Project layout plan\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"48175ff8-be08-43db-9cae-0eaf16e99a39\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Receipt for payment of extraction taxes\": [],\n                            \"Sanitation plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"d5a4a261-6c35-4659-ae78-6b08edcb2aab\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Section plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"78f0daf0-4678-4187-a39b-17961a56256e\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Upload the signed and stamped Demande PCO\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"07dbf0dd-d3a5-4230-ab76-bf1394a2a95c\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ]\n                        }\n                    },\n                    \"uploaded\": \"\",\n                    \"uploadedDocs\": {\n                        \"Backfill Permit copy\": [],\n                        \"Cadastral site plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"4e914711-11fe-4f12-a6bd-226f87bf9ec9\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Copy of Backfill Certificate\": [],\n                        \"Cost estimate\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"03d44a4d-d326-4b03-9290-3151d84c7685\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Descriptive estimate\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"6e37a66d-597d-48b1-8a79-9e94abd8b7ad\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Electrical plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"9326a67a-2b3b-4445-8cf4-162025923b7a\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Elevation plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"c1c46688-39a2-4a06-bbe6-8eb00af83cf4\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Foundation plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"5346bbaa-426e-4ad4-b22e-6b29c328a47d\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Interior layout plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"e7f2de87-7353-4c37-8961-cd7c96ba3bc0\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Land Title or provisional concession decree\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"0da29983-4ca8-42cc-b286-51cc5dca4013\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Location map\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"ae16b56e-74a5-4198-8cb6-059cf6a99e8d\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Operating license for the concerned activities\": [],\n                        \"Others\": [],\n                        \"Project layout plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"48175ff8-be08-43db-9cae-0eaf16e99a39\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Receipt for payment of extraction taxes\": [],\n                        \"Sanitation plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"d5a4a261-6c35-4659-ae78-6b08edcb2aab\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Section plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"78f0daf0-4678-4187-a39b-17961a56256e\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Upload the signed and stamped Demande PCO\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"07dbf0dd-d3a5-4230-ab76-bf1394a2a95c\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ]\n                    }\n                }\n            },\n            \"applicants\": [\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                },\n                {\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\",\n                    \"name\": \"Dhanashree Patil\",\n                    \"mobileNumber\": 77234234,\n                    \"emailId\": \"user1@example.com\",\n                    \"prefix\": \"\",\n                    \"active\": true\n                }\n            ],\n            \"additionalDetails\": {\n                 \"costEstimation\": {\n                    \"costPerSqmLivingSpace\": 50000,\n                    \"costPerSqmCommercialSpace\": 30000,\n                    \"royaltyPer\": 1.5435,\n                    \"eqResistancePer\": 1,\n                    \"eqResistanceCost\": 0,\n                    \"royaltyFee\": 0,\n                    \"registryServiceFee\": 10000,\n                    \"totalBuildingCost\": 0,\n                    \"totalTax\": 0,\n                    \"totalTaxWithServiceCharge\": 0,\n                    \"floors\": [\n                        {\n                            \"floorNo\": 0,\n                            \"builtUpAreaLiving\": 100.253456,\n                            \"builtupAreaCommercial\": 155.4,\n                            \"totalAreaPerLevel\": 0,\n                            \"floorCost\": 0\n                        },\n                        {\n                            \"floorNo\": 1,\n                            \"builtUpAreaLiving\": 50,\n                            \"builtupAreaCommercial\": 200.4,\n                            \"totalAreaPerLevel\": 0,\n                            \"floorCost\": 0\n                        }\n                    ],\n                    \"totalCostBreakdown\": [\n                        {\n                            \"designationOfWorks\": \"Earthwork\",\n                            \"percentage\": 8,\n                            \"amount\":0\n                        },\n                        {\n                            \"designationOfWorks\": \"Foundation\",\n                            \"percentage\": 10,\n                            \"amount\":0\n                        },\n                        {\n                            \"designationOfWorks\": \"Masonry\",\n                            \"percentage\": 9,\n                            \"amount\":0\n                        },\n                        {\n                            \"designationOfWorks\": \"Reinforced concrete in elevation\",\n                            \"percentage\": 28,\n                            \"amount\":0\n                        },\n                        {\n                            \"designationOfWorks\": \"Floor and wall coverings/Paints\",\n                            \"percentage\": 20.67,\n                            \"amount\":0\n                        },\n                        {\n                            \"designationOfWorks\": \"Carpentry\",\n                            \"percentage\": 11,\n                            \"amount\":0\n                        },\n                        {\n                            \"designationOfWorks\": \"Electricity\",\n                            \"percentage\": 6\n                        },\n                        {\n                            \"designationOfWorks\": \"Plumbing/Sanitation\",\n                            \"percentage\": 3,\n                            \"amount\":0\n                        },\n                        {\n                            \"designationOfWorks\": \"Sanitation\",\n                            \"percentage\": 5,\n                            \"amount\":0\n                        }\n                    ]\n                },\n                \"applicants\": {\n                    \"accuracyDeclaration\": true,\n                    \"address\": \"Bavdhan Pune\",\n                    \"checkValidation\": true,\n                    \"eligibilityDeclaration\": true,\n                    \"nationalIdNumber\": \"456789\",\n                    \"taxCalculationAgreement\": true,\n                    \"wayToAddress\": \"COMMON-MASTERS_GENDERTYPE_WAYTOADDRESS_FEMALE\"\n                }\n            },\n            \"address\": {\n                \"id\": \"2aa565e4-e809-4162-8244-333e2a8060da\",\n                \"tenantId\": \"dj\",\n                \"latitude\": 0,\n                \"longitude\": 0,\n                \"addressNumber\": \"1\",\n                \"addressLine1\": \"\",\n                \"addressLine2\": \"\",\n                \"landmark\": \"\",\n                \"city\": \"\",\n                \"pincode\": \"\",\n                \"detail\": \"\",\n                \"hierarchyType\": \"REVENUE\",\n                \"boundarylevel\": \"locality\",\n                \"boundarycode\": \"dev.city\"\n            },\n            \"workflow\": {\n                \"id\": \"fd1ddce6-bcb2-4d4c-9b42-2554826a6c99\",\n                \"action\": \"DRAFT\",\n                \"businessService\": \"\",\n                \"comment\": \"\",\n                \"assignees\": [],\n                \"documents\": null\n            },\n            \"auditDetails\": {\n                \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                \"createdTime\": 1748064307000,\n                \"lastModifiedTime\": 1748064307000\n            },\n            \"processInstance\": null,\n            \"documents\": [\n                {\n                    \"id\": \"f4bad17d-a9e7-46f1-8064-00ca4bbdb981\",\n                    \"documentType\": \"Land Title or provisional concession decree\",\n                    \"fileStoreId\": \"0da29983-4ca8-42cc-b286-51cc5dca4013\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"2a28bd65-5652-4ee3-ab9b-d12546759668\",\n                    \"documentType\": \"Location map\",\n                    \"fileStoreId\": \"ae16b56e-74a5-4198-8cb6-059cf6a99e8d\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"e91e969c-bd7a-4bd9-9fab-a71e6da13be1\",\n                    \"documentType\": \"Cadastral site plan\",\n                    \"fileStoreId\": \"4e914711-11fe-4f12-a6bd-226f87bf9ec9\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"f7605276-e32a-4cce-a394-77b4a7f43341\",\n                    \"documentType\": \"Project layout plan\",\n                    \"fileStoreId\": \"48175ff8-be08-43db-9cae-0eaf16e99a39\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"fd4ceebc-1ba8-46a2-8bf7-9b55927602e4\",\n                    \"documentType\": \"Interior layout plans\",\n                    \"fileStoreId\": \"e7f2de87-7353-4c37-8961-cd7c96ba3bc0\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"a46a8a6c-0836-4f89-ac81-9543e3486019\",\n                    \"documentType\": \"Elevation plans\",\n                    \"fileStoreId\": \"c1c46688-39a2-4a06-bbe6-8eb00af83cf4\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"22816ec4-2a21-42aa-8ef6-b360493a426f\",\n                    \"documentType\": \"Section plans\",\n                    \"fileStoreId\": \"78f0daf0-4678-4187-a39b-17961a56256e\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"c791c873-2ed2-477c-8228-c6ee323d5fc9\",\n                    \"documentType\": \"Foundation plan\",\n                    \"fileStoreId\": \"5346bbaa-426e-4ad4-b22e-6b29c328a47d\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"0b9b8078-605c-44c9-a4a7-98cf253fa136\",\n                    \"documentType\": \"Electrical plans\",\n                    \"fileStoreId\": \"9326a67a-2b3b-4445-8cf4-162025923b7a\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"4dbf1afe-0aef-4008-aed1-7a5821c155ff\",\n                    \"documentType\": \"Sanitation plans\",\n                    \"fileStoreId\": \"d5a4a261-6c35-4659-ae78-6b08edcb2aab\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"64ba3dcf-1021-42fd-a5cc-75a3556b8e9e\",\n                    \"documentType\": \"Descriptive estimate\",\n                    \"fileStoreId\": \"6e37a66d-597d-48b1-8a79-9e94abd8b7ad\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"4fb32100-8a8d-4af2-9f38-060a1015d2d5\",\n                    \"documentType\": \"Cost estimate\",\n                    \"fileStoreId\": \"03d44a4d-d326-4b03-9290-3151d84c7685\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                },\n                {\n                    \"id\": \"d749edfa-0c2f-4ab1-a78e-233291344443\",\n                    \"documentType\": \"Upload the signed and stamped Demande PCO\",\n                    \"fileStoreId\": \"07dbf0dd-d3a5-4230-ab76-bf1394a2a95c\",\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedTime\": 1748064307000\n                    }\n                }\n            ]\n        }\n    ]\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:8085/calculator-service/v1/BPA_PCO/estimate_calculate",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8085",
+                        "path": [
+                            "calculator-service",
+                            "v1",
+                            "BPA_PCO",
+                            "estimate_calculate"
+                        ],
+                        "query": [
+                            {
+                                "key": "calculationKey",
+                                "value": "buildingcost",
+                                "type": "text",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-52eb5fdd-3bfc-4f6d-a6ad-c7c540f77db6"
+            },
+            {
+                "name": "user-Oauth-token",
+                "id": "b5d6a0e8-4550-4753-a503-af4e5be358fd",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "accept",
+                            "value": "application/json, text/plain, */*"
+                        },
+                        {
+                            "key": "accept-language",
+                            "value": "en-GB,en;q=0.9"
+                        },
+                        {
+                            "key": "authorization",
+                            "value": "Basic ZWdvdi11c2VyLWNsaWVudDo="
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/x-www-form-urlencoded"
+                        },
+                        {
+                            "key": "origin",
+                            "value": "https://djibouti.tekdinext.com"
+                        },
+                        {
+                            "key": "priority",
+                            "value": "u=1, i"
+                        },
+                        {
+                            "key": "referer",
+                            "value": "https://djibouti.tekdinext.com/digit-studio/employee/user/login/otp"
+                        },
+                        {
+                            "key": "sec-ch-ua",
+                            "value": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Google Chrome\";v=\"134\""
+                        },
+                        {
+                            "key": "sec-ch-ua-mobile",
+                            "value": "?0"
+                        },
+                        {
+                            "key": "sec-ch-ua-platform",
+                            "value": "\"Linux\""
+                        },
+                        {
+                            "key": "sec-fetch-dest",
+                            "value": "empty"
+                        },
+                        {
+                            "key": "sec-fetch-mode",
+                            "value": "cors"
+                        },
+                        {
+                            "key": "sec-fetch-site",
+                            "value": "same-origin"
+                        },
+                        {
+                            "key": "user-agent",
+                            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+                        },
+                        {
+                            "key": "Cookie",
+                            "value": "_ga=GA1.1.1346542007.1747637019; _ga_3LN58ZJ5KN=GS2.1.s1747647997$o2$g1$t1747648090$j60$l0$h0$dVIAQROJp14ryRCLvR_9ag2Iu9Iay6uZXQg; _ga_4FTREDCS0G=GS2.1.s1747647997$o2$g1$t1747648090$j0$l0$h0; _ga_FS7DJ7SGKL=GS2.1.s1747647997$o2$g1$t1747648090$j0$l0$h0; _ga_EHCDQF6VQ5=GS2.1.s1747647997$o2$g1$t1747648090$j0$l0$h0"
+                        }
+                    ],
+                    "body": {
+                        "mode": "urlencoded",
+                        "urlencoded": [
+                            {
+                                "type": "text",
+                                "key": "username",
+                                "value": "akshay.gandhi@tekditechnologies.com"
+                            },
+                            {
+                                "type": "text",
+                                "key": "password",
+                                "value": "237472"
+                            },
+                            {
+                                "type": "text",
+                                "key": "tenantId",
+                                "value": "dj"
+                            },
+                            {
+                                "type": "text",
+                                "key": "userType",
+                                "value": "EMPLOYEE"
+                            },
+                            {
+                                "type": "text",
+                                "key": "scope",
+                                "value": "read"
+                            },
+                            {
+                                "type": "text",
+                                "key": "grant_type",
+                                "value": "password"
+                            }
+                        ]
+                    },
+                    "url": {
+                        "raw": "http://localhost:8087/user/oauth/token",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8087",
+                        "path": [
+                            "user",
+                            "oauth",
+                            "token"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-b5d6a0e8-4550-4753-a503-af4e5be358fd"
+            },
+            {
+                "name": "individual search",
+                "id": "a274f6cc-9c59-408f-9122-802246d9b885",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"\",\n    \"ver\": \"\",\n    \"ts\": 0,\n    \"action\": \"\",\n    \"did\": \"\",\n    \"key\": \"\",\n    \"msgId\": \"\",\n    \"requesterId\": \"\",\n    \"authToken\": \"\",\n    \"userInfo\": {\n      \"uuid\": \"00000000-0000-0000-0000-000000000000\",\n      \"userName\": \"\",\n      \"name\": \"\",\n      \"mobileNumber\": \"\",\n      \"emailId\": \"\",\n      \"locale\": null,\n      \"type\": \"\",\n      \"roles\": null,\n      \"active\": false,\n      \"tenantId\": \"dj\",\n      \"permanentCity\": null\n    }\n  },\n  \"Individual\": {\n    \"individualId\": [\n      \"IND-2025-05-26-000114\"\n    ]\n  }\n}\n",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://health-individual.egov:8080/health-individual/v1/_search?limit=1000&offset=0&tenantId=dj",
+                        "protocol": "http",
+                        "host": [
+                            "health-individual",
+                            "egov"
+                        ],
+                        "port": "8080",
+                        "path": [
+                            "health-individual",
+                            "v1",
+                            "_search"
+                        ],
+                        "query": [
+                            {
+                                "key": "limit",
+                                "value": "1000"
+                            },
+                            {
+                                "key": "offset",
+                                "value": "0"
+                            },
+                            {
+                                "key": "tenantId",
+                                "value": "dj"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-a274f6cc-9c59-408f-9122-802246d9b885"
+            },
+            {
+                "name": "mdms-search",
+                "id": "d31d847d-544d-4aa1-af8b-b6dc77b3e924",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"authToken\": \"dd089e28-1009-4280-8141-2874e50192d0\",\n        \"userInfo\": {\n            \"id\": 1856,\n            \"uuid\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n            \"userName\": \"akshay.gandhi@tekditechnologies.com\",\n            \"name\": \"Akshay\",\n            \"mobileNumber\": \"77545454\",\n            \"emailId\": \"akshay.gandhi@tekditechnologies.com\",\n            \"locale\": \"fr_FR_IN\",\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"Studio Admin\",\n                    \"code\": \"STUDIO_ADMIN\",\n                    \"tenantId\": \"dj\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"dj\",\n            \"permanentCity\": null\n        },\n        \"msgId\": \"1747633348506|fr_FR_IN\",\n        \"plainAccessRequest\": {}\n    },\n    \"MdmsCriteria\": {\n        \"tenantId\": \"dj\",\n        \"moduleDetails\": [\n            {\n                \"moduleName\": \"Studio\",\n                \"masterDetails\": [\n                    {\n                        \"name\": \"ServiceConfiguration\",\n                        \"filter\": \"$[?(@.service == 'BPA_PCO')]\"\n                    }\n                ]\n            }\n        ]\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:8082/egov-mdms-service/v1/_search?tenantId=dj",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8082",
+                        "path": [
+                            "egov-mdms-service",
+                            "v1",
+                            "_search"
+                        ],
+                        "query": [
+                            {
+                                "key": "tenantId",
+                                "value": "dj"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-d31d847d-544d-4aa1-af8b-b6dc77b3e924"
+            },
+            {
+                "name": "generate-demand",
+                "id": "82bed2b9-e912-4143-be1a-7c07155bbd41",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"Application\": [\n        {\n            \"additionalDetails\": {\n                \"applicants\": {\n                    \"accuracyDeclaration\": true,\n                    \"address\": \"Bavdhan Pune\",\n                    \"checkValidation\": true,\n                    \"eligibilityDeclaration\": true,\n                    \"nationalIdNumber\": \"456789\",\n                    \"taxCalculationAgreement\": true,\n                    \"wayToAddress\": \"COMMON-MASTERS_GENDERTYPE_WAYTOADDRESS_FEMALE\"\n                },\n                \"costEstimation\": {\n                    \"costPerSqmCommercialSpace\": 30000,\n                    \"costPerSqmLivingSpace\": 50000,\n                    \"eqResistanceCost\": 181866.728,\n                    \"eqResistancePer\": 1,\n                    \"floors\": [\n                        {\n                            \"builtUpAreaLiving\": 100.253456,\n                            \"builtupAreaCommercial\": 155.4,\n                            \"floorCost\": 9674672.8,\n                            \"floorNo\": 0,\n                            \"totalAreaPerLevel\": 255.653456\n                        },\n                        {\n                            \"builtUpAreaLiving\": 50,\n                            \"builtupAreaCommercial\": 200.4,\n                            \"floorCost\": 8512000,\n                            \"floorNo\": 1,\n                            \"totalAreaPerLevel\": 250.4\n                        }\n                    ],\n                    \"registryServiceFee\": 10000,\n                    \"royaltyFee\": 280711.294668,\n                    \"royaltyPer\": 1.5435,\n                    \"totalBuildingCost\": 18186672.8,\n                    \"totalCostBreakdown\": [\n                        {\n                            \"amount\": 1454933.82,\n                            \"designationOfWorks\": \"Earthwork\",\n                            \"percentage\": 8\n                        },\n                        {\n                            \"amount\": 1818667.28,\n                            \"designationOfWorks\": \"Foundation\",\n                            \"percentage\": 10\n                        },\n                        {\n                            \"amount\": 1636800.55,\n                            \"designationOfWorks\": \"Masonry\",\n                            \"percentage\": 9\n                        },\n                        {\n                            \"amount\": 5092268.38,\n                            \"designationOfWorks\": \"Reinforced concrete in elevation\",\n                            \"percentage\": 28\n                        },\n                        {\n                            \"amount\": 3759185.27,\n                            \"designationOfWorks\": \"Floor and wall coverings/Paints\",\n                            \"percentage\": 20.67\n                        },\n                        {\n                            \"amount\": 2000534.01,\n                            \"designationOfWorks\": \"Carpentry\",\n                            \"percentage\": 11\n                        },\n                        {\n                            \"amount\": 1091200.37,\n                            \"designationOfWorks\": \"Electricity\",\n                            \"percentage\": 6\n                        },\n                        {\n                            \"amount\": 545600.18,\n                            \"designationOfWorks\": \"Plumbing/Sanitation\",\n                            \"percentage\": 3\n                        },\n                        {\n                            \"amount\": 909333.64,\n                            \"designationOfWorks\": \"Sanitation\",\n                            \"percentage\": 5\n                        }\n                    ],\n                    \"totalTax\": 462578.022668,\n                    \"totalTaxWithServiceCharge\": 472578.022668\n                }\n            },\n            \"address\": {\n                \"addressLine1\": \"\",\n                \"addressLine2\": \"\",\n                \"addressNumber\": \"1\",\n                \"boundarycode\": \"dev.city\",\n                \"boundarylevel\": \"locality\",\n                \"city\": \"\",\n                \"detail\": \"\",\n                \"hierarchyType\": \"REVENUE\",\n                \"id\": \"2aa565e4-e809-4162-8244-333e2a8060da\",\n                \"landmark\": \"\",\n                \"latitude\": 0,\n                \"longitude\": 0,\n                \"pincode\": \"\",\n                \"tenantId\": \"dj\"\n            },\n            \"applicants\": [\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                },\n                {\n                    \"active\": true,\n                    \"emailId\": \"user1@example.com\",\n                    \"id\": \"061ba5ae-8d34-44fb-92bf-cbe68039ecf1\",\n                    \"mobileNumber\": 77234234,\n                    \"name\": \"Dhanashree Patil\",\n                    \"prefix\": \"\",\n                    \"type\": \"CITIZEN\",\n                    \"userId\": \"IND-2025-05-24-000071\"\n                }\n            ],\n            \"applicationNumber\": \"DJ-PCO-2025-05-24-000063\",\n            \"auditDetails\": {\n                \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                \"createdTime\": 1748064307000,\n                \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                \"lastModifiedTime\": 1748064307000\n            },\n            \"businessService\": \"BPA_PCO\",\n            \"channel\": \"counter\",\n            \"documents\": [\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Land Title or provisional concession decree\",\n                    \"fileStoreId\": \"0da29983-4ca8-42cc-b286-51cc5dca4013\",\n                    \"id\": \"f4bad17d-a9e7-46f1-8064-00ca4bbdb981\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Location map\",\n                    \"fileStoreId\": \"ae16b56e-74a5-4198-8cb6-059cf6a99e8d\",\n                    \"id\": \"2a28bd65-5652-4ee3-ab9b-d12546759668\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Cadastral site plan\",\n                    \"fileStoreId\": \"4e914711-11fe-4f12-a6bd-226f87bf9ec9\",\n                    \"id\": \"e91e969c-bd7a-4bd9-9fab-a71e6da13be1\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Project layout plan\",\n                    \"fileStoreId\": \"48175ff8-be08-43db-9cae-0eaf16e99a39\",\n                    \"id\": \"f7605276-e32a-4cce-a394-77b4a7f43341\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Interior layout plans\",\n                    \"fileStoreId\": \"e7f2de87-7353-4c37-8961-cd7c96ba3bc0\",\n                    \"id\": \"fd4ceebc-1ba8-46a2-8bf7-9b55927602e4\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Elevation plans\",\n                    \"fileStoreId\": \"c1c46688-39a2-4a06-bbe6-8eb00af83cf4\",\n                    \"id\": \"a46a8a6c-0836-4f89-ac81-9543e3486019\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Section plans\",\n                    \"fileStoreId\": \"78f0daf0-4678-4187-a39b-17961a56256e\",\n                    \"id\": \"22816ec4-2a21-42aa-8ef6-b360493a426f\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Foundation plan\",\n                    \"fileStoreId\": \"5346bbaa-426e-4ad4-b22e-6b29c328a47d\",\n                    \"id\": \"c791c873-2ed2-477c-8228-c6ee323d5fc9\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Electrical plans\",\n                    \"fileStoreId\": \"9326a67a-2b3b-4445-8cf4-162025923b7a\",\n                    \"id\": \"0b9b8078-605c-44c9-a4a7-98cf253fa136\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Sanitation plans\",\n                    \"fileStoreId\": \"d5a4a261-6c35-4659-ae78-6b08edcb2aab\",\n                    \"id\": \"4dbf1afe-0aef-4008-aed1-7a5821c155ff\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Descriptive estimate\",\n                    \"fileStoreId\": \"6e37a66d-597d-48b1-8a79-9e94abd8b7ad\",\n                    \"id\": \"64ba3dcf-1021-42fd-a5cc-75a3556b8e9e\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Cost estimate\",\n                    \"fileStoreId\": \"03d44a4d-d326-4b03-9290-3151d84c7685\",\n                    \"id\": \"4fb32100-8a8d-4af2-9f38-060a1015d2d5\"\n                },\n                {\n                    \"auditDetails\": {\n                        \"createdBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"createdTime\": 1748064307000,\n                        \"lastModifiedBy\": \"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\n                        \"lastModifiedTime\": 1748064307000\n                    },\n                    \"documentType\": \"Upload the signed and stamped Demande PCO\",\n                    \"fileStoreId\": \"07dbf0dd-d3a5-4230-ab76-bf1394a2a95c\",\n                    \"id\": \"d749edfa-0c2f-4ab1-a78e-233291344443\"\n                }\n            ],\n            \"id\": \"3d498706-1b0e-4a29-ab68-b07adf7bf15d\",\n            \"module\": \"BPA\",\n            \"processInstance\": null,\n            \"reference\": null,\n            \"serviceCode\": \"SVC-DJ-BPA-BPA_PCO-02\",\n            \"serviceDetails\": {\n                \"designOfficeDetailing\": [\n                    {\n                        \"architectName\": \"Dhanashree\",\n                        \"nameOfDesignOffice\": \"Tekdi\",\n                        \"officeEmail\": \"dhanashree@gmail.com\",\n                        \"registrationNo\": \"7890\",\n                        \"telephone\": \"77456456\"\n                    }\n                ],\n                \"landandProjectDesignDetails\": [\n                    {\n                        \"area\": \"200\",\n                        \"constructionCostPerSqMt\": \"230\",\n                        \"coveredProjectArea\": \"100\",\n                        \"definitiveLandTitle\": \"YES\",\n                        \"detailsOnOtherType\": \"not applicable\",\n                        \"legalStatus\": \"legal\",\n                        \"maximumAuthorizedCes\": \"34\",\n                        \"maximumAuthorizedCos\": \"34\",\n                        \"noOfUnits\": \"5\",\n                        \"other\": \"no\",\n                        \"prjectedCes\": \"56\",\n                        \"projectedCos\": \"45\",\n                        \"registrationCertificate\": \"YES\",\n                        \"siteLocation\": \"Bavdhan Pune\",\n                        \"tfNo\": \"345\",\n                        \"workType\": \"HOUSING\"\n                    }\n                ],\n                \"section_4\": {\n                    \"uploaded\": \"\",\n                    \"uploadedDocs\": {\n                        \"Backfill Permit copy\": [],\n                        \"Cadastral site plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"4e914711-11fe-4f12-a6bd-226f87bf9ec9\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Copy of Backfill Certificate\": [],\n                        \"Cost estimate\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"03d44a4d-d326-4b03-9290-3151d84c7685\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Descriptive estimate\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"6e37a66d-597d-48b1-8a79-9e94abd8b7ad\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Electrical plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"9326a67a-2b3b-4445-8cf4-162025923b7a\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Elevation plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"c1c46688-39a2-4a06-bbe6-8eb00af83cf4\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Foundation plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"5346bbaa-426e-4ad4-b22e-6b29c328a47d\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Interior layout plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"e7f2de87-7353-4c37-8961-cd7c96ba3bc0\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Land Title or provisional concession decree\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"0da29983-4ca8-42cc-b286-51cc5dca4013\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Location map\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"ae16b56e-74a5-4198-8cb6-059cf6a99e8d\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Operating license for the concerned activities\": [],\n                        \"Others\": [],\n                        \"Project layout plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"48175ff8-be08-43db-9cae-0eaf16e99a39\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Receipt for payment of extraction taxes\": [],\n                        \"Sanitation plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"d5a4a261-6c35-4659-ae78-6b08edcb2aab\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Section plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"78f0daf0-4678-4187-a39b-17961a56256e\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Upload the signed and stamped Demande PCO\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"07dbf0dd-d3a5-4230-ab76-bf1394a2a95c\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ]\n                    }\n                },\n                \"summary\": {\n                    \"applicantDetails\": [\n                        {\n                            \"accuracyDeclaration\": true,\n                            \"address\": \"Bavdhan Pune\",\n                            \"checkValidation\": true,\n                            \"eligibilityDeclaration\": true,\n                            \"legalName\": \"Dhanashree Patil\",\n                            \"nationalIdNumber\": \"456789\",\n                            \"taxCalculationAgreement\": true,\n                            \"telephone\": \"77234234\",\n                            \"wayToAddress\": {\n                                \"active\": true,\n                                \"code\": \"FEMALE\",\n                                \"name\": \"COMMON-MASTERS_GENDERTYPE_WAYTOADDRESS_FEMALE\"\n                            }\n                        }\n                    ],\n                    \"designOfficeDetailing\": [\n                        {\n                            \"architectName\": \"Dhanashree\",\n                            \"nameOfDesignOffice\": \"Tekdi\",\n                            \"officeEmail\": \"dhanashree@gmail.com\",\n                            \"registrationNo\": \"7890\",\n                            \"telephone\": \"77456456\"\n                        }\n                    ],\n                    \"landandProjectDesignDetails\": [\n                        {\n                            \"area\": \"200\",\n                            \"constructionCostPerSqMt\": \"230\",\n                            \"coveredProjectArea\": \"100\",\n                            \"definitiveLandTitle\": {\n                                \"code\": \"YES\",\n                                \"name\": \"BPA_BPA_PCO_DEFINITIVELANDTITLE_YES\"\n                            },\n                            \"detailsOnOtherType\": \"not applicable\",\n                            \"legalStatus\": \"legal\",\n                            \"maximumAuthorizedCes\": \"34\",\n                            \"maximumAuthorizedCos\": \"34\",\n                            \"noOfUnits\": \"5\",\n                            \"other\": \"no\",\n                            \"prjectedCes\": \"56\",\n                            \"projectedCos\": \"45\",\n                            \"registrationCertificate\": {\n                                \"code\": \"YES\",\n                                \"name\": \"BPA_BPA_PCO_REGISTRATIONCERTIFICATE_YES\"\n                            },\n                            \"siteLocation\": \"Bavdhan Pune\",\n                            \"tfNo\": \"345\",\n                            \"workType\": {\n                                \"active\": \"true\",\n                                \"code\": \"HOUSING\",\n                                \"name\": \"BPA_WORKTYPE_WORKTYPE_HOUSING\"\n                            }\n                        }\n                    ],\n                    \"section_4\": {\n                        \"uploaded\": \"\",\n                        \"uploadedDocs\": {\n                            \"Backfill Permit copy\": [],\n                            \"Cadastral site plan\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"4e914711-11fe-4f12-a6bd-226f87bf9ec9\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Copy of Backfill Certificate\": [],\n                            \"Cost estimate\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"03d44a4d-d326-4b03-9290-3151d84c7685\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Descriptive estimate\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"6e37a66d-597d-48b1-8a79-9e94abd8b7ad\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Electrical plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"9326a67a-2b3b-4445-8cf4-162025923b7a\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Elevation plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"c1c46688-39a2-4a06-bbe6-8eb00af83cf4\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Foundation plan\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"5346bbaa-426e-4ad4-b22e-6b29c328a47d\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Interior layout plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"e7f2de87-7353-4c37-8961-cd7c96ba3bc0\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Land Title or provisional concession decree\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"0da29983-4ca8-42cc-b286-51cc5dca4013\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Location map\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"ae16b56e-74a5-4198-8cb6-059cf6a99e8d\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Operating license for the concerned activities\": [],\n                            \"Others\": [],\n                            \"Project layout plan\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"48175ff8-be08-43db-9cae-0eaf16e99a39\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Receipt for payment of extraction taxes\": [],\n                            \"Sanitation plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"d5a4a261-6c35-4659-ae78-6b08edcb2aab\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Section plans\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"78f0daf0-4678-4187-a39b-17961a56256e\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ],\n                            \"Upload the signed and stamped Demande PCO\": [\n                                [\n                                    \"application-receipt.pdf\",\n                                    {\n                                        \"file\": {},\n                                        \"fileStoreId\": {\n                                            \"fileStoreId\": \"07dbf0dd-d3a5-4230-ab76-bf1394a2a95c\",\n                                            \"tenantId\": \"dj\"\n                                        }\n                                    }\n                                ]\n                            ]\n                        }\n                    },\n                    \"uploaded\": \"\",\n                    \"uploadedDocs\": {\n                        \"Backfill Permit copy\": [],\n                        \"Cadastral site plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"4e914711-11fe-4f12-a6bd-226f87bf9ec9\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Copy of Backfill Certificate\": [],\n                        \"Cost estimate\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"03d44a4d-d326-4b03-9290-3151d84c7685\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Descriptive estimate\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"6e37a66d-597d-48b1-8a79-9e94abd8b7ad\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Electrical plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"9326a67a-2b3b-4445-8cf4-162025923b7a\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Elevation plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"c1c46688-39a2-4a06-bbe6-8eb00af83cf4\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Foundation plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"5346bbaa-426e-4ad4-b22e-6b29c328a47d\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Interior layout plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"e7f2de87-7353-4c37-8961-cd7c96ba3bc0\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Land Title or provisional concession decree\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"0da29983-4ca8-42cc-b286-51cc5dca4013\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Location map\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"ae16b56e-74a5-4198-8cb6-059cf6a99e8d\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Operating license for the concerned activities\": [],\n                        \"Others\": [],\n                        \"Project layout plan\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"48175ff8-be08-43db-9cae-0eaf16e99a39\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Receipt for payment of extraction taxes\": [],\n                        \"Sanitation plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"d5a4a261-6c35-4659-ae78-6b08edcb2aab\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Section plans\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"78f0daf0-4678-4187-a39b-17961a56256e\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ],\n                        \"Upload the signed and stamped Demande PCO\": [\n                            [\n                                \"application-receipt.pdf\",\n                                {\n                                    \"file\": {},\n                                    \"fileStoreId\": {\n                                        \"fileStoreId\": \"07dbf0dd-d3a5-4230-ab76-bf1394a2a95c\",\n                                        \"tenantId\": \"dj\"\n                                    }\n                                }\n                            ]\n                        ]\n                    }\n                }\n            },\n            \"status\": \"INACTIVE\",\n            \"tenantId\": \"dj\",\n            \"workflow\": {\n                \"action\": \"DRAFT\",\n                \"assignees\": [],\n                \"businessService\": \"\",\n                \"comment\": \"\",\n                \"documents\": null,\n                \"id\": \"fd1ddce6-bcb2-4d4c-9b42-2554826a6c99\"\n            },\n            \"workflowStatus\": \"applied\"\n        }\n    ],\n    \"responseInfo\": {\n        \"UserInfo\": {\n            \"active\": false,\n            \"emailId\": \"\",\n            \"locale\": null,\n            \"mobileNumber\": \"\",\n            \"name\": \"\",\n            \"permanentCity\": null,\n            \"roles\": null,\n            \"tenantId\": \"\",\n            \"type\": \"\",\n            \"userName\": \"\",\n            \"uuid\": \"00000000-0000-0000-0000-000000000000\"\n        },\n        \"apiId\": \"\",\n        \"msgId\": \"\",\n        \"resMsgId\": \"\",\n        \"status\": \"successful\",\n        \"ts\": 0,\n        \"ver\": \"\"\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:8085/calculator-service/v1/BPA_PCO/demand",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8085",
+                        "path": [
+                            "calculator-service",
+                            "v1",
+                            "BPA_PCO",
+                            "demand"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-82bed2b9-e912-4143-be1a-7c07155bbd41"
+            },
+            {
+                "name": "fetch_bill",
+                "id": "460e2fde-6d04-4b0f-86ed-b2f924fea809",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "accept",
+                            "value": "application/json, text/plain, */*"
+                        },
+                        {
+                            "key": "accept-language",
+                            "value": "en-GB,en-US;q=0.9,en;q=0.8"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json;charset=UTF-8"
+                        },
+                        {
+                            "key": "origin",
+                            "value": "https://djibouti.tekdinext.com"
+                        },
+                        {
+                            "key": "priority",
+                            "value": "u=1, i"
+                        },
+                        {
+                            "key": "referer",
+                            "value": "https://djibouti.tekdinext.com/digit-studio/employee/openpayment/open-view?consumerCode=DJ-PCO-2025-05-30-000234&tenantId=dj&businessService=PCO"
+                        },
+                        {
+                            "key": "sec-ch-ua",
+                            "value": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\""
+                        },
+                        {
+                            "key": "sec-ch-ua-mobile",
+                            "value": "?0"
+                        },
+                        {
+                            "key": "sec-ch-ua-platform",
+                            "value": "\"Linux\""
+                        },
+                        {
+                            "key": "sec-fetch-dest",
+                            "value": "empty"
+                        },
+                        {
+                            "key": "sec-fetch-mode",
+                            "value": "cors"
+                        },
+                        {
+                            "key": "sec-fetch-site",
+                            "value": "same-origin"
+                        },
+                        {
+                            "key": "user-agent",
+                            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+                        },
+                        {
+                            "key": "Cookie",
+                            "value": "_ga=GA1.1.1009180452.1747630821; _ga_3LN58ZJ5KN=GS2.1.s1748575780$o17$g1$t1748576689$j60$l0$h0; _ga_4FTREDCS0G=GS2.1.s1748575780$o17$g1$t1748576689$j60$l0$h0; _ga_FS7DJ7SGKL=GS2.1.s1748575780$o17$g1$t1748576689$j60$l0$h0; _ga_EHCDQF6VQ5=GS2.1.s1748575780$o17$g1$t1748576689$j60$l0$h0"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\"RequestInfo\":{\"apiId\":\"Rainmaker\",\"authToken\":\"1ed46303-b2b2-4a06-9b19-790832844bb5\",\"userInfo\":{\"id\":1856,\"uuid\":\"15cf935d-2b70-42e5-b23c-e69ff7d5d83f\",\"userName\":\"akshay.gandhi@tekditechnologies.com\",\"name\":\"Akshay\",\"mobileNumber\":\"77545454\",\"emailId\":\"akshay.gandhi@tekditechnologies.com\",\"locale\":null,\"type\":\"EMPLOYEE\",\"roles\":[{\"name\":\"Studio Admin\",\"code\":\"STUDIO_ADMIN\",\"tenantId\":\"dj\"}],\"active\":true,\"tenantId\":\"dj\",\"permanentCity\":null},\"msgId\":\"1748576755466|en_IN\",\"plainAccessRequest\":{}}}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "https://djibouti.tekdinext.com/billing-service/bill/v2/_fetchbill?consumerCode=DJ-PCO-2025-05-30-000234&tenantId=dj&businessService=PCO",
+                        "protocol": "https",
+                        "host": [
+                            "djibouti",
+                            "tekdinext",
+                            "com"
+                        ],
+                        "path": [
+                            "billing-service",
+                            "bill",
+                            "v2",
+                            "_fetchbill"
+                        ],
+                        "query": [
+                            {
+                                "key": "consumerCode",
+                                "value": "DJ-PCO-2025-05-30-000234"
+                            },
+                            {
+                                "key": "tenantId",
+                                "value": "dj"
+                            },
+                            {
+                                "key": "businessService",
+                                "value": "PCO"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-460e2fde-6d04-4b0f-86ed-b2f924fea809"
+            },
+            {
+                "name": "localisation-upsert",
+                "id": "14edf7e6-6dcf-477b-bc71-e0ac7d780ca4",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": null,\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": \"POST\",\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"5bfa85e7-dfa1-47c8-98b2-747bf552be86\",\n        \"authToken\": \"feb51769-443c-45c0-a29c-22101f8c168a\",\n        \"userInfo\": {\n            \"id\": 9421,\n            \"uuid\": \"3709110a-4b1d-49a4-b639-95b689a86aa5\",\n            \"userName\": \"SUPERSU1\",\n            \"name\": \"Jason\",\n            \"mobileNumber\": \"9999009900\",\n            \"emailId\": null,\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"Super User\",\n                    \"code\": \"SUPERUSER\",\n                    \"tenantId\": \"pg\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"dj\",\n            \"permanentCity\": null\n        }\n    },\n    \"tenantId\": \"dj\",\n    \"messages\": [\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.SETBACK_FROM_NORTH_ROAD_Q32\",\n            \"message\": \"Retrait de la voie nord\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.SETBACK_FROM_SOUTHERN_PROPERTY_LINE_Q33\",\n            \"message\": \"Retrait de la limite mitoyenne sud\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.SETBACK_FROM_EAST_ROAD_Q34\",\n            \"message\": \"Retrait de la voie est\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.SETBACK_FROM_WEST_ROAD_Q35\",\n            \"message\": \"Retrait de la voie ouest\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.DISTANCE_BETWEEN_BUILDINGS_Q36\",\n            \"message\": \"Distance entre les bâtiments\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.OPENINGS_ON_SHARED_WALLS_Q37\",\n            \"message\": \"Ouvertures sur les murs mitoyens\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.HEIGHT_Q38\",\n            \"message\": \"Hauteur\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.DESTINATION_Q39\",\n            \"message\": \"Destination\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.TYPE_OF_ARCHITECT_Q40\",\n            \"message\": \"Type d'Architectee\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        },\n        {\n            \"code\": \"BPA_PCO.PENDING_ACTION_BY_AGENT.AUTHER_OF_THE_PROJECT_Q41\",\n            \"message\": \"Auteur du projet\",\n            \"module\": \"rainmaker-studio-bpa\",\n            \"locale\": \"fr_FR_IN\"\n        }\n    ]\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:8091/localization/messages/v1/_upsert",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8091",
+                        "path": [
+                            "localization",
+                            "messages",
+                            "v1",
+                            "_upsert"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-14edf7e6-6dcf-477b-bc71-e0ac7d780ca4"
+            },
+            {
+                "name": "individual-create",
+                "id": "00587e02-cb77-4d53-9d1b-97c5406f016f",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "authority",
+                            "value": "unified-dev.digit.org"
+                        },
+                        {
+                            "key": "accept",
+                            "value": "application/json, text/plain, */*"
+                        },
+                        {
+                            "key": "accept-language",
+                            "value": "en-GB,en-US;q=0.9,en;q=0.8"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json;charset=UTF-8"
+                        },
+                        {
+                            "key": "cookie",
+                            "value": "__cuid=299d1812d456424f9f2ab67f39c4f142; amp_fef1e8=6c38bacd-2a7e-4fe7-b574-ef9e6bf0d8f6R...1hjs0gtik.1hjs0inap.9a.14.ae; _oauth2_proxy=eyJFbWFpbCI6ImppdGhlbmRhci5rQGVnb3Zlcm5tZW50cy5vcmciLCJVc2VyIjoiSml0aGVuZGFyS3VtYXItZUdvdiJ9|1707728495|pQJI3ZLVAEW0BtBg67yD8IblvQc="
+                        },
+                        {
+                            "key": "origin",
+                            "value": "https://unified-dev.digit.org"
+                        },
+                        {
+                            "key": "priority",
+                            "value": "u=1, i"
+                        },
+                        {
+                            "key": "referer",
+                            "value": "https://unified-dev.digit.org/sanitation-ui/employee/fsm/registry/new-worker"
+                        },
+                        {
+                            "key": "sec-ch-ua",
+                            "value": "\"Chromium\";v=\"122\", \"Not(A:Brand\";v=\"24\", \"Google Chrome\";v=\"122\""
+                        },
+                        {
+                            "key": "sec-ch-ua-mobile",
+                            "value": "?0"
+                        },
+                        {
+                            "key": "sec-ch-ua-platform",
+                            "value": "\"Linux\""
+                        },
+                        {
+                            "key": "sec-fetch-dest",
+                            "value": "empty"
+                        },
+                        {
+                            "key": "sec-fetch-mode",
+                            "value": "cors"
+                        },
+                        {
+                            "key": "sec-fetch-site",
+                            "value": "same-origin"
+                        },
+                        {
+                            "key": "user-agent",
+                            "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"authToken\": \"76eb2d9b-9746-48b7-a1e3-cbeddf2baa79\",\n        \"userInfo\": {{user-info}},\n        \"msgId\": \"1708324190599|en_IN\",\n        \"plainAccessRequest\": {}\n    },\n    \"Individual\": {\n        \"tenantId\": \"dj\",\n        \"name\": {\n            \"givenName\": \"Wax\"\n        },\n        \"dateOfBirth\": 1139529600000,\n        \"gender\": \"MALE\",\n        \"mobileNumber\": \"77654654\",\n        \"address\": [\n            {\n                \"tenantId\": \"dj\",\n                \"city\": \"dj\",\n                \"locality\": {\n                    \"code\": \"DZB-PLATEAU\"\n                },\n                \"type\": \"PERMANENT\"\n            }\n        ],\n        \"identifiers\": [\n            {\n                \"identifierType\": \"licenseOrAccreditationNumber\",\n                \"identifierId\": \"15\"\n            }\n        ],\n        \"skills\": [\n            {\n                \"type\": \"DRIVING\",\n                \"level\": \"UNSKILLED\"\n            }\n        ],\n        \"photo\": null,\n        \"additionalFields\": {\n            \"fields\": [\n                {\n                    \"key\": \"companyName\",\n                    \"value\": \"ANDREWS ASSOCIATES\"\n                },\n                {\n                    \"key\": \"hqAddress\",\n                    \"value\": \"ANDREWS ASSOCIATES\"\n                },\n                {\n                    \"key\": \"nameOfTechnicalManager\",\n                    \"value\": \"JOHN ANDREWS\"\n                },\n                {\n                    \"key\": \"professionalPhoneOrEmail\",\n                    \"value\": \"21 35 70 35 / 77 81 27 90\"\n                },\n                {\n                    \"key\": \"CNSSOrTaxCertificate\",\n                    \"value\": \"81b17e0c-b480-41cb-b7cd-082fd0b200ca\"\n                },\n                {\n                    \"key\": \"proofOfRegistrationWithProfessionalOrder\",\n                    \"value\": \"81b17e0c-b480-41cb-b7cd-082fd0b200ca\"\n                }\n            ]\n        },\n        \"isSystemUser\": true,\n        \"userDetails\": {\n            \"username\": \"hodwax@gmail.com\",\n            \"mobileNumber\": \"77654654\",\n            \"tenantId\": \"dj\",\n            \"roles\": [\n                {\n                    \"name\": \"BPA HOD\",\n                    \"code\": \"BPA_HOD\",\n                    \"tenantId\": \"dj\"\n                },\n                {\n                    \"name\": \"Employee\",\n                    \"code\": \"EMPLOYEE\",\n                    \"tenantId\": \"dj\"\n                }\n            ],\n            \"type\": \"EMPLOYEE\"\n        }\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "{{base_url}}/health-individual/v1/_create",
+                        "host": [
+                            "{{base_url}}"
+                        ],
+                        "path": [
+                            "health-individual",
+                            "v1",
+                            "_create"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-00587e02-cb77-4d53-9d1b-97c5406f016f"
+            },
+            {
+                "name": "individual-update",
+                "id": "9f8ca632-6871-4929-a1db-dfcadb9ba953",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "authority",
+                            "value": "unified-dev.digit.org"
+                        },
+                        {
+                            "key": "accept",
+                            "value": "application/json, text/plain, */*"
+                        },
+                        {
+                            "key": "accept-language",
+                            "value": "en-US,en;q=0.9"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json;charset=UTF-8"
+                        },
+                        {
+                            "key": "origin",
+                            "value": "https://unified-dev.digit.org"
+                        },
+                        {
+                            "key": "referer",
+                            "value": "https://unified-dev.digit.org/sanitation-ui/employee/fsm/registry?selectedTabs=WORKER"
+                        },
+                        {
+                            "key": "sec-ch-ua",
+                            "value": "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\""
+                        },
+                        {
+                            "key": "sec-ch-ua-mobile",
+                            "value": "?0"
+                        },
+                        {
+                            "key": "sec-ch-ua-platform",
+                            "value": "\"Windows\""
+                        },
+                        {
+                            "key": "sec-fetch-dest",
+                            "value": "empty"
+                        },
+                        {
+                            "key": "sec-fetch-mode",
+                            "value": "cors"
+                        },
+                        {
+                            "key": "sec-fetch-site",
+                            "value": "same-origin"
+                        },
+                        {
+                            "key": "user-agent",
+                            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"tenantId\": \"pg.citya\",\n    \"Individual\": {\n        \"id\": \"02bc1a5b-fed9-4176-bada-974aeeb8e613\",\n        \"individualId\": \"IND-2023-12-11-011010\",\n        \"tenantId\": \"pg.citya\",\n        \"clientReferenceId\": null,\n        \"userId\": null,\n        \"userUuid\": null,\n        \"name\": {\n            \"givenName\": \"sdjhsdhsdkjhs\",\n            \"familyName\": null,\n            \"otherNames\": null\n        },\n        \"dateOfBirth\": \"01/01/1970\",\n        \"gender\": \"MALE\",\n        \"bloodGroup\": null,\n        \"mobileNumber\": \"7897897899\",\n        \"altContactNumber\": null,\n        \"email\": null,\n        \"address\": [\n            {\n                \"id\": \"d2a6e81d-c3ce-4608-af11-5b0d0ca0aa0d\",\n                \"clientReferenceId\": null,\n                \"individualId\": \"02bc1a5b-fed9-4176-bada-974aeeb8e613\",\n                \"tenantId\": \"pg.citya\",\n                \"doorNo\": null,\n                \"latitude\": 0,\n                \"longitude\": 0,\n                \"locationAccuracy\": 0,\n                \"type\": \"PERMANENT\",\n                \"addressLine1\": null,\n                \"addressLine2\": null,\n                \"landmark\": null,\n                \"city\": \"pg.citya\",\n                \"pincode\": null,\n                \"buildingName\": null,\n                \"street\": null,\n                \"locality\": {\n                    \"code\": \"SUN01\",\n                    \"name\": null,\n                    \"label\": null,\n                    \"latitude\": null,\n                    \"longitude\": null,\n                    \"children\": null,\n                    \"materializedPath\": null\n                },\n                \"ward\": null,\n                \"isDeleted\": false,\n                \"auditDetails\": {\n                    \"createdBy\": \"4a747fc5-6a8c-4645-8748-fec35f1b9e17\",\n                    \"lastModifiedBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"createdTime\": 1702288646617,\n                    \"lastModifiedTime\": 1702459735736\n                }\n            }\n        ],\n        \"fatherName\": null,\n        \"husbandName\": null,\n        \"relationship\": null,\n        \"identifiers\": [\n            {\n                \"id\": \"c29c1d4d-a652-41ed-919e-690ebc26641a\",\n                \"clientReferenceId\": null,\n                \"individualId\": \"02bc1a5b-fed9-4176-bada-974aeeb8e613\",\n                \"identifierType\": \"SYSTEM_GENERATED\",\n                \"identifierId\": \"********************************e613\",\n                \"isDeleted\": false,\n                \"auditDetails\": {\n                    \"createdBy\": \"4a747fc5-6a8c-4645-8748-fec35f1b9e17\",\n                    \"lastModifiedBy\": \"4a747fc5-6a8c-4645-8748-fec35f1b9e17\",\n                    \"createdTime\": 1702288646617,\n                    \"lastModifiedTime\": 1702288646617\n                }\n            }\n        ],\n        \"skills\": [\n            {\n                \"id\": \"19a53767-cf30-40ef-b319-448a71543d6b\",\n                \"clientReferenceId\": null,\n                \"individualId\": \"02bc1a5b-fed9-4176-bada-974aeeb8e613\",\n                \"type\": \"DRIVING\",\n                \"level\": \"UNSKILLED\",\n                \"experience\": null,\n                \"isDeleted\": false,\n                \"auditDetails\": {\n                    \"createdBy\": \"4a747fc5-6a8c-4645-8748-fec35f1b9e17\",\n                    \"lastModifiedBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"createdTime\": 1702288646617,\n                    \"lastModifiedTime\": 1702381056019\n                }\n            },\n            {\n                \"id\": \"d033165f-e71a-492d-9047-a0f7a8100bf9\",\n                \"clientReferenceId\": null,\n                \"individualId\": \"02bc1a5b-fed9-4176-bada-974aeeb8e613\",\n                \"type\": \"Driving\",\n                \"level\": \"UNSKILLED\",\n                \"experience\": null,\n                \"isDeleted\": false,\n                \"auditDetails\": {\n                    \"createdBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"lastModifiedBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"createdTime\": 1702459735089,\n                    \"lastModifiedTime\": 1702459735089\n                }\n            },\n            {\n                \"id\": \"83d3c583-4195-49d9-8447-3fdea59a3f47\",\n                \"clientReferenceId\": null,\n                \"individualId\": \"02bc1a5b-fed9-4176-bada-974aeeb8e613\",\n                \"type\": \"Lab Operator\",\n                \"level\": \"UNSKILLED\",\n                \"experience\": null,\n                \"isDeleted\": false,\n                \"auditDetails\": {\n                    \"createdBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"lastModifiedBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"createdTime\": 1702459735089,\n                    \"lastModifiedTime\": 1702459735089\n                }\n            },\n            {\n                \"id\": \"db0d86de-5f6e-42b0-8978-1953bd4a71a4\",\n                \"clientReferenceId\": null,\n                \"individualId\": \"02bc1a5b-fed9-4176-bada-974aeeb8e613\",\n                \"type\": \"Driving\",\n                \"level\": \"UNSKILLED\",\n                \"experience\": null,\n                \"isDeleted\": false,\n                \"auditDetails\": {\n                    \"createdBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"lastModifiedBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"createdTime\": 1702459735737,\n                    \"lastModifiedTime\": 1702459735737\n                }\n            },\n            {\n                \"id\": \"8c623d37-5a83-431a-8c09-5cd6a3bc54c2\",\n                \"clientReferenceId\": null,\n                \"individualId\": \"02bc1a5b-fed9-4176-bada-974aeeb8e613\",\n                \"type\": \"Lab Operator\",\n                \"level\": \"UNSKILLED\",\n                \"experience\": null,\n                \"isDeleted\": false,\n                \"auditDetails\": {\n                    \"createdBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"lastModifiedBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n                    \"createdTime\": 1702459735737,\n                    \"lastModifiedTime\": 1702459735737\n                }\n            }\n        ],\n        \"photo\": null,\n        \"additionalFields\": {\n            \"schema\": null,\n            \"version\": null,\n            \"fields\": [\n                {\n                    \"key\": \"FUNCTIONAL_ROLE_1\",\n                    \"value\": \"SANITATION_HELPER\"\n                },\n                {\n                    \"key\": \"EMPLOYMENT_TYPE_1\",\n                    \"value\": \"FIXED\"\n                },\n                {\n                    \"key\": \"FUNCTIONAL_ROLE_COUNT\",\n                    \"value\": \"01\"\n                },\n                {\n                    \"key\": \"EMPLOYER\",\n                    \"value\": \"ULB\"\n                }\n            ]\n        },\n        \"isDeleted\": false,\n        \"rowVersion\": 11,\n        \"auditDetails\": {\n            \"createdBy\": \"4a747fc5-6a8c-4645-8748-fec35f1b9e17\",\n            \"lastModifiedBy\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n            \"createdTime\": 1702288646617,\n            \"lastModifiedTime\": 1702459735737\n        },\n        \"clientAuditDetails\": {\n            \"createdBy\": null,\n            \"lastModifiedBy\": null,\n            \"createdTime\": 0,\n            \"lastModifiedTime\": 0\n        },\n        \"isSystemUser\": true,\n        \"isSystemUserActive\": false,\n        \"userDetails\": {\n            \"username\": \"7897897899\",\n            \"password\": null,\n            \"tenantId\": \"pg.citya\",\n            \"roles\": [\n                {\n                    \"name\": null,\n                    \"code\": \"SANITATION_HELPER\",\n                    \"description\": null,\n                    \"tenantId\": \"pg.citya\"\n                },\n                {\n                    \"name\": null,\n                    \"code\": \"SANITATION_WORKER\",\n                    \"description\": null,\n                    \"tenantId\": \"pg.citya\"\n                },\n                {\n                    \"name\": null,\n                    \"code\": \"CITIZEN\",\n                    \"description\": null,\n                    \"tenantId\": \"pg.citya\"\n                }\n            ],\n            \"type\": \"CITIZEN\"\n        }\n    },\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"authToken\": \"06170439-7751-41d9-8043-04ede25e9499\",\n        \"userInfo\": {\n            \"id\": 927,\n            \"uuid\": \"49341961-f413-4ae1-b7f8-92a8d9136f38\",\n            \"userName\": \"ADMIN\",\n            \"name\": \"Plant operator\",\n            \"mobileNumber\": \"8282828121\",\n            \"emailId\": null,\n            \"locale\": null,\n            \"type\": \"EMPLOYEE\",\n            \"roles\": [\n                {\n                    \"name\": \"FSM Administrator\",\n                    \"code\": \"FSM_ADMIN\",\n                    \"tenantId\": \"pg.citya\"\n                },\n                {\n                    \"name\": \"FSM Employee Application Viewer\",\n                    \"code\": \"FSM_VIEW_EMP\",\n                    \"tenantId\": \"pg.citya\"\n                }\n            ],\n            \"active\": true,\n            \"tenantId\": \"pg.citya\",\n            \"permanentCity\": null\n        },\n        \"msgId\": \"1702467231568|en_IN\",\n        \"plainAccessRequest\": {}\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "https://unified-dev.digit.org/individual/v1/_update",
+                        "protocol": "https",
+                        "host": [
+                            "unified-dev",
+                            "digit",
+                            "org"
+                        ],
+                        "path": [
+                            "individual",
+                            "v1",
+                            "_update"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-9f8ca632-6871-4929-a1db-dfcadb9ba953"
+            },
+            {
+                "name": "individual-search",
+                "id": "1447b5a9-e041-49c9-a861-a9600fd228b4",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"\",\n        \"ver\": \"\",\n        \"ts\": 0,\n        \"action\": \"\",\n        \"did\": \"\",\n        \"key\": \"\",\n        \"msgId\": \"\",\n        \"requesterId\": \"\",\n        \"authToken\": \"\",\n        \"userInfo\": {\n            \"uuid\": \"00000000-0000-0000-0000-000000000000\",\n            \"userName\": \"\",\n            \"name\": \"\",\n            \"mobileNumber\": \"\",\n            \"emailId\": null,\n            \"locale\": null,\n            \"type\": \"\",\n            \"roles\": null,\n            \"active\": false,\n            \"tenantId\": \"\",\n            \"permanentCity\": null\n        }\n    },\n    \"Individual\": {\n        \"name\": {\n           \"givenName\": \"Wax\"\n        }\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:8082/health-individual/v1/_search?limit=1000&offset=0&tenantId=dj",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8082",
+                        "path": [
+                            "health-individual",
+                            "v1",
+                            "_search"
+                        ],
+                        "query": [
+                            {
+                                "key": "limit",
+                                "value": "1000"
+                            },
+                            {
+                                "key": "offset",
+                                "value": "0"
+                            },
+                            {
+                                "key": "tenantId",
+                                "value": "dj"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-1447b5a9-e041-49c9-a861-a9600fd228b4"
+            },
+            {
+                "name": "employees/_create",
+                "id": "864bea6c-9254-47b5-94a1-b4c74c81d2bd",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"asset-services\",\n        \"ver\": null,\n        \"ts\": null,\n        \"action\": null,\n        \"did\": null,\n        \"key\": null,\n        \"msgId\": \"search with from and to values\",\n        \"authToken\": \"{{access_token}}\",\n        \"correlationId\": null,\n        \"userInfo\": {\n            \"id\": \"1\",\n            \"userName\": null,\n            \"name\": null,\n            \"type\": null,\n            \"mobileNumber\": null,\n            \"emailId\": null,\n            \"roles\": null,\n            \"uuid\": \"d7867ef2-d046-4361-9a82-94c35c98416e\"\n        }\n    },\n    \"Employees\": [\n        {\n            \"tenantId\": \"dj\",\n            \"code\": \"HOD\",\n            \"name\": \"hod\",\n            \"employeeStatus\": \"EMPLOYED\",\n            \"employeeType\": \"PERMANENT\",\n            \"user\": {\n                \"userName\": \"hod@gmail.com\",\n                \"password\": \"eGov@4321\",\n                \"name\": \"Hod\",\n                \"mobileNumber\": \"77852852\",\n                \"dob\": 804681600000,\n                \"roles\": [\n                    {\n                        \"code\": \"BPA_HOD\",\n                        \"name\": \"BPA HOD\",\n                        \"tenantId\": \"dj\"\n                    },\n                    {\n                        \"code\": \"EMPLOYEE\",\n                        \"name\": \"Employee\",\n                        \"tenantId\": \"dj\"\n                    }\n                ]\n            },\n            \"assignments\": [\n                {\n                    \"designation\": \"DEPT_1\",\n                    \"department\": \"DESIG_01\",\n                    \"fromDate\": \"1747113600000\",\n                    \"isCurrentAssignment\": true\n                }\n            ],\n            \"jurisdictions\": [\n                {\n                    \"hierarchy\": \"REVENUE\",\n                    \"boundary\": \"dj\",\n                    \"boundaryType\": \"dj\",\n                    \"active\": true\n                }\n            ]\n        }\n    ]\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:8083/egov-hrms/employees/_create",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "8083",
+                        "path": [
+                            "egov-hrms",
+                            "employees",
+                            "_create"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-864bea6c-9254-47b5-94a1-b4c74c81d2bd"
+            },
+            {
+                "name": "Get Token",
+                "event": [
+                    {
+                        "listen": "test",
+                        "script": {
+                            "id": "8d14f300-d524-46a9-b0f3-220d78b144fa",
+                            "exec": [
+                                "let response = pm.response.json();",
+                                "let auth_token = JSON.stringify(response.access_token);",
+                                "let user_info = JSON.stringify(response[\"UserRequest\"]);",
+                                "pm.collectionVariables.set(\"auth-token\", auth_token);",
+                                "pm.collectionVariables.set(\"user-info\", user_info);",
+                                ""
+                            ],
+                            "type": "text/javascript",
+                            "packages": {}
+                        }
+                    }
+                ],
+                "id": "87d5559f-7915-4ade-873f-ccb866c2f56f",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "accept",
+                            "value": "application/json, text/plain, */*"
+                        },
+                        {
+                            "key": "accept-language",
+                            "value": "en-GB,en-US;q=0.9,en;q=0.8"
+                        },
+                        {
+                            "key": "authorization",
+                            "value": "Basic ZWdvdi11c2VyLWNsaWVudDo="
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "no-cache"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/x-www-form-urlencoded"
+                        },
+                        {
+                            "key": "origin",
+                            "value": "https://djibouti.tekdinext.com"
+                        },
+                        {
+                            "key": "pragma",
+                            "value": "no-cache"
+                        },
+                        {
+                            "key": "priority",
+                            "value": "u=1, i"
+                        },
+                        {
+                            "key": "referer",
+                            "value": "https://djibouti.tekdinext.com/digit-studio/employee/user/login/otp"
+                        },
+                        {
+                            "key": "sec-ch-ua",
+                            "value": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\""
+                        },
+                        {
+                            "key": "sec-ch-ua-mobile",
+                            "value": "?0"
+                        },
+                        {
+                            "key": "sec-ch-ua-platform",
+                            "value": "\"macOS\""
+                        },
+                        {
+                            "key": "sec-fetch-dest",
+                            "value": "empty"
+                        },
+                        {
+                            "key": "sec-fetch-mode",
+                            "value": "cors"
+                        },
+                        {
+                            "key": "sec-fetch-site",
+                            "value": "same-origin"
+                        },
+                        {
+                            "key": "user-agent",
+                            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+                        },
+                        {
+                            "key": "Cookie",
+                            "value": "_ga=GA1.1.1798451893.1749808460; _ga_3LN58ZJ5KN=GS2.1.s1750136457$o3$g1$t1750136487$j30$l0$h0; _ga_4FTREDCS0G=GS2.1.s1750136457$o3$g1$t1750136487$j30$l0$h0; _ga_FS7DJ7SGKL=GS2.1.s1750136457$o3$g1$t1750136487$j30$l0$h0; _ga_EHCDQF6VQ5=GS2.1.s1750136457$o3$g1$t1750136487$j30$l0$h0"
+                        }
+                    ],
+                    "body": {
+                        "mode": "urlencoded",
+                        "urlencoded": [
+                            {
+                                "type": "text",
+                                "key": "username",
+                                "value": "akshay.gandhi@tekditechnologies.com"
+                            },
+                            {
+                                "type": "text",
+                                "key": "password",
+                                "value": "654321"
+                            },
+                            {
+                                "type": "text",
+                                "key": "tenantId",
+                                "value": "dj"
+                            },
+                            {
+                                "type": "text",
+                                "key": "userType",
+                                "value": "EMPLOYEE"
+                            },
+                            {
+                                "type": "text",
+                                "key": "scope",
+                                "value": "read"
+                            },
+                            {
+                                "type": "text",
+                                "key": "grant_type",
+                                "value": "password"
+                            }
+                        ]
+                    },
+                    "url": {
+                        "raw": "https://djibouti.tekdinext.com/user/oauth/token?_=1750136506874",
+                        "protocol": "https",
+                        "host": [
+                            "djibouti",
+                            "tekdinext",
+                            "com"
+                        ],
+                        "path": [
+                            "user",
+                            "oauth",
+                            "token"
+                        ],
+                        "query": [
+                            {
+                                "key": "_",
+                                "value": "1750136506874"
+                            }
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-87d5559f-7915-4ade-873f-ccb866c2f56f"
+            },
+            {
+                "name": "Adding New Action",
+                "id": "34746488-5beb-4b56-b4b6-1fbb3847ee93",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"authToken\": {{auth-token}},\n        \"userInfo\": {{user-info}}\n    },\n    \"Mdms\": {\n        \"tenantId\": \"dj\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 2949,\n            \"url\": \"/egov-mdms-service/v2/_create/DigitStudio.DocumentConfig\",\n            \"name\": \"MDMS\",\n            \"path\": \"\",\n            \"enabled\": true,\n            \"leftIcon\": \"\",\n            \"tenantId\": \"dj\",\n            \"createdBy\": null,\n            \"rightIcon\": \"\",\n            \"createdDate\": null,\n            \"displayName\": \"Create DocumentConfig\",\n            \"orderNumber\": 1,\n            \"queryParams\": \"\",\n            \"serviceCode\": \"MDMS\",\n            \"parentModule\": \"\",\n            \"navigationURL\": \"\",\n            \"lastModifiedBy\": null,\n            \"lastModifiedDate\": null\n        }\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "https://djibouti.tekdinext.com/egov-mdms-service/v2/_create/ACCESSCONTROL-ACTIONS-TEST.actions-test",
+                        "protocol": "https",
+                        "host": [
+                            "djibouti",
+                            "tekdinext",
+                            "com"
+                        ],
+                        "path": [
+                            "egov-mdms-service",
+                            "v2",
+                            "_create",
+                            "ACCESSCONTROL-ACTIONS-TEST.actions-test"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-34746488-5beb-4b56-b4b6-1fbb3847ee93"
+            },
+            {
+                "name": "Search New Action",
+                "id": "02063935-8900-4dcc-8e96-e50b1fdebdf5",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"authToken\": {{auth-token}},\n        \"userInfo\": {{user-info}}\n    },\n    \"Mdms\": {\n        \"tenantId\": \"dj\",\n        \"schemaCode\": \"ACCESSCONTROL-ACTIONS-TEST.actions-test\",\n        \"data\": {\n            \"id\": 1861,\n            \"url\": \"/egov-mdms-service/schema/v1/_search\",\n            \"code\": \"null\",\n            \"name\": \"MDMS Schema Search\",\n            \"path\": \"\",\n            \"enabled\": true,\n            \"displayName\": \"MDMS Schema Search\",\n            \"orderNumber\": 0,\n            \"serviceCode\": \"mdms-v2\",\n            \"parentModule\": \"\"\n        }\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "https://djibouti.tekdinext.com/egov-mdms-service/v2/_search/ACCESSCONTROL-ACTIONS-TEST.actions-test",
+                        "protocol": "https",
+                        "host": [
+                            "djibouti",
+                            "tekdinext",
+                            "com"
+                        ],
+                        "path": [
+                            "egov-mdms-service",
+                            "v2",
+                            "_search",
+                            "ACCESSCONTROL-ACTIONS-TEST.actions-test"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-02063935-8900-4dcc-8e96-e50b1fdebdf5"
+            },
+            {
+                "name": "Adding New RoleAction",
+                "id": "79dafc5a-54d6-422c-92e9-c2efd318cf50",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "auth": {
+                        "type": "noauth"
+                    },
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"Rainmaker\",\n        \"authToken\": {{auth-token}},\n        \"userInfo\": {{user-info}}\n    },\n    \"Mdms\": {\n        \"tenantId\": \"dj\",\n        \"schemaCode\": \"ACCESSCONTROL-ROLEACTIONS.roleactions\",\n        \"data\": {\n            \"actionid\": 2949,\n            \"rolecode\": \"STUDIO_ADMIN\",\n            \"actioncode\": \"\",\n            \"tenantId\": \"dj\"\n        }\n    }\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "https://djibouti.tekdinext.com/egov-mdms-service/v2/_create/ACCESSCONTROL-ROLEACTIONS.roleactions",
+                        "protocol": "https",
+                        "host": [
+                            "djibouti",
+                            "tekdinext",
+                            "com"
+                        ],
+                        "path": [
+                            "egov-mdms-service",
+                            "v2",
+                            "_create",
+                            "ACCESSCONTROL-ROLEACTIONS.roleactions"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-79dafc5a-54d6-422c-92e9-c2efd318cf50"
+            },
+            {
+                "name": "Send Action to Workflow",
+                "id": "3a9e2fd3-91be-4b34-b485-606e1cdf0401",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "PUT",
+                    "header": [
+                        {
+                            "key": "accept",
+                            "value": "application/json, text/plain, */*"
+                        },
+                        {
+                            "key": "accept-language",
+                            "value": "en-GB,en-US;q=0.9,en;q=0.8"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "no-cache"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json;charset=UTF-8"
+                        },
+                        {
+                            "key": "origin",
+                            "value": "https://djibouti.tekdinext.com"
+                        },
+                        {
+                            "key": "pragma",
+                            "value": "no-cache"
+                        },
+                        {
+                            "key": "priority",
+                            "value": "u=1, i"
+                        },
+                        {
+                            "key": "referer",
+                            "value": "https://djibouti.tekdinext.com/digit-studio/employee/publicservices/BPA/BPA_PCO/ViewScreen?applicationNumber=PCO-000435/2025&serviceCode=SVC-DJ-BPA-BPA_PCO-02&businessService=BPA_PCO"
+                        },
+                        {
+                            "key": "sec-ch-ua",
+                            "value": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\""
+                        },
+                        {
+                            "key": "sec-ch-ua-mobile",
+                            "value": "?0"
+                        },
+                        {
+                            "key": "sec-ch-ua-platform",
+                            "value": "\"macOS\""
+                        },
+                        {
+                            "key": "sec-fetch-dest",
+                            "value": "empty"
+                        },
+                        {
+                            "key": "sec-fetch-mode",
+                            "value": "cors"
+                        },
+                        {
+                            "key": "sec-fetch-site",
+                            "value": "same-origin"
+                        },
+                        {
+                            "key": "user-agent",
+                            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "dj"
+                        },
+                        {
+                            "key": "Cookie",
+                            "value": "_ga=GA1.1.1798451893.1749808460; _ga_3LN58ZJ5KN=GS2.1.s1750654422$o8$g1$t1750654547$j35$l0$h0; _ga_4FTREDCS0G=GS2.1.s1750654422$o8$g1$t1750654547$j35$l0$h0; _ga_FS7DJ7SGKL=GS2.1.s1750654422$o8$g1$t1750654547$j35$l0$h0; _ga_EHCDQF6VQ5=GS2.1.s1750654422$o8$g1$t1750654547$j35$l0$h0"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\"Application\":{\"id\":\"2495e0f4-a962-4db0-9664-b368fc8c42f4\",\"tenantId\":\"dj\",\"module\":\"BPA\",\"businessService\":\"BPA_PCO\",\"status\":\"ACTIVE\",\"channel\":\"counter\",\"applicationNumber\":\"PCO-000435/2025\",\"reference\":null,\"workflowStatus\":\"applied\",\"serviceCode\":\"SVC-DJ-BPA-BPA_PCO-02\",\"serviceDetails\":{\"applicationNumber\":\"PCO-000435/2025\",\"designOfficeDetailing\":[{\"architectName\":\"sonali\",\"nameOfDesignOffice\":\"tekdi\",\"officeEmail\":\"test@yopmail.com\",\"registrationNo\":\"900\",\"telephone\":\"77896542\"}],\"landandProjectDesignDetails\":[{\"area\":\"300\",\"constructionCostPerSqMt\":\"23\",\"coveredProjectArea\":\"90\",\"definitiveLandTitle\":\"YES\",\"detailsOnOtherType\":\"rt\",\"legalStatus\":\"kmek3jr\",\"maximumAuthorizedCes\":\"90\",\"maximumAuthorizedCos\":\"23\",\"noOfUnits\":\"\",\"other\":\"87\",\"prjectedCes\":\"23\",\"projectedCos\":\"76\",\"registrationCertificate\":\"YES\",\"siteLocation\":\"\",\"tfNo\":\"78\",\"workType\":\"OTHERS\"}]},\"applicants\":[{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true},{\"id\":\"aa4c8770-ded9-4787-83f6-e6cf2471a46a\",\"type\":\"CITIZEN\",\"userId\":\"IND-2025-06-17-000319\",\"name\":\"test\",\"mobileNumber\":77895462,\"emailId\":\"user1@example.com\",\"prefix\":\"\",\"active\":true}],\"additionalDetails\":{\"applicants\":{\"accuracyDeclaration\":true,\"address\":\"test\",\"checkValidation\":true,\"eligibilityDeclaration\":true,\"nationalIdNumber\":\"000000000000000000000000000000\",\"taxCalculationAgreement\":true,\"wayToAddress\":\"COMMON-MASTERS_GENDERTYPE_WAYTOADDRESS_FEMALE\"}},\"address\":{\"id\":\"614a3842-edad-4ac0-b7fc-26d81d0bf2a8\",\"tenantId\":\"dj\",\"latitude\":0,\"longitude\":0,\"addressNumber\":\"1\",\"addressLine1\":\"\",\"addressLine2\":\"\",\"landmark\":\"\",\"city\":\"\",\"pincode\":\"\",\"detail\":\"\",\"hierarchyType\":\"REVENUE\",\"boundarylevel\":\"locality\",\"boundarycode\":\"dj.city\"},\"workflow\":{\"action\":\"ADD_QUERY\",\"businessService\":\"BPA_PCO\"},\"auditDetails\":{\"createdBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":1750142810000,\"lastModifiedTime\":1750143345000},\"processInstance\":[{\"id\":\"a5c0bfe4-31d3-4393-84b6-eddb0091a551\",\"tenantId\":\"dj\",\"businessService\":\"BPA_PCO\",\"businessId\":\"PCO-000435/2025\",\"action\":\"CREATE\",\"moduleName\":\"public-services\",\"state\":{\"uuid\":\"533443e2-5b1b-4487-b296-b674abd82942\",\"tenantId\":\"dj\",\"businessServiceId\":\"f7cbe04f-8e34-4c10-85ce-5ee11989a225\",\"state\":\"AGENT_NOT_ASSIGNED\",\"applicationStatus\":\"AGENT_NOT_ASSIGNED\",\"actions\":[{\"uuid\":\"e3ff3cfb-9fce-4f8f-8e6b-199f2e425c2d\",\"tenantId\":\"dj\",\"currentState\":\"533443e2-5b1b-4487-b296-b674abd82942\",\"action\":\"ADD_QUERY\",\"nextState\":\"533443e2-5b1b-4487-b296-b674abd82942\",\"roles\":[\"BPA_HOD\",\"STUDIO_ADMIN\"],\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"00000000-0000-0000-0000-000000000000\",\"createdTime\":0,\"lastModifiedTime\":0}},{\"uuid\":\"6bb3ec29-23fc-4c19-8e74-1d9d5d9a6574\",\"tenantId\":\"dj\",\"currentState\":\"533443e2-5b1b-4487-b296-b674abd82942\",\"action\":\"ASSIGN_TO_AGENT\",\"nextState\":\"c92c13d3-eb92-4c65-8496-a9557df88eb1\",\"roles\":[\"BPA_HOD\",\"STUDIO_ADMIN\"],\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"00000000-0000-0000-0000-000000000000\",\"createdTime\":0,\"lastModifiedTime\":0}}],\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"00000000-0000-0000-0000-000000000000\",\"createdTime\":0,\"lastModifiedTime\":0}},\"assigner\":{\"uuid\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"userName\":\"77654321\",\"name\":\"John\",\"mobileNumber\":\"77654321\",\"emailId\":\"\",\"locale\":null,\"type\":\"CITIZEN\",\"roles\":[{\"name\":\"Citizen\",\"code\":\"CITIZEN\",\"tenantId\":\"dj\"},{\"name\":\"BPA ARCHITECT\",\"code\":\"BPA_ARCHITECT\",\"tenantId\":\"dj\"}],\"active\":false,\"tenantId\":\"dj\",\"permanentCity\":null},\"businesssServiceSla\":-511722737,\"auditDetails\":{\"createdBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":1750143345338,\"lastModifiedTime\":1750143345338}}],\"documents\":[{\"id\":\"50e17788-24b5-480d-b6e6-9ade8e4b739d\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_LAND_TITLE_UPLOAD\",\"fileStoreId\":\"e9eda43c-a7fd-4b98-90b7-8bd649fad30a\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"780efcd7-cf9b-49b5-8ee0-d6343d49f1e7\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_LOCATION_MAP_UPLOAD\",\"fileStoreId\":\"c8bd5aa8-8199-408e-890c-83735ea16bb5\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"fe85d4bf-8b1d-4ee0-99dd-a01b9fcc8e61\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_CADASTRAL_SITE_PLAN_UPLOAD\",\"fileStoreId\":\"9d802ce1-8527-4073-bc50-d6923619cc77\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"232ff5f1-7948-44f8-aeb1-023dad90667e\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_PROJECT_FILES_UPLOAD\",\"fileStoreId\":\"9c14c3b4-5032-46b3-8f1a-acdd2f81e5e8\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"e7d7a623-7364-46f5-90b9-0c3d37a2a327\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_PROJECT_LAYOUT_PLAN_UPLOAD\",\"fileStoreId\":\"79fe3a79-01c6-468c-8b87-b36d54fae927\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"30f335ea-c5d7-4a11-8c97-72cde65404d3\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_INTERIOR_LAYOUT_PLAN_UPLOAD\",\"fileStoreId\":\"4f9e577d-0bf8-4a0c-a570-d35579fb1d40\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"3f7f4411-f030-4d15-8471-0f60c7123b05\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_ELEVATION_PLAN_UPLOAD\",\"fileStoreId\":\"a6d9baa9-6c24-43d6-833c-4d304054fe3c\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"ede93c33-8334-45e9-b2b9-44a53b396759\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_SECTION_PLAN_UPLOAD\",\"fileStoreId\":\"de9cb9e3-f25b-40cf-96b0-31e0a98c5ed2\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"5ac41bf5-215b-4c7c-8018-486a9001f2f1\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_FOUNDATION_PLAN_UPLOAD\",\"fileStoreId\":\"5eafe6cc-7e1f-4f2e-9fa8-704261c5c89c\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"f74dfaac-4377-4e8e-832a-24803621eae7\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_ELECTRICAL_PLAN_UPLOAD\",\"fileStoreId\":\"b985eeb0-f898-4921-b863-92d2b267c936\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"0cfacef3-8d4f-4012-9227-adb83aaca78d\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_SANITATION_PLAN_UPLOAD\",\"fileStoreId\":\"8200427c-bd33-4c7d-be78-eb63ad2f555b\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"b5881b17-6850-4e12-9112-f4157d07a812\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_DESCRIPTIVE_ESTIMATE_UPLOAD\",\"fileStoreId\":\"43867db3-31de-499a-9c0a-ca74b31514cf\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"fde26b15-ebf3-4bef-8367-1d90127995de\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_PCO_COST_ESTIMATE_UPLOAD\",\"fileStoreId\":\"2af8cc85-d6a7-47c1-b52d-0f51356a4873\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}},{\"id\":\"5cc5e485-c976-4212-9d9b-bd0707f007ee\",\"documentType\":\"BPA_BPA_PCO_DOCUMENTS_UNSIGNED_DEMANDE_PCO_UPLOAD\",\"fileStoreId\":\"8e9f8da9-6eb6-4d63-bca7-837e81096c6a\",\"auditDetails\":{\"createdBy\":\"00000000-0000-0000-0000-000000000000\",\"lastModifiedBy\":\"56775617-09c4-4bcc-bbec-25f37f0c6cae\",\"createdTime\":0,\"lastModifiedTime\":1750143345000}}]},\"RequestInfo\":{\"apiId\":\"Rainmaker\",\"authToken\":\"be286071-72a5-48a3-a004-cf4e76f2c77e\",\"userInfo\":{\"id\":1870,\"uuid\":\"71a58a53-1c8d-4132-80f7-0ec248bdda24\",\"userName\":\"hod@gmail.com\",\"name\":\"Martin\",\"mobileNumber\":\"77989898\",\"emailId\":\"hod@gmail.com\",\"locale\":null,\"type\":\"EMPLOYEE\",\"roles\":[{\"name\":\"Employee\",\"code\":\"EMPLOYEE\",\"tenantId\":\"dj\"},{\"name\":\"BPA HOD\",\"code\":\"BPA_HOD\",\"tenantId\":\"dj\"}],\"active\":true,\"tenantId\":\"dj\",\"permanentCity\":null},\"msgId\":\"1750654579540|en_IN\",\"plainAccessRequest\":{}}}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "https://djibouti.tekdinext.com/public-service/v1/application/SVC-DJ-BPA-BPA_PCO-02",
+                        "protocol": "https",
+                        "host": [
+                            "djibouti",
+                            "tekdinext",
+                            "com"
+                        ],
+                        "path": [
+                            "public-service",
+                            "v1",
+                            "application",
+                            "SVC-DJ-BPA-BPA_PCO-02"
+                        ]
+                    }
+                },
+                "response": [],
+                "uid": "7043186-3a9e2fd3-91be-4b34-b485-606e1cdf0401"
+            }
+        ],
+        "variable": [
+            {
+                "key": "auth-token",
+                "value": ""
+            },
+            {
+                "key": "user-info",
+                "value": ""
+            }
+        ]
+    }
+}
